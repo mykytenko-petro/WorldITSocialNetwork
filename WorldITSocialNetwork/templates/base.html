@@ -1,0 +1,87 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>{% block title %}{% endblock title %}</title>
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font.css' %}">
+        {% block links %}{% endblock links %} 
+    </head>
+    <body>
+        <header>
+            <!-- <nav class="logo"> -->
+            <a href="{% url 'home_app' %}" class="logo">
+                <img src="{% static 'icon/logo.svg'%}" alt="">
+            </a>
+            <!-- </nav> -->
+            <div class="conteiner">
+                <nav class="menu">
+                    <a href="{% url 'home_app' %}"><img src="{% static 'icon/house.svg' %}" alt="">Головна</a>
+                    <a href="{% url 'publications_app' %}"><img src="{% static 'icon/image.svg' %}" alt="">Мої публікації</a>
+                    <a href="{% url 'friends_app' %}"><img src="{% static 'icon/friends.svg' %}" alt="">Друзі</a>
+                    <a href="/"><img src="{% static 'icon/chat.svg' %}" alt="">Чати</a>
+                    <a href="{% url 'settings_app' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
+                </nav>
+
+                <div class="logout">
+                    <a href=""><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
+                </div>
+            </div>
+            
+
+        </header>
+
+        <main>
+            {% block content %}{% endblock content %}
+            <div class="user-container">
+                <div class="profile">
+                    <div class="profile-head">
+                        <img src="{% static 'icon/mockup-icon.png' %}" alt="">
+                        <div class="text-profile">
+                            <p>Lina Li</p>
+                            <p>@thelili</p>
+                        </div>
+                    </div>
+                    <div class="profile-footer">
+                        <div>
+                            <p>566</p>
+                            <p>Дописи</p>
+                        </div>
+                        <div>
+                            <p>12.1K</p>
+                            <p>Читачі</p>
+                        </div>
+                        <div>
+                            <p>222</p>
+                            <p>Друзі</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="requests">
+                    <a><img src="{% static 'icon/friends.svg' %}" alt="">Запити</a>
+                    <p>Дивитись всі</p>
+                </div>
+
+                <div class="messages">
+                    <a><img src="{% static 'icon/chat.svg' %}" alt="">Повідомлення</a>
+                    <p>Дивитись всі</p>
+                </div>
+            </div>
+
+            <div class="content-container"> </div>
+        </main>
+
+        <footer>
+            {% block footer %}{% endblock footer %}
+        </footer>
+        
+        {% block scripts %}{% endblock scripts %}
+    </body>
+</html>
