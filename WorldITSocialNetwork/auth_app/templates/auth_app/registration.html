@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    
+{% endblock links %}
+
+{% block content %}
+    <img src="" alt="">
+    <div>
+        <a href="">Реєстрація</a>
+        <a href="">Авторизація</a>
+        <p>Приєднуйся до World IT</p>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </form>
+        <button type="submit">Створити аккаунт</button>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    
+{% endblock footer %}
