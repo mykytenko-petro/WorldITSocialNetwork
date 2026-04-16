@@ -2,28 +2,25 @@ header {
     height: 90px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: #FFFFFF;
     align-items: center;
-    padding: 0 5vw;
     position: relative;
 }
 
 .menu {
     font-family: 'GT-Walsheim', sans-serif;
     display: flex;
-    gap: 20px;
+    gap: 80px 24px;
     margin-left: auto;
-    height: 90px;
     align-items: center;
     margin-right: 5px;
-    
 }
 
 .logout {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 8px;
     padding: 6px 1vw;
     border: 1px solid #2D2D2D;
@@ -38,11 +35,22 @@ header {
 }
 
 .menu > a > img {
-    margin-right: 6px
+    margin-right: 6px;
 }
 
+.menu > a {
+    padding: 0.4vw;
+    border-radius: 3px;
+    
+}
+.menu > a:hover{
+    background-color: #E9E5EE;
+}
 .logout > a > img {
-    margin-right: 6px
+    margin-right: 6px;
+}
+.logout > a:hover{
+    background-color: #E9E5EE;
 }
 .menu > a {
     color: #000000;
@@ -56,7 +64,6 @@ header {
     display: flex;
     align-items: center;
 }
-
 
 .conteiner{
     display: flex;
