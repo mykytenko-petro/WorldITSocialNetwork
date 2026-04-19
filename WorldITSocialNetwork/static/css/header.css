@@ -1,11 +1,19 @@
 header {
-    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #FFFFFF;
-    align-items: center;
     position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 88px;
+    z-index: 1000;
+}
+
+header a:not(.logo):hover {
+    background-color: #E9E5EE;
 }
 
 .menu {
@@ -18,53 +26,31 @@ header {
 }
 
 .logout {
+    font-family: 'GT-Walsheim', sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 6px;
     padding: 6px 1vw;
     border: 1px solid #2D2D2D;
     border-radius: 2vw;
 }
 
-.logout .a {
-    display: flex;
-    align-items: center;
-    border: 1px solid #FAF8FF;
-    border-radius: 8px;
-}
-
-.menu > a > img {
-    margin-right: 6px;
+.logout > img{
+    margin-right: 2px;
 }
 
 .menu > a {
     padding: 0.4vw;
-    border-radius: 3px;
-    
+    border-radius: 3px; 
 }
-.menu > a:hover{
-    background-color: #E9E5EE;
-}
-.logout > a > img {
-    margin-right: 6px;
-}
-.logout > a:hover{
-    background-color: #E9E5EE;
-}
+
 .menu > a {
     color: #000000;
     text-decoration: none;
     display: flex;
     align-items: center;
 }
-.logout > a {
-    color: #000000;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
 .conteiner{
     display: flex;
     justify-content: space-between;

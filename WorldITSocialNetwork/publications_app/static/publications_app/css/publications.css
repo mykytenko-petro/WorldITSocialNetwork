@@ -9,50 +9,6 @@
     gap: 0.5vh;
 }
 
-.requests {
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    justify-content: left;
-    border-radius: 2vh;
-    border: 1px solid gray;
-    width: 100%;
-    background-color: white;
-    justify-content: space-between;
-    padding-right: 1vw;
-    height: 55px;
-}
-
-.requests a{
-    padding-left: 1vw;
-    color: #81818D;
-}
-
-.requests p{
-    color: #543C52;
-}
-
-.messages {
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    justify-content: left;
-    border-radius: 2vh;
-    border: 1px solid gray;
-    width: 100%;
-    background-color: white;
-    justify-content: space-between;
-    padding-right: 1vw;
-    height: 55px;
-}
-
-.messages a{
-    padding-left: 1vw;
-    color: #81818D;
-}
-
-.messages p{
-    color: #543C52;
-}
-
 .profile {
     display: flex;
     flex-direction: column;
@@ -115,6 +71,3 @@
 .profile .profile-footer p:last-child {
     color: #81818D;
 }
-
-
-

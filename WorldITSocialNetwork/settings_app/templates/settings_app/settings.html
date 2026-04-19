@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block links %}
+    <link rel="stylesheet" href="{% static 'settings_app/css/settings.css' %}">
+{% endblock links %}
 {% block side_panel %}
-    <div>
+    <div class="side">
         <a>
-            <p>Особиста інформація</p>
+            <p><u>Особиста інформація</u></p>
         </a>
-        <a>
+        <a class="grey-text">
             <p>Альбоми</p>
         </a>
     </div>

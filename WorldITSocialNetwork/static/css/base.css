@@ -17,11 +17,32 @@ main {
     display: flex;
     flex-direction: column;
     padding-left: 10vw;
+    width: 100vw;
+    top: 90px;
 }
 
-.wrapper{ 
+.wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80vw;
+    gap: 0.4vw;
+}
+
+.side-panel{
+    position: fixed;
+    top: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 24.31vw;
+    z-index: 999;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    height: 200vh;
+    width: 70vw;
+    background-color: green;
 }

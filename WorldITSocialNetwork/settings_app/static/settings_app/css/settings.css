@@ -1,0 +1,16 @@
+.side{
+    display: flex;
+    font-family: 'GT-Walsheim', sans-serif;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 24.31vw;
+}
+
+.side > a{
+    padding-top: 1.5vh;
+}
+
+.grey-text{
+    color: #81818D;
+}

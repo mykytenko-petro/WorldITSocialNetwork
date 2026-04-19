@@ -9,7 +9,6 @@
 
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <link rel="stylesheet" href="{% static 'css/header.css' %}">
-        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
         <link rel="stylesheet" href="{% static 'css/font.css' %}">
         {% block links %}{% endblock links %} 
     </head>
@@ -28,28 +27,26 @@
                         <a href="/placeholder"><img src="{% static 'icon/chat.svg' %}" alt="">Чати</a>
                         <a href="{% url 'settings_app' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
                     </nav>
-
-                    <div class="logout">
-                        <a href=""><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
-                    </div>
+                    
+                    <a href="" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
                 </div>
             </div>
         </header>
 
         <main>
             <div class="wrapper">
-                {% block side_panel %}{% endblock side_panel %}
+                <div class="side-panel">
+                    {% block side_panel %}{% endblock side_panel %}
+                </div>
 
-                {% block content %}{% endblock content %}
+                <div class="content">
+                    
+                    {% block content %}{% endblock content %}
+                </div>
             </div>
         </main>
-
-        <footer>
-            {% block footer %}{% endblock footer %}
-        </footer>
         
-        {% block scripts %}
-            <script src="{% static 'js/linkHighlight.js' %}"></script>
-        {% endblock scripts %}
+        <script src="{% static 'js/linkHighlight.js' %}"></script>
+        {% block scripts %}{% endblock scripts %}
     </body>
 </html>
