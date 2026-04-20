@@ -15,32 +15,34 @@
     <body>
         <header>
             <div class="wrapper">
-                <a href="{% url 'home_app' %}" class="logo">
+                <a href="{% url 'home_app' %}" class="logo {% if request.path == '/settings/' %} logo-center {% endif %}">
                     <img src="{% static 'icon/logo.svg'%}" alt="">
                 </a>
-            
-                <div class="conteiner">
-                    <nav class="menu">
-                        <a href="{% url 'home_app' %}"><img src="{% static 'icon/house.svg' %}" alt="">Головна</a>
-                        <a href="{% url 'publications_app' %}"><img src="{% static 'icon/image.svg' %}" alt="">Мої публікації</a>
-                        <a href="{% url 'friends_app' %}"><img src="{% static 'icon/friends.svg' %}" alt="">Друзі</a>
-                        <a href="/placeholder"><img src="{% static 'icon/chat.svg' %}" alt="">Чати</a>
-                        <a href="{% url 'settings_app' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
-                    </nav>
-                    
-                    <a href="" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
-                </div>
+                
+                {% if request.path != "/auth/" %}
+                    <div class="conteiner">
+                        <nav class="menu">
+                            <a href="{% url 'home_app' %}"><img src="{% static 'icon/house.svg' %}" alt="">Головна</a>
+                            <a href="{% url 'publications_app' %}"><img src="{% static 'icon/image.svg' %}" alt="">Мої публікації</a>
+                            <a href="{% url 'friends_app' %}"><img src="{% static 'icon/friends.svg' %}" alt="">Друзі</a>
+                            <a href="/placeholder"><img src="{% static 'icon/chat.svg' %}" alt="">Чати</a>
+                            <a href="{% url 'settings_app' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
+                        </nav>
+                
+                        <a href="" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
+                    </div>   
+                {% endif %}
             </div>
         </header>
 
         <main>
             <div class="wrapper">
-                <div class="side-panel">
-                    {% block side_panel %}{% endblock side_panel %}
+                <div class="wrap-side">
+                    <div class="side-panel">
+                        {% block side_panel %}{% endblock side_panel %}
+                    </div>
                 </div>
-
                 <div class="content">
-                    
                     {% block content %}{% endblock content %}
                 </div>
             </div>

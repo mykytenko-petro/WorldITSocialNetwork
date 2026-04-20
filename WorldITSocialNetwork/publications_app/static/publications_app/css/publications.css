@@ -56,18 +56,7 @@
     padding: 0 2.5vw;
 }
 
-.requests a, .messages a {
-    display: flex;
-    align-items: center;
-    gap: 0.5vw;
-    padding: 1vh 1vw;
-}
-.requests p, .messages p {
-    color: #543C52;
-    display: flex;
-    align-items: center;
-}
-
 .profile .profile-footer p:last-child {
     color: #81818D;
 }
+

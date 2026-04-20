@@ -3,7 +3,6 @@ header {
     align-items: center;
     justify-content: center;
     background-color: #FFFFFF;
-    position: relative;
     position: fixed;
     top: 0;
     left: 0;
@@ -51,10 +50,16 @@ header a:not(.logo):hover {
     display: flex;
     align-items: center;
 }
+
 .conteiner{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
     gap: 0.5vw;
+}
+
+.wrapper:has(.logo-center){
+    display: flex;
+    justify-content: center;
 }

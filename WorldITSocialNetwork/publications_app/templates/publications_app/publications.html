@@ -4,6 +4,7 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'publications_app/css/publications.css' %}">
 {% endblock links %}
+
 {% block side_panel %}
 <div class="user-container">
     <div class="profile">
@@ -14,19 +15,27 @@
                 <p>@thelili</p>
             </div>
         </div>
-    <div class="profile-footer">
-        <div>
-            <p>566</p>
-            <p>Дописи</p>
-        </div>
-        <div>
-            <p>12.1K</p>
-            <p>Читачі</p>
-        </div>
-        <div>
-            <p>222</p>
-            <p>Друзі</p>
+
+        <div class="profile-footer">
+            <div>
+                <p>566</p>
+                <p>Дописи</p>
+            </div>
+            <div>
+                <p>12.1K</p>
+                <p>Читачі</p>
+            </div>
+            <div>
+                <p>222</p>
+                <p>Друзі</p>
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
+
+{% block content %}
+    <div class="test"></div>
+{% endblock content %}
+
+
