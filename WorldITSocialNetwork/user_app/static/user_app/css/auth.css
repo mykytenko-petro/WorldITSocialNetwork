@@ -1,0 +1,28 @@
+.section-login {
+    display: flex;
+    width: 33vw;
+    height: 68vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vw;
+    padding: 3vw;
+    color: rgba(7, 10, 28, 1);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-authorization {
+    width: 27vw;
+    gap: 16px;
+}
+
+.butt-authorization {
+    width: 27vw;
+    gap: 6px;
+    padding-top: 16px;
+    padding-right: 24px;
+    padding-left: 24px;
+    border-radius: 84vw;
+    background-color: rgba(84, 60, 82, 1);
+    color: white;
+}

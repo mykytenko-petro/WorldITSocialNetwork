@@ -1,0 +1,19 @@
+# development communication
+communication/
+
+# editor
+.vscode
+
+# python 
+__pycache__/
+venv/
+
+# macOS
+.DS_Store
+
+# database
+db.sqlite3
+migrations/
+
+# secrets
+.env

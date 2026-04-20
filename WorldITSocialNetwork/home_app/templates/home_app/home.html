@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'home_app/css/profile.css' %}">
+{% endblock links %}
+
+{% block side_panel %}
+    <div class="user-container">
+        <div class="profile">
+            <div class="profile-head">
+                <img src="{% static 'icon/mockup-icon.png' %}" alt="">
+                <div class="text-profile">
+                    <p>Lina Li</p>
+                    <p>@thelili</p>
+                </div>
+            </div>
+            <div class="profile-footer">
+                <div>
+                    <p>566</p>
+                    <p>Дописи</p>
+                </div>
+                <div>
+                    <p>12.1K</p>
+                    <p>Читачі</p>
+                </div>
+                <div>
+                    <p>222</p>
+                    <p>Друзі</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="requests">
+            <a><img src="{% static 'icon/friends.svg' %}" alt="">Запити</a>
+            <p>Дивитись всі</p>
+        </div>
+
+        <div class="messages">
+            <a><img src="{% static 'icon/chat.svg' %}" alt="">Повідомлення</a>
+            <p>Дивитись всі</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div></div>
+{% endblock content %}
+
+

@@ -1,0 +1,55 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>{% block title %}{% endblock title %}</title>
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font.css' %}">
+        {% block links %}{% endblock links %} 
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <a href="{% url 'home_app' %}" class="logo">
+                    <img src="{% static 'icon/logo.svg'%}" alt="">
+                </a>
+            
+                <div class="conteiner">
+                    <nav class="menu">
+                        <a href="{% url 'home_app' %}"><img src="{% static 'icon/house.svg' %}" alt="">Головна</a>
+                        <a href="{% url 'publications_app' %}"><img src="{% static 'icon/image.svg' %}" alt="">Мої публікації</a>
+                        <a href="{% url 'friends_app' %}"><img src="{% static 'icon/friends.svg' %}" alt="">Друзі</a>
+                        <a href="/placeholder"><img src="{% static 'icon/chat.svg' %}" alt="">Чати</a>
+                        <a href="{% url 'settings_app' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
+                    </nav>
+
+                    <div class="logout">
+                        <a href=""><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="wrapper">
+                {% block side_panel %}{% endblock side_panel %}
+
+                {% block content %}{% endblock content %}
+            </div>
+        </main>
+
+        <footer>
+            {% block footer %}{% endblock footer %}
+        </footer>
+        
+        {% block scripts %}
+            <script src="{% static 'js/static/authforms.js' %}"></script>
+        {% endblock scripts %}
+    </body>
+</html>

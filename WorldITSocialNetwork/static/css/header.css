@@ -1,0 +1,74 @@
+header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    align-items: center;
+    position: relative;
+}
+
+.menu {
+    font-family: 'GT-Walsheim', sans-serif;
+    display: flex;
+    gap: 80px 24px;
+    margin-left: auto;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 1vw;
+    border: 1px solid #2D2D2D;
+    border-radius: 2vw;
+}
+
+.logout .a {
+    display: flex;
+    align-items: center;
+    border: 1px solid #FAF8FF;
+    border-radius: 8px;
+}
+
+.menu > a > img {
+    margin-right: 6px;
+}
+
+.menu > a {
+    padding: 0.4vw;
+    border-radius: 3px;
+    
+}
+.menu > a:hover{
+    background-color: #E9E5EE;
+}
+.logout > a > img {
+    margin-right: 6px;
+}
+.logout > a:hover{
+    background-color: #E9E5EE;
+}
+.menu > a {
+    color: #000000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.logout > a {
+    color: #000000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.conteiner{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5vw;
+}
