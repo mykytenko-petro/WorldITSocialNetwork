@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'friends_app',
     'publications_app',
     'settings_app',
+<<<<<<< HEAD
+=======
+    'user_app',
+>>>>>>> 6d6bdd87d825e4cfb77d1ef36b79b3a63e37bc31
 ]
 
 MIDDLEWARE = [
@@ -66,6 +70,7 @@ TEMPLATES = [
             BASE_DIR / 'publications_app' / 'templates',
             BASE_DIR / 'settings_app' / 'templates',
             BASE_DIR / 'friends_app' / 'templates',
+            BASE_DIR / 'user_app' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -77,6 +82,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'user_app.User'
 
 WSGI_APPLICATION = 'WorldITSocialNetwork.wsgi.application'
 
@@ -133,4 +140,5 @@ STATICFILES_DIRS = [
     BASE_DIR / 'publications_app' / 'static',
     BASE_DIR / 'settings_app' / 'static',
     BASE_DIR / 'friends_app' / 'static',
+    BASE_DIR / 'user_app' / 'static',
 ]

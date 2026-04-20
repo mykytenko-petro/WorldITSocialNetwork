@@ -24,4 +24,5 @@ urlpatterns = [
     path(route='settings/', view=include('settings_app.urls')),
     path(route='friends/', view=include('friends_app.urls')),
     path(route='publications/', view=include('publications_app.urls')),
+    path(route='auth/', view=include('user_app.urls')),
 ]
