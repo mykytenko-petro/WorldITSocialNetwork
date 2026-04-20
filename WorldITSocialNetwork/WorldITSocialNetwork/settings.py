@@ -43,10 +43,7 @@ INSTALLED_APPS = [
     'friends_app',
     'publications_app',
     'settings_app',
-<<<<<<< HEAD
-=======
     'user_app',
->>>>>>> 6d6bdd87d825e4cfb77d1ef36b79b3a63e37bc31
 ]
 
 MIDDLEWARE = [
