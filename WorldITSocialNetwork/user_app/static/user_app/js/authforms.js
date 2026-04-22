@@ -25,7 +25,7 @@ function hideAllForms() {
         loginForm.style.display = "none"
     }
     if(registerForm){
-        registerForm.style.display = "none"
+        registerForm.style.display = "register-form-container"
     }
     if(confirmForm){
         confirmForm.style.display = "none"

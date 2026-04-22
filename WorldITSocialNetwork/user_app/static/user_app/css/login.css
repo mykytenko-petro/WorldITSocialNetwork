@@ -1,0 +1,67 @@
+
+*{
+    box-sizing: border-box;
+    top: 120px;
+    left:500px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.section-login {
+    display: flex;
+    font-family: 'GT-Walsheim', sans-serif;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 33vw;
+    height: 68vh;
+    padding: 3vw;
+    border-radius: 2vh;
+    background-color: #FFFFFF;
+    top: 150px;
+    left: 10vw;
+    position: fixed;
+}
+.login-head{
+    display: flex;
+    flex-direction: row;
+    width: 110%;
+    gap: 2vw;
+}
+.register {
+    font-size: 34px;
+    color: #81818D;
+}
+.login{
+    font-size: 34px;
+    color: #070A1C;
+}
+.form-authorization {
+    width: 27vw;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.butt-authorization{
+    width: 27vw;
+    gap: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 24px;
+    padding-left: 24px;
+    border-radius: 84vw;
+    background-color: rgba(84, 60, 82, 1);
+    color: white;
+    align-items: center;
+}
+
+.laptop-img{
+    top: 200px;
+    position: fixed;
+    height: 50vh;
+    width: 30vw;
+}

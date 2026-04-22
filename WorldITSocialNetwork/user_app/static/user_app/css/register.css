@@ -1,3 +1,14 @@
+*{
+    box-sizing: border-box;
+    top: 120px;
+    left:500px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
 .section-register {
     display: flex;
     font-family: 'GT-Walsheim', sans-serif;
@@ -6,40 +17,52 @@
     align-items: center;
     width: 33vw;
     height: 57vh;
-    border-radius: 2vw;
     padding: 3vw;
-    font-family: Arial, Helvetica, sans-serif;
-
+    border-radius: 2vh;
+    background-color: #FFFFFF;
+    top: 150px;
+    left: 10vw;
+    position: fixed;
+    gap: 16px;
 }
 .section-head{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    width: 110%;
+    gap:4vw;
 }
 .register {
-    width: 12vw;
-    height: 4vh;
-    gap: 8px;
+    font-size: 34px;
     color: #070A1C;
 }
 .login{
-    width: 12vw;
-    height: 4vh;
-    gap: 8px;
+    font-size: 34px;
     color: #81818D;
 }
 .form-register {
     width: 27vw;
     flex-direction: column;
+    align-items: center;
     gap: 16px;
 }
 
 .butt-register{
     width: 27vw;
     gap: 6px;
-    padding-top: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     padding-right: 24px;
     padding-left: 24px;
     border-radius: 84vw;
     background-color: rgba(84, 60, 82, 1);
     color: white;
+    align-items: center;
+}
+
+.laptop-img{
+    top: 200px;
+    position: fixed;
+    height: 50vh;
+    width: 35vw;
 }
