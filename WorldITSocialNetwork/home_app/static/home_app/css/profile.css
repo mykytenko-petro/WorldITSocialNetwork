@@ -12,47 +12,54 @@
 .requests {
     display: flex;
     font-family: 'GT-Walsheim', sans-serif;
-    justify-content: left;
     border-radius: 2vh;
     border: 1px solid gray;
     width: 100%;
     background-color: white;
+    flex-direction: column;
+    align-items: center;
+}
+.request-inquiry{
+    display: flex;
+    width: 95%;
+    flex-direction: row;
     justify-content: space-between;
-    padding-right: 1vw;
-    height: 55px;
-}
-
-.requests a{
-    padding-left: 1vw;
-    color: #81818D;
-}
-
-.requests p{
-    color: #543C52;
+    align-items: center;
 }
 
 .messages {
     display: flex;
     font-family: 'GT-Walsheim', sans-serif;
-    justify-content: left;
     border-radius: 2vh;
     border: 1px solid gray;
     width: 100%;
     background-color: white;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.message-inquiry{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
     justify-content: space-between;
-    padding-right: 1vw;
-    height: 55px;
+    align-items: center;
 }
-
-.messages a{
-    padding-left: 1vw;
+.request-inquiry a, .message-inquiry a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     color: #81818D;
+    gap: 0.5vw;
 }
-
-.messages p{
+.request-inquiry p, .message-inquiry p {
     color: #543C52;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5vw;
 }
-
 .profile {
     display: flex;
     flex-direction: column;
@@ -100,20 +107,80 @@
     padding: 0 2.5vw;
 }
 
-.requests a, .messages a {
-    display: flex;
-    align-items: center;
-    gap: 0.5vw;
-    padding: 1vh 1vw;
-}
-.requests p, .messages p {
-    color: #543C52;
-    display: flex;
-    align-items: center;
-}
-
 .profile .profile-footer p:last-child {
     color: #81818D;
 }
 
 
+.requests-example{
+    display: flex;
+    align-items: left;
+    font-family: 'GT-Walsheim';
+    width: 95%;
+    background-color: white;
+    justify-content: left; 
+    height: 90%;
+    padding: 16px;
+    gap: 1vh;
+    flex-direction: column;
+}
+
+.requests-example > .request-box{
+    width: 95%;
+    height: 46px;
+    display: flex;
+    align-items: left;
+    flex-direction: row;
+    column-gap: 1vh;
+}
+
+.request-image{
+    justify-content: left;
+}
+
+.follower-info{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2vh;
+}
+
+.grey-text{
+    color: #81818D;
+    font-size: 14px;
+}
+.messages-example{
+    display: flex;
+    flex-direction: column;
+    font-family: 'GT-Walsheim';
+    width: 95%;
+    background-color: white;
+    justify-content: left; 
+    height: 90%;
+    gap: 1vh;
+}
+
+.message-example > .message-box{
+    height: 46px;
+    display: flex;
+    align-items: left;
+    flex-direction: row;
+    column-gap: 1vh;
+}
+
+.message-image{
+    justify-content: left;
+}
+
+.user-time{
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+.user-text{
+    font-family: 'GT-Walsheim';
+}
+
+.message-time{
+    color: #81818D;
+    font-size: 14px;
+}
