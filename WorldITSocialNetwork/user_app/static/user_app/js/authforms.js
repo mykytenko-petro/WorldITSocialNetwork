@@ -55,4 +55,4 @@ const openRegister = document.getElementById("open-register-form")
 
 openLogin.addEventListener("click", () => {showForm("login")})
 openRegister.addEventListener("click", () => {console.log(123)})
-showForm("register")
+// showForm("register")
