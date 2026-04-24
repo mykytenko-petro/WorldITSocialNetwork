@@ -67,7 +67,6 @@
     border: 1px solid gray;
     border-radius: 2vh;
     font-family: 'GT-Walsheim', sans-serif;
-    padding-bottom: 1vh;
 }
 
 .request-inquiry, .message-inquiry {
@@ -94,14 +93,15 @@
     font-weight: 600;
     margin: 0;
     cursor: pointer;
+    padding-top: 1vh;
 }
 
-.requests-example, .message-example {
+.requests-example {
     display: flex;
     flex-direction: column;
     width: 95%;
     gap: 1.5vh;
-    padding: 0.5vh 0;
+    padding: 0.5vh 1.1vw;
 }
 
 .request-box, .grey-box {
@@ -119,32 +119,41 @@
     object-fit: cover;
 }
 
+.message-box, .grey-box{
+    padding: 1vh 1.3vw;
+    column-gap: 1vh; 
+}
+
+.request-box{
+    column-gap: 1vh; 
+}
+
 .follower-info, .message-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
+    margin-left: 0.5vw;
 }
 
 .user-time, .follower-details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     width: 100%;
+    padding-right: 1vw;
 }
 
 .request-text, .user-text {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 0.9vw;
     color: #000;
-    margin: 0;
 }
 
 .message-time, .grey-text p {
     color: #81818D;
-    font-size: 0.9vw;
-    margin: 0;
+    font-size: 0.7vw;
 }
 
 .grey-text, .message-text {
@@ -153,11 +162,29 @@
 
 .message-text p {
     margin: 0;
-    font-size: 0.9vw;
-    color: #000;
+    font-size: 0.7vw;
 }
 .messages{
     display: flex;
-    justify-content: end;
-    align-items: ;
+    justify-content: left;
+}
+
+.message-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.grey-box {
+    background-color: #E9E5EE;
+    margin-top: -1.5vh;
+}
+
+.message-example{
+    width: 100%;
+}
+
+.request-image img, .message-image img {
+    flex-shrink: 0;
 }

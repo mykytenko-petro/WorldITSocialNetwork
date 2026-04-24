@@ -1,19 +1,26 @@
 from django import forms
 
 class RegisterForm(forms.Form):
-    email = forms.EmailField()
-    password = forms.CharField(
-        widget=forms.PasswordInput()
+    email = forms.EmailField(
+        label='Електронна пошта',
+        widget= forms.EmailInput(attrs= {'placeholder': 'you@example.com'})
     )
-
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs= {'placeholder': 'Введи пароль'}),
+        label='Пароль'
+    )
     confirm_password = forms.CharField(
-        widget=forms.PasswordInput()
+        widget=forms.PasswordInput(attrs= {'placeholder': 'Повтори пароль'}),
+        label='Підтвердження паролю'
     )
 
 class LoginForm(forms.Form):
-    email = forms.EmailField()
+    email = forms.EmailField(
+        label='Електронна пошта', 
+        widget= forms.EmailInput(attrs= {'placeholder': 'you@example.com'})
+    )
     password = forms.CharField(
-        widget=forms.PasswordInput()
+        widget=forms.PasswordInput(attrs= {'placeholder': 'Введи пароль'})
     )
 
 class ConfirmEmailForm(forms.Form):
