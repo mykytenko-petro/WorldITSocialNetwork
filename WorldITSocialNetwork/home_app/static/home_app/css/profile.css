@@ -9,57 +9,6 @@
     gap: 0.5vh;
 }
 
-.requests {
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    border-radius: 2vh;
-    border: 1px solid gray;
-    width: 100%;
-    background-color: white;
-    flex-direction: column;
-    align-items: center;
-}
-.request-inquiry{
-    display: flex;
-    width: 95%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.messages {
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    border-radius: 2vh;
-    border: 1px solid gray;
-    width: 100%;
-    background-color: white;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.message-inquiry{
-    display: flex;
-    flex-direction: row;
-    width: 95%;
-    justify-content: space-between;
-    align-items: center;
-}
-.request-inquiry a, .message-inquiry a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #81818D;
-    gap: 0.5vw;
-}
-.request-inquiry p, .message-inquiry p {
-    color: #543C52;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5vw;
-}
 .profile {
     display: flex;
     flex-direction: column;
@@ -70,37 +19,35 @@
     border-radius: 2vh;
     border: 1px solid gray;
     width: 100%;
-    padding: 1vh;
     padding: 1vh 1.5vw;
 }
 
-.profile .profile-head{
+.profile .profile-head {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 1vh
-    
+    gap: 1vh;
 }
 
-.profile .profile-head .text-profile{
+.profile .profile-head .text-profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 0.5vh
+    gap: 0.5vh;
 }
 
-.profile .profile-footer{
+.profile .profile-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* gap: 3vw; */
     width: 100%;
     margin-top: 1vh;
 }
+
 .profile .profile-footer div:nth-child(2) {
     border-left: 1px solid gray;
     border-right: 1px solid gray;
@@ -111,76 +58,106 @@
     color: #81818D;
 }
 
-
-.requests-example{
+.requests, .messages {
     display: flex;
-    align-items: left;
-    font-family: 'GT-Walsheim';
-    width: 95%;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     background-color: white;
-    justify-content: left; 
-    height: 90%;
-    padding: 16px;
-    gap: 1vh;
-    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 2vh;
+    font-family: 'GT-Walsheim', sans-serif;
+    padding-bottom: 1vh;
 }
 
-.requests-example > .request-box{
+.request-inquiry, .message-inquiry {
+    display: flex;
+    flex-direction: row;
     width: 95%;
-    height: 46px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 0;
+}
+
+.request-inquiry a, .message-inquiry a {
     display: flex;
-    align-items: left;
-    flex-direction: row;
-    column-gap: 1vh;
-}
-
-.request-image{
-    justify-content: left;
-}
-
-.follower-info{
-    display: flex;
-    flex-direction: column;
-    gap: 0.2vh;
-}
-
-.grey-text{
+    align-items: center;
     color: #81818D;
-    font-size: 14px;
+    gap: 0.5vw;
+    text-decoration: none;
+    font-weight: bold;
 }
-.messages-example{
+
+.request-inquiry p, .message-inquiry p {
+    color: #543C52;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    cursor: pointer;
+}
+
+.requests-example, .message-example {
     display: flex;
     flex-direction: column;
-    font-family: 'GT-Walsheim';
     width: 95%;
-    background-color: white;
-    justify-content: left; 
-    height: 90%;
-    gap: 1vh;
+    gap: 1.5vh;
+    padding: 0.5vh 0;
 }
 
-.message-example > .message-box{
-    height: 46px;
+.request-box, .grey-box {
     display: flex;
-    align-items: left;
     flex-direction: row;
+    align-items: center;
     column-gap: 1vh;
+    width: 100%;
 }
 
-.message-image{
-    justify-content: left;
+.request-image img, .message-image img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.user-time{
+.follower-info, .message-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.user-time, .follower-details {
     display: flex;
     flex-direction: row;
-    gap: 3vw;
-}
-.user-text{
-    font-family: 'GT-Walsheim';
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
 }
 
-.message-time{
+.request-text, .user-text {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    margin: 0;
+}
+
+.message-time, .grey-text p {
     color: #81818D;
-    font-size: 14px;
+    font-size: 0.9vw;
+    margin: 0;
+}
+
+.grey-text, .message-text {
+    text-decoration: none;
+}
+
+.message-text p {
+    margin: 0;
+    font-size: 0.9vw;
+    color: #000;
+}
+.messages{
+    display: flex;
+    justify-content: end;
+    align-items: ;
 }

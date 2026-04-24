@@ -10,7 +10,7 @@ a {
 }
 
 body {
-    overflow-x: hidden;
+    overflow: hidden;
     background-color: #FAF8FF;
 }
 
@@ -53,6 +53,8 @@ main {
     width: 54vw;
     justify-content: right;
     align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .test{
