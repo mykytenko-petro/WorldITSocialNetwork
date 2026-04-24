@@ -32,18 +32,89 @@
         </div>
 
         <div class="requests">
-            <a><img src="{% static 'icon/friends.svg' %}" alt="">Запити</a>
-            <p>Дивитись всі</p>
+            <div class="request-inquiry">
+                <a><img src="{% static 'icon/friends.svg' %}" alt="">Запити</a>
+                <p>Дивитись всі</p>
+            </div>
+            <div class="requests-example">
+                <div class="request-box">
+                    <a class="request-image"><img src="{% static 'home_app/images/mock_image_1.png' %}" alt=""></a>
+                    <div class="follower-info">
+                        <p class="request-text">Yehor Aung</p>
+                        <a class="grey-text">
+                            <p>4.3к підписників</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="request-box">
+                    <a class="request-image"><img src="{% static 'home_app/images/mock_image_2.png' %}" alt=""></a>
+                    <div class="follower-info">
+                        <p class="request-text">Ann Ann</p>
+                        <a class="grey-text">
+                            <p>1.6к підписників</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="request-box">
+                    <a class="request-image"><img src="{% static 'home_app/images/mock_image_3.png' %}" alt=""></a>
+                    <div class="follower-info">
+                        <p class="request-text">Yeugen Jenua</p>
+                        <a class="grey-text">
+                            <p>10.3к підписників</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="messages">
-            <a><img src="{% static 'icon/chat.svg' %}" alt="">Повідомлення</a>
-            <p>Дивитись всі</p>
+            <div class="message-inquiry">
+                <a><img src="{% static 'icon/chat.svg' %}" alt="">Повідомлення</a>
+                <p>Дивитись всі</p>
+            </div>
+            <div class="message-example">
+                <div class="grey-box">
+                    <a class="message-image"><img src="{% static 'home_app/images/mock_image_4.png' %}" alt=""></a>
+                    <div class="message-info">
+                        <div class="user-time">
+                            <p class="user-text">Mona Lisa</p>
+                            <p class="message-time"> 09:41</p>
+                        </div>
+                        <a class="message-text">
+                            <p>Привіт! Як справи?</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="grey-box">
+                    <a class="message-image"><img src="{% static 'home_app/images/mock_image_5.png' %}" alt=""></a>
+                    <div class="message-info">
+                        <div class="user-time">
+                            <p class="user-text">Ann Ti</p>
+                            <p class="message-time">25.04.2025</p>
+                        </div>
+                        <a class="message-text">
+                            <p>Привіт</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="message-box">
+                    <a class="request-image"><img src="{% static 'home_app/images/mock_image_6.png' %}" alt=""></a>
+                    <div class="message-info">
+                        <div class="user-time">
+                            <p class="user-text">Ness Ty</p>
+                            <p class="message-time">25.04.2025</p>
+                        </div>
+                        <a class="message-text">
+                            <p>Привіт!</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-    <div class="test"></div>
+    <!-- <div class="test"></div> -->
 {% endblock content %}
 
