@@ -9,8 +9,11 @@ class AuthTemplateView(TemplateView):
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context['form_register'] = RegisterForm()
+        context['form_register'].label_suffix = ""
         context['form_login'] = LoginForm()
+        context['form_login'].label_suffix = ""
         context['form_confirm_email'] = ConfirmEmailForm()
+        context['form_confirm_email'].label_suffix = ""
         return context
 
 

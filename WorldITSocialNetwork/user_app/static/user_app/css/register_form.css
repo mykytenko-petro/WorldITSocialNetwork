@@ -1,5 +1,3 @@
-
-
 .section-register {
     display: flex;
     font-family: 'GT-Walsheim', sans-serif;
@@ -7,7 +5,7 @@
     flex-direction: column;
     align-items: left;
     width: 33vw;
-    height: 57vh;
+    min-height: 57px;
     padding: 3vw;
     border-radius: 2vh;
     background-color: #FFFFFF;
@@ -16,6 +14,7 @@
     position: fixed;
     gap: 1vw;
     z-index: 1;
+    padding: 1.5vw 3vw 5vh 3vw;
 }
 .section-head{
     display: flex;
@@ -28,40 +27,49 @@
 .register {
     font-size: 34px;
     color: #070A1C;
-    padding-bottom: 0.5vh;
-
+    font-family: 'GT-Walsheim', sans-serif;
+    text-decoration: none; 
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(84, 60, 82, 1);
 }
 .login{
-    font-size: 34px;
-    color: #81818D;
-    padding-bottom: 0.5vh;
+    color: #070A1C;
+    padding-bottom: 8px; 
+    display: inline-block;
 }
+
 .worldit{
     gap:3.3vh;
     font-size: 24px;
 }
 .form-register {
-    display:flex;
-    width: 100%;
+    width: 100%; 
+    display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 1vh;
+    align-items: stretch;
 }
 .form-register >div{
     display: flex;
     flex-direction: column;
-    font-weight: 100;
+    width: 100%;
     color: #070A1C;
     font-size: 16px;
     align-items: start;
+    align-items: flex-start;
+    gap: 5px;
 }
 .form-register > div > input {
     width: 100%;
+    box-sizing: border-box;
     padding: 1vw 2vh;
     border-radius: 2vh;
     border: 1px solid #CDCED2;
-    font-size: 14px;
     background-color: #FFFFFF;
+    font-family: 'GT-Walsheim', sans-serif;
+    font-size: 14px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .button-register{
     width: 100%;
@@ -75,4 +83,7 @@
     color: white;
     align-items: center;
     margin-top: 1vh;
+    font-family: 'GT-Walsheim', sans-serif;
+    font-size: 0.8vw;
+    margin-top: 2.5vh;
 }
