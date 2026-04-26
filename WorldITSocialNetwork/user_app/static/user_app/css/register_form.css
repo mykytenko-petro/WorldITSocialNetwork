@@ -56,7 +56,7 @@
     align-items: start;
 }
 .form-register > div > input {
-    width: 100%;
+    width: 220%;
     padding: 1vw 2vh;
     border-radius: 2vh;
     border: 1px solid #CDCED2;
@@ -65,9 +65,9 @@
 }
 .button-register{
     width: 100%;
-    gap: 1vh;
+    gap: 1.5vh;
     padding-top: 2vh;
-    padding-bottom: 2vh;
+    padding-bottom: 10vh;
     padding-right: 2vw;
     padding-left: 2vw;
     border-radius: 84vw;
