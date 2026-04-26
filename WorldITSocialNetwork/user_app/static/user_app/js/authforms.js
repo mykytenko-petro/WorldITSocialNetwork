@@ -1,4 +1,4 @@
-console.log(123)
+
 const FORM_IDS = {
     login: "login-form-container",
     register: "register-form-container",
@@ -32,20 +32,27 @@ function hideAllForms() {
     }
 }
 hideAllForms()
-console.log(123)
 
-function showForm(state){
+
+function showForm(formName){
     hideAllForms()
-    if (state === "login"){
+    if (formName === "login"){
         const form = document.getElementById("login-form-container")
         if (form){form.style.display = "block"}
     }
-    if (state === "register"){
+    if (formName === "register"){
         const form = document.getElementById("register-form-container")
         if (form){form.style.display = "block"}
     }
-    if (state === "confirm"){
+    if (formName === "confirm"){
         const form = document.getElementById("confirm-email-form-container")
         if (form){form.style.display = "block"}
     }
 }
+const openLogin = document.getElementById("open-login-form")
+const openRegister = document.getElementById("open-register-form")
+
+
+openLogin.addEventListener("click", () => {showForm("login")})
+openRegister.addEventListener("click", () => {console.log(123)})
+// showForm("register")

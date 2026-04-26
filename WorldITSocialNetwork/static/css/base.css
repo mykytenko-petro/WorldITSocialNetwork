@@ -11,13 +11,15 @@ a {
 
 body {
     overflow-x: hidden;
-}
     background-color: #FAF8FF;
 }
 
 main {
     display: flex;
-    flex-direc
+    flex-direction: column;
+    padding-left: 10vw;
+    width: 100vw;
+    top: 90px;
 }
 
 .wrapper{
