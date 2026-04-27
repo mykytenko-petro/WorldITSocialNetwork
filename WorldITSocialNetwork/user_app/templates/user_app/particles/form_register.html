@@ -1,13 +1,13 @@
-<div class="section-register" id = "register-form-container">
+<div class="section-register" id="register-form-container">
     <nav class="section-head">
-        <p id = "open-register-form" class="register"><u>Реєстрація</u></p>
-        <p id = "open-login-form" class="login">Авторизація</p>
+        <p lass="register"><u>Реєстрація</u></p>
+        <p id="open-login-form" class="login">Авторизація</p>
     </nav>
     <p class="worldit">Приєднуйся до World IT</p>
     <form action="{% url 'register' %}" method="post" class="form-register">
         {% csrf_token %}
         {{ form_register.as_div }}
-        <button class="button-register" type="submit">Створити акаунт</button>
+        <button class="button-register" id="button-confirm" type="submit">Створити акаунт</button>
     </form>
 </div>
 

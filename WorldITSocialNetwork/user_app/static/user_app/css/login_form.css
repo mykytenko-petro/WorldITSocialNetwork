@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: left;
     width: 33vw;
-    height: 57vh;
+    min-height: 57px;
     padding: 3vw;
     border-radius: 2vh;
     background-color: #FFFFFF;
@@ -14,6 +14,7 @@
     position: fixed;
     gap: 1vw;
     z-index: 1;
+    padding: 1.5vw 3vw 5vh 3vw;
 }
 .login-head{
     display: flex;
@@ -23,45 +24,58 @@
     padding-bottom: 12px;
     gap:2vw;
 }
-
 .register {
-    font-size: 34px;
-    color: #070A1C;
-    padding-bottom: 0.5vh;
+    font-size: 2.5vw;
+    color: #81818D;
+    font-family: 'GT-Walsheim', sans-serif;
+    text-decoration: none; 
+    display: inline-block;
+    padding-bottom: 5px;
 }
 .login{
-    font-size: 34px;
-    color: #81818D;
-    padding-bottom: 0.5vh;
+    color: #070A1C;
+    font-size: 2.5vw;
+    padding-bottom: 5px; 
+    font-family: 'GT-Walsheim', sans-serif;
+    text-decoration: none; 
+    display: inline-block;
+    border-bottom: 2px solid rgba(84, 60, 82, 1);
 }
+
 .paragraf{
     gap:3.3vh;
-    font-size: 24px;
+    font-size: 1.5vw;
 }
 .form-authorization {
-    display:flex;
-    width: 27vw;
+    width: 100%; 
+    display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 1vh;
+    align-items: stretch;
 }
 .form-authorization >div{
     display: flex;
     flex-direction: column;
-    font-weight: 100;
+    width: 100%;
     color: #070A1C;
-    font-size: 16px;
+    font-size: 1.1vw;
+    align-items: start;
+    align-items: flex-start;
+    gap: 5px;
 }
 .form-authorization > div > input {
-    width: 200%;
+    width: 100%;
+    box-sizing: border-box;
     padding: 1vw 2vh;
     border-radius: 2vh;
-    border: 1px solid #E9E5EE;
-    font-size: 14px;
+    border: 1px solid #CDCED2;
     background-color: #FFFFFF;
+    font-family: 'GT-Walsheim', sans-serif;
+    font-size: 14px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .button-authorization{
-    width: 27vw;
+    width: 100%;
     gap: 1vh;
     padding-top: 2vh;
     padding-bottom: 2vh;
@@ -71,6 +85,8 @@
     background-color: rgba(84, 60, 82, 1);
     color: white;
     align-items: center;
+    margin-top: 1vh;
+    font-family: 'GT-Walsheim', sans-serif;
+    font-size: 0.8vw;
+    margin-top: 2.5vh;
 }
-
-
