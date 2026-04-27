@@ -1,22 +1,13 @@
-{% extends "base.html" %}
-{% load static %}
-{% block links %}
-    <link rel="stylesheet" href="{% static 'css/register.css' %}">
-{% endblock links %}
-
-{% block content %}
-<div class="content">
-    <!-- <img class="image" src="{% static 'images/laptop.png'%}" alt=""> -->
-    <div class="section-register">
-        <div class="section-head">
-            <p class="register"><u>Реєстрація</u></p>
-            <p class="login">Авторизація</p>
-        </div>
-            <p>Приєднуйся до World IT</p>
-        <form action="" method="post" class="form-register">
-            {{ form_register.as_p }}
-            <button class="butt-register" type="submit">Створити акаунт</button>
-        </form>
-    </div>
+<!-- <div class="section-register" id = "register-form-container">
+    <nav class="section-head">
+        <p id = "open-register-form" class="register"><u>Реєстрація</u></p>
+        <p id = "open-login-form" class="login">Авторизація</p>
+    </nav>
+    <p class="worldit">Приєднуйся до World IT</p>
+    <form action="{% url 'register' %}" method="post" class="form-register">
+        {% csrf_token %}
+        {{ form_register.as_div }}
+        <button class="button-register" type="submit">Створити акаунт</button>
+    </form>
 </div>
-{% endblock content %}
+-->

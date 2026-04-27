@@ -12,30 +12,24 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'user_app/css/auth.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/fonts.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/register.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/login.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/confirm_email.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/register_form.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/login_form.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/confirm_email_form.css' %}">
 {% endblock %}
 
 {% block content %}
+    <!-- {% if user.is_authenticated %}
+        <script>alert("user is login")</script>
+    {% else %}
+        <h2>user ne login</h2>
+    {% endif %} -->
     <div>
-        <div id = "login-form-container">
-            {% include 'user_app/particles/form_login.html' %}
-        </div>
-        <!-- <div id = "register-form-container">
-            {% include 'user_app/particles/form_register.html' %}
-        </div> -->
-        
         {% include 'user_app/particles/form_register.html' %}
-        <!-- {% include 'user_app/particles/form_login.html' %} -->
-        <div id = "confirm-email-form-container">
-            {% include 'user_app/particles/form_confirm_email.html' %}
-        </div>
-        <!-- {% include 'user_app/particles/form_confirm_email.html' %} -->
+        {% include 'user_app/particles/form_login.html' %}     
+        {% include 'user_app/particles/form_confirm_email.html' %}
     </div>
-    <p id="open-login-form"></p>
-    <p id="open-register-form"></p>
+    <img class="laptop-img" src="{% static 'images/laptop.png'%}" alt="">
+
 {% endblock %}
 
 {% block scripts %}

@@ -1,0 +1,76 @@
+.section-login {
+    display: flex;
+    font-family: 'GT-Walsheim', sans-serif;
+    justify-content: center;
+    flex-direction: column;
+    align-items: left;
+    width: 33vw;
+    height: 57vh;
+    padding: 3vw;
+    border-radius: 2vh;
+    background-color: #FFFFFF;
+    top: 180px;
+    left: 18.5vw;
+    position: fixed;
+    gap: 1vw;
+    z-index: 1;
+}
+.login-head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 12px;
+    gap:2vw;
+}
+
+.register {
+    font-size: 34px;
+    color: #070A1C;
+    padding-bottom: 0.5vh;
+}
+.login{
+    font-size: 34px;
+    color: #81818D;
+    padding-bottom: 0.5vh;
+}
+.paragraf{
+    gap:3.3vh;
+    font-size: 24px;
+}
+.form-authorization {
+    display:flex;
+    width: 27vw;
+    flex-direction: column;
+    align-items: start;
+    gap: 1vh;
+}
+.form-authorization >div{
+    display: flex;
+    flex-direction: column;
+    font-weight: 100;
+    color: #070A1C;
+    font-size: 16px;
+}
+.form-authorization > div > input {
+    width: 200%;
+    padding: 1vw 2vh;
+    border-radius: 2vh;
+    border: 1px solid #E9E5EE;
+    font-size: 14px;
+    background-color: #FFFFFF;
+}
+.button-authorization{
+    width: 27vw;
+    gap: 1vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    border-radius: 84vw;
+    background-color: rgba(84, 60, 82, 1);
+    color: white;
+    align-items: center;
+}
+
+

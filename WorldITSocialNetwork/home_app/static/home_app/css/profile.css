@@ -9,50 +9,6 @@
     gap: 0.5vh;
 }
 
-.requests {
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    justify-content: left;
-    border-radius: 2vh;
-    border: 1px solid gray;
-    width: 100%;
-    background-color: white;
-    justify-content: space-between;
-    padding-right: 1vw;
-    height: 55px;
-}
-
-.requests a{
-    padding-left: 1vw;
-    color: #81818D;
-}
-
-.requests p{
-    color: #543C52;
-}
-
-.messages {
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    justify-content: left;
-    border-radius: 2vh;
-    border: 1px solid gray;
-    width: 100%;
-    background-color: white;
-    justify-content: space-between;
-    padding-right: 1vw;
-    height: 55px;
-}
-
-.messages a{
-    padding-left: 1vw;
-    color: #81818D;
-}
-
-.messages p{
-    color: #543C52;
-}
-
 .profile {
     display: flex;
     flex-direction: column;
@@ -63,57 +19,172 @@
     border-radius: 2vh;
     border: 1px solid gray;
     width: 100%;
-    padding: 1vh;
     padding: 1vh 1.5vw;
 }
 
-.profile .profile-head{
+.profile .profile-head {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 1vh
-    
+    gap: 1vh;
 }
 
-.profile .profile-head .text-profile{
+.profile .profile-head .text-profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 0.5vh
+    gap: 0.5vh;
 }
 
-.profile .profile-footer{
+.profile .profile-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* gap: 3vw; */
     width: 100%;
     margin-top: 1vh;
 }
+
 .profile .profile-footer div:nth-child(2) {
     border-left: 1px solid gray;
     border-right: 1px solid gray;
     padding: 0 2.5vw;
 }
 
-.requests a, .messages a {
-    display: flex;
-    align-items: center;
-    gap: 0.5vw;
-    padding: 1vh 1vw;
-}
-.requests p, .messages p {
-    color: #543C52;
-    display: flex;
-    align-items: center;
-}
-
 .profile .profile-footer p:last-child {
     color: #81818D;
 }
 
+.requests, .messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 2vh;
+    font-family: 'GT-Walsheim', sans-serif;
+}
 
+.request-inquiry, .message-inquiry {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 0;
+}
+
+.request-inquiry a, .message-inquiry a {
+    display: flex;
+    align-items: center;
+    color: #81818D;
+    gap: 0.5vw;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.request-inquiry p, .message-inquiry p {
+    color: #543C52;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    cursor: pointer;
+    padding-top: 1vh;
+}
+
+.requests-example {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    gap: 1.5vh;
+    padding: 0.5vh 1.1vw;
+}
+
+.request-box, .grey-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 1vh;
+    width: 100%;
+}
+
+.request-image img, .message-image img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.message-box, .grey-box{
+    padding: 1vh 1.3vw;
+    column-gap: 1vh; 
+}
+
+.request-box{
+    column-gap: 1vh; 
+}
+
+.follower-info, .message-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin-left: 0.5vw;
+}
+
+.user-time, .follower-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-right: 1vw;
+}
+
+.request-text, .user-text {
+    font-weight: bold;
+    font-size: 0.9vw;
+    color: #000;
+}
+
+.message-time, .grey-text p {
+    color: #81818D;
+    font-size: 0.7vw;
+}
+
+.grey-text, .message-text {
+    text-decoration: none;
+}
+
+.message-text p {
+    margin: 0;
+    font-size: 0.7vw;
+}
+.messages{
+    display: flex;
+    justify-content: left;
+}
+
+.message-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.grey-box {
+    background-color: #E9E5EE;
+    margin-top: -1.5vh;
+}
+
+.message-example{
+    width: 100%;
+}
+
+.request-image img, .message-image img {
+    flex-shrink: 0;
+}
