@@ -18,12 +18,18 @@
 {% endblock %}
 
 {% block content %}
+    <!-- {% if user.is_authenticated %}
+        <script>alert("user is login")</script>
+    {% else %}
+        <h2>user ne login</h2>
+    {% endif %} -->
     <div>
         {% include 'user_app/particles/form_register.html' %}
         {% include 'user_app/particles/form_login.html' %}     
         {% include 'user_app/particles/form_confirm_email.html' %}
     </div>
     <img class="laptop-img" src="{% static 'images/laptop.png'%}" alt="">
+
 {% endblock %}
 
 {% block scripts %}

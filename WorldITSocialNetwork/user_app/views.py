@@ -1,7 +1,8 @@
 from django.views.generic.base import TemplateView
 from django.views import View
 from django.shortcuts import redirect
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, login, authenticate
+from django.contrib import messages
 
 from .forms import RegisterForm, LoginForm, ConfirmEmailForm
 
@@ -34,3 +35,35 @@ class RegisterView(View):
             return redirect('auth')
 
         return redirect('auth')
+    
+from django.views import View
+from django.shortcuts import redirect
+from django.contrib.auth import login
+
+from .forms import LoginForm
+
+
+class LoginView(View):
+    def post(self, request, *args, **kwargs):
+        form = LoginForm(data=request.POST)
+
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        user = authenticate(
+            request,
+            email=email,
+            password=password
+        )
+
+        if user:
+            login(request, user)
+            print("hello register")
+            return redirect('/')
+        
+
+        return redirect('auth')
+    
+    #Який ще алгоритм скриптс
+    #да я сам не особо понимаю
+    #:(

@@ -36,7 +36,7 @@ class RegisterForm(forms.Form):
 class LoginForm(forms.Form):
     email = forms.EmailField(
         label='Електронна пошта', 
-        widget= forms.EmailInput(attrs= {'placeholder': 'you@example.com'})
+        widget= forms.EmailInput(attrs= {'placeholder': 'you@example.com', 'autocomplete':"email"})
     )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs= {'placeholder': 'Введи пароль'})
