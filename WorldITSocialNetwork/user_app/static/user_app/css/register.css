@@ -28,15 +28,21 @@
     align-items: center;
 }
 .register {
-    width: 12vw;
-    height: 4vh;
     color: #070A1C;
-    margin-left: 24px;
+    font-family: 'GT-Walsheim', sans-serif;
+    text-decoration: none; 
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(84, 60, 82, 1);
+}
+
+.login .register{
+    font-size: 34px;
 }
 .login{
-    width: 12vw;
-    height: 4vh;
-    color: #81818D;
+    color: #070A1C;
+    padding-bottom: 8px; 
+    display: inline-block;
 }
 .form-register {
     width: 27vw;

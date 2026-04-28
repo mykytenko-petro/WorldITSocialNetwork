@@ -24,23 +24,14 @@
     padding-bottom: 12px;
     gap:2vw;
 }
-.register {
-    font-size: 2.5vw;
+/* .register {
     color: #81818D;
-    font-family: 'GT-Walsheim', sans-serif;
-    text-decoration: none; 
-    display: inline-block;
-    padding-bottom: 5px;
 }
 .login{
-    color: #070A1C;
-    font-size: 2.5vw;
-    padding-bottom: 5px; 
-    font-family: 'GT-Walsheim', sans-serif;
-    text-decoration: none; 
-    display: inline-block;
+
+    color: #000;
     border-bottom: 2px solid rgba(84, 60, 82, 1);
-}
+} */
 
 .paragraf{
     gap:3.3vh;
@@ -73,20 +64,4 @@
     font-size: 14px;
     max-width: 100%;
     box-sizing: border-box;
-}
-.button-authorization{
-    width: 100%;
-    gap: 1vh;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-    padding-right: 2vw;
-    padding-left: 2vw;
-    border-radius: 84vw;
-    background-color: rgba(84, 60, 82, 1);
-    color: white;
-    align-items: center;
-    margin-top: 1vh;
-    font-family: 'GT-Walsheim', sans-serif;
-    font-size: 0.8vw;
-    margin-top: 2.5vh;
 }

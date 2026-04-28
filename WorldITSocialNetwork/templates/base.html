@@ -1,4 +1,4 @@
-<!-- {% load static %} -->
+{% load static %}
 
 <html lang="en">
     <head>
@@ -7,16 +7,16 @@
         
         <title>{% block title %}{% endblock title %}</title>
 
-        <!-- <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <link rel="stylesheet" href="{% static 'css/header.css' %}">
         <link rel="stylesheet" href="{% static 'css/font.css' %}">
-        {% block links %}{% endblock links %}  -->
+        {% block links %}{% endblock links %} 
     </head>
     <body>
         <header>
             <div class="wrapper">
-                <!-- <a href="{% url 'home_app' %}" class="logo {% if request.path == '/auth/' %} logo-center {% endif %}"> -->
-                    <!-- <img src="{% static 'icon/logo.svg'%}" alt=""> -->
+                <a href="{% url 'home_app' %}" class="logo {% if request.path == '/auth/' %} logo-center {% endif %}">
+                    <img src="{% static 'icon/logo.svg'%}" alt="">
                 </a>
                 
                 {% if request.path != "/auth/" %}
@@ -29,7 +29,7 @@
                             <a href="{% url 'settings_app' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
                         </nav>
                 
-                        <!-- <a href="" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a> -->
+                        <a href="" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
                     </div>   
                 {% endif %}
             </div>

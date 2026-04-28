@@ -1,9 +1,9 @@
-<div class="section-confirm" id = "confirm-email-form-container"></div>
-    <p>Підтвердження пошти</p>
-    <p>Ми надіслали 6-значний код на вашу пошту (you@example.com). Введіть його нижче, щоб підтвердити акаунт</p>
+<div class="section-confirm-email" id="confirm-email-form-container">
+    <p class="email-confirm">Підтвердження пошти</p>
+    <p class="big-text-email-form">Ми надіслали 6-значний код на вашу пошту (you@example.com). Введіть його нижче, щоб підтвердити акаунт</p>
     <form action="" method="post">
-        {{ form_confirm_email.as_p }}
-        <button type="submit">Підтвердити</button>
+        {{ form_confirm_email.as_div }}
+        <button type="submit" class="submit-email">Підтвердити</button>
     </form>
-    <p class="back">Назад</p>
+    <p id="button-back" class="button-back-email-form">Назад</p>
 </div>

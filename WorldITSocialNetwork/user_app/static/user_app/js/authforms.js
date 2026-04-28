@@ -5,6 +5,7 @@ const confirmEmailForm = document.getElementById("confirm-email-form-container")
 const registerButton = document.getElementById("open-register-form")
 const loginButton = document.getElementById("open-login-form")
 const confirmEmailButton = document.getElementById("button-confirm")
+const backEmailButton = document.getElementById("button-back")
 
 loginForm.style.display = "none"
 registerForm.style.display = "none"
@@ -35,6 +36,7 @@ showForm(savedForm)
 registerButton.addEventListener("click", () => {
     showForm("registerForm")
 })
+
 loginButton.addEventListener("click", () => {
     showForm("loginForm")
 })
@@ -42,4 +44,8 @@ loginButton.addEventListener("click", () => {
 confirmEmailButton.addEventListener("click", (event) => {
     event.preventDefault()
     showForm("confirmEmailForm")
+})
+
+backEmailButton.addEventListener("click", () => {
+    showForm("registerForm")
 })
