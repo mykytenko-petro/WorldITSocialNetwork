@@ -1,0 +1,9 @@
+.laptop-img{
+    top: 4vh;
+    position: fixed;
+    height: 100vh;
+    z-index: -1;
+    margin-left: auto;
+    padding: 10vw;
+    left: 39vw;
+}

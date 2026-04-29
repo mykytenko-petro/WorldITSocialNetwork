@@ -8,7 +8,7 @@ a {
     color: #000;
     text-decoration: none
 }
-a, p{
+a, p, label, input {
     font-family: 'GT-Walsheim';
 }
 body {

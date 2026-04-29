@@ -7,3 +7,21 @@
     padding: 10vw;
     left: 39vw;
 }
+
+.form > div {
+    position: fixed;
+    top: 180px;
+    left: 18.5vw;
+
+    width: 33vw;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+    
+    background-color: #FFFFFF;
+    
+    border-radius: 2vh;
+}

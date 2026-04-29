@@ -12,10 +12,10 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'user_app/css/auth.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/register_form.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/login_form.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/confirm_email_form.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/login-form.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/registration-form.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/confirm-email-form.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -24,11 +24,13 @@
     {% else %}
         <h2>user ne login</h2>
     {% endif %} -->
-    <div>
+    
+    <div class="form">
         {% include 'user_app/particles/form_register.html' %}
-        {% include 'user_app/particles/form_login.html' %}     
+        {% include 'user_app/particles/form_login.html' %}
         {% include 'user_app/particles/form_confirm_email.html' %}
     </div>
+    
     <img class="laptop-img" src="{% static 'images/laptop.png'%}" alt="">
 
 {% endblock %}
