@@ -62,24 +62,30 @@ class LoginForm(forms.Form):
     
 
 class ConfirmEmailForm(forms.Form):
-    number1 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    number1 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number2 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number2 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number3 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number3 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number4 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number4 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number5 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number5 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number6 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number6 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
+    )
     
     def clean(self):
         cleaned_data = super().clean()

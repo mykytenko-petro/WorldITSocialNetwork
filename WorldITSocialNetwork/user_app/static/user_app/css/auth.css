@@ -1,27 +1,23 @@
-.laptop-img{
-    top: 4vh;
+.laptop-img {
     position: fixed;
-    height: 100vh;
+    top: 25.88vh;
+    left: 45.67vw;
     z-index: -1;
-    margin-left: auto;
-    padding: 10vw;
-    left: 39vw;
+
+    height: 54.91vh;
 }
 
-.form > div {
+.form {
     position: fixed;
-    top: 180px;
-    left: 18.5vw;
+    top: 24.58vh;
+    left: 17.25vw;
 
-    width: 33vw;
+    width: 33.82vw;
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 1vw;
-    
+    padding: 3.06vw;
+
     background-color: #FFFFFF;
-    
+
     border-radius: 2vh;
 }
+

@@ -1,31 +1,83 @@
-
-
-/* .login-p, .register-p{
-    color: #81818D;
-    font-size: 2.2vw;
+.form > div {
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.75vh;
 }
 
-.button-register, .login-p, .register-p, .button-register{
+.form > div > nav {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
     cursor: pointer;
 }
-.active-button{
-    color: #000;
+
+.form > div > nav > p {
+    color: #81818D;
+    font-size: 3.54vh;
+}
+
+.active-button {
+    color: rgba(7, 10, 28, 1) !important;
+    
     border-bottom: 2px solid rgba(84, 60, 82, 1);
 }
 
-.button-authorization, .submit-email, .button-register, .button-authorization{
+button {
     width: 100%;
-    gap: 1vh;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-    padding-right: 2vw;
-    padding-left: 2vw;
-    border-radius: 84vw;
-    background-color: rgba(84, 60, 82, 1);
+
+    padding: 1vw;
+    
+    border-radius: 50px;
+
     color: white;
-    align-items: center;
-    margin-top: 1vh;
-    font-family: 'GT-Walsheim', sans-serif;
-    font-size: 0.8vw;
-    margin-top: 2.5vh;
-} */
+    background-color: rgba(84, 60, 82, 1);
+    
+    font-size: 1.67vh;
+}
+
+.message {
+    font-size: 2.5vh;
+}
+
+.form > div > form {
+    width: 100%; 
+    
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.67vh;
+}
+
+.form > div > form > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.52vh;
+    
+    font-size: 1.67vh;
+}
+
+.form > div > form > div > input {
+    box-sizing: border-box;
+    
+    width: 100%;
+    
+    padding: 1vw 2vh;
+    
+    background-color: #FFFFFF;
+    
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+}
