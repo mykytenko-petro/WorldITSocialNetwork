@@ -1,14 +1,4 @@
-export const loginForm = document.getElementById("login-form-container")
-export const registerForm = document.getElementById("register-form-container")
-export const confirmEmailForm = document.getElementById("confirm-email-form-container")
-
-
-loginForm.style.display = "none"
-registerForm.style.display = "none"
-confirmEmailForm.style.display = "none"
-
-export const CSRF_token = Cookies.get('csrftoken')
-
+import { confirmEmailForm, loginForm, registerForm } from "./DOM.js"
 
 export function showForm(formName){
     if(formName === "loginForm"){
@@ -31,4 +21,3 @@ export function showForm(formName){
 
 const savedForm = Cookies.get('lastForm') || 'registerForm'
 showForm(savedForm)
-

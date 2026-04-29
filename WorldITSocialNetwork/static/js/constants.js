@@ -1,0 +1,1 @@
+const CSRFToken = Cookies.get('csrftoken')
