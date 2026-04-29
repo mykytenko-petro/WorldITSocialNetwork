@@ -1,17 +1,16 @@
-const loginForm = document.getElementById("login-form-container")
-const registerForm = document.getElementById("register-form-container")
-const confirmEmailForm = document.getElementById("confirm-email-form-container")
+export const loginForm = document.getElementById("login-form-container")
+export const registerForm = document.getElementById("register-form-container")
+export const confirmEmailForm = document.getElementById("confirm-email-form-container")
 
-const registerButton = document.getElementById("open-register-form")
-const loginButton = document.getElementById("open-login-form")
-const confirmEmailButton = document.getElementById("button-confirm")
-const backEmailButton = document.getElementById("button-back")
 
 loginForm.style.display = "none"
 registerForm.style.display = "none"
 confirmEmailForm.style.display = "none"
 
-function showForm(formName){
+export const CSRF_token = Cookies.get('csrftoken')
+
+
+export function showForm(formName){
     if(formName === "loginForm"){
         loginForm.style.display = "flex"
         registerForm.style.display = "none"
@@ -33,19 +32,3 @@ function showForm(formName){
 const savedForm = Cookies.get('lastForm') || 'registerForm'
 showForm(savedForm)
 
-registerButton.addEventListener("click", () => {
-    showForm("registerForm")
-})
-
-loginButton.addEventListener("click", () => {
-    showForm("loginForm")
-})
-
-confirmEmailButton.addEventListener("click", (event) => {
-    event.preventDefault()
-    showForm("confirmEmailForm")
-})
-
-backEmailButton.addEventListener("click", () => {
-    showForm("registerForm")
-})

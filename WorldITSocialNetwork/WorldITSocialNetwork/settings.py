@@ -139,3 +139,4 @@ STATICFILES_DIRS = [
     BASE_DIR / 'friends_app' / 'static',
     BASE_DIR / 'user_app' / 'static',
 ]
+

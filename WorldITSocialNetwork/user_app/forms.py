@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
 
+
 User = get_user_model()
 
 class RegisterForm(forms.Form):
@@ -20,7 +21,7 @@ class RegisterForm(forms.Form):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
-            raise forms.ValidationError('Пользователь с таким email вже є')
+            raise forms.ValidationError('Користувач с таким email вже є')
         return email
 
     def clean(self):
@@ -39,6 +40,7 @@ class LoginForm(forms.Form):
         widget= forms.EmailInput(attrs= {'placeholder': 'you@example.com', 'autocomplete':"email"})
     )
     password = forms.CharField(
+        label='Пароль',
         widget=forms.PasswordInput(attrs= {'placeholder': 'Введи пароль'})
     )
     def clean(self):
@@ -60,23 +62,34 @@ class LoginForm(forms.Form):
     
 
 class ConfirmEmailForm(forms.Form):
-    email1 = forms.CharField(max_length=1, min_length=1, required=True)
-    email2 = forms.CharField(max_length=1, min_length=1, required=True)
-    email3 = forms.CharField(max_length=1, min_length=1, required=True)
-    email4 = forms.CharField(max_length=1, min_length=1, required=True)
-    email5 = forms.CharField(max_length=1, min_length=1, required=True)
-    email6 = forms.CharField(max_length=1, min_length=1, required=True)
+    number1 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+        max_length=1, min_length=1, required=True
+        )
+    number2 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+        max_length=1, min_length=1, required=True
+        )
+    number3 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+        max_length=1, min_length=1, required=True
+        )
+    number4 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+        max_length=1, min_length=1, required=True
+        )
+    number5 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+        max_length=1, min_length=1, required=True
+        )
+    number6 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+        max_length=1, min_length=1, required=True
+        )
     
     def clean(self):
         cleaned_data = super().clean()
-        emailconfirm = (
-            cleaned_data.get("email1", "") +
-            cleaned_data.get("email2", "") +
-            cleaned_data.get("email3", "") +
-            cleaned_data.get("email4", "") +
-            cleaned_data.get("email5", "") +
-            cleaned_data.get("email6", "")
-        )
-        if len(emailconfirm) !=6:
-            raise forms.ValidationError("Код невірний")
+
+        count = len(cleaned_data)
+        if count is not 6:
+            raise forms.ValidationError('Цифр має бути шість')
+        
+        for value in cleaned_data.values():
+            if type(value) is not int:
+                raise forms.ValidationError('Це не цифра')
+            
         return cleaned_data
