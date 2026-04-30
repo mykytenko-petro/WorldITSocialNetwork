@@ -1,8 +1,8 @@
 <div class="confirm-email-form" id="confirm-email-form-container">
     <p class="label">Підтвердження пошти</p>
-    <p class="description">Ми надіслали 6-значний код на вашу пошту (you@example.com). Введіть його нижче, щоб підтвердити акаунт</p>
+    <p class="description" id="description"></p>
     
-    <form action="" method="post">
+    <form action="{% url 'confirm-email' %}" method="post">
         <p>Код підтвердження</p>
 
         <div class="code">

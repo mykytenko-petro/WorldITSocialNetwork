@@ -60,8 +60,9 @@ class LoginForm(forms.Form):
         if User.objects.filter(email= email).exists():
             raise forms.ValidationError('Користувач з таким email вже є')
     
-
 class ConfirmEmailForm(forms.Form):
+    email = forms.CharField(widget=forms.HiddenInput())
+
     number1 = forms.CharField(
         widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
@@ -88,14 +89,21 @@ class ConfirmEmailForm(forms.Form):
     )
     
     def clean(self):
-        cleaned_data = super().clean()
-
-        count = len(cleaned_data)
-        if count is not 6:
-            raise forms.ValidationError('Цифр має бути шість')
+        cleaned_data = super().clean().copy()
+        cleaned_data.pop("email")
         
+        if len(cleaned_data) != 6:
+            raise forms.ValidationError('Цифр має бути шість')
+
         for value in cleaned_data.values():
-            if type(value) is not int:
+            if not value.isdigit():
                 raise forms.ValidationError('Це не цифра')
             
-        return cleaned_data
+        return self.cleaned_data
+    
+    @property
+    def code(self):
+        cleaned_data = super().clean().copy()
+        cleaned_data.pop("email")
+        
+        return int("".join(cleaned_data.values()))

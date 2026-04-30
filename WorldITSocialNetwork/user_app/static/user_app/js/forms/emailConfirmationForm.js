@@ -10,6 +10,26 @@ confirmEmailFormButton.addEventListener("click",
         const form = confirmEmailForm.querySelector("form")
         const formData = new FormData(form)
 
-        showForm("loginForm")
+        formData.set("email", Cookies.get("currentEmail"))
+
+        fetch(form.action, {
+            method : 'POST',
+            headers: {
+                'X-CSRFToken': CSRFToken,
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: formData
+        })
+        .then(async response =>{
+            const data = await response.json()
+            if (!response.ok){
+                throw data
+            }
+            
+            showForm("loginForm")
+        })
+        .catch(async (errors) => {
+            alert(JSON.stringify(errors))
+        })
     }
 )

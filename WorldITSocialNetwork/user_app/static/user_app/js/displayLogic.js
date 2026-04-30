@@ -10,6 +10,10 @@ export function showForm(formName){
         confirmEmailForm.style.display = "flex"
         loginForm.style.display = "none"
         registerForm.style.display = "none"
+
+        const description = document.querySelector("#description")
+        const email = Cookies.get("currentEmail")
+        description.textContent = `Ми надіслали 6-значний код на вашу пошту (${email}). Введіть його нижче, щоб підтвердити акаунт`
     }
     else if(formName === "registerForm"){
         registerForm.style.display = "flex"
