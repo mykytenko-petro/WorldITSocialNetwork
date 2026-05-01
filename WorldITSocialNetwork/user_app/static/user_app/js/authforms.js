@@ -1,58 +1,63 @@
+const FORM_IDS = {
+    login: "login-form-container",
+    register: "register-form-container",
+    confirm: "confirm-email-form-container",
+};
 
-// const FORM_IDS = {
-//     login: "login-form-container",
-//     register: "register-form-container",
-//     confirm: "confirm-email-form-container",
-// }
+function hideAllForms() {
+    const loginForm = document.getElementById(FORM_IDS.login);
+    const registerForm = document.getElementById(FORM_IDS.register);
+    const confirmForm = document.getElementById(FORM_IDS.confirm);
 
-// const COOKIE_NAME = "auth_form_state"
-// const VALID_STATES = Object.keys(FORM_IDS)
+    if (loginForm) { loginForm.style.display = "none"; }
+    if (registerForm) { registerForm.style.display = "none"; }
+    if (confirmForm) { confirmForm.style.display = "none"; }
 
+    document.querySelectorAll(".register, .login").forEach(btn => {
+        btn.style.borderBottom = "none";
+    });
+}
 
-// function getCookie(name){
-//     const cookies = document.cookie.split(';')
-//     for (const cookie of cookies){
-//         const trimmed = cookie.trim()
-//         if (trimmed.startsWith(`${name}=`))
-//     return trimmed.substring(name.length + 1)}
-// }
-// function hideAllForms() {
-//     const loginForm = document.getElementById("login-form-container")
-//     const registerForm = document.getElementById("register-form-container")
-//     const confirmForm = document.getElementById("confirm-email-form-container")
+function showForm(state) {
+    hideAllForms();
 
-//     if(loginForm){
-//         loginForm.style.display = "none"
-//     }
-//     if(registerForm){
-//         registerForm.style.display = "none"
-//     }
-//     if(confirmForm){
-//         confirmForm.style.display = "none"
-//     }
-// }
-// hideAllForms()
+    if (state === "login") {
+        const form = document.getElementById(FORM_IDS.login);
+        if (form) { 
+            form.style.display = "flex";
+            
+            const btn = form.querySelector(".login");
+            if (btn) btn.style.borderBottom = "2px solid rgba(84, 60, 82, 1)";
+        }
+    }
+    
+    if (state === "register") {
+        const form = document.getElementById(FORM_IDS.register);
+        if (form) { 
+            form.style.display = "flex";
+            
+            
 
+            const btn = form.querySelector(".register")
+            if (btn) btn.style.borderBottom = "2px solid rgba(84, 60, 82, 1)"
+        }
+    }
+    
+    if (state === "confirm") {
+        const form = document.getElementById(FORM_IDS.confirm);
+        if (form) { 
+            form.style.display = "flex"; 
+        }
+    }
+}
 
-// function showForm(formName){
-//     hideAllForms()
-//     if (state === "login"){
-//         const form = document.getElementById("login-form-container")
-//         if (form){form.style.display = "block"}
-//     }
-//     if (state === "register"){
-//         const form = document.getElementById("register-form-container")
-//         if (form){form.style.display = "block"}
-//     }
-//     if (state === "confirm"){
-//         const form = document.getElementById("confirm-email-form-container")
-//         if (form){form.style.display = "block"}
-//     }
-// }
-// const openLogin = document.getElementById("open-login-form")
-// const openRegister = document.getElementById("open-register-form")
-
-
-// openLogin.addEventListener("click", () => {showForm("login")})
-// openRegister.addEventListener("click", () => {console.log(123)})
-// // showForm("register")
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".register").forEach(button => {
+        button.onclick = () => showForm("register");
+    });
+    
+    document.querySelectorAll(".login").forEach(button => {
+        button.onclick = () => showForm("login");
+    });
+    showForm("register");
+});

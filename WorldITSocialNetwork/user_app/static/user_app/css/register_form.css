@@ -1,20 +1,16 @@
 .section-register {
     display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    justify-content: center;
     flex-direction: column;
-    align-items: left;
-    width: 33vw;
-    min-height: 57px;
-    padding: 3vw;
-    border-radius: 2vh;
-    background-color: #FFFFFF;
-    top: 180px;
-    left: 18.5vw;
-    position: fixed;
-    gap: 1vw;
-    z-index: 1;
-    padding: 1.5vw 3vw 5vh 3vw;
+    position: fixed; /* Оставляем fixed, раз тебе так нужно под ноутбук */
+    top: 180px;      
+    left: 18.5vw;    
+    width: 450px;    
+    height: auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    z-index: 100;   
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 .section-head{
     display: flex;
@@ -71,7 +67,7 @@
     max-width: 100%;
     box-sizing: border-box;
 }
-.button-register{
+/* .button-register{
     width: 100%;
     gap: 1vh;
     padding-top: 2vh;
@@ -86,4 +82,4 @@
     font-family: 'GT-Walsheim', sans-serif;
     font-size: 0.8vw;
     margin-top: 2.5vh;
-}
+} */

@@ -1,11 +1,13 @@
-<!-- <div class="section-login">
-    <nav class="login-head">
-        <p id = "open-register-form" class="register">Реєстрація</p>
-        <p id = "open-login-form" class="login"><u>Авторизація</u></p>
+<div class="section-register" id="login-form-container">
+    <nav class="section-head">
+        <p class="register">Реєстрація</p>
+        <p class="login">Авторизація</p>
     </nav>
-    <p class="paragraf">Раді тебе знову бачити!</p>
-    <form action="" method="post" class="form-authorization" id = "login-form-container">
+    <p class="worldit">Раді тебе знову бачити!</p>
+    
+    <form action="" method="post" class="form-register">
+        {% csrf_token %}
         {{ form_login.as_div }}
-        <button class="button-authorization" type="submit">Увійти</button>
+        <button class="button-register" type="submit">Увійти</button>
     </form>
-</div> -->
+</div>

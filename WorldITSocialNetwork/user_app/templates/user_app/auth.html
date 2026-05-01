@@ -18,10 +18,16 @@
 {% endblock %}
 
 {% block content %}
-    <div>
-        {% include 'user_app/particles/form_register.html' %}
-        {% include 'user_app/particles/form_login.html' %}     
-        {% include 'user_app/particles/form_confirm_email.html' %}
+    <div class="forms-wrapper">
+        {% include 'user_app/particles/form_register.html' %} 
+
+        <div id="login-form-container" style="display: none;">
+            {% include 'user_app/particles/form_login.html' %}
+        </div>
+        
+        <div id="confirm-email-form-container" style="display: none;">
+            {% include 'user_app/particles/form_confirm_email.html' %}
+        </div>
     </div>
     <img class="laptop-img" src="{% static 'images/laptop.png'%}" alt="">
 {% endblock %}
