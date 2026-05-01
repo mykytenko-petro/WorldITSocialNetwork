@@ -1,11 +1,15 @@
-<div class="section-register">
-    <nav class="section-head">
-        <p id = "open-register-form" class="register"><u>Реєстрація</u></p>
-        <p id = "open-login-form" class="login">Авторизація</p>
+<div id="register-form-container">
+    <nav>
+        <p class="active-button button">Реєстрація</p>
+        <p id="open-login-form" class="button">Авторизація</p>
     </nav>
-    <p>Приєднуйся до World IT</p>
-    <form action="" method="post" class="form-register">
-        {{ form_register.as_p }}
-        <button class="butt-register" type="submit">Створити акаунт</button>
+
+    <p class="message">Приєднуйся до World IT</p>
+    
+    <form action="{% url 'register' %}" method="post">
+        {{ form_register.as_div }}
+
+        <button class="button">Створити акаунт</button>
     </form>
 </div>
+

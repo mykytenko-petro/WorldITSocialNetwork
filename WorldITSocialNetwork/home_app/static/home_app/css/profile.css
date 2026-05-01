@@ -8,24 +8,6 @@
     gap: 0.5vh;
 }
 
-.requests {
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    border-radius: 2vh;
-    border: 1px solid #CDCED2;
-    width: 100%;
-    background-color: white;
-    flex-direction: column;
-    align-items: center;
-}
-.request-inquiry{
-    display: flex;
-    width: 95%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .profile {
     display: flex;
     flex-direction: column;
@@ -36,37 +18,35 @@
     border-radius: 2vh;
     border: 1px solid #CDCED2;
     width: 100%;
-    padding: 1vh;
     padding: 1vh 1.5vw;
 }
 
-.profile .profile-head{
+.profile .profile-head {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 1vh
-    
+    gap: 1vh;
 }
 
-.profile .profile-head .text-profile{
+.profile .profile-head .text-profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 0.5vh
+    gap: 0.5vh;
 }
 
-.profile .profile-footer{
+.profile .profile-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* gap: 3vw; */
     width: 100%;
     margin-top: 1vh;
 }
+
 .profile .profile-footer div:nth-child(2) {
     border-left: 1px solid gray;
     border-right: 1px solid gray;
@@ -77,144 +57,133 @@
     color: #81818D;
 }
 
-
-.requests-example{
-    display: flex;
-    align-items: left;
-    font-family: 'GT-Walsheim';
-    width: 95%;
-    background-color: white;
-    justify-content: left; 
-    height: 90%;
-    padding: 16px;
-    gap: 1vh;
-    flex-direction: column;
-}
-
-.requests-example > .request-box{
-    width: 95%;
-    height: 46px;
-    display: flex;
-    align-items: left;
-    flex-direction: row;
-    column-gap: 1vh;
-}
-
-.request-image{
-    justify-content: left;
-}
-
-.follower-info{
+.requests, .messages {
     display: flex;
     flex-direction: column;
-    gap: 0.2vh;
-}
-
-.grey-text{
-    color: #81818D;
-    font-size: 14px;
-}
-
-.messages {
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    border-radius: 2vh;
-    border: 1px solid #CDCED2;
-    width: 100%;
-    background-color: white;
-    flex-direction: column;
-    gap: 1.3vh;
-    height:104%;
-}
-
-.message-inquiry{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-left: 0.5vw;
-    gap: 7.2vw;
     align-items: center;
+    width: 100%;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 2vh;
+    font-family: 'GT-Walsheim', sans-serif;
+}
+
+.request-inquiry, .message-inquiry {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 0;
 }
 
 .request-inquiry a, .message-inquiry a {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     color: #81818D;
     gap: 0.5vw;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .request-inquiry p, .message-inquiry p {
     color: #543C52;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    cursor: pointer;
+    padding-top: 1vh;
+}
+
+.requests-example {
     display: flex;
+    flex-direction: column;
+    width: 95%;
+    gap: 1.5vh;
+    padding: 0.5vh 1.1vw;
+}
+
+.request-box, .grey-box {
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    column-gap: 1vh;
+    width: 100%;
+}
+
+.request-image img, .message-image img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.message-box, .grey-box{
+    padding: 1vh 1.3vw;
+    column-gap: 1vh; 
+}
+
+.request-box{
+    column-gap: 1vh; 
+}
+
+.follower-info, .message-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin-left: 0.5vw;
+}
+
+.user-time, .follower-details {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 0.5vw;
+    align-items: center;
+    width: 100%;
+    padding-right: 1vw;
+}
+
+.request-text, .user-text {
+    font-weight: bold;
+    font-size: 0.9vw;
+    color: #000;
+}
+
+.message-time, .grey-text p {
+    color: #81818D;
+    font-size: 0.7vw;
+}
+
+.grey-text, .message-text {
+    text-decoration: none;
+}
+
+.message-text p {
+    margin: 0;
+    font-size: 0.7vw;
+}
+.messages{
+    display: flex;
+    justify-content: left;
+}
+
+.message-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.grey-box {
+    background-color: #E9E5EE;
+    margin-top: -1.5vh;
 }
 
 .message-example{
-    display: flex;
-    flex-direction: column;
-    font-family: 'GT-Walsheim';
     width: 100%;
-    height: 100%;
-    gap: 1px;
-    background-color: #E9E5EE;
-    box-sizing: border-box;
-    border-bottom-left-radius: 2vh;
-    border-bottom-right-radius: 2vh;
 }
 
-.message-example > .grey-box{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 12px;
-    padding-top: 0.7vh;
-    width: 100%;
-    background-color: #E9E5EE;
-}
-.message-example .message-box{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    gap: 12px;
-    background-color: #FFFFFF;
-    padding-top: 0.7vh;
-    padding-bottom: 0.7vh;
-    border-bottom-left-radius: 2vh;
-    border-bottom-right-radius: 2vh;
-}
-
-.message-image{
-    object-fit: cover;
-    margin-left: 1.8vw;
-}
-
-.message-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    gap: 4px;
-    width: 100%;
-    min-width: 0;
-}
-
-.user-time{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 95%;
-    gap: 7px;
-}
-.user-text{
-    font-family: 'GT-Walsheim';
-    font-size: 14px;
-}
-
-.message-time{
-    color: #81818D;
-    font-size: 12px;
+.request-image img, .message-image img {
+    flex-shrink: 0;
 }

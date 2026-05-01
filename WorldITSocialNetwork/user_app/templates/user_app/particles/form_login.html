@@ -1,11 +1,14 @@
-<div class="section-login">
+<div id="login-form-container">
     <nav class="login-head">
-        <p id = "open-register-form" class="register">Реєстрація</p>
-        <p id = "open-login-form" class="login"><u>Авторизація</u></p>
+        <p id="open-register-form" class="button">Реєстрація</p>
+        <p class="button active-button">Авторизація</p>
     </nav>
-    <p>Раді тебе знову бачити!</p>
-    <form action="" method="post" class="form-authorization">
-        {{ form_login.as_p }}
-        <button class="butt-authorization" type="submit">Увійти</button>
+    
+    <p class="message">Раді тебе знову бачити!</p>
+    
+    <form action="{% url 'login' %}" method="post" id="login-form-container">
+        {{ form_login.as_div }}
+
+        <button class="button">Увійти</button>
     </form>
 </div>

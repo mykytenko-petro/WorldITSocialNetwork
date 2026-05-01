@@ -8,9 +8,11 @@ a {
     color: #000;
     text-decoration: none
 }
-
+a, p, label, input, button {
+    font-family: 'GT-Walsheim';
+}
 body {
-    overflow-x: hidden;
+    overflow: hidden;
     background-color: #FAF8FF;
 }
 

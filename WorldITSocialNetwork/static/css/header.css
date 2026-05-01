@@ -35,20 +35,14 @@ header a:not(.logo):hover {
     border-radius: 2vw;
 }
 
-.logout > img{
-    margin-right: 2px;
-}
-
-.menu > a {
-    padding: 0.4vw;
-    border-radius: 3px; 
-}
-
 .menu > a {
     color: #000000;
     text-decoration: none;
     display: flex;
     align-items: center;
+    padding: 0.4vw;
+    border-radius: 3px; 
+    gap: 0.5vw;
 }
 
 .conteiner{
