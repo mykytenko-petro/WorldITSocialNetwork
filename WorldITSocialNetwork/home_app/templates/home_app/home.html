@@ -115,6 +115,8 @@
 {% endblock %}
 
 {% block content %}
-    <!-- <div class="test"></div> -->
+    {% if user.is_authenticated and not user.profile_details_filled %}
+        {% include 'home_app/particles/complete_profile_modal.html' %}
+    {% endif %}
 {% endblock content %}
 

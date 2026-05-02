@@ -29,7 +29,7 @@
                             <a href="{% url 'settings_app' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
                         </nav>
                 
-                        <a href="" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
+                        <a href="{% url 'logout' %}" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
                     </div>   
                 {% endif %}
             </div>
