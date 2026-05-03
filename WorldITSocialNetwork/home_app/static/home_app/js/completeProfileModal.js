@@ -17,10 +17,11 @@ button?.addEventListener(
         .then(async response =>{
             const data = await response.json()
             if (!response.ok){
+                console.error(response.status)
                 throw data
             }
 
-            document.querySelector("#complete-profile").styles.display = "none"
+            document.querySelector("#complete-profile").style.display = "none"
         })
         .catch(async (errors) => {
             alert(JSON.stringify(errors))

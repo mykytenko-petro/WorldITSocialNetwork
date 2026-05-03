@@ -1,5 +1,4 @@
 .complete-profile {
-    width: 34.03vw;
     height: 46.35vh;
 
     padding: 1.67vw;
@@ -45,4 +44,15 @@
     
     border: 1px solid #CDCED2;
     border-radius: 2vh;
+}
+
+.complete-profile > div {
+    width: 100%;
+
+    display: flex;
+    justify-content: end;
+}
+
+.complete-profile > div > button {
+    padding: 10px;
 }

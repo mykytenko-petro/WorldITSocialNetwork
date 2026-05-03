@@ -3,7 +3,7 @@ main {
     flex-direction: column;
     padding-left: 10vw;
     width: 100vw;
-    top: 90px;
+    top: 85px;
 }
 
 .wrapper{
@@ -23,7 +23,7 @@ main {
 }
 .side-panel{
     position: fixed;
-    top: 88px;
+    top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -31,6 +31,7 @@ main {
 }
 
 .content{
+    top:90px;
     display: flex;
     flex-direction: column;
     height: 200vh;

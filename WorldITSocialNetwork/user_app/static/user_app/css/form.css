@@ -68,3 +68,9 @@
     border: 1px solid #CDCED2;
     border-radius: 2vh;
 }
+
+button {
+    width: 100%;
+
+    padding: 1vw;
+}

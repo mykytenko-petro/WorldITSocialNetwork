@@ -19,12 +19,8 @@ class ProfileDetailForm(forms.Form):
     
     def clean_username(self):
         username = self.cleaned_data['username']
-
-        if username[0] != "@":
-            raise forms.ValidationError("Ім'я користувача повинно починатися з @")
         
         if User.objects.filter(username=username).exists():
             raise forms.ValidationError("Таке ім'я користувача вже зайняте")
         
-
         return username
