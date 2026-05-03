@@ -1,8 +1,8 @@
 from django.views.generic.base import TemplateView
-from user_app.forms import ProfileDetailForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from user_app.models import User
+from .forms import ProfileDetailForm
 
 
 class HomeView(LoginRequiredMixin, TemplateView):

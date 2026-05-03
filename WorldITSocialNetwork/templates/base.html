@@ -7,17 +7,7 @@
         
         <title>{% block title %}{% endblock title %}</title>
 
-        <!-- shared -->
-        <link rel="stylesheet" href="{% static 'css/shared/base.css' %}">
-        <link rel="stylesheet" href="{% static 'css/shared/font.css' %}">
-        <link rel="stylesheet" href="{% static 'css/shared/test.css' %}">
-        
-        <!-- layout -->
-        <link rel="stylesheet" href="{% static 'css/layout/content.css' %}">
-        <link rel="stylesheet" href="{% static 'css/layout/header.css' %}">
-
-        <!-- components -->
-        <link rel="stylesheet" href="{% static 'css/components/modal.css' %}">
+        {% include 'particles/styles.html'   %}
 
         {% block links %}{% endblock links %} 
     </head>
