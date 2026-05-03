@@ -4,10 +4,12 @@ from WorldITSocialNetwork.settings import EMAIL_HOST_USER
 
 
 def send_code(code, email):
-    send_mail(
+    try:
+        send_mail(
         subject="Код підтвердження",
         message=f"Код підтвердження: {code}",
         from_email=EMAIL_HOST_USER,
         recipient_list=[email],
         fail_silently=False,
     )
+    except: pass

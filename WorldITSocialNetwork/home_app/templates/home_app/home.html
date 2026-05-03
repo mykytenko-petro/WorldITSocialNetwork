@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block links %}
+    <link rel="stylesheet" href="{% static 'home_app/css/complete-profile-modal.css' %}">
     <link rel="stylesheet" href="{% static 'home_app/css/profile.css' %}">
 {% endblock links %}
 
@@ -115,6 +116,8 @@
 {% endblock %}
 
 {% block content %}
-    <!-- <div class="test"></div> -->
+    {% if profile_details_form %}
+        {% include 'home_app/particles/complete_profile_modal.html' %}
+    {% endif %}
 {% endblock content %}
 

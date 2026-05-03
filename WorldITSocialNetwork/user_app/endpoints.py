@@ -1,7 +1,6 @@
 import random
 
 from django.views import View
-from django.shortcuts import redirect
 from django.contrib.auth import get_user_model, login, authenticate
 from django.http import HttpRequest, JsonResponse
 

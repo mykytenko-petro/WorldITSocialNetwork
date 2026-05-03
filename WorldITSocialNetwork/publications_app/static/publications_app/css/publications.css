@@ -71,24 +71,44 @@
     gap: 0.5vh;
 }
 
-.my-publications-content div {
+.post-create {
     width: 100%;
-    height: 100%;
-
+    height: 11.18vh;
 }
 
-.div-create{
+.create{
     width: 95%;
     height: 95%;
     font-size: 1.56vh;
 }
-
+.div-create{
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.56vh;
+}
 .create-footer{
     width:100%;
     display: flex;
+    flex-direction: row;
     align-items: end;
 }
+
+.block {
+    width:16.88vw;
+    height: 3.9vh;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 0.91vw;
+}
+.reaction {
+    width:2.78vw;
+    height: 3.9vh;
+}
 .button-edit {
+    font-size: 0.97vw;
+    height: 3.9vh;
+    width: 13.19vw;
     border-radius: 4.88vh;
     color: white;
     background-color: rgba(84, 60, 82, 1);

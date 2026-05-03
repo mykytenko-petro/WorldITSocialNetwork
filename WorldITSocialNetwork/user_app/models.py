@@ -6,10 +6,16 @@ class User(AbstractUser):
     username = models.CharField(
         max_length=150,
         blank=True,
-        null=True
+        null=True,
+        unique=True
     )
-
     email = models.EmailField(
+        unique=True
+    )
+    author_pseudonym = models.CharField(
+        max_length=150,
+        blank=True,
+        null=True,
         unique=True
     )
 

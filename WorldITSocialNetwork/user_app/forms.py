@@ -57,8 +57,9 @@ class LoginForm(forms.Form):
     
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if User.objects.filter(email= email).exists():
+        if not User.objects.filter(email= email).exists():
             raise forms.ValidationError('Користувач з таким email вже є')
+        return email
     
 class ConfirmEmailForm(forms.Form):
     email = forms.CharField(widget=forms.HiddenInput())
@@ -107,3 +108,31 @@ class ConfirmEmailForm(forms.Form):
         cleaned_data.pop("email")
         
         return int("".join(cleaned_data.values()))
+    
+class ProfileDetailForm(forms.ModelForm):
+    author_pseudonym = forms.CharField(
+        label="Псевдонім автора",
+        widget=forms.TextInput(attrs={"placeholder": "Введіть Псевдонім автора"})
+    )
+    username = forms.CharField(
+        label="Ім’я користувача",
+        widget=forms.TextInput(attrs={"placeholder": "@"})
+    )
+
+    class Meta:
+        model = User
+        fields = ["author_pseudonym", "username"]
+    
+    def clean_author_pseudonym(self):
+        return self.cleaned_data['author_pseudonym']
+    
+    def clean_username(self):
+        username = self.cleaned_data['username']
+
+        if username[0] != "@":
+            raise forms.ValidationError("Ім'я користувача повинно починатися з @")
+        
+        if User.objects.filter(username=username).exclude(pk=self.instance.pk).exists():
+            raise forms.ValidationError("Таке ім'я користувача вже зайняте")
+        
+        return username
