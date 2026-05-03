@@ -7,6 +7,7 @@ from django.http import HttpRequest, JsonResponse
 from WorldITSocialNetwork.store import cache_store
 from .forms import LoginForm, RegisterForm, ConfirmEmailForm
 from .smtp import send_code
+from .models import Profile
 
 
 User = get_user_model()
@@ -78,10 +79,11 @@ class ConfirmEmailView(View):
                 'errors': "невірний код"
             }, status= 400)
         
-        User.objects.create_user(
+        user = User.objects.create_user(
             username=" ",
             email=form.cleaned_data['email'],
             password=cache_store[form.cleaned_data["email"]]["password"]
         )
+        Profile.objects.create(user=user)
 
         return JsonResponse({})
