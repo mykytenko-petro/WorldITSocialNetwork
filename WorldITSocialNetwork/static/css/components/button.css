@@ -1,0 +1,8 @@
+.button-purple {
+    border-radius: 50px;
+
+    color: white;
+    background-color: rgba(84, 60, 82, 1);
+    
+    font-size: 1.67vh;
+}

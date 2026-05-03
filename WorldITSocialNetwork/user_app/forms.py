@@ -57,39 +57,54 @@ class LoginForm(forms.Form):
     
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if User.objects.filter(email= email).exists():
+        if not User.objects.filter(email= email).exists():
             raise forms.ValidationError('Користувач з таким email вже є')
+        return email
     
-
 class ConfirmEmailForm(forms.Form):
-    number1 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    email = forms.CharField(widget=forms.HiddenInput())
+
+    number1 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number2 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number2 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number3 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number3 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number4 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number4 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number5 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number5 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
-    number6 = forms.CharField(widget= forms.NumberInput(attrs= {'placeholder': '_'}),
+    )
+    number6 = forms.CharField(
+        widget= forms.TextInput(attrs= {'placeholder': '___'}),
         max_length=1, min_length=1, required=True
-        )
+    )
     
     def clean(self):
-        cleaned_data = super().clean()
-
-        count = len(cleaned_data)
-        if count is not 6:
-            raise forms.ValidationError('Цифр має бути шість')
+        cleaned_data = super().clean().copy()
+        cleaned_data.pop("email")
         
+        if len(cleaned_data) != 6:
+            raise forms.ValidationError('Цифр має бути шість')
+
         for value in cleaned_data.values():
-            if type(value) is not int:
+            if not value.isdigit():
                 raise forms.ValidationError('Це не цифра')
             
-        return cleaned_data
+        return self.cleaned_data
+    
+    @property
+    def code(self):
+        cleaned_data = super().clean().copy()
+        cleaned_data.pop("email")
+        
+        return int("".join(cleaned_data.values()))

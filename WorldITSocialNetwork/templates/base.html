@@ -4,12 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="csrf-token" content="{{ csrf_token }}">
+
         <title>{% block title %}{% endblock title %}</title>
 
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <link rel="stylesheet" href="{% static 'css/header.css' %}">
-        <link rel="stylesheet" href="{% static 'css/font.css' %}">
+        {% include 'particles/styles.html'   %}
+
         {% block links %}{% endblock links %} 
     </head>
     <body>
@@ -29,7 +29,7 @@
                             <a href="{% url 'settings_app' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
                         </nav>
                 
-                        <a href="" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
+                        <a href="{% url 'logout' %}" class="logout"><img src="{% static 'icon/exit.svg'%}" alt="">Вихід</a>
                     </div>   
                 {% endif %}
             </div>
@@ -50,6 +50,7 @@
         
         <script src="{% static 'js/modules/js.cookie.js' %}"></script>
         
+        <script src="{% static 'js/constants.js' %}"></script>
         <script src="{% static 'js/linkHighlight.js' %}"></script>
         
         {% block scripts %}{% endblock scripts %}

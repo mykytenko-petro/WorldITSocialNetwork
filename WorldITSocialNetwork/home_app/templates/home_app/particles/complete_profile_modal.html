@@ -1,0 +1,19 @@
+<div class="complete-profile modal" id="complete-profile">
+    <p class="title">Додай деталі про себе</p>
+
+    <form action="{% url "complete_profile" %}">
+        <div>
+            {{ profile_details_form.author_pseudonym.label_tag }}
+            {{ profile_details_form.author_pseudonym }}
+        </div>
+        <div>
+            {{ profile_details_form.username.label_tag }}
+            {{ profile_details_form.username }}
+            <p class="message">Або оберіть: <span>Запропоновані варіанти відповідно до Ім’я та Прізвища</span></p>
+        </div>
+    </form>
+
+    <div>
+        <button class="button-purple">Продовжити</button>
+    </div>
+</div>

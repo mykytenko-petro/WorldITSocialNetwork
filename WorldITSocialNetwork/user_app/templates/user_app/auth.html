@@ -1,39 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-{% block meta %}
-    <meta>
-{% endblock %}
-
-{% block title %}
-    Auth
-{% endblock %}
+{% block title %}Auth{% endblock %}
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'user_app/css/auth.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/register_form.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/login_form.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/confirm_email_form.css' %}">
-    <link rel="stylesheet" href="{% static 'user_app/css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/confirm-email-form.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/form.css' %}">
 {% endblock %}
 
-{% block content %}
-    <!-- {% if user.is_authenticated %}
-        <script>alert("user is login")</script>
-    {% else %}
-        <h2>user ne login</h2>
-    {% endif %} -->
-    <div>
+{% block content %}    
+    <div class="form">
         {% include 'user_app/particles/form_register.html' %}
-        {% include 'user_app/particles/form_login.html' %}     
+        {% include 'user_app/particles/form_login.html' %}
         {% include 'user_app/particles/form_confirm_email.html' %}
     </div>
-    <img class="laptop-img" src="{% static 'images/laptop.png'%}" alt="">
+    
+    <img class="laptop-img" src="{% static 'images/laptop-and-phone.png'%}">
 
 {% endblock %}
 
 {% block scripts %}
-    <script type="module" src="{% static 'user_app/js/authforms.js' %}"></script>
-    <script type="module" src="{% static 'user_app/js/formLogic.js' %}"></script>
+    <!-- logic -->
+    <script type="module" src="{% static 'user_app/js/DOM.js' %}"></script>
+    <script type="module" src="{% static 'user_app/js/displayLogic.js' %}"></script>
+
+    <!-- forms -->
+    <script type="module" src="{% static 'user_app/js/forms/registrationForm.js' %}"></script>
+    <script type="module" src="{% static 'user_app/js/forms/loginForm.js' %}"></script>
+    <script type="module" src="{% static 'user_app/js/forms/emailConfirmationForm.js' %}"></script>
 {% endblock %}

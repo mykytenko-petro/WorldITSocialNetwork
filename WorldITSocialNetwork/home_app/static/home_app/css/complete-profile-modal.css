@@ -1,0 +1,58 @@
+.complete-profile {
+    height: 46.35vh;
+
+    padding: 1.67vw;
+
+    gap: 0.8vh;
+}
+
+.title {
+    font-size: 3.54vh;
+}
+
+.message {
+    font-size: 1.25vh;
+}
+
+.message > span {
+    color: rgba(34, 197, 94, 1);
+}
+
+.complete-profile > form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.67vh;
+}
+
+.complete-profile > form > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.63vh;
+}
+
+.complete-profile > form > div > input {    
+    width: 100%;
+    
+    padding: 1vw 2vh;
+    
+    background-color: #FFFFFF;
+    
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+}
+
+.complete-profile > div {
+    width: 100%;
+
+    display: flex;
+    justify-content: end;
+}
+
+.complete-profile > div > button {
+    padding: 10px;
+}

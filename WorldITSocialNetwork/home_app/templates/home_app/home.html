@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block links %}
+    <link rel="stylesheet" href="{% static 'home_app/css/complete-profile-modal.css' %}">
     <link rel="stylesheet" href="{% static 'home_app/css/profile.css' %}">
 {% endblock links %}
 
@@ -98,7 +99,7 @@
                     </div>
                 </div>
                 <div class="message-box">
-                    <a class="request-image"><img src="{% static 'home_app/images/mock_image_6.png' %}" alt=""></a>
+                    <a class="message-image"><img src="{% static 'home_app/images/mock_image_6.png' %}" alt=""></a>
                     <div class="message-info">
                         <div class="user-time">
                             <p class="user-text">Ness Ty</p>
@@ -115,6 +116,11 @@
 {% endblock %}
 
 {% block content %}
-    <!-- <div class="test"></div> -->
+    {% if profile_details_form %}
+        {% include 'home_app/particles/complete_profile_modal.html' %}
+    {% endif %}
 {% endblock content %}
 
+{% block scripts %}
+    <script type="module" src="{% static 'home_app/js/completeProfileModal.js' %}"></script>
+{% endblock %}
