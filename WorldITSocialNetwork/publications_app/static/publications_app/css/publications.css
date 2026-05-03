@@ -60,3 +60,36 @@
     color: #81818D;
 }
 
+.my-publications-content{
+    width: 64.1vw;
+    padding-top: 1.5vh;
+    display: flex;
+    font-family: 'GT-Walsheim', sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.my-publications-content div {
+    width: 100%;
+    height: 100%;
+
+}
+
+.div-create{
+    width: 95%;
+    height: 95%;
+    font-size: 1.56vh;
+}
+
+.create-footer{
+    width:100%;
+    display: flex;
+    align-items: end;
+}
+.button-edit {
+    border-radius: 4.88vh;
+    color: white;
+    background-color: rgba(84, 60, 82, 1);
+}

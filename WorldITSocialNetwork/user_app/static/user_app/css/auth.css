@@ -1,20 +1,23 @@
-*{
-    box-sizing: border-box;
-    top: 0;
-    left:0;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+.laptop-img {
+    position: fixed;
+    top: 25.88vh;
+    left: 45.67vw;
+    z-index: -1;
+
+    height: 54.91vh;
 }
 
-.laptop-img{
-    top: 4vh;
+.form {
     position: fixed;
-    height: 100vh;
-    z-index: -1;
-    margin-left: auto;
-    padding: 10vw;
-    left: 39vw;
+    top: 24.58vh;
+    left: 17.25vw;
+
+    width: 33.82vw;
+
+    padding: 3.06vw;
+
+    background-color: #FFFFFF;
+
+    border-radius: 2vh;
 }
+

@@ -1,12 +1,14 @@
-<div class="section-register" id="register-form-container">
-    <nav class="section-head">
-        <p id="open-register-form" class="register">Реєстрація</p>
-        <p id="open-login-form" class="login">Авторизація</p>
+<div id="register-form-container">
+    <nav>
+        <p class="active-button button">Реєстрація</p>
+        <p id="open-login-form" class="button">Авторизація</p>
     </nav>
-    <p class="worldit">Приєднуйся до World IT</p>
-    <form action="" method="post" class="form-register">
-        {% csrf_token %}
+
+    <p class="message">Приєднуйся до World IT</p>
+    
+    <form action="{% url 'register' %}" method="post">
         {{ form_register.as_div }}
-        <button class="button-register" id= " " type="submit">Створити акаунт</button>
+
+        <button class="button">Створити акаунт</button>
     </form>
 </div>

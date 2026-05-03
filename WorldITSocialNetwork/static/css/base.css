@@ -8,7 +8,7 @@ a {
     color: #000;
     text-decoration: none
 }
-a, p{
+a, p, label, input, button {
     font-family: 'GT-Walsheim';
 }
 body {
@@ -21,7 +21,7 @@ main {
     flex-direction: column;
     padding-left: 10vw;
     width: 100vw;
-    top: 90px;
+    top: 85px;
 }
 
 .wrapper{
@@ -41,7 +41,7 @@ main {
 }
 .side-panel{
     position: fixed;
-    top: 88px;
+    top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -55,8 +55,6 @@ main {
     width: 54vw;
     justify-content: right;
     align-items: center;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
 .test{
