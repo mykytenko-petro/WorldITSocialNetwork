@@ -31,6 +31,7 @@ main {
 }
 
 .content{
+    top:90px;
     display: flex;
     flex-direction: column;
     height: 200vh;
