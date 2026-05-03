@@ -12,6 +12,7 @@ class HomeView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         user: User = self.request.user # type: ignore
         
-        context['profile_details_form'] = user.author_pseudonym and user.username != ' '
+        if not user.author_pseudonym or user.username != ' ':
+            context['profile_details_form'] = ProfileDetailForm()
             
         return context

@@ -27,4 +27,4 @@ class AuthTemplateView(UserPassesTestMixin, TemplateView):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect('user_app')
+        return redirect('auth')

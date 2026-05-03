@@ -110,6 +110,15 @@ class ConfirmEmailForm(forms.Form):
         return int("".join(cleaned_data.values()))
     
 class ProfileDetailForm(forms.ModelForm):
+    author_pseudonym = forms.CharField(
+        label="Псевдонім автора",
+        widget=forms.TextInput(attrs={"placeholder": "Введіть Псевдонім автора"})
+    )
+    username = forms.CharField(
+        label="Ім’я користувача",
+        widget=forms.TextInput(attrs={"placeholder": "@"})
+    )
+
     class Meta:
         model = User
         fields = ["author_pseudonym", "username"]
@@ -119,7 +128,11 @@ class ProfileDetailForm(forms.ModelForm):
     
     def clean_username(self):
         username = self.cleaned_data['username']
+
+        if username[0] != "@":
+            raise forms.ValidationError("Ім'я користувача повинно починатися з @")
         
         if User.objects.filter(username=username).exclude(pk=self.instance.pk).exists():
             raise forms.ValidationError("Таке ім'я користувача вже зайняте")
+        
         return username
