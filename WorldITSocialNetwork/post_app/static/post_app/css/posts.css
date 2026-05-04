@@ -1,3 +1,4 @@
+/* side panel */
 .user-container {
     padding-top: 1.5vh;
     display: flex;
@@ -17,7 +18,7 @@
     text-align: center;
     background-color: white;
     border-radius: 2vh;
-    border: 1px solid gray;
+    border: 1px solid #CDCED2;
     width: 100%;
     padding: 1vh;
     padding: 1vh 1.5vw;
@@ -60,64 +61,46 @@
     color: #81818D;
 }
 
-.my-publications-content{
-    position: fixed;
-    padding-top: 11vh;
-    width: 64.1vw;
-    padding-top: 1.5vh;
-    display: flex;
-    font-family: 'GT-Walsheim', sans-serif;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5vh;
-}
-
+/* posts */
 .post-create {
-    position: fixed;
-    top: 11vh;
+    
+    font-family: 'GT-Walsheim', sans-serif;
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
     width: 100%;
-    height: 11.18vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.create{
-    position: fixed;
-    width: 61.88vw;
-    height: 8.59vh;
+.post-create > div{
+    border-radius: 2vh;
+    width: 95%;
+    height: 95%;
     font-size: 1.56vh;
-    gap: 30px;
-}
-.div-create{
+    gap: 10vh;
     display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+textarea{
+    display: flex;
+    width: 95%;
     align-items: flex-start;
     font-size: 1.56vh;
 }
+
 .create-footer{
     width:100%;
     display: flex;
     flex-direction: row;
-    align-items: start;
+    align-items: start;  
 }
 
-.block {
-    display: flex;
-    position: relative;
-    width:16.88vw;
-    height: 3.9vh;
-    display: flex;
-    flex-direction: row;
-    left: 13.5vw;
-    gap: 0.91vw;
-}
-.reaction {
-    width:2.78vw;
-    height: 3.9vh;
-}
-.button-edit {
+/* .button-edit {
     font-size: 1.36vh;
     height: 3.9vh;
-    width: 13.19vw;
+    width: 10.19vw;
     border-radius: 4.88vh;
     color: white;
     background-color: rgba(84, 60, 82, 1);
-}
+} */

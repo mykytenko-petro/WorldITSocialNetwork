@@ -35,26 +35,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="my-publications-content">
-    <div class="post-create">
-        <div class="create">
-            <div class="div-create">
-                <p>Тема публікації</p>
-            </div>
-            <div class="create-footer">
-                <div class="block">
-                    <div class="reaction">
-                        <!--<button><img src="{% static 'icon/.svg' %}" alt=""></a></button>-->
-                    </div>
-                    <div>
-                        <button class="button-edit">Перейти до оформлення</button>
-                    </div>
-                </div>
-            </div>
+<div class="post-create">
+    <div>
+        <textarea>Текст публікації</textarea>
+        <div class="create-footer">
+            <button class="button-edit purple-button">Перейти до оформлення</button>
         </div>
     </div>
+</div>
 
-    <div class="post-content">
+<div class="post-content">
     </div>
 </div>
 {% endblock content %}

@@ -1,7 +1,6 @@
 main {
     display: flex;
     flex-direction: column;
-    padding-left: 10vw;
     width: 100vw;
     top: 85px;
 }
@@ -23,7 +22,6 @@ main {
 }
 .side-panel{
     position: fixed;
-    top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -31,11 +29,9 @@ main {
 }
 
 .content{
-    top:90px;
     display: flex;
     flex-direction: column;
-    height: 200vh;
     width: 54vw;
-    justify-content: right;
+    justify-content: start;
     align-items: center;
 }
