@@ -1,7 +1,7 @@
 <div class="complete-profile modal" id="complete-profile">
     <p class="title">Додай деталі про себе</p>
 
-    <form action="{% url "complete_profile" %}">
+    <form action="{% url "home_app.complete_profile" %}">
         <div>
             {{ profile_details_form.author_pseudonym.label_tag }}
             {{ profile_details_form.author_pseudonym }}
