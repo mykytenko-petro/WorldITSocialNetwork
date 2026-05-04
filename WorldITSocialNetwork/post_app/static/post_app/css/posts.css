@@ -81,6 +81,7 @@
 }
 
 .create{
+        top: 11vh;
     position: fixed;
     width: 61.88vw;
     height: 8.59vh;

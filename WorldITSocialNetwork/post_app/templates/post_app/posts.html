@@ -37,21 +37,24 @@
 {% block content %}
 <div class="my-publications-content">
     <div class="post-create">
-        <div class="create">
-            <div class="div-create">
-                <p>Тема публікації</p>
-            </div>
-            <div class="create-footer">
-                <div class="block">
-                    <div class="reaction">
-                        <!--<button><img src="{% static 'icon/.svg' %}" alt=""></a></button>-->
-                    </div>
-                    <div>
-                        <button class="button-edit">Перейти до оформлення</button>
+        <form method="post">
+            {% csrf_token %}
+            <div class="create">
+                <div class="div-create">
+                    {{ form.as_p }}
+                </div>
+                <div class="create-footer">
+                    <div class="block">
+                        <div class="reaction"></div>
+                        <div>
+                            <button type="submit" class="button-edit" id="button-create-post">
+                                Перейти до оформлення
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <div class="post-content">
