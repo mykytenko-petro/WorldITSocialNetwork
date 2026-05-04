@@ -13,7 +13,7 @@ class AuthTemplateView(UserPassesTestMixin, TemplateView):
         return not self.request.user.is_authenticated
 
     def handle_no_permission(self):
-        return redirect('home_app')
+        return redirect('home_app.index')
 
     def get_context_data(self, **kwargs) -> dict:
         context = super().get_context_data(**kwargs)
@@ -27,4 +27,4 @@ class AuthTemplateView(UserPassesTestMixin, TemplateView):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect('auth')
+        return redirect('user_app.index')

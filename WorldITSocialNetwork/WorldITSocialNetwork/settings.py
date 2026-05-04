@@ -14,10 +14,8 @@ DEBUG = False if os.getenv("DEBUG") == "False" else True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
 INSTALLED_APPS = [
+    # middleware
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -26,10 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # project apps
+    'chat_app',
     'home_app',
-    'friends_app',
-    'publications_app',
-    'settings_app',
+    'post_app',
+    'profile_app',
     'user_app',
 ]
 
@@ -50,10 +48,10 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'templates',
+            BASE_DIR / 'chat_app' / 'templates',
             BASE_DIR / 'home_app' / 'templates',
-            BASE_DIR / 'publications_app' / 'templates',
-            BASE_DIR / 'settings_app' / 'templates',
-            BASE_DIR / 'friends_app' / 'templates',
+            BASE_DIR / 'post_app' / 'templates',
+            BASE_DIR / 'profile_app' / 'templates',
             BASE_DIR / 'user_app' / 'templates',
         ],
         'APP_DIRS': True,
@@ -68,15 +66,12 @@ TEMPLATES = [
 ]
 
 # auth
-
-LOGIN_URL = 'auth'
+LOGIN_URL = 'user_app.index'
 AUTH_USER_MODEL = 'user_app.User'
 
 WSGI_APPLICATION = 'WorldITSocialNetwork.wsgi.application'
 
-
 # Database
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -84,9 +79,7 @@ DATABASES = {
     }
 }
 
-
 # Password validation
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -102,9 +95,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -115,19 +106,17 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [ 
     BASE_DIR / 'static',
+    BASE_DIR / 'chat_app' / 'static',
     BASE_DIR / 'home_app' / 'static',
-    BASE_DIR / 'publications_app' / 'static',
-    BASE_DIR / 'settings_app' / 'static',
-    BASE_DIR / 'friends_app' / 'static',
+    BASE_DIR / 'post_app' / 'static',
+    BASE_DIR / 'profile_app' / 'static',
     BASE_DIR / 'user_app' / 'static',
 ]
 
 # SMTP
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

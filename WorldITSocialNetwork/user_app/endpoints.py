@@ -5,9 +5,9 @@ from django.contrib.auth import get_user_model, login, authenticate
 from django.http import HttpRequest, JsonResponse
 
 from WorldITSocialNetwork.store import cache_store
+from profile_app.models import Profile
 from .forms import LoginForm, RegisterForm, ConfirmEmailForm
 from .smtp import send_code
-from .models import Profile
 
 
 User = get_user_model()

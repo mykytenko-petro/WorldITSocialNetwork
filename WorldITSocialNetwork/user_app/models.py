@@ -16,17 +16,3 @@ class User(AbstractUser):
     email = models.EmailField(
         unique=True
     )
-    
-class Profile(models.Model):
-    user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE,
-        related_name='profile'
-    )
-
-    author_pseudonym = models.CharField(
-        max_length=150,
-        blank=True,
-        null=True,
-        unique=True
-    )
