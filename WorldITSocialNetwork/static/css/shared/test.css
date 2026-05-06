@@ -1,8 +1,9 @@
-.test{
+.test {
+    width: 54vw;
+    height: 200vh;
+
     display: flex;
     flex-direction: column;
-    height: 200vh;
-    width: 54vw;
     justify-content: right;
     align-items: center;
     background-color: green;

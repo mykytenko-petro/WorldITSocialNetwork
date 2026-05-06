@@ -1,20 +1,36 @@
-<div class="create-post-menu modal">
+{% load static %}
+
+<dialog class="create-post-form" id="create-post-form">
     <div>
-        <p class="name-post" >Назва публікації</p>
-        {{ form.title}}
+        <button class="close"><img src="{% static "icon/cross.svg" %}"></button>
     </div>
+
+    <p class="title">Створення публікації</p>
+
+    <form action="" enctype="multipart/form-data">
+        {% comment %} <div>
+            <p class="name-post">Назва публікації</p>
+            {{ form.title }}
+        </div>
+        <div>
+            <p class="topic-post">Тема публікації</p>
+            {{ form.topic }}
+        </div>
+        <div>
+            {{ form.tags }}
+        </div>
+        <div>
+            {{ form.content }}
+        </div>
+        <div>
+            <p class="topic-links">Посилання</p>
+            {{ form.urls }}
+        </div> {% endcomment %}
+
+        {{ form.as_div }}
+    </form>
+
     <div>
-        <p class="topic-post">Тема публікації</p>
-        {{ form.topic}}
+        <button class="button-purple publish">Публікація</button>
     </div>
-    <div>
-        {{ form.tags}}
-    </div>
-    <div>
-        {{ form.content}}
-    </div>
-    <div>
-        <p class="topic-links">Посилання</p>
-        {{ form.urls}}
-    </div>
-</div>
+</dialog>

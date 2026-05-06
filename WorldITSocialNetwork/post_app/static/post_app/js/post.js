@@ -1,7 +1,20 @@
-const buttonCreatePost = document.getElementById("button-create-post")
-const postMenu = document.getElementById("create-post-menu")
+const postForm = document.getElementById("create-post-form")
+const buttonCreatePost = document.querySelector("#create-post button")
 
-postMenu.style.display = "none"
+const closeButton = postForm.querySelector("#create-post-form > div > button")
+
 buttonCreatePost.addEventListener("click", () => {
-    postMenu.style.display = "flex"
+    const textarea = document.querySelector("#create-post textarea")
+
+    postForm.showModal()
+
+    const textareaForm = postForm.querySelector("textarea")
+    console.log(textarea.textContent)
+    textareaForm.value = textarea.value
+})
+
+// postForm.showModal()
+
+closeButton.addEventListener("click", () => {
+    postForm.close()
 })

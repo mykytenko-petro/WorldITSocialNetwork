@@ -3,63 +3,52 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'post_app/css/posts.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/side-panel.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/create-post-form.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
-<div class="user-container">
-    <div class="profile">
-        <div class="profile-head">
-            <img src="{% static 'icon/mockup-icon.png' %}" alt="">
-            <div class="text-profile">
-                <p>Lina Li</p>
-                <p>@thelili</p>
+    <div class="user-container">
+        <div class="profile">
+            <div class="profile-head">
+                <img src="{% static 'icon/mockup-icon.png' %}" alt="">
+                <div class="text-profile">
+                    <p>Lina Li</p>
+                    <p>@thelili</p>
+                </div>
             </div>
-        </div>
 
-        <div class="profile-footer">
-            <div>
-                <p>566</p>
-                <p>Дописи</p>
-            </div>
-            <div>
-                <p>12.1K</p>
-                <p>Читачі</p>
-            </div>
-            <div>
-                <p>222</p>
-                <p>Друзі</p>
+            <div class="profile-footer">
+                <div>
+                    <p>566</p>
+                    <p>Дописи</p>
+                </div>
+                <div>
+                    <p>12.1K</p>
+                    <p>Читачі</p>
+                </div>
+                <div>
+                    <p>222</p>
+                    <p>Друзі</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block content %}
-<div class="my-publications-content">
-    <div class="post-create">
-        <form method="post">
-            {% csrf_token %}
-            <div class="create">
-                <div class="div-create">
-                    {{ form.as_p }}
-                </div>
-                <div class="create-footer">
-                    <div class="block">
-                        <div class="reaction"></div>
-                        <div>
-                            <button type="submit" class="button-edit" id="button-create-post">
-                                Перейти до оформлення
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+    {% include "post_app/particles/create_post_form.html" %}
+
+    <div class="post-create" id="create-post">
+        <textarea></textarea>
+        <div>
+            <button class="button-edit button-purple">Перейти до оформлення</button>
+        </div>
     </div>
 
-    <div class="post-content">
-    </div>
-</div>
+    <div class="test"></div>
 {% endblock content %}
 
-
+{% block scripts %}
+    <script type="module" src="{% static "post_app/js/post.js" %}"></script>
+{% endblock scripts %}
