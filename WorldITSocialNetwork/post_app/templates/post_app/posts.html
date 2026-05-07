@@ -8,32 +8,7 @@
 {% endblock links %}
 
 {% block side_panel %}
-    <div class="user-container">
-        <div class="profile">
-            <div class="profile-head">
-                <img src="{% static 'icon/mockup-icon.png' %}" alt="">
-                <div class="text-profile">
-                    <p>Lina Li</p>
-                    <p>@thelili</p>
-                </div>
-            </div>
-
-            <div class="profile-footer">
-                <div>
-                    <p>566</p>
-                    <p>Дописи</p>
-                </div>
-                <div>
-                    <p>12.1K</p>
-                    <p>Читачі</p>
-                </div>
-                <div>
-                    <p>222</p>
-                    <p>Друзі</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include "home_app/components/profile_container.html" %}
 {% endblock %}
 
 {% block content %}

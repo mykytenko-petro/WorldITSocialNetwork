@@ -7,22 +7,6 @@
     gap: 0.5vh;
 }
 
-.profile {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    background-color: white;
-
-    border: 1px solid #CDCED2;
-    border-radius: 2vh;
-}
-
 .profile .profile-head {
     width: 100%;
 
