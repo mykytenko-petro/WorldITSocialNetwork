@@ -4,6 +4,7 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'home_app/css/complete-profile-modal.css' %}">
     <link rel="stylesheet" href="{% static 'home_app/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/components/create-post-form.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
@@ -96,9 +97,12 @@
         {% include 'home_app/particles/complete_profile_modal.html' %}
     {% endif %}
 
+    {% include "post_app/components/create_post_form.html" %}
+
     <div class="test"></div>
 {% endblock content %}
 
 {% block scripts %}
     <script type="module" src="{% static 'home_app/js/completeProfileModal.js' %}"></script>
+    <script type="module" src="{% static "post_app/js/components/createPostForm.js" %}"></script>
 {% endblock %}

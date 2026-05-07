@@ -1,0 +1,24 @@
+{% load static %}
+
+<dialog class="create-post-form" id="create-post-form">
+    <div>
+        <button class="close"><img src="{% static "icon/cross.svg" %}"></button>
+    </div>
+
+    <p class="title">Створення публікації</p>
+
+    <form action="" enctype="multipart/form-data">
+        {{ post_creation_form.as_div }}
+    </form>
+
+    <div>
+        <button class="button-purple publish">Публікація</button>
+    </div>
+</dialog>
+
+<div class="post-create" id="create-post">
+    <textarea placeholder="Текст публікації"></textarea>
+    <div>
+        <button class="button-edit button-purple">Перейти до оформлення</button>
+    </div>
+</div>

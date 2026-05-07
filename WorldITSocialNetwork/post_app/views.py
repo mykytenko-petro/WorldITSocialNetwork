@@ -9,6 +9,6 @@ class PostsView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = PostCreationForm()
+        context['post_creation_form'] = PostCreationForm()
 
         return context

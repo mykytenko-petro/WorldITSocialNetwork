@@ -3,8 +3,7 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'post_app/css/posts.css' %}">
-    <link rel="stylesheet" href="{% static 'post_app/css/side-panel.css' %}">
-    <link rel="stylesheet" href="{% static 'post_app/css/create-post-form.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/components/create-post-form.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
@@ -12,18 +11,11 @@
 {% endblock %}
 
 {% block content %}
-    {% include "post_app/particles/create_post_form.html" %}
-
-    <div class="post-create" id="create-post">
-        <textarea></textarea>
-        <div>
-            <button class="button-edit button-purple">Перейти до оформлення</button>
-        </div>
-    </div>
+    {% include "post_app/components/create_post_form.html" %}
 
     <div class="test"></div>
 {% endblock content %}
 
 {% block scripts %}
-    <script type="module" src="{% static "post_app/js/post.js" %}"></script>
+    <script type="module" src="{% static "post_app/js/components/createPostForm.js" %}"></script>
 {% endblock scripts %}

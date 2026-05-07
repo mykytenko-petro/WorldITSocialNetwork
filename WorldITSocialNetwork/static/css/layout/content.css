@@ -22,8 +22,6 @@ main {
 }
 
 .content {
-    position: sticky;
-
     width: 54vw;
 
     display: flex;

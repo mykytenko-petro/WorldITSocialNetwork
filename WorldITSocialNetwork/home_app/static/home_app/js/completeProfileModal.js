@@ -1,5 +1,5 @@
 const dialog = document.querySelector("#complete-profile")
-const button = dialog.querySelector("button")
+const button = dialog?.querySelector("button")
 
 dialog?.showModal()
 
