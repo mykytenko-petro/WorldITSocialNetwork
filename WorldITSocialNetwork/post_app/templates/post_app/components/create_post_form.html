@@ -7,12 +7,26 @@
 
     <p class="title">Створення публікації</p>
 
-    <form action="" enctype="multipart/form-data">
-        {{ post_creation_form.as_div }}
+    <form action="{% url "post_app.post_creation" %}" enctype="multipart/form-data">
+        <div>
+            {{ post_creation_form.title }}
+        </div>
+        <div>
+            {{ post_creation_form.topic }}
+        </div>
+        <div>
+            {{ post_creation_form.tags }}
+        </div>
+        <div>
+            {{ post_creation_form.content }}
+        </div>
+        <div>
+            {{ post_creation_form.images }}
+        </div>
     </form>
 
     <div>
-        <button class="button-purple publish">Публікація</button>
+        <button class="button-purple publish" id="send">Публікація</button>
     </div>
 </dialog>
 

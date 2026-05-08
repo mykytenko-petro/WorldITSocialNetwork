@@ -14,23 +14,37 @@ class MultipleFileField(forms.FileField):
             return [single_file_clean(file, initial) for file in data]
 
         return single_file_clean(data, initial) 
-    
+
+STANDART_TAG_NAMES = [
+    "відпочинок",
+    "натхнення",
+    "життя",
+    "природа",
+    "читання",
+    "спокій",
+    "гармонія",
+    "музика",
+    "фільми",
+    "подорожі"
+]
+
 class PostCreationForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
-        required = False,
-        queryset= Tag.objects.all(),
-        widget = forms.CheckboxSelectMultiple,
-    )
-    images = MultipleFileField(
         required=False,
-        widget=MultipleFieldInput(attrs={
-            'accept': 'image/*'
-        })
+        queryset=Tag.objects.filter(name__in=STANDART_TAG_NAMES),
+        widget=forms.CheckboxSelectMultiple
     )
+    # images = MultipleFileField(
+    #     required=False,
+    #     widget=MultipleFieldInput(attrs={
+    #         'hidden': 'true',
+    #         'accept': 'image/*'
+    #     })
+    # )
 
     class Meta:
         model = Post
-        fields = ('title', 'topic', 'content')
+        fields = ('title', 'topic', 'content', 'tags')
         
         labels = {
             'title': 'Назва публікації',
@@ -45,57 +59,57 @@ class PostCreationForm(forms.ModelForm):
     def __init__(self, links: list | None = None, images= None, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.fields['tags'].queryset = Tag.objects.all() # type: ignore
+        # self.links_list = []
+        # self.images_list = []
 
-        self.links_list = []
-        self.images_list = []
+        # if links is None:
+        #     links = []
 
-        if links is None:
-            links = []
-
-        for link in links:
-            clean_link = link.strip()
-            if clean_link:
-                self.links_list.append(clean_link)
+        # for link in links:
+        #     clean_link = link.strip()
+        #     if clean_link:
+        #         self.links_list.append(clean_link)
         
-        if images is not None:
-            self.images_list = list(images)
+        # if images is not None:
+        #     self.images_list = list(images)
         
-    def clean(self):
-        cleaned_data = super().clean()
+    # def clean(self):
+    #     cleaned_data = super().clean()
 
-        url_field = forms.URLField()
-        image_field = forms.ImageField()
+    #     url_field = forms.URLField()
+    #     image_field = forms.ImageField()
 
-        for link in self.links_list:
-            try:
-                url_field.clean(link)
-            except forms.ValidationError:
-                self.add_error('links', f'Некоректне посиланння: {link}')
+    #     for link in self.links_list:
+    #         try:
+    #             url_field.clean(link)
+    #         except forms.ValidationError:
+    #             self.add_error('links', f'Некоректне посиланння: {link}')
                 
-        for image in self.images_list:
-            try:
-                image_field.clean(image)
-            except forms.ValidationError:
-                self.add_error('images', 'Завантажте коректне зображення')
+    #     for image in self.images_list:
+    #         try:
+    #             image_field.clean(image)
+    #         except forms.ValidationError:
+    #             self.add_error('images', 'Завантажте коректне зображення')
                 
-        return cleaned_data
+    #     return cleaned_data
     
-    def save(self, author): # type: ignore
-        post = super().save(commit= False)
+    def save(self, author: AbstractUser): # type: ignore
+        post: Post = super().save(commit= False)
         post.author = author
 
+        # post.tags.set(self.cleaned_data['tags'])
+
+        # for url in self.links_list:
+        #     PostLink.objects.create(post= post, url= url)
+
+        # for image in self.images_list:
+        #     PostImage.objects.create(
+        #         post= post,
+        #         original= image,
+        #         compressed=compress_image(image)
+        #     )
+        
         post.save()
-        post.tags.set(self.cleaned_data['tags'])
-
-        for url in self.links_list:
-            PostLink.objects.create(post= post, url= url)
-
-        for image in self.images_list:
-            PostImage.objects.create(
-                post= post,
-                original= image,
-                compressed=compress_image(image)
-            )
+        self.save_m2m()
         
         return post
