@@ -2,7 +2,7 @@
 
 <dialog class="create-post-form" id="create-post-form">
     <div>
-        <button class="close" id="close-button" type="button">
+        <button class="close" id="close" type="button">
             <img src="{% static 'icon/cross.svg' %}">
         </button>
     </div>
@@ -28,9 +28,9 @@
             <label>Посилання</label>
             <div></div>
         </div>
-        <div>
+        {% comment %} <div>
             {{ post_creation_form.images }}
-        </div>
+        </div> {% endcomment %}
     </form>
 
     <div>
@@ -58,7 +58,7 @@
     </div>
 </dialog>
 
-<div class="post-create" id="create-post">
+<div class="post-create" id="create-post-input">
     <textarea placeholder="Текст публікації"></textarea>
     <div>
         <button class="button-edit button-purple" type="button">Перейти до оформлення</button>

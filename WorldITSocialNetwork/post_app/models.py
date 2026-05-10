@@ -41,9 +41,9 @@ class PostImage(models.Model):
         return self.original_image.name
 
 class PostView(models.Model):
-    user = models.ForeignKey(to= settings.AUTH_USER_MODEL, on_delete= models.CASCADE)
-    post = models.ForeignKey(to= Post, on_delete= models.CASCADE)
+    user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    post = models.ForeignKey(to=Post, on_delete= models.CASCADE)
 
 class PostLink(models.Model):
     url = models.URLField()
-    post = models.ForeignKey(to= Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(to=Post, on_delete=models.CASCADE)

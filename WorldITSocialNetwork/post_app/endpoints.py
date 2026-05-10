@@ -9,7 +9,7 @@ class PostCreationView(View):
     def post(self, request: HttpRequest):
         form = PostCreationForm(data=request.POST)
         if form.is_valid():
-            form.save(request.user)
+            form.save(request.user) # type: ignore
 
             return JsonResponse({})
         
