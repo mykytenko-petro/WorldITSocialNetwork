@@ -3,7 +3,7 @@ main {
 
     margin-top: 100px;
     padding: 0 10%;
-
+    overflow-y: auto;
     width: 100%;
 
     display: flex;
@@ -15,18 +15,27 @@ main {
 
 .side-panel{
     flex: 1;
-
     display: flex;
     flex-direction: column;
     justify-content: left;
+    gap: 0.83vh;
 }
 
 .content {
     width: 54vw;
+    height: 91vh;
+    
+    overflow-y: auto;
+    scrollbar-width: none;
 
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     gap: 0.83vh;
+
+}
+
+.content > * {
+    flex-shrink: 0;
 }

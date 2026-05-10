@@ -1,0 +1,65 @@
+/* common */
+.requests, .messages {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: white;
+    border: 1px solid #CDCED2;
+    
+    border-radius: 2vh;
+}
+
+.request-inquiry, .message-inquiry {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 0;
+}
+
+.request-inquiry a, .message-inquiry a {
+    color: #81818D;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    gap: 0.5vw;
+}
+
+.request-inquiry p, .message-inquiry p {
+    color: #543C52;
+
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    cursor: pointer;
+    padding-top: 1vh;
+}
+
+/* requests */
+.requests {
+    padding: calc(0.55vw + 0.83vh);
+}
+
+.request-inquiry{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* messages */
+.message-inquiry {
+    padding: 1vh 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

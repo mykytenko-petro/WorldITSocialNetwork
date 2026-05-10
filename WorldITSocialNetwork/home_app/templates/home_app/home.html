@@ -3,7 +3,8 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'home_app/css/complete-profile-modal.css' %}">
-    <link rel="stylesheet" href="{% static 'home_app/css/profile.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'home_app/css/profile.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'home_app/css/side-panel.css' %}">
     <link rel="stylesheet" href="{% static 'post_app/css/components/create-post-form.css' %}">
 {% endblock links %}
 
@@ -51,6 +52,7 @@
             <a><img src="{% static 'icon/chat.svg' %}" alt="">Повідомлення</a>
             <p>Дивитись всі</p>
         </div>
+        
         <div class="message-example">
             <div class="grey-box">
                 <a class="message-image"><img src="{% static 'home_app/images/mock_image_4.png' %}" alt=""></a>

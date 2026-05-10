@@ -4,6 +4,7 @@ dialog.create-post-form {
 
 .create-post-form {
     padding: 3.06vw;
+    gap-bottom: 0.83vh;
 }
 
 .create-post-form > div {
@@ -109,6 +110,41 @@ dialog.create-post-form {
 .button-edit {
     padding: 10px;
 }
-/* .publish {
 
-} */
+#id_tags{
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+#id_tags label{
+    padding: 0.41vh;
+
+    background-color: #E9E5EE;
+
+    border-radius: 10%;
+
+    color: #543C52;
+    font-size: 1.45vh;
+    user-select: none;
+}
+
+#id_tags label > input{
+    display: none;
+}
+
+#id_tags label:has(input:checked) {
+    background-color: rgba(84, 60, 82, 1);
+    
+    color: white;
+}
+
+.links {
+    width: 23.82vw;
+
+    display: flex;
+    flex-direction: column;
+}
