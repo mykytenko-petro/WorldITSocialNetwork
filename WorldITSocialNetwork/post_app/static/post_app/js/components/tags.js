@@ -2,11 +2,10 @@ const tagDialog = document.getElementById('create-tag-form');
 const postDialog = document.getElementById('create-post-form');
 const tagInput = document.getElementById('tag-name');
 const tagsContainer = document.getElementById('id_tags');
-const createPostInput = document.getElementById('create-post-input');
 
 let tagForm = null;
 let contentTextarea = null;
-let openPostButton = null;
+const mainTagsSpan = document.createElement('span');
 
 if (tagDialog) {
     tagForm = tagDialog.querySelector('form');
@@ -16,8 +15,13 @@ if (postDialog) {
     contentTextarea = postDialog.querySelector('textarea[name="content"]');
 }
 
-if (createPostInput) {
-    openPostButton = createPostInput.querySelector('button');
+if (contentTextarea) {
+    createContentField();
+    resizeContentTextarea();
+
+    contentTextarea.addEventListener('input', () => {
+        resizeContentTextarea();
+    });
 }
 
 const closeTagButton = document.getElementById('close-create-tag-form');
@@ -38,46 +42,46 @@ if (tagDialog && tagForm && tagInput && tagsContainer) {
 
     tagsContainer.addEventListener('change', (event) => {
         if (event.target.matches('input[name="tags"]')) {
-            syncTagsWithContent();
+            syncTagsSpan();
         }
     });
-
-    if (openPostButton) {
-        openPostButton.addEventListener('click', () => {
-            syncTagsWithContent();
-        });
-    }
 
     openTagButton.addEventListener('click', () => {
         openTagDialog();
     });
 
-    closeTagButton.addEventListener('click', () => {
-        closeTagDialogAndReturn();
-    });
-
-    cancelTagButton.addEventListener('click', () => {
-        closeTagDialogAndReturn();
-    });
-
-    saveTagButton.addEventListener('click', async () => {
-        const formData = new FormData(tagForm);
-
-        const response = await fetch(tagForm.action, {
-            method: 'POST',
-            body: formData,
+    if (closeTagButton) {
+        closeTagButton.addEventListener('click', () => {
+            closeTagDialogAndReturn();
         });
+    }
 
-        const data = await response.json();
+    if (cancelTagButton) {
+        cancelTagButton.addEventListener('click', () => {
+            closeTagDialogAndReturn();
+        });
+    }
 
-        if (!response.ok) {
-            return;
-        }
+    if (saveTagButton) {
+        saveTagButton.addEventListener('click', async () => {
+            const formData = new FormData(tagForm);
 
-        addTagCheckbox(data.id, data.name);
-        syncTagsWithContent();
-        closeTagDialogAndReturn();
-    });
+            const response = await fetch(tagForm.action, {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                return;
+            }
+
+            addTagCheckbox(data.id, data.name);
+            syncTagsSpan();
+            closeTagDialogAndReturn();
+        });
+    }
 }
 
 function openTagDialog() {
@@ -101,26 +105,36 @@ function closeTagDialogAndReturn() {
     }
 }
 
-function syncTagsWithContent() {
-    if (!contentTextarea) {
-        return;
-    }
+function syncTagsSpan() {
+    mainTagsSpan.textContent = getSelectedTagLabels().join(' ');
 
-    const previousTagsLine = contentTextarea.dataset.tagsLine || '';
-    const tagsLine = getSelectedTagLabels().join(' ');
-    let text = contentTextarea.value;
-
-    if (previousTagsLine && text.endsWith(previousTagsLine)) {
-        text = text.slice(0, -previousTagsLine.length).trimEnd();
-    }
-
-    if (tagsLine) {
-        contentTextarea.value = `${text.trimEnd()}\n${tagsLine}`.trimStart();
+    if (mainTagsSpan.textContent) {
+        mainTagsSpan.hidden = false;
     } else {
-        contentTextarea.value = text;
+        mainTagsSpan.hidden = true;
     }
+}
 
-    contentTextarea.dataset.tagsLine = tagsLine;
+function createContentField() {
+    const contentField = document.createElement('div');
+
+    contentField.classList.add('content-field');
+    contentTextarea.rows = 1;
+    contentTextarea.parentNode.insertBefore(contentField, contentTextarea);
+    contentField.append(contentTextarea);
+
+    mainTagsSpan.classList.add('content-tag');
+    mainTagsSpan.hidden = true;
+    contentField.append(mainTagsSpan);
+
+    contentField.addEventListener('click', () => {
+        contentTextarea.focus();
+    });
+}
+
+function resizeContentTextarea() {
+    contentTextarea.style.height = 'auto';
+    contentTextarea.style.height = `${contentTextarea.scrollHeight}px`;
 }
 
 function getSelectedTagLabels() {
