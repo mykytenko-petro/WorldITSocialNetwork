@@ -5,7 +5,7 @@ from django.core.files import File
 from django.core.files.base import ContentFile
 
 
-MAX_COMPRESSED_IMAGE_SIZE = 5 * 1024 ** 2
+IMAGE_SIZE_THRESHOLD = 2 * 1024 ** 2
 
 def compress_image(image: File):
     image.seek(0)
@@ -26,7 +26,7 @@ def compress_image(image: File):
             optimize=True
         )
 
-        if buffer.tell() <= MAX_COMPRESSED_IMAGE_SIZE:
+        if buffer.tell() <= IMAGE_SIZE_THRESHOLD:
             break
 
         if width <= 1 or height <= 1:
@@ -46,6 +46,6 @@ def compress_image(image: File):
             
     image.seek(0)
     
-    name_compressed = f'compressed_{image.name.rsplit('.', 1)[0]}.jpg'
+    name_compressed = f'compressed_{image.name.rsplit('.', 1)[0]}.jpeg'
 
-    return ContentFile(buffer.getvalue(), name= name_compressed)
+    return ContentFile(buffer.getvalue(), name=name_compressed)

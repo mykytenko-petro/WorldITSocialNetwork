@@ -12,17 +12,6 @@ class HashPrefixModelMultipleChoiceField(forms.ModelMultipleChoiceField):
     def label_from_instance(self, obj):
         return f"#{obj}"
 
-class MultipleFieldInput(forms.ClearableFileInput):
-    allow_multiple_selection = True
-    
-class MultipleFileField(forms.FileField):
-    def clean(self, data, initial = None):
-        single_file_clean = super().clean
-        if isinstance(data, (list, tuple)):
-            return [single_file_clean(file, initial) for file in data]
-
-        return single_file_clean(data, initial)
-
 # forms
 class PostCreationForm(forms.ModelForm):
     tags = HashPrefixModelMultipleChoiceField(
@@ -44,24 +33,37 @@ class PostCreationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.links = []
-        self.images = []
+        self.link_list = []
+        self.image_list = []
 
     def clean(self) -> dict[str, Any]:
         # links
-        links: list | None = self.data.getlist('links')  # type: ignore
-        url_validator = forms.URLField()
+        try:
+            links: list = self.data.getlist('links')  # type: ignore
+            url_validator = forms.URLField()
 
-        if links:
-            for link in links:
+            if links:
+                for link in links:
+                    try:
+                        url_validator.clean(link)
+                        self.link_list.append(link)
+
+                    except forms.ValidationError:
+                        self.add_error('links', f"Некоректне посилання: {link}")
+        except ValueError:
+            pass
+
+        try:
+            image_validator = forms.ImageField()
+            images = self.files.getlist('images')
+        
+            for image in images:
                 try:
-                    url_validator.clean(link)
-                    self.links.append(link)
-
+                    image_validator.clean(image)
                 except forms.ValidationError:
-                    self.add_error('links', f"Некоректне посилання: {link}")
-
-        # TODO: images
+                    self.add_error('images', "Завантажте коректне зображення")
+        except ValueError:
+            pass
 
         return super().clean()
 
@@ -75,9 +77,17 @@ class PostCreationForm(forms.ModelForm):
         self.save_m2m()
 
         # links
-        for url in self.links:
+        for url in self.link_list:
             PostLink.objects.create(post=post, url=url)
         
-        # TODO: images
+        images = self.files.getlist('images')
+        print(images)
+
+        for image in images:
+            PostImage.objects.create(
+                post=post,
+                original_image=image,
+                compressed_image=compress_image(image) # type: ignore
+            )
 
         return post

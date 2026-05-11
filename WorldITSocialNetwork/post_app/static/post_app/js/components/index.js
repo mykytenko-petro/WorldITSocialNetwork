@@ -1,3 +1,5 @@
 import "./form.js"
 import "./links.js"
 import "./postInput.js"
+import "./images.js"
+import "./tags.js"

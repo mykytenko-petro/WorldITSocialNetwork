@@ -7,7 +7,7 @@ from .models import Tag
 
 class PostCreationView(View):
     def post(self, request: HttpRequest):
-        form = PostCreationForm(data=request.POST)
+        form = PostCreationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save(request.user) # type: ignore
 
