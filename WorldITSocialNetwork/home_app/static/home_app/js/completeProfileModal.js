@@ -1,9 +1,12 @@
-const form = document.querySelector("#complete-profile form")
-const button = document.querySelector("#complete-profile button")
+const dialog = document.querySelector("#complete-profile")
+const button = dialog?.querySelector("button")
+
+dialog?.showModal()
 
 button?.addEventListener(
     "click",
     () => {
+        const form = dialog.querySelector("form")
         const formData = new FormData(form)
         
         fetch(form.action, {
@@ -21,7 +24,7 @@ button?.addEventListener(
                 throw data
             }
 
-            document.querySelector("#complete-profile").style.display = "none"
+            dialog.close()
         })
         .catch(async (errors) => {
             alert(JSON.stringify(errors))

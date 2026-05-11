@@ -4,7 +4,7 @@ dialog.create-post-form {
 
 .create-post-form {
     padding: 3.06vw;
-    gap: 0.83vh;
+    gap-bottom: 0.83vh;
 }
 
 .create-post-form > div {
