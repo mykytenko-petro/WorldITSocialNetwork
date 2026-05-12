@@ -14,11 +14,12 @@
     </head>
     <body>
         <header>
-            <a href="{% url 'home_app.index' %}" class="logo {% if request.path == '/auth/' %} logo-center {% endif %}">
+            {% url 'user_app.index' as auth_url %}
+            
+            <a href="{% url 'home_app.index' %}" class="logo {% if request.path == auth_url %} logo-center {% endif %}">
                 <img src="{% static 'icon/logo.svg'%}" alt="">
             </a>
             
-            {% url 'user_app.index' as auth_url %}
             {% if request.path != auth_url %}
                 <div class="conteiner">
                     <nav class="menu">

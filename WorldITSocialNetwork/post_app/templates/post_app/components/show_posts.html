@@ -1,0 +1,40 @@
+{% for post in posts %}
+    <article class="post">
+        <p>{{ post.author.username }}</p>
+        <p>{{ post.title }}</p>
+      
+        <!-- {% if post.topic %}
+            <p>{{ post.topic }}</p>
+        {% endif %}
+         -->
+        <p>
+            {{ post.content }}
+
+            {% if post.tags.all %}
+                <p>
+    
+                    {% for tag in post.tags.all %}
+                        {{ tag.name }}
+                    {% endfor %}
+                </p>
+            {% endif %}
+
+        </p>
+        
+        {% if post.links.all %}
+            <div>
+                {% for link in post.links.all %}
+                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.url }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if post.images.all %}
+            <div>
+                {% for image in post.images.all %}
+                    <img src="{{ image.compressed_image.url }}" alt="{{ post.title }}">
+                {% endfor %}
+            </div>
+        {% endif %}   
+    </article>
+{% endfor %}

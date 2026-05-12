@@ -13,9 +13,10 @@
 {% block content %}
     {% include "post_app/components/create_post_form.html" %}
 
-    <div class="test"></div>
+    {% include "post_app/components/post_provider.html" %}
 {% endblock content %}
 
 {% block scripts %}
-    <script type="module" src="{% static 'post_app/js/components/index.js' %}"></script>
+    <script type="module" src="{% static 'post_app/js/components/postForm/index.js' %}"></script>
+    <script type="module" src="{% static 'post_app/js/components/postProvider/index.js' %}"></script>
 {% endblock scripts %}

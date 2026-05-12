@@ -31,10 +31,11 @@ class Tag(models.Model):
 
 class PostImage(models.Model):
     original_image = models.ImageField(upload_to='post_app/images')
-    compressed_image = models.ImageField(upload_to = 'post_app/images')
+    compressed_image = models.ImageField(upload_to='post_app/images')
     post = models.ForeignKey(
         Post, 
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="images"
     )
 
     def __str__(self) -> str:
@@ -46,4 +47,8 @@ class PostView(models.Model):
 
 class PostLink(models.Model):
     url = models.URLField()
-    post = models.ForeignKey(to=Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        to=Post,
+        on_delete=models.CASCADE,
+        related_name="links"
+    )

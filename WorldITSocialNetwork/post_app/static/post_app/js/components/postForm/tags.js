@@ -7,13 +7,17 @@ const closeTagButton = document.getElementById('close-create-tag-form');
 const cancelTagButton = document.getElementById('cancel-create-tag');
 const saveTagButton = document.getElementById('save-create-tag');
 
+let openTagButton = null;
+
 if (tagDialog && tagForm && tagInput && tagsContainer) {
-    const openTagButton = document.createElement('button');
+    openTagButton = document.createElement('button');
 
     openTagButton.type = 'button';
-    openTagButton.textContent = 'Додати хештег';
+    openTagButton.textContent = '+';
+    openTagButton.classList.add('add-tag-button');
+    openTagButton.setAttribute('aria-label', 'Додати хештег');
 
-    tagsContainer.after(openTagButton);
+    tagsContainer.append(openTagButton);
 
     openTagButton.addEventListener('click', () => {
         tagInput.value = '';
@@ -59,5 +63,10 @@ function addTagCheckbox(id, name) {
     label.append(checkbox, ` #${name}`);
 
     wrapper.append(label);
-    tagsContainer.append(wrapper);
+
+    if (openTagButton) {
+        tagsContainer.insertBefore(wrapper, openTagButton);
+    } else {
+        tagsContainer.append(wrapper);
+    }
 }

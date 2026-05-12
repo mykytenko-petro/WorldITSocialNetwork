@@ -80,7 +80,7 @@ class ConfirmEmailView(View):
             }, status= 400)
         
         user = User.objects.create_user(
-            username=" ",
+            username=form.cleaned_data['email'],
             email=form.cleaned_data['email'],
             password=cache_store[form.cleaned_data["email"]]["password"]
         )

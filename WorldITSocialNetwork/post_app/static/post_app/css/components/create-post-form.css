@@ -4,7 +4,6 @@ dialog.create-post-form {
 
 .create-post-form {
     padding: 3.06vw;
-    gap-bottom: 0.83vh;
 }
 
 .create-post-form > div {
@@ -144,7 +143,7 @@ dialog.create-post-form {
 
 .links {
     width: 23.82vw;
-
+    
     display: flex;
     flex-direction: column;
 }
