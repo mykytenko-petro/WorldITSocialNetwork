@@ -10,12 +10,13 @@
     <p class="title">Створення публікації</p>
 
     <form method="post" action="{% url 'post_app.post_creation' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-
         <div>
+            <label>Назва публикації</label>
             {{ post_creation_form.title }}
+            
         </div>
         <div>
+            <label>Тема публикації</label>
             {{ post_creation_form.topic }}
         </div>
         <div>
@@ -41,6 +42,8 @@
     <button class="close" id="close-create-tag-form" type="button">
         <img src="{% static 'icon/cross.svg' %}">
     </button>
+
+    
 
     <p class="title">Додати хештег</p>
 

@@ -3,20 +3,21 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'home_app/css/complete-profile-modal.css' %}">
-    {% comment %} <link rel="stylesheet" href="{% static 'home_app/css/profile.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'home_app/css/side-panel.css' %}">
     <link rel="stylesheet" href="{% static 'post_app/css/components/create-post-form.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/components/post-provider.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/components/show-posts.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
     {% include "home_app/components/profile_container.html" %}
 
     <div class="requests">
-        <div class="request-inquiry">
+        <div class="header">
             <a><img src="{% static 'icon/friends.svg' %}" alt="">Запити</a>
             <p>Дивитись всі</p>
         </div>
-        <div class="requests-example">
+        <div class="container">
             <div class="request-box">
                 <a class="request-image"><img src="{% static 'home_app/images/mock_image_1.png' %}" alt=""></a>
                 <div class="follower-info">
@@ -48,12 +49,12 @@
     </div>
 
     <div class="messages">
-        <div class="message-inquiry">
+        <div class="header">
             <a><img src="{% static 'icon/chat.svg' %}" alt="">Повідомлення</a>
             <p>Дивитись всі</p>
         </div>
         
-        <div class="message-example">
+        <div class="container">
             <div class="grey-box">
                 <a class="message-image"><img src="{% static 'home_app/images/mock_image_4.png' %}" alt=""></a>
                 <div class="message-info">

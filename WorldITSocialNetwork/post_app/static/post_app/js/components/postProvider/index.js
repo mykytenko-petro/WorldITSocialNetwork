@@ -34,7 +34,6 @@ const observer = new IntersectionObserver(async (entries) => {
         })
         .then(async response =>{
             if (response.status === 204) {
-                alert(2232)
                 return
             }
 

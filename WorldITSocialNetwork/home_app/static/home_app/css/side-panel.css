@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2.5vh;
 
     background-color: white;
     border: 1px solid #CDCED2;
@@ -14,52 +15,53 @@
     border-radius: 2vh;
 }
 
-.request-inquiry, .message-inquiry {
+.header {
+    width: 100%;
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1vh 0;
 }
 
-.request-inquiry a, .message-inquiry a {
-    color: #81818D;
+.header a {
+    display: flex;
+    align-items: center;
+    gap: 0.56vw;
 
-    text-decoration: none;
-    font-weight: bold;
-
-    gap: 0.5vw;
+    color: rgba(129, 129, 141, 1);
 }
 
-.request-inquiry p, .message-inquiry p {
-    color: #543C52;
+.container {
+    width: 100%;
 
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0;
-    cursor: pointer;
-    padding-top: 1vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
 }
 
 /* requests */
 .requests {
-    padding: calc(0.55vw + 0.83vh);
-}
-
-.request-inquiry{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    padding: 1.11vw;
 }
 
 /* messages */
-.message-inquiry {
-    padding: 1vh 0;
+.messages {
+    padding: 1.11vw 0;
+}
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.messages .header {
+    box-sizing: border-box;
+    padding: 0 1.11vw;
+}
+
+.messages .container {
+    box-sizing: border-box;
+    padding: 0 1.11vw;
 }

@@ -1,0 +1,41 @@
+.post{
+    background-color: #FFFFFF;
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
+
+    display: flex;
+    flex-direction: column;
+    gap:1.1vw;
+    padding: 2.17vw;
+}
+.three-dots{
+    display: flex;
+}
+
+hr{
+    width: 64.1vw;
+}
+.post >p{
+    font-size: 1.1vw;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.tag{
+    font-size: 1.1vw;
+    color: #543C52;
+}
+
+.link{
+    font-size: 1.1vw;
+    color: #543C52;
+}
+
+.image-block{
+    max-width: 95%;
+}
+.image{
+    max-width: 95%;
+    border-radius: 1.67vh;
+}
