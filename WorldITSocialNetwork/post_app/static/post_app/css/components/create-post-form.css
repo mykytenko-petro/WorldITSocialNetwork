@@ -71,6 +71,44 @@ dialog.create-post-form {
     resize: none;
 }
 
+.create-post-form .content-field {
+    width: 100%;
+
+    padding: 1vw 2vh;
+
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.8vh; */
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+}
+
+.create-post-form .content-field textarea {
+    padding: 0;
+
+    background-color: transparent;
+
+    border: 0;
+    border-radius: 0;
+
+    min-height: 1.5em;
+
+    overflow: hidden;
+}
+
+.create-post-form .content-field textarea:focus {
+    outline: none;
+}
+
+.content-tag {
+    color: #543C52;
+    user-select: none;
+    pointer-events: none;
+}
+
 .post-create {
     width: 100%;
 
