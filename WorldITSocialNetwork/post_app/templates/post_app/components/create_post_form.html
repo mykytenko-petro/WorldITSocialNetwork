@@ -1,0 +1,68 @@
+{% load static %}
+
+<dialog class="create-post-form" id="create-post-form">
+    <div>
+        <button class="close" id="close" type="button">
+            <img src="{% static 'icon/cross.svg' %}">
+        </button>
+    </div>
+
+    <p class="title">Створення публікації</p>
+
+    <form method="post" action="{% url 'post_app.post_creation' %}" enctype="multipart/form-data">
+        <div>
+            <label>Назва публикації</label>
+            {{ post_creation_form.title }}
+            
+        </div>
+        <div>
+            <label>Тема публикації</label>
+            {{ post_creation_form.topic }}
+        </div>
+        <div>
+            {{ post_creation_form.tags }}
+        </div>
+        <div>
+            {{ post_creation_form.content }}
+        </div>
+        <div class="links">
+            <label>Посилання</label>
+            <div></div>
+        </div>
+        <div id="images"></div>
+    </form>
+
+    <div>
+        <button class="send-button" id="createImage"><img src="{% static 'post_app/icon/image.png' %}"></button>
+        <button class="button-purple publish" id="send">Публікація</button>
+    </div>
+</dialog>
+
+<dialog class="create-tag-form" id="create-tag-form">
+    <button class="close" id="close-create-tag-form" type="button">
+        <img src="{% static 'icon/cross.svg' %}">
+    </button>
+
+    
+
+    <p class="title">Додати хештег</p>
+
+    <form method="post" action="{% url 'post_app.tag_creation' %}">
+        {% csrf_token %}
+
+        <label for="tag-name">Назва</label>
+        <input id="tag-name" name="name" type="text" placeholder="#">
+    </form>
+
+    <div class="create-tag-actions">
+        <button id="cancel-create-tag">Скасувати</button>
+        <button class="button-purple" id="save-create-tag">Зберегти</button>
+    </div>
+</dialog>
+
+<div class="post-create" id="create-post-input">
+    <textarea placeholder="Текст публікації"></textarea>
+    <div>
+        <button class="button-edit button-purple" type="button">Перейти до оформлення</button>
+    </div>
+</div>

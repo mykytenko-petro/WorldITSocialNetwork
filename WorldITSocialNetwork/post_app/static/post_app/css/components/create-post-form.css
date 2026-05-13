@@ -1,0 +1,184 @@
+dialog.create-post-form {
+    align-items: start;
+}
+
+.create-post-form {
+    padding: 3.06vw;
+}
+
+.create-post-form > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.close {
+    background-color: transparent;
+    border: 0;
+}
+
+.close:focus {
+    outline-color: transparent;
+}
+
+.close > img {
+    height: 20px;
+}
+
+.title {
+    font-size: 3.54vh;
+}
+
+.create-post-form > form {
+    width: 47.57vw;
+
+    padding: 2.5vh 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.67vh;
+}
+
+.create-post-form > form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.63vh;
+}
+
+.create-post-form > form > div > input {    
+    width: 23.82vw;
+    
+    padding: 1vw 2vh;
+    
+    background-color: #FFFFFF;
+    
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+}
+
+.create-post-form textarea {
+    width: 100%;
+
+    padding: 1vw 2vh;
+    
+    background-color: #FFFFFF;
+    
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+
+    resize: none;
+}
+
+/* .create-post-form .content-field {
+    width: 100%;
+
+    padding: 1vw 2vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+}
+
+.create-post-form .content-field textarea {
+    padding: 0;
+
+    background-color: transparent;
+
+    border: 0;
+    border-radius: 0;
+
+    min-height: 1.5em;
+
+    overflow: hidden;
+} */
+
+.content-tag {
+    color: #543C52;
+    user-select: none;
+    pointer-events: none;
+}
+
+.post-create {
+    width: 100%;
+
+    box-sizing: border-box;
+    padding: 1.67vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
+
+    overflow: hidden;
+}
+
+.post-create > textarea {
+    width: 100%;
+
+    padding: 1vw 2vh;
+    
+    border: 0;
+
+    resize: none;
+}
+
+.post-create > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.button-edit {
+    padding: 10px;
+}
+
+#id_tags{
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+#id_tags label{
+    padding: 0.41vh;
+
+    background-color: #E9E5EE;
+
+    border-radius: 10%;
+
+    color: #543C52;
+    font-size: 1.45vh;
+    user-select: none;
+}
+
+#id_tags label > input{
+    display: none;
+}
+
+#id_tags label:has(input:checked) {
+    background-color: rgba(84, 60, 82, 1);
+    
+    color: white;
+}
+
+.links {
+    width: 23.82vw;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+

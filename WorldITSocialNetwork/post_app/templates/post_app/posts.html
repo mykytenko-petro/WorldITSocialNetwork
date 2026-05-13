@@ -3,60 +3,22 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'post_app/css/posts.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/components/create-post-form.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/components/post-provider.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/components/show-posts.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
-<div class="user-container">
-    <div class="profile">
-        <div class="profile-head">
-            <img src="{% static 'icon/mockup-icon.png' %}" alt="">
-            <div class="text-profile">
-                <p>Lina Li</p>
-                <p>@thelili</p>
-            </div>
-        </div>
-
-        <div class="profile-footer">
-            <div>
-                <p>566</p>
-                <p>Дописи</p>
-            </div>
-            <div>
-                <p>12.1K</p>
-                <p>Читачі</p>
-            </div>
-            <div>
-                <p>222</p>
-                <p>Друзі</p>
-            </div>
-        </div>
-    </div>
-</div>
+    {% include "home_app/components/profile_container.html" %}
 {% endblock %}
 
 {% block content %}
-<div class="my-publications-content">
-    <div class="post-create">
-        <div class="create">
-            <div class="div-create">
-                <p>Тема публікації</p>
-            </div>
-            <div class="create-footer">
-                <div class="block">
-                    <div class="reaction">
-                        <!--<button><img src="{% static 'icon/.svg' %}" alt=""></a></button>-->
-                    </div>
-                    <div>
-                        <button class="button-edit">Перейти до оформлення</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include "post_app/components/create_post_form.html" %}
 
-    <div class="post-content">
-    </div>
-</div>
+    {% include "post_app/components/post_provider.html" %}
 {% endblock content %}
 
-
+{% block scripts %}
+    <script type="module" src="{% static 'post_app/js/components/postForm/index.js' %}"></script>
+    <script type="module" src="{% static 'post_app/js/components/postProvider/index.js' %}"></script>
+{% endblock scripts %}

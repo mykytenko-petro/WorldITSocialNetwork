@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from user_app.models import User
 from .forms import ProfileDetailForm
+from post_app.forms import PostCreationForm
 
 
 class HomeView(LoginRequiredMixin, TemplateView):
@@ -15,4 +16,6 @@ class HomeView(LoginRequiredMixin, TemplateView):
         if not user.profile.author_pseudonym or user.username == user.email: # type: ignore
             context['profile_details_form'] = ProfileDetailForm()
             
+        context['post_creation_form'] = PostCreationForm()
+
         return context

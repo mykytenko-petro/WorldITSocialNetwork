@@ -1,5 +1,4 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -8,13 +7,12 @@ a {
     color: #000;
     text-decoration: none
 }
-a, p, label, input, button {
+
+a, p, label, input, button, textarea {
     font-family: 'GT-Walsheim';
 }
+
 body {
-    overflow: hidden;
     background-color: #FAF8FF;
+    overflow: hidden;
 }
-
-
-
