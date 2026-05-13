@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from PIL import Image
 
 
 class Post(models.Model):
@@ -40,6 +41,18 @@ class PostImage(models.Model):
 
     def __str__(self) -> str:
         return self.original_image.name
+    
+    # known issue: if it will be moved to cloud storage it would break
+    # solution is make width and height fields later
+    @property
+    def orientation(self):
+        with Image.open(self.compressed_image.path) as img:
+            if img.width > img.height:
+                return "landscape"
+            
+            elif img.height >= img.width:
+                return "portrait"
+
 
 class PostView(models.Model):
     user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

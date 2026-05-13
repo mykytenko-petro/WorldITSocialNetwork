@@ -71,14 +71,13 @@ dialog.create-post-form {
     resize: none;
 }
 
-.create-post-form .content-field {
+/* .create-post-form .content-field {
     width: 100%;
 
     padding: 1vw 2vh;
 
     display: flex;
     flex-direction: column;
-    /* gap: 0.8vh; */
 
     background-color: #FFFFFF;
 
@@ -97,11 +96,7 @@ dialog.create-post-form {
     min-height: 1.5em;
 
     overflow: hidden;
-}
-
-.create-post-form .content-field textarea:focus {
-    outline: none;
-}
+} */
 
 .content-tag {
     color: #543C52;
@@ -185,3 +180,5 @@ dialog.create-post-form {
     display: flex;
     flex-direction: column;
 }
+
+

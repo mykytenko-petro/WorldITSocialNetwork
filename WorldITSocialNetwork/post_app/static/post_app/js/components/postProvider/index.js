@@ -10,13 +10,12 @@ if (window.location.pathname === "/") {
     mode = "own_posts"
 }
 
-let currentPage = 0
+let currentPage = 1
 let isLoading = false
 
 const observer = new IntersectionObserver(async (entries) => {
     if (entries[0].isIntersecting && isLoading == false){
         isLoading = true
-        currentPage++
 
         console.log(mode)
 
@@ -43,6 +42,7 @@ const observer = new IntersectionObserver(async (entries) => {
             }
             
             scrollThreshold.insertAdjacentHTML('beforebegin', data.html)
+            currentPage++
         })
         .catch(async (errors) => {
             alert(JSON.stringify(errors))
