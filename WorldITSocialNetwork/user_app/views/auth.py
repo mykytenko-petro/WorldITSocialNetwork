@@ -3,10 +3,10 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 
-from .forms import RegisterForm, LoginForm, ConfirmEmailForm
+from ..forms import RegisterForm, LoginForm, ConfirmEmailForm
 
 
-class AuthTemplateView(UserPassesTestMixin, TemplateView):
+class AuthView(UserPassesTestMixin, TemplateView):
     template_name = 'user_app/auth.html'
 
     def test_func(self):
