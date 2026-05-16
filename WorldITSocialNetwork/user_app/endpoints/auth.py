@@ -7,7 +7,7 @@ from django.http import HttpRequest, JsonResponse
 from WorldITSocialNetwork.store import cache_store
 from profile_app.models import Profile
 from ..forms import LoginForm, RegisterForm, ConfirmEmailForm
-from ..utils.smtp import send_code
+from ..utils import send_code
 
 
 User = get_user_model()
