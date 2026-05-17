@@ -1,5 +1,4 @@
-from django.core.paginator import Paginator
-
 from ..models import User
 
 
+# def get_friend_re

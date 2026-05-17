@@ -1,11 +1,14 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block links %}
-
+    <link rel="stylesheet" href="{% static 'user_app/friends/friends.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
-
+    <p class="main">Головна</p>
+    <p class="grey">Запити</p>
+    <p class="grey">Рекомендації</p>
+    <p class="grey">Всі друзі</p>
 {% endblock side_panel %}
 
 {% block content %}

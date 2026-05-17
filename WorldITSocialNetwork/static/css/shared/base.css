@@ -10,6 +10,7 @@ a {
 
 a, p, label, input, button, textarea {
     font-family: 'GT-Walsheim';
+    font-weight: 500;
 }
 
 body {
