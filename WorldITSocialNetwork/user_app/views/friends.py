@@ -10,7 +10,10 @@ class FriendsView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        current_user = self.request.user
 
-        context["requests_cards"] = FriendCardView.get_user_cards("requests", 1)
+        context['friends_cards'] = FriendCardView.get_user_cards(current_user, 'requests', 2) # type: ignore
+        context['recomendation_cards'] = FriendCardView.get_user_cards(current_user, 'requests', 2)  # type: ignore
+        context["requests_cards"] = FriendCardView.get_user_cards(current_user, "requests", 1) # type: ignore
 
         return context

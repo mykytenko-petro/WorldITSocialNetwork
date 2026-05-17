@@ -3,7 +3,11 @@ from django.views.generic.base import View
 from django.http import HttpRequest, JsonResponse
 from django.core.paginator import Paginator
 from django.template.loader import render_to_string
-
+from ..utils import (
+    get_all_friends,
+    get_friend_recommendations,
+    get_friend_requests
+)
 from ..models import User
 
 
@@ -15,17 +19,19 @@ class FriendCardView(LoginRequiredMixin, View):
         # return self.get_users(mode, int(user_count))  # type: ignore
     
     @staticmethod
-    def get_user_cards(mode: str, page_count: int):
+    def get_user_cards(user: User, mode: str, page_count: int):
         # TODO: create and use user query utils instead of hardcoded all users
-        queryset = User.objects.all()
 
         match mode:
             case "requests":
-                ...
+                queryset = get_friend_requests(user)
+
             case "recommendations":
-                ...
+                queryset = get_friend_recommendations(user)
+
             case "all_friends":
-                ...
+                queryset = get_all_friends(user)
+
             case _:
                 return 
             
