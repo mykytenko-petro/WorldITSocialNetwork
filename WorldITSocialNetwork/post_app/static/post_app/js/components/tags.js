@@ -31,6 +31,8 @@ const saveTagButton = document.getElementById('save-create-tag');
 let openTagButton = null;
 
 if (tagDialog && tagForm && tagInput && tagsContainer) {
+    tagsContainer.classList.add('tags-list');
+
     openTagButton = document.createElement('button');
 
     openTagButton.type = 'button';
@@ -42,6 +44,7 @@ if (tagDialog && tagForm && tagInput && tagsContainer) {
 
     tagsContainer.addEventListener('change', (event) => {
         if (event.target.matches('input[name="tags"]')) {
+            updateTagLabelState(event.target);
             syncTagsSpan();
         }
     });
@@ -82,6 +85,28 @@ if (tagDialog && tagForm && tagInput && tagsContainer) {
             closeTagDialogAndReturn();
         });
     }
+}
+
+function updateTagLabelState(checkbox) {
+    const label = checkbox.closest('label') || tagsContainer.querySelector(`label[for="${checkbox.id}"]`);
+
+    if (!label) {
+        return;
+    }
+
+    if (checkbox.checked) {
+        label.classList.add('tag-selected');
+    } else {
+        label.classList.remove('tag-selected');
+    }
+}
+
+function updateAllTagLabelStates() {
+    const tagInputs = tagsContainer.querySelectorAll('input[name="tags"]');
+
+    tagInputs.forEach((checkbox) => {
+        updateTagLabelState(checkbox);
+    });
 }
 
 function openTagDialog() {
@@ -185,6 +210,7 @@ function addTagCheckbox(id, name) {
 
     label.htmlFor = checkbox.id;
     label.append(checkbox, ` #${name}`);
+    updateTagLabelState(checkbox);
 
     wrapper.append(label);
 
@@ -193,4 +219,8 @@ function addTagCheckbox(id, name) {
     } else {
         tagsContainer.append(wrapper);
     }
+}
+
+if (tagsContainer) {
+    updateAllTagLabelStates();
 }

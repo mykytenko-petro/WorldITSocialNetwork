@@ -1,7 +1,7 @@
 {% load static %}
 
 <dialog class="create-post-form" id="create-post-form">
-    <div>
+    <div class="modal-close-row">
         <button class="close" id="close" type="button">
             <img src="{% static 'icon/cross.svg' %}">
         </button>
@@ -9,31 +9,35 @@
 
     <p class="title">Створення публікації</p>
 
-    <form method="post" action="{% url 'post_app.post_creation' %}" enctype="multipart/form-data">
+    <form class="create-post-fields" method="post" action="{% url 'post_app.post_creation' %}" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <div>
+        <div class="post-field">
+            <label for="{{ post_creation_form.title.id_for_label }}">Назва публікації</label>
             {{ post_creation_form.title }}
         </div>
-        <div>
+        <div class="post-field">
+            <label for="{{ post_creation_form.topic.id_for_label }}">Тема публікації</label>
             {{ post_creation_form.topic }}
         </div>
-        <div>
+        <div class="post-field post-tags-field">
             {{ post_creation_form.tags }}
         </div>
-        <div>
+        <div class="post-field">
             {{ post_creation_form.content }}
         </div>
         <div class="links">
             <label>Посилання</label>
-            <div></div>
+            <div class="links-list"></div>
         </div>
         <div id="images"></div>
     </form>
 
-    <div>
-        <button class="button-purple publish" id="createImage" type="button">Публікація</button>
-        <button class="button-purple publish" id="send" type="button">Публікація</button>
+    <div class="publish-actions">
+        <button class="button-purple publish publish-image" id="createImage" type="button">
+            <img src="{% static 'icon/image.svg' %}" alt="">
+        </button>
+        <button class="button-purple publish publish-send" id="send" type="button">Публікація</button>
     </div>
 </dialog>
 
@@ -44,7 +48,7 @@
 
     <p class="title">Додати хештег</p>
 
-    <form method="post" action="{% url 'post_app.tag_creation' %}">
+    <form class="create-tag-fields" method="post" action="{% url 'post_app.tag_creation' %}">
         {% csrf_token %}
 
         <label for="tag-name">Назва</label>

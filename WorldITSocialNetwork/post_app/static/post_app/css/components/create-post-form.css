@@ -1,93 +1,135 @@
-dialog.create-post-form {
+.create-post-form {
+    width: 50.4vw;
+    min-width: 320px;
+    max-width: 560px;
+    box-sizing: border-box;
+    padding: 0 3.3vw 2.8vh;
     align-items: start;
 }
 
-.create-post-form {
-    padding: 3.06vw;
-    gap-bottom: 0.83vh;
-}
-
-.create-post-form > div {
-    width: 100%;
+.modal-close-row,
+.publish-actions {
+    width: 43.8vw;
+    min-width: 252px;
+    max-width: 448px;
 
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .close {
+    padding: 0;
+
     background-color: transparent;
     border: 0;
+    cursor: pointer;
 }
 
 .close:focus {
     outline-color: transparent;
 }
 
-.close > img {
-    height: 20px;
+.close img {
+    width: 1.36vw;
+    max-width: 14px;
+    min-width: 10px;
+    height: 1.95vh;
 }
 
 .title {
-    font-size: 3.54vh;
+    color: #07091D;
+    font-size: 3.34vh;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-.create-post-form > form {
-    width: 47.57vw;
+.create-post-fields {
+    width: 43.8vw;
+    min-width: 252px;
+    max-width: 448px;
 
-    padding: 2.5vh 0;
+    padding: 2.2vh 0 1.95vh;
 
     display: flex;
     flex-direction: column;
-    gap: 1.67vh;
+    gap: 1.65vh;
 }
 
-.create-post-form > form > div {
+.post-field {
     display: flex;
     flex-direction: column;
-    gap: 0.63vh;
+    gap: 0.85vh;
 }
 
-.create-post-form > form > div > input {    
-    width: 23.82vw;
-    
-    padding: 1vw 2vh;
-    
+.create-post-fields input,
+.links input {
+    width: 23.45vw;
+    min-width: 210px;
+    max-width: 240px;
+    height: 4.2vh;
+    box-sizing: border-box;
+
+    padding: 0 1.18vw;
+
     background-color: #FFFFFF;
-    
-    border: 1px solid #CDCED2;
-    border-radius: 2vh;
+
+    border: 0.14vh solid #CDCED2;
+    border-radius: 1vh;
+
+    color: #07091D;
+    font-size: 1.65vh;
+}
+
+.create-post-form input:focus,
+.create-post-form textarea:focus,
+.create-tag-form input:focus {
+    border-color: #543C52;
+    outline: 0.14vh solid #543C52;
 }
 
 .create-post-form textarea {
-    width: 100%;
+    width: 43.2vw;
+    min-width: 246px;
+    max-width: 442px;
+    box-sizing: border-box;
 
-    padding: 1vw 2vh;
-    
+    padding: 1.65vh 1.18vw;
+
     background-color: #FFFFFF;
-    
-    border: 1px solid #CDCED2;
-    border-radius: 2vh;
 
+    border: 0.14vh solid #CDCED2;
+    border-radius: 1vh;
+
+    color: #07091D;
+    font-size: 1.65vh;
     resize: none;
 }
 
 .create-post-form .content-field {
-    width: 100%;
+    width: 43.2vw;
+    min-width: 246px;
+    max-width: 442px;
+    min-height: 12.25vh;
+    box-sizing: border-box;
 
-    padding: 1vw 2vh;
+    padding: 1.65vh 1.18vw;
 
     display: flex;
     flex-direction: column;
-    /* gap: 0.8vh; */
+    justify-content: flex-start;
+    gap: 0.55vh;
 
     background-color: #FFFFFF;
 
-    border: 1px solid #CDCED2;
-    border-radius: 2vh;
+    border: 0.14vh solid #CDCED2;
+    border-radius: 1vh;
 }
 
 .create-post-form .content-field textarea {
+    width: 40.85vw;
+    min-width: 222px;
+    max-width: 418px;
     padding: 0;
 
     background-color: transparent;
@@ -95,9 +137,12 @@ dialog.create-post-form {
     border: 0;
     border-radius: 0;
 
-    min-height: 1.5em;
+    min-height: 2.1vh;
 
     overflow: hidden;
+
+    font-size: 1.65vh;
+    line-height: 1.25;
 }
 
 .create-post-form .content-field textarea:focus {
@@ -106,83 +151,287 @@ dialog.create-post-form {
 
 .content-tag {
     color: #543C52;
+    font-size: 1.65vh;
+    line-height: 1.25;
     user-select: none;
     pointer-events: none;
 }
 
 .post-create {
-    width: 100%;
+    width: 52vw;
+    min-width: 320px;
+    max-width: 690px;
 
     box-sizing: border-box;
-    padding: 1.67vh;
+    padding: 2.2vh 1.55vw;
 
     display: flex;
     flex-direction: column;
 
     background-color: white;
 
-    border-radius: 2vh;
-    border: 1px solid #CDCED2;
+    border-radius: 1.65vh;
+    border: 0.14vh solid #CDCED2;
 
     overflow: hidden;
 }
 
-.post-create > textarea {
-    width: 100%;
+.post-create textarea {
+    width: 48vw;
+    min-width: 270px;
+    max-width: 640px;
 
     padding: 1vw 2vh;
-    
+
     border: 0;
 
     resize: none;
 }
 
-.post-create > div {
-    width: 100%;
+.post-create div {
+    width: 48vw;
+    min-width: 270px;
+    max-width: 640px;
 
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .button-edit {
-    padding: 10px;
+    padding: 1.4vh 0.98vw;
 }
 
-#id_tags{
-    width: 100%;
+.tags-list {
+    width: 43.8vw;
+    min-width: 252px;
+    max-width: 448px;
 
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
+    gap: 1.1vh;
 }
 
-#id_tags label{
-    padding: 0.41vh;
+.create-post-fields .tags-list {
+    flex-direction: row;
+}
+
+.tags-list div {
+    display: flex;
+}
+
+.tags-list label {
+    display: block;
+    padding: 0.55vh 0.58vw;
 
     background-color: #E9E5EE;
 
-    border-radius: 10%;
+    border-radius: 0.45vh;
 
     color: #543C52;
-    font-size: 1.45vh;
+    font-size: 1.65vh;
+    line-height: 1;
     user-select: none;
+    cursor: pointer;
 }
 
-#id_tags label > input{
+.tags-list input {
     display: none;
 }
 
-#id_tags label:has(input:checked) {
-    background-color: rgba(84, 60, 82, 1);
-    
+.tags-list .tag-selected {
+    background-color: #543C52;
     color: white;
+}
+.add-tag-button {
+    width: 1.76vw;
+    min-width: 18px;
+    max-width: 18px;
+    height: 3.05vh;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #FFFFFF;
+
+    border: 0.14vh solid #CDCED2;
+    border-radius: 0.45vh;
+
+    color: #07091D;
+    font-size: 2.2vh;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .links {
-    width: 23.82vw;
+    width: 23.45vw;
+    min-width: 210px;
+    max-width: 240px;
 
     display: flex;
     flex-direction: column;
+}
+.post-field label,
+.links label,
+.create-tag-form label {
+    color: #07091D;
+    font-size: 1.65vh;
+    font-weight: 400;
+}
+
+.links .links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1vh;
+}
+
+.links .link-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.78vw;
+}
+
+.post-button {
+    width: 1.76vw;
+    min-width: 18px;
+    max-width: 18px;
+    height: 2.5vh;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #FFFFFF;
+
+    border: 0.14vh solid #543C52;
+    border-radius: 1.5vh;
+    cursor: pointer;
+}
+
+.post-button img {
+    width: 1.18vw;
+    max-width: 12px;
+    min-width: 10px;
+    height: 1.65vh;
+}
+
+.publish {
+    min-width: 90px;
+    height: 3.9vh;
+    padding: 0 1.27vw;
+
+    border: 0;
+    cursor: pointer;
+    font-size: 1.55vh;
+    font-weight: 700;
+}
+
+.publish-image {
+    min-width: 28px;
+    width: 2.74vw;
+    max-width: 28px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #FFFFFF;
+
+    border: 0.14vh solid #543C52;
+
+    font-size: 0;
+}
+
+.publish-image img {
+    width: 1.46vw;
+    max-width: 15px;
+    min-width: 12px;
+    height: 2.1vh;
+}
+
+.publish-send {
+    margin-left: 0.78vw;
+}
+
+.create-tag-form {
+    width: 26.75vw;
+    min-width: 274px;
+    max-width: 274px;
+    box-sizing: border-box;
+    padding: 0 2.55vw 2.2vh;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.create-tag-form .close {
+    align-self: flex-end;
+}
+
+.create-tag-form .title {
+    margin-top: 2.5vh;
+    font-size: 3.34vh;
+}
+
+.create-tag-fields {
+    margin-top: 2.2vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.85vh;
+}
+
+.create-tag-fields input {
+    width: 21.7vw;
+    min-width: 222px;
+    max-width: 222px;
+    height: 4.2vh;
+    box-sizing: border-box;
+    padding: 0 0.98vw;
+
+    border: 0.14vh solid #CDCED2;
+    border-radius: 1vh;
+
+    color: #07091D;
+    font-size: 1.65vh;
+}
+
+.create-tag-actions {
+    width: 21.7vw;
+    min-width: 222px;
+    max-width: 222px;
+    margin-top: 2.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0.78vw;
+}
+
+.create-tag-actions button {
+    width: 8.6vw;
+    min-width: 86px;
+    max-width: 96px;
+    height: 3.9vh;
+    padding: 0;
+
+    background-color: #FFFFFF;
+
+    border: 0.14vh solid #543C52;
+    border-radius: 3.5vh;
+
+    color: #543C52;
+    font-size: 1.55vh;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.create-tag-actions .button-purple {
+    background-color: #543C52;
+    color: #FFFFFF;
 }
