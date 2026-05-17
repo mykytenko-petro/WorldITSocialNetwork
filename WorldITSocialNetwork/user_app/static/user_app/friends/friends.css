@@ -3,9 +3,32 @@
     font-size: 1.67vh;
     color: #070A1C;
     border-bottom: 1px solid #543C52;
-
 }
 .grey{
     color: #81818D;
     font-size: 1.67vh;
+}
+.requests, .recomendations, .all-friends{
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
+    background-color: #FFFFFF;
+    padding: 1.67vh 1.19vw;
+    gap:1.67vh;
+}
+.heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:#070A1C
+}
+.cards{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 0.9vh;
 }
