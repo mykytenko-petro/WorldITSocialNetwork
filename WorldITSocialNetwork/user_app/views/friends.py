@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from ..endpoints import FriendCardView
 
+
 class FriendsView(LoginRequiredMixin, TemplateView):
     template_name = "user_app/friends/friends.html"
 
@@ -12,8 +13,8 @@ class FriendsView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         current_user = self.request.user
 
-        context['friends_cards'] = FriendCardView.get_user_cards(current_user, 'requests', 2) # type: ignore
-        context['recomendation_cards'] = FriendCardView.get_user_cards(current_user, 'requests', 2)  # type: ignore
-        context["requests_cards"] = FriendCardView.get_user_cards(current_user, "requests", 1) # type: ignore
+        context["requests_cards"] = FriendCardView.get_user_cards(current_user, "requests", 1)  # type: ignore
+        context["recommendation_cards"] = FriendCardView.get_user_cards(current_user, "recommendations", 1)  # type: ignore
+        context["friends_cards"] = FriendCardView.get_user_cards(current_user, "all_friends", 1)  # type: ignore
 
         return context
