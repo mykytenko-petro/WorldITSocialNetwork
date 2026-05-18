@@ -17,3 +17,6 @@ migrations/
 
 # secrets
 .env
+
+# development
+media/

@@ -1,11 +1,11 @@
 import random
 
 from django.views import View
-from django.shortcuts import redirect
 from django.contrib.auth import get_user_model, login, authenticate
 from django.http import HttpRequest, JsonResponse
 
 from WorldITSocialNetwork.store import cache_store
+from profile_app.models import Profile
 from .forms import LoginForm, RegisterForm, ConfirmEmailForm
 from .smtp import send_code
 
@@ -79,10 +79,11 @@ class ConfirmEmailView(View):
                 'errors': "невірний код"
             }, status= 400)
         
-        User.objects.create_user(
-            username=" ",
+        user = User.objects.create_user(
+            username=form.cleaned_data['email'],
             email=form.cleaned_data['email'],
             password=cache_store[form.cleaned_data["email"]]["password"]
         )
+        Profile.objects.create(user=user)
 
         return JsonResponse({})

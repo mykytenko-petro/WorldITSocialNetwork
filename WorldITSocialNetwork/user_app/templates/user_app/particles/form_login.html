@@ -6,9 +6,9 @@
     
     <p class="message">Раді тебе знову бачити!</p>
     
-    <form action="{% url 'login' %}" method="post" id="login-form-container">
+    <form action="{% url 'user_app.login' %}" method="post" id="login-form-container">
         {{ form_login.as_div }}
 
-        <button class="button">Увійти</button>
+        <button class="button button-purple">Увійти</button>
     </form>
 </div>
