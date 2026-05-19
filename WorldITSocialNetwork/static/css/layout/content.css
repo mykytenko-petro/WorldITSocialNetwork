@@ -1,16 +1,16 @@
 main {
     box-sizing: border-box;
 
-    margin-top: 100px;
-    padding: 0 10%;
-    overflow-y: auto;
     width: 100%;
+    height: auto;
+
+    padding: 0 5.56vw;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: start;
-    gap: 5px;
+    gap: 0.56vw;
 }
 
 .side-panel{
@@ -22,7 +22,7 @@ main {
 }
 
 .content {
-    width: 54vw;
+    width: 64.1vw;
     height: 91vh;
     
     overflow-y: auto;

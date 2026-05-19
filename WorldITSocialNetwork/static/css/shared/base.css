@@ -15,6 +15,12 @@ a, p, label, input, button, textarea {
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.67vh;
+
     background-color: #FAF8FF;
-    overflow: hidden;
 }

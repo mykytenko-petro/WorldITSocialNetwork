@@ -20,12 +20,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <!-- logic -->
-    <script type="module" src="{% static 'user_app/auth/js/DOM.js' %}"></script>
-    <script type="module" src="{% static 'user_app/auth/js/displayLogic.js' %}"></script>
-
-    <!-- forms -->
-    <script type="module" src="{% static 'user_app/auth/js/forms/registrationForm.js' %}"></script>
-    <script type="module" src="{% static 'user_app/auth/js/forms/loginForm.js' %}"></script>
-    <script type="module" src="{% static 'user_app/auth/js/forms/emailConfirmationForm.js' %}"></script>
+    <script type="module" src="{% static 'user_app/auth/js/index.js' %}"></script>
 {% endblock %}

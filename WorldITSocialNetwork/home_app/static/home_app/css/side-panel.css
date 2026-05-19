@@ -13,6 +13,7 @@
     border: 1px solid #CDCED2;
     
     border-radius: 2vh;
+    
 }
 
 .header {
@@ -39,6 +40,8 @@
     flex-direction: column;
     gap: 1.67vh;
 }
+
+
 
 .info {
     width: 100%;
@@ -72,8 +75,29 @@
 .messages .info {
     box-sizing: border-box;
     padding: 0 1.11vw;
+    
 }
 
 .grey-box {
     background-color: #E9E5EE;
+    
 }
+
+.message-info {
+    flex: 1;
+}
+
+.user-time {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.message-time {
+    color: #81818D;
+    
+}
+
