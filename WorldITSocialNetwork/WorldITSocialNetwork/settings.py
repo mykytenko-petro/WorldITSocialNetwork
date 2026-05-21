@@ -66,7 +66,7 @@ TEMPLATES = [
 ]
 
 # auth
-LOGIN_URL = 'user_app.index'
+LOGIN_URL = 'user_app.auth'
 AUTH_USER_MODEL = 'user_app.User'
 
 WSGI_APPLICATION = 'WorldITSocialNetwork.wsgi.application'

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'user_app/friends/css/friends.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/friends/css/user_card.css' %}">
+{% endblock links %}
+
+{% block side_panel %}
+    <p id="main-button">Головна</p>
+    <p id="requests-button">Запити</p>
+    <p id="recomendations-button">Рекомендації</p>
+    <p id="all-friends-button">Всі друзі</p>
+{% endblock side_panel %}
+
+{% block content %}
+    <div id="friendsMain">
+        <div class="requests">
+            <div class="heading">
+                <p class="text">Запити</p>
+                <p id="requests-button" class="all">Дивитись всі</p>
+            </div>
+
+            <div class="cards">
+            {{ requests_cards }}
+            </div>
+        </div>
+        <div class="recomendations">
+            <div class="heading">
+                <p class="text">Рекомендації</p>
+                <p id="recomendations-button" class="all">Дивитись всі</p>
+            </div>
+
+            <div class="cards">
+                {{ recommendation_cards }}
+            </div>
+        </div>
+        <div class="all-friends">
+            <div class="heading">
+                <p class="text">Всі друзі</p>
+                <p id="all-friends-button" class="all">Дивитись всі</p>
+            </div>
+
+            <div class="cards">
+                {{ friends_cards }}
+            </div>
+        </div>
+    </div>
+    <div id="friendsRequests">
+        <div class="requests">
+            <div class="heading">
+                <p class="text">Запити</p>
+            </div>
+
+            <div class="cards"></div>
+        </div>
+    </div>
+    <div id="friendsRecomendations">
+        <div class="recomendations">
+            <div class="heading">
+                <p class="text">Рекомендації</p>
+            </div>
+
+            <div class="cards"></div>
+        </div>
+    </div>
+    <div id="friendsAllFriends">
+        <div class="all-friends">
+            <div class="heading">
+                <p class="text">Всі друзі</p>
+            </div>
+
+            <div class="cards"></div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+     <script type="module" src="{% static 'user_app/friends/js/index.js'%}"></script>
+{% endblock scripts %}

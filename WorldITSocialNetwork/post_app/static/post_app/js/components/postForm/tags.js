@@ -17,11 +17,6 @@ if (postDialog) {
 
 if (contentTextarea) {
     createContentField();
-    resizeContentTextarea();
-
-    contentTextarea.addEventListener('input', () => {
-        resizeContentTextarea();
-    });
 }
 
 const closeTagButton = document.getElementById('close-create-tag-form');
@@ -31,10 +26,11 @@ const saveTagButton = document.getElementById('save-create-tag');
 let openTagButton = null;
 
 if (tagDialog && tagForm && tagInput && tagsContainer) {
+    console.log("Условие выполнено, кнопка создается!");
     openTagButton = document.createElement('button');
 
     openTagButton.type = 'button';
-    openTagButton.textContent = '+';
+    openTagButton.innerHTML = "<img src='/static/post_app/icon/plus.png' alt=''>";
     openTagButton.classList.add('add-tag-button');
     openTagButton.setAttribute('aria-label', 'Add hashtag');
 
@@ -132,10 +128,10 @@ function createContentField() {
     });
 }
 
-function resizeContentTextarea() {
-    contentTextarea.style.height = 'auto';
-    contentTextarea.style.height = `${contentTextarea.scrollHeight}px`;
-}
+// function resizeContentTextarea() {
+//     contentTextarea.style.height = 'auto';
+//     contentTextarea.style.height = `${contentTextarea.scrollHeight}px`;
+// }
 
 function getSelectedTagLabels() {
     const checkedTags = tagsContainer.querySelectorAll('input[name="tags"]:checked');

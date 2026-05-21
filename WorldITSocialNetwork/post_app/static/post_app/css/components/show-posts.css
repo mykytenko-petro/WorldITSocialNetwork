@@ -50,34 +50,26 @@
     gap: 1.67vh 1.11vw;
 }
 
+.image-block > img{
+    border-radius: 1.67vh;
+}
+
 .landscape {
     max-width: 30.1vw;
     height: 34.06vh;
+
 }
 
 .portrait {
     max-width: 19.7vw;
-    height: 34.06vh;
+    height: 34.06vh;    
 }
 
-/* .post p{
-    font-size: 1.1vw;
-} */
-
-/* .tag{
-    font-size: 1.1vw;
-    color: #543C52;
+.post-links {
+    display: flex;
+    flex-direction: column;
 }
 
-.link{
-    font-size: 1.1vw;
-    color: #543C52;
+.post-links > a {
+    color: rgba(84, 60, 82, 1);
 }
-
-.image-block{
-    max-width: 95%;
-}
-.image{
-    max-width: 95%;
-    border-radius: 1.67vh;
-} */

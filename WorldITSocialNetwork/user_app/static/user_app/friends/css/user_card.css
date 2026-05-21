@@ -1,0 +1,46 @@
+.user-card{
+    display: flex;
+    flex-direction: column;
+    gap: 1.1vw;
+    align-items: center;
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
+    padding: 1.67vh 2vw;
+}
+.user-card-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.texts{
+    padding-top: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.05vh;
+    align-items: center;
+}
+.img{
+    width: 6vw;
+}
+
+.user-card-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 1.1vw;
+}
+
+.purple-b, .white-b{
+    width: auto;
+    height: auto;
+    padding: 1.04vh 1.1vw;
+    border-radius: 2vh;
+}
+.purple-b, .white-b{
+    color: #ffffff;
+    background-color: #543C52;
+}
+.white-b{
+    background-color: #ffffff;
+    color: #543C52;
+    border: 1px solid #543C52;
+}

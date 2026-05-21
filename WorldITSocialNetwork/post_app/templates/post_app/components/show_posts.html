@@ -1,4 +1,5 @@
 {% load static %}
+
 {% for post in posts %}
     <div class="post">
         <div class="post-header">
@@ -8,11 +9,7 @@
         <hr>
         <div class="post-content">
             <p>{{ post.title }}</p>
-          
-            <!-- {% if post.topic %}
-                <p>{{ post.topic }}</p>
-            {% endif %}
-             -->
+        
             <p>
                 {{ post.content }}
                 
@@ -30,7 +27,7 @@
             </p>
             
             {% if post.links.all %}
-                <div>
+                <div class="post-links">
                     {% for link in post.links.all %}
                         <a class="link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.url }}</a>
                     {% endfor %}

@@ -1,0 +1,27 @@
+{% for user in users %}
+    <div class="user-card">
+        <div class="user-card-info">
+            <img src="/static/icon/mockup-icon.png" alt="">
+
+            <div class="texts">
+                <p>{{ user.profile.author_pseudonym }}</p>
+                <p>@{{ user.username }}</p>
+            </div>
+        </div>
+
+        <div class="user-card-buttons">
+            {% if mode == "requests" %}
+                <button class="purple-b" id="acceptUser">Підтвердити</button>
+
+            {% elif mode == "recommendations" %}
+                <button class="purple-b" id="addUser">Додати</button>
+
+            {% elif mode == "all_friends" %}
+                <button class="purple-b" id="messageUser">Повідомлення</button>
+
+            {% endif %}
+
+            <button class="white-b" id="deleteUser">Видалити</button>
+        </div>
+    </div>
+{% endfor %}

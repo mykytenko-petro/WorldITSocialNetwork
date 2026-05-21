@@ -1,0 +1,5 @@
+import "./DOM.js"
+import "./displayLogic.js"
+import "./forms/emailConfirmationForm.js"
+import "./forms/loginForm.js"
+import "./forms/registrationForm.js"

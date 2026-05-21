@@ -37,12 +37,7 @@ class TagCreationView(LoginRequiredMixin, View):
         
         return JsonResponse({'id': tag.pk,'name': tag.name})
 
-class PostProviderView(LoginRequiredMixin, ListView):
-    model = Post
-    template_name = 'post_app/posts.html'
-    context_object_name = 'posts'
-    paginate_by = 5
-    
+class PostProviderView(LoginRequiredMixin, View):    
     def post(self, request: HttpRequest):
         mode = request.POST.get("mode")
 
@@ -54,7 +49,7 @@ class PostProviderView(LoginRequiredMixin, ListView):
         else:
             return JsonResponse({"errors": "wrong mode"}, status=400)
 
-        paginator = Paginator(queryset, self.paginate_by)
+        paginator = Paginator(queryset, 5)
 
         page_number = request.POST.get('page')
         page_obj = paginator.get_page(page_number)

@@ -7,7 +7,7 @@ from ..forms import RegisterForm, LoginForm, ConfirmEmailForm
 
 
 class AuthView(UserPassesTestMixin, TemplateView):
-    template_name = 'user_app/auth.html'
+    template_name = 'user_app/auth/auth.html'
 
     def test_func(self):
         return not self.request.user.is_authenticated
@@ -27,4 +27,4 @@ class AuthView(UserPassesTestMixin, TemplateView):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect('user_app.index')
+        return redirect('user_app.auth')

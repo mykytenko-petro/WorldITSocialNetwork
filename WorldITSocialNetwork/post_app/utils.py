@@ -46,6 +46,6 @@ def compress_image(image: File):
             
     image.seek(0)
     
-    name_compressed = f'compressed_{image.name.rsplit('.', 1)[0]}.jpeg'
+    name_compressed = f'compressed_{image.name.rsplit(".", 1)[0]}.jpeg'
 
     return ContentFile(buffer.getvalue(), name=name_compressed)
