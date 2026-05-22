@@ -435,3 +435,53 @@
     background-color: #543C52;
     color: #FFFFFF;
 }
+.content-field {
+    width: 100%;
+    height: 13.12vh;
+
+    padding: 1vw 2vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+
+    overflow: auto;
+    -ms-overflow-style: none;
+}
+
+.content-field textarea {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    padding: 0;
+
+    background-color: transparent;
+
+    border: 0;
+    border-radius: 0;
+    outline: none;
+
+    resize: none;
+    overflow: hidden;
+}
+
+.content-field .content-tag {
+    margin-top: 0.63vh;
+
+    color: #543C52;
+
+    user-select: none;
+    pointer-events: none;
+}
+.content-field {
+    font-family: 'GT-Walsheim';
+}
+
+.content-field * {
+    font-family: inherit;
+}
