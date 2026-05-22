@@ -11,17 +11,18 @@
 
         <div class="user-card-buttons">
             {% if mode == "requests" %}
-                <button class="purple-b" id="acceptUser">Підтвердити</button>
-
+                <button class="purple-b" data-action="accept">Підтвердити</button>
             {% elif mode == "recommendations" %}
-                <button class="purple-b" id="addUser">Додати</button>
-
+                <button class="purple-b" data-action="add">Додати</button>
             {% elif mode == "all_friends" %}
-                <button class="purple-b" id="messageUser">Повідомлення</button>
-
+                <button class="purple-b" data-action="">Повідомлення</button>
             {% endif %}
 
-            <button class="white-b" id="deleteUser">Видалити</button>
+            {% if mode == "all_friends" %}
+                <button class="white-b" data-action="delete">Видалити</button>
+            {% else %}
+                <button class="white-b" data-action="dismiss">Видалити</button>
+            {% endif %}
         </div>
     </div>
 {% endfor %}
