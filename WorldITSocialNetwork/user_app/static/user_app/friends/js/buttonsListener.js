@@ -27,7 +27,7 @@ allFriendsButton.forEach((element) => {
 // actions
 document.addEventListener("click", async (event) => {
     const element = event.target
-
+    
     console.log(element)
 
     if (!element.matches("[data-action]")) {
