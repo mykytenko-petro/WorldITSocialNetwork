@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     AuthView, LogoutView,
-    FriendsView
+    FriendsView, FriendPageView
 )
 from .endpoints import (
     RegisterView, LoginView, ConfirmEmailView,
@@ -19,4 +19,5 @@ urlpatterns = [
     
     # friend
     path(route='friends/', view=FriendsView.as_view(), name='user_app.friends'),
+    path(route='<int:user_id>/', view= FriendPageView.as_view(), name="user_app.friend_page")
 ]

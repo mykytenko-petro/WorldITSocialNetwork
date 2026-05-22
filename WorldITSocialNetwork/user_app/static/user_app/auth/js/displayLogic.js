@@ -1,5 +1,4 @@
 import { confirmEmailForm, loginForm, registerForm } from "./DOM.js"
-import { showForm } from "../displayLogic.js"
 
 export function showForm(formName){
     if(formName === "loginForm"){

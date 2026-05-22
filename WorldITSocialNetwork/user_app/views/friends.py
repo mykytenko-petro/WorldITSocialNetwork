@@ -18,3 +18,11 @@ class FriendsView(LoginRequiredMixin, TemplateView):
         context["friends_cards"] = FriendCardView.get_user_cards(current_user, "all_friends", 1)  # type: ignore
 
         return context
+
+class FriendPageView(LoginRequiredMixin, TemplateView):
+    template_name = "user_app/friends/friend_page.html"
+
+    def get(self, request, user_id, *args, **kwargs):
+        print(user_id)
+        return super().get(request, *args, **kwargs)
+    
