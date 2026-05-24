@@ -47,6 +47,13 @@ class FriendCardView(View):
             template_name="user_app/friends/particles/user_card.html",
             context={"users": users, "mode": mode},
         )
+    
+    @staticmethod
+    def get_user_card(user, mode):
+        return render_to_string(
+            template_name="user_app/friends/particles/user_card.html",
+            context={"users": [user], "mode": mode},
+        )
 
 
 class FriendActionView(View):
@@ -63,9 +70,15 @@ class FriendActionView(View):
                 dismiss_recommendation(user, other_user)
             case "accept":
                 accept_friend_request(user, other_user)
+
+                html = FriendCardView.get_user_card(other_user, "all_friends")
+
+                return JsonResponse({
+                    "html": html
+                })
             case "delete":
                 delete_friendship(user, other_user)
             case _:
-                return JsonResponse({}, status=400)
+                return JsonResponse({"message": f"wrong mode {mode}"}, status=400)
 
         return JsonResponse({})

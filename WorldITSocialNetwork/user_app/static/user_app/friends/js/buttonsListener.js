@@ -32,12 +32,7 @@ document.addEventListener("click", async (event) => {
     if (!element.matches("[data-action]")) {
         return
     }
-
+    
     const userId = element.closest("[data-user-id]").dataset.userId
-    const result = await fetchFriendAction(element.dataset.action, userId)
-    if (result){
-        const card = element.closest("[data-user-id]")
-        card.remove()
-    }
-    await fetchFriendAction(element.dataset.action, userId)
+    await fetchFriendAction(element.dataset.action, userId, element)
 })
