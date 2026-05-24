@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block meta %}
+    <meta name="friendsActionsUrl" content="{% url "user_app.friends_actions" %}">
+{% endblock meta %}
+
 {% block links %}
     <link rel="stylesheet" href="{% static 'user_app/friends/css/friends.css' %}">
     <link rel="stylesheet" href="{% static 'user_app/friends/css/user_card.css' %}">
