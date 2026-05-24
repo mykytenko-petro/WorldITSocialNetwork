@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div.content {
+    flex-direction: row;
+    gap:5px;
+}
+.messages-content{
+    width: 39.17vw;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.messages-panel{
+    width:24.31vw;
+    display: flex;
+    justify-content: flex-end;
+}

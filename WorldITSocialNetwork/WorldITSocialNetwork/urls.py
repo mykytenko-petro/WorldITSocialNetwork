@@ -10,6 +10,8 @@ urlpatterns = [
     path(route='profile/', view=include('profile_app.urls')),
     path(route='post/', view=include('post_app.urls')),
     path(route='user/', view=include('user_app.urls')),
+    path(route='chat/', view=include('chat_app.urls')),
+    
 ]
 
 if settings.DEBUG:
