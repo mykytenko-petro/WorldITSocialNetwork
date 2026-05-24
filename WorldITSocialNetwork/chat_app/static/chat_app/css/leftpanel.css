@@ -13,12 +13,9 @@
     background-color: #FFFFFF;
     border-radius: 2vh;
     border: 1px solid #CDCED2;
-    padding: 1.1vw;
-}
-.head{
-    
-    display: flex;
-    flex-direction: column;
+    padding-top: 1.1vw;
+    padding-left: 1.05vw;
+    padding-right: 1.05vw;
     gap: 2.4vh;
 }
 .create{
@@ -37,7 +34,9 @@
     border-radius: 2vh;
     border: 1px solid #CDCED2;
 }
-.search p{
+.search input{
+    border: none;
+    outline: none;
     font-size: 1.1vw;
     color:#81818D;
 }
@@ -47,11 +46,11 @@
 
 .contact-container{
     width: 100%;
-    height: 84.48vh;
+    height: 69.38vh;
 
     display: flex;
     flex-direction: column;
-    gap: 1vh;
+    gap: 1.8vh;
     
     overflow-y: auto;
 }

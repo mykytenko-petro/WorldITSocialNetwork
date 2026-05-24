@@ -35,7 +35,7 @@ const removeImageButton = (parentToElement, objectUrl) => {
     const button = document.createElement("button")
 
     const icon = document.createElement("img")
-    icon.src = "/static/icon/remove-post-link.svg"
+    icon.src = "/static/post_app/icon/trash.png";
     button.appendChild(icon)
 
     button.addEventListener("click", () => {

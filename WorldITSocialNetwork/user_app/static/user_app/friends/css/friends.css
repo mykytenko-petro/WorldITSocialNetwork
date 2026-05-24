@@ -1,14 +1,24 @@
-.main{
-    width: 5.1vw;
-    font-size: 1.67vh;
-    color: #070A1C;
-    border-bottom: 1px solid #543C52;
+.content > div {
+    width: 100%;
+    
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.83vh;
 }
 
-.grey{
+.side-panel > p {
+    width: fit-content;
     color: #81818D;
     font-size: 1.67vh;
 }
+
+.selected{
+    color: #070A1C !important;
+    border-bottom: 3px solid #543C52;
+}
+
 .requests, .recomendations, .all-friends{
     width: 100%;
     box-sizing: border-box;

@@ -7,15 +7,21 @@
 div.content {
     flex-direction: row;
     gap:5px;
+    align-items: start;
 }
 .messages-content{
     width: 39.17vw;
+    height: 100%;
+
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
+    background-color: white;
     display: flex;
-    justify-content: flex-start;
 }
 
 .messages-panel{
     width:24.31vw;
     display: flex;
     justify-content: flex-end;
+    overflow-y: hidden;
 }
