@@ -1,0 +1,14 @@
+<div id="register-form-container">
+    <nav>
+        <p class="active-button button">Реєстрація</p>
+        <p id="open-login-form" class="button">Авторизація</p>
+    </nav>
+
+    <p class="message">Приєднуйся до World IT</p>
+    
+    <form action="{% url 'user_app.register' %}" method="post">
+        {{ form_register.as_div }}
+
+        <button class="button button-purple">Створити акаунт</button>
+    </form>
+</div>

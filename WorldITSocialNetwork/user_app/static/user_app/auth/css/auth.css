@@ -1,0 +1,23 @@
+.laptop-img {
+    position: fixed;
+    top: 25.88vh;
+    left: 45.67vw;
+    z-index: -1;
+
+    height: 54.91vh;
+}
+
+.form {
+    position: fixed;
+    top: 24.58vh;
+    left: 17.25vw;
+    cursor: pointer;
+    width: 33.82vw;
+
+    padding: 3.06vw;
+
+    background-color: #FFFFFF;
+
+    border-radius: 2vh;
+}
+

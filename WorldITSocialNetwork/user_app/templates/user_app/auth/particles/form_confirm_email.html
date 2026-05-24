@@ -1,0 +1,29 @@
+<div class="confirm-email-form" id="confirm-email-form-container">
+    <p class="label">Підтвердження пошти</p>
+    <p class="description" id="description"></p>
+    
+    <form action="{% url 'user_app.confirm_email' %}" method="post">
+        <p>Код підтвердження</p>
+
+        <div class="code">
+            <div>
+                {{ form_confirm_email.number1 }}
+                {{ form_confirm_email.number2 }}
+            </div>
+            <div>
+                {{ form_confirm_email.number3 }}
+                {{ form_confirm_email.number4 }}
+            </div>
+            <div>
+                {{ form_confirm_email.number5 }}
+                {{ form_confirm_email.number6 }}
+            </div>
+        </div>
+    </form>
+    
+    <div>
+        <button class="submit-email button button-purple" id="confirm-email-form-button">Підтвердити</button>
+        
+        <p id="button-back" class="button">Назад</p>
+    </div>
+</div>

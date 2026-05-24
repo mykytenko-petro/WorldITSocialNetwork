@@ -1,0 +1,322 @@
+dialog.create-post-form {
+    align-items: start;
+}
+
+.create-post-form {
+    max-height: 90vh;
+    box-sizing: border-box;
+
+    padding: 3.06vw;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+}
+
+.create-post-form > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.close {
+    background-color: transparent;
+    border: 0;
+}
+
+.close:focus {
+    outline-color: transparent;
+}
+
+.close > img {
+    height: 20px;
+}
+
+.title {
+    font-size: 3.54vh;
+}
+
+.create-post-form > form {
+    width: 47.57vw;
+
+    padding: 2.5vh 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.67vh;
+}
+
+.create-post-form > form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.63vh;
+}
+
+.create-post-form > form > div > input {
+    width: 23.82vw;
+
+    padding: 1vw 2vh;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+}
+
+.create-post-form textarea {
+    width: 100%;
+    height: 13.12vh;
+
+    padding: 1vw 2vh;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+
+    scrollbar-color: #543C52 transparent;
+    overflow: auto;
+    -ms-overflow-style: none;
+    resize: none;
+}
+
+.content-tag {
+    color: #543C52;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.post-create {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 1.67vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    border: 1px solid #CDCED2;
+    border-radius: 2vh;
+
+    overflow: hidden;
+}
+
+.post-create > textarea {
+    width: 100%;
+
+    padding: 1vw 2vh;
+
+    border: 0;
+
+    resize: none;
+}
+
+.post-create > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.button-edit {
+    padding: 10px;
+}
+
+#id_tags {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+#id_tags label {
+    padding: 0.41vh;
+
+    background-color: #E9E5EE;
+
+    border-radius: 10%;
+
+    color: #543C52;
+    font-size: 1.45vh;
+
+    user-select: none;
+}
+
+#id_tags label > input {
+    display: none;
+}
+
+#id_tags label:has(input:checked) {
+    background-color: #543C52;
+
+    color: white;
+}
+
+.links {
+    width: 23.82vw;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.links input {
+    width: 21.73vw;
+
+    padding: 1.04vh 1.11vw;
+
+    border: 1px solid #81818D;
+    border-radius: 12px;
+}
+
+.links > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.62vh;
+}
+
+.links > div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.41vw;
+}
+
+.add-tag-button {
+    width: 1.38vw;
+
+    background: none;
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+}
+
+.add-tag-button > img {
+    width: 1.38vw;
+    cursor: default;
+}
+
+.post-button {
+    width: 1.38vw;
+
+    background: none;
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+}
+
+.send-button {
+    background: none;
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+    gap: 0.69vw;
+}
+
+.send-button > img {
+    width: 2.77vw;
+}
+
+.send-class {
+    gap: 0.69vw;
+}
+
+.button-purple-publish {
+    display: flex;
+    align-items: center;
+    gap: 0.55vw;
+
+    padding: 1.04vh 1.11vw;
+
+    background-color: #543C52;
+
+    border-radius: 85.69vw;
+
+    color: #FFFFFF;
+}
+
+.button-purple-publish > img {
+    width: 1.38vw;
+}
+
+#images {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.83vw;
+}
+
+#images > div {
+    position: relative;
+
+    width: 15.1vw;
+    aspect-ratio: 3 / 4;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    border-radius: 1.11vw;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#images > div.selected {
+    border: 2px solid #543C52;
+}
+
+#images > div > img {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+#images > div > button {
+    position: relative;
+
+    margin-top: 1.04vh;
+    margin-right: 0.69vw;
+
+    width: 2.77vw;
+    height: 2.77vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 1px solid #543C52;
+    border-radius: 50%;
+}
+
+#images > div > button:hover {
+    background: #E9E5EE;
+}
+
+#images > div > button > img {
+    width: 2.77vw;
+
+    display: none;
+}
+
+#images > div > button:hover > img {
+    display: block;
+}

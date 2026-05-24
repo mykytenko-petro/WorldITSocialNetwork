@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #000;
+    text-decoration: none
+}
+
+a, p, label, input, button, textarea {
+    font-family: 'GT-Walsheim';
+    font-weight: 500;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.67vh;
+
+    background-color: #FAF8FF;
+}
