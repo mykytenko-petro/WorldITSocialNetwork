@@ -25,4 +25,11 @@
             <p>Друзі</p>
         </div>
     </div>
+
+    {% if request.resolver_match.view_name == "user_app.friend_page" %}
+        <div>
+            <button id="acceptUsersButton">Підтвердити</button>
+            <button id="dismissUsersButton">Видалити</button>
+        </div>
+    {% endif %}
 </div>

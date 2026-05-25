@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block meta %}
+    <meta name="friendsActionsUrl" content="{% url "user_app.friends_actions" %}">
+{% endblock meta %}
+
 {% block links %}
     <link rel="stylesheet" href="{% static 'user_app/friends/css/friends.css' %}">
     <link rel="stylesheet" href="{% static 'user_app/friends/css/user_card.css' %}">
@@ -20,7 +25,7 @@
                 <p id="requests-button" class="all">Дивитись всі</p>
             </div>
 
-            <div class="cards">
+            <div class="cards" id="request-list">
             {{ requests_cards }}
             </div>
         </div>
@@ -40,7 +45,7 @@
                 <p id="all-friends-button" class="all">Дивитись всі</p>
             </div>
 
-            <div class="cards">
+            <div class="cards" id="friends-list">
                 {{ friends_cards }}
             </div>
         </div>
@@ -75,5 +80,5 @@
 {% endblock content %}
 
 {% block scripts %}
-     <script type="module" src="{% static 'user_app/friends/js/index.js'%}"></script>
+    <script type="module" src="{% static 'user_app/friends/js/index.js'%}"></script>
 {% endblock scripts %}

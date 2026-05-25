@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block side_panel %}  
-    <button >Підтвердити</button>
-    <button>Видалити</button>
+{% block side_panel %}
+    {% include "home_app/components/profile_container.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'user_app/friends/js/usersButtons.js'%}" type="module"></script>
 {% endblock %}

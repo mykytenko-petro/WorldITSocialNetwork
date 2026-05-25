@@ -1,5 +1,6 @@
-import { mainButton, requestsButton, recomendationsButton, allFriendsButton } from "./DOM.js";
+import { mainButton, requestsButton, recomendationsButton, allFriendsButton } from "./DOM.js"
 import { showBox } from "./displayLogic.js"
+import { fetchFriendAction } from "./friendsActions.js"
 
 // tabs
 mainButton.addEventListener("click", () => {
@@ -28,11 +29,14 @@ allFriendsButton.forEach((element) => {
 document.addEventListener("click", async (event) => {
     const element = event.target
 
-    console.log(element)
-
     if (!element.matches("[data-action]")) {
         return
     }
     
-    console.log(element.dataset.action)
+    const userId = element.closest("[data-user-id]").dataset.userId
+    const mode = element.dataset.action
+    const url = `/user/${userId}?mode=${mode}/`
+    console.log(mode)
+    window.location.href = url
+    // await fetchFriendAction(element.dataset.action, userId, element)
 })
