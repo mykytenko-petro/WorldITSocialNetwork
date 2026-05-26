@@ -5,7 +5,7 @@ from .views import (
 )
 from .endpoints import (
     RegisterView, LoginView, ConfirmEmailView,
-    FriendActionView
+    FriendActionView, FriendCardView
 )
 
 
@@ -20,6 +20,8 @@ urlpatterns = [
     
     # friend
     path(route='friends/', view=FriendsView.as_view(), name='user_app.friends'),
+    path(route='<int:user_id>/', view= FriendPageView.as_view(), name="user_app.friend_page"),
+
     path(route='friends-actions/', view=FriendActionView.as_view(), name='user_app.friends_actions'),
-    path(route='<int:user_id>/', view= FriendPageView.as_view(), name="user_app.friend_page")
+    path(route='friends-pagination/<str:mode>/', view=FriendCardView.as_view()),
 ]
