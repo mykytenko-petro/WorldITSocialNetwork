@@ -1,4 +1,3 @@
-// import {deleteCard} from "./friendsActions.js"
 import { fetchFriendAction } from "./friendsActions.js"
 
 const acceptButton = document.getElementById("acceptUsersButton")
@@ -7,19 +6,15 @@ const url = "/user/friends/"
 const queryString = window.location.search
 const urlParams = new URLSearchParams(queryString);
 
-const mode = urlParams.get("mode").slice(0, -1)
-const userId = urlParams.get("userId")
-console.log(userId)
-
-console.log(mode)
+const mode = urlParams.get("mode")
+const secondMode = urlParams.get("secondMode").slice(0, -1)
 
 acceptButton.addEventListener("click", (event) => {
+    fetchFriendAction(mode)
     window.location.href = url
 })
 
 dismissButton.addEventListener("click", (event) => {
-    // deleteCard()
+    fetchFriendAction(secondMode)
     window.location.href = url
-    fetchFriendAction(mode,)
-
 })

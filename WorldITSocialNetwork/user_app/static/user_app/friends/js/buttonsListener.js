@@ -32,10 +32,12 @@ document.addEventListener("click", async (event) => {
     if (!element.matches("[data-action]")) {
         return
     }
-    
+    const parent = element.closest("[data-user-id]")
+    const buttons = parent.querySelectorAll("button")
+    const mode = buttons[0].dataset.action
+    const secondMode = buttons[1].dataset.action
     const userId = element.closest("[data-user-id]").dataset.userId
-    const mode = element.dataset.action
-    const url = `/user/${userId}?mode=${mode}/`
+    const url = `/user/${userId}?mode=${mode}&secondMode=${secondMode}/`
     console.log(userId)
     window.location.href = url
     // await fetchFriendAction(element.dataset.action, userId, element)
