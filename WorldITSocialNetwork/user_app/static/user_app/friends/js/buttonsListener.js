@@ -36,7 +36,7 @@ document.addEventListener("click", async (event) => {
     const userId = element.closest("[data-user-id]").dataset.userId
     const mode = element.dataset.action
     const url = `/user/${userId}?mode=${mode}/`
-    console.log(mode)
+    console.log(userId)
     window.location.href = url
     // await fetchFriendAction(element.dataset.action, userId, element)
 })
