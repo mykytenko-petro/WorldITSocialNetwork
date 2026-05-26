@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{% static 'chat_app/css/leftpanel.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/right_panel.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/chat.css' %}">
-    {% comment %} <link rel="stylesheet" href="{% static 'chat_app/css/dialog.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'chat_app/css/dialog.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
@@ -15,7 +15,7 @@
 
 {% block content %}
     <div class="messages-content">
-        {% include 'chat_app/particles/firstview.html' %}
+        {% comment %} {% include 'chat_app/particles/firstview.html' %} {% endcomment %}
         {% include 'chat_app/particles/dialog.html' %}
     </div>
     <div class="messages-panel">

@@ -6,4 +6,13 @@
     align-items: center;
     text-align: center;
     height: 100%;
+    gap: 4vh;
+}
+
+.first{
+    font-size: 1.67vw;
+    font-weight: 700;
+}
+.second{
+    font-size: 1.1vw;
 }
