@@ -1,0 +1,65 @@
+.leftside{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vh;
+}
+
+.contacts-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    background-color: #FFFFFF;
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
+    padding-top: 1.1vw;
+    padding-left: 1.05vw;
+    padding-right: 1.05vw;
+    gap: 2.4vh;
+}
+.create{
+    color: #FFFFFF;
+    background-color: #543C52;
+    border-radius: 20vh;
+    padding: 1.1vh 1.1vw;
+    width: 100%;
+}
+.head-contact p{
+    font-size: 1.5vw;
+    color:#81818D;
+}
+.search{
+    padding: 1vh 1.2vw;
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
+}
+.search input{
+    border: none;
+    outline: none;
+    font-size: 1.1vw;
+    color:#81818D;
+}
+.contact img{
+    width: 5vh;
+}
+
+.contact-container{
+    width: 100%;
+    height: 69.38vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.8vh;
+    
+    overflow-y: auto;
+}
+
+.contact{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.9vw;
+    align-items: center;
+    flex-shrink: 0;
+}

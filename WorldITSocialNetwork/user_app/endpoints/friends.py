@@ -1,5 +1,5 @@
 from django.views.generic.base import View
-from django.http import HttpRequest, JsonResponse
+from django.http import HttpRequest, JsonResponse, HttpResponse
 from django.core.paginator import Paginator
 from django.template.loader import render_to_string
 from django.shortcuts import get_object_or_404
@@ -12,11 +12,17 @@ from ..models import User
 
 
 class FriendCardView(View):
-    def post(self, request: HttpRequest):
-        mode = request.POST.get("mode")
-        user_count = request.POST.get("page")
+    def post(self, request: HttpRequest, mode: str):
+        user_count = int(request.GET.get("page")) # type: ignore
 
-        # return self.get_users(mode, int(user_count))  # type: ignore
+        result = self.get_user_cards(request.user, mode, user_count) # type: ignore
+
+        if result:
+            return JsonResponse({
+                "html": result
+            })
+        else:
+            return HttpResponse(status=204)
 
     @staticmethod
     def get_user_cards(user: User, mode: str, page_count: int):
@@ -47,13 +53,6 @@ class FriendCardView(View):
             template_name="user_app/friends/particles/user_card.html",
             context={"users": users, "mode": mode},
         )
-    
-    @staticmethod
-    def get_user_card(user, mode):
-        return render_to_string(
-            template_name="user_app/friends/particles/user_card.html",
-            context={"users": [user], "mode": mode},
-        )
 
 
 class FriendActionView(View):
@@ -71,7 +70,10 @@ class FriendActionView(View):
             case "accept":
                 accept_friend_request(user, other_user)
 
-                html = FriendCardView.get_user_card(other_user, "all_friends")
+                html = render_to_string(
+                    template_name="user_app/friends/particles/user_card.html",
+                    context={"users": [user], "mode": "all_friends"},
+                )
 
                 return JsonResponse({
                     "html": html
