@@ -1,17 +1,14 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+div.content {
+    height: 86.77vh;
+
+    flex-direction: row;
+    gap: 0.56vw;
 }
 
-div.side_panel{
-    width:24.31vw;
+div.side-panel {
+    height: 86.77vh;
 }
-div.content {
-    flex-direction: row;
-    gap:5px;
-    align-items: start;
-}
+
 .messages-content{
     width: 34.9vw;
     height: 100%;
@@ -23,8 +20,10 @@ div.content {
 }
 
 .messages-panel{
-    width:24.31vw;
-    display: flex;
-    justify-content: flex-end;
-    overflow-y: hidden;
+    flex: 1;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.83vh;
 }
