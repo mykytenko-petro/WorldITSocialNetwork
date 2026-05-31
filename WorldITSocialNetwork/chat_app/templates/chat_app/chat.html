@@ -11,19 +11,19 @@
 {% endblock links %}
 
 {% block side_panel %}
-    {% include 'chat_app/particles/leftside.html' %}
+    {% comment %} {% include 'chat_app/particles/leftside.html' %} {% endcomment %}
 {% endblock %}
 
 {% block content %}
     {% include 'chat_app/particles/new_group.html' %}
-    <div class="messages-content">
-        {% comment %} {% include 'chat_app/particles/firstview.html' %} {% endcomment %}
+    {% comment %} <div class="messages-content">
+        {% include 'chat_app/particles/firstview.html' %}
         {% include 'chat_app/particles/dialog.html' %}
     </div>
     <div class="messages-panel">
         {% include 'chat_app/particles/rightside.html' %}
-    </div>
-{% endblock %}
+    </div> {% endcomment %}
+{% endblock %} 
 
 {% block scripts %}
     
