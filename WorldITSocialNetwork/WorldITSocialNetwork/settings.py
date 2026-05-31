@@ -15,6 +15,8 @@ DEBUG = False if os.getenv("DEBUG") == "False" else True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'daphne',
+    
     # middleware
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,6 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'channels',
     
     # project apps
     'chat_app',
@@ -65,12 +69,25 @@ TEMPLATES = [
     },
 ]
 
+
+
+
+CHANNEL_LAYERS = {
+    
+    'default': {
+       
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
+
+
+
 # auth
 LOGIN_URL = 'user_app.auth'
 AUTH_USER_MODEL = 'user_app.User'
 
-WSGI_APPLICATION = 'WorldITSocialNetwork.wsgi.application'
-
+# WSGI_APPLICATION = 'WorldITSocialNetwork.wsgi.application'
+ASGI_APPLICATION = 'WorldITSocialNetwork.asgi.application'
 # Database
 DATABASES = {
     'default': {
