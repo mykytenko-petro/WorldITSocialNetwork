@@ -12,58 +12,38 @@
             <input placeholder="Пошук"></input>
         </div>
         <div class="contact-container">
+            {% for friend in friends %}
             <div class="contact">
                 <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
+                <p>
+                    {{ friend.username }}
+                </p>
+                <!-- <button type="button" class="chat-user-button" data-chat-user="{{ friend.id }}" data-chat-username="{{ friend.email }}"> -->
             </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
-            <div class="contact">
-                <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-                <p>Jane Cooper</p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
+<!-- Відкриваємо ліву колонку контактів.
+<aside class="chat-contacts">
+    Показуємо кнопку майбутнього створення групового чату. -->
+    <!-- <button type="button">Створити груповий чат</button> -->
+    <!-- Відкриваємо блок списку контактів. -->
+    <!-- <section class="chat-block"> -->
+        <!-- Показуємо заголовок блоку контактів. -->
+        <!-- <h2>Контакти</h2> -->
+        <!-- Перебираємо друзів поточного користувача. -->
+        <!-- {% for friend in friends %} -->
+            <!-- Показуємо кнопку відкриття чату з другом. -->
+            <!-- <button type="button" class="chat-user-button" data-chat-user="{{ friend.id }}" data-chat-username="{{ friend.email }}"> -->
+                <!-- Показуємо username або email друга. -->
+                <!-- {{ friend.email }}
+            </button> -->
+        <!-- Якщо друзів немає. -->
+        <!-- {% empty %} -->
+            <!-- Показуємо порожній стан контактів. -->
+            <!-- <p>Контактів поки немає</p> -->
+        <!-- Закриваємо цикл друзів. -->
+        <!-- {% endfor %}
+    </section>
+</aside> -->

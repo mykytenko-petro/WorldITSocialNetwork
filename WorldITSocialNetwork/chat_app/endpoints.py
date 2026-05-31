@@ -1,7 +1,9 @@
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.core.paginator import Paginator
+from django.template.loader import render_to_string
 
 from .models import Chat
 from user_app.utils import get_all_friends
@@ -14,6 +16,13 @@ class ChatWithView(LoginRequiredMixin, View):
     def post(self, request, user_id, *args, **kwargs):
         other_user = User.objects.get(id= user_id)
         friends = get_all_friends(request.user)
+        paginator = Paginator(friends, 10)
+        page = paginator.get_page(request.GET.get("page", 1))
+
+        if not page.object_list:
+            return HttpResponse(status=204)
+        
+        html = render_to_string("chat_app")
 
         if other_user not in friends:
             return JsonResponse({"success": False}, status= 403)
@@ -30,4 +39,5 @@ class ChatWithView(LoginRequiredMixin, View):
                 "username": other_user.email
             }
         )
-        
+    
+    

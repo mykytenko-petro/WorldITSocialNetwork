@@ -2,10 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, FormView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-from django.http import HttpRequest, JsonResponse
 
-
-from .forms import MessageForm
 from .models import Chat
 from user_app.utils import get_all_friends
 # Create your views here.

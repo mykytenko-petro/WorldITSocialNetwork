@@ -17,8 +17,8 @@ class Chat(models.Model):
         return self.name or f"Chat: {self.id}"
     
 class Message(models.Model):
-    sender = models.ForeignKey(to=user, on_delete=models.CASCADE)
-    readers = models.ForeignKey(to=user, on_delete=models.CASCADE)
+    sender = models.ForeignKey(to=user, on_delete=models.CASCADE, related_name= "sender_message")
+    readers = models.ForeignKey(to=user, on_delete=models.CASCADE, related_name="readers_message")
     chat = models.ForeignKey(to=Chat, on_delete=models.CASCADE)
 
     text = models.TextField()
