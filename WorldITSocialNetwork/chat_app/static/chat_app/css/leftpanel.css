@@ -45,6 +45,9 @@
     font-size: 1.1vw;
     color:#81818D;
 }
+.search img{
+    width: 2vh;
+}
 
 .contact img{
     width: 5vh;

@@ -4,14 +4,14 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'chat_app/css/firstview.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/leftpanel.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/right_panel.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/rightpanel.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/chat.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/dialog.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/new_group_modal-one.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
-    {% comment %} {% include 'chat_app/particles/leftside.html' %} {% endcomment %}
+    {% include 'chat_app/particles/leftside.html' %}
 {% endblock %}
 
 {% block content %}

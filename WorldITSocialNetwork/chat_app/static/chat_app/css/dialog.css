@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 1.67vh 1.67vh 1.67vh 1.67vh;
-    gap: 30vh;
+    padding: 1.67vh;
+    overflow: hidden;
 }    
 
 .chat-head{
@@ -11,9 +11,10 @@
     flex-direction: row;
     padding-bottom: 0.7vw;
     width: 100%;
-    gap: auto;
+
     border-bottom: 1px solid #CDCED2;
     justify-content: space-between;
+    margin-bottom: 1vh;
 }
 
 .chatting {
@@ -21,13 +22,21 @@
     display: flex;
     flex-direction: column;
     gap: 2.5vh;
+    
+    flex-grow: 1; 
+    overflow: auto;
+    
+    scrollbar-width: none;
+
 }
 .messanger{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.7vw;
+    gap: 0.7vh;
+    margin-bottom: 7vh;
+    
 }
 .date{
     display: flex;
@@ -71,7 +80,7 @@
 }
 .message{
     padding: 0.7vw;
-    background-color: #E9E5EE;
+    border: 1px solid #E9E5EE;
     color: #070A1C;
     border-radius: 0.5vh;
 
@@ -99,15 +108,24 @@
     width: 0.7vw;
 }
 
+.name{
+    font-size: 0.7vw;
+    color: #543C52;
+}
+
 
 .chat-foot{
+    top: 89vh;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 33.6vw;
     gap: 1.67vw;
+    position: fixed;
+    padding: 1vh;
+    background-color: #FFFFFF;
 }
 input{
-    width: 21.1vw;
+    width: 24vw;
     border: none;
     outline: none;
     font-size: 1.1vw;
@@ -128,6 +146,7 @@ input{
     padding: 0.7vw;
     border-radius: 13.2vw;
     border: 1px solid #543C52;
+    background-color: #FFFFFF;
 }
 .b img{
     width:1.39vw;
