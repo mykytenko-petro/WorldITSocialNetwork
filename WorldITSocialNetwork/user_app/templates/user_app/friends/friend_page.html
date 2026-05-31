@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <meta name="friendsActionsUrl" content="{% url 'user_app.friends_actions' %}?user_id={{ target_user.id }}">
+{% endblock %}
+
+{% block side_panel %}
+    {% include "home_app/components/profile_container.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'user_app/friends/js/usersButtons.js'%}" type="module"></script>
+{% endblock %}
+

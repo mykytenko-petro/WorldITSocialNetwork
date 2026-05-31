@@ -1,0 +1,15 @@
+.title{
+    font-size: 3.54vh
+    
+}
+
+.close{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.create-tag-form{
+    width: 29.93vw;
+    height: 31.35vh;
+}

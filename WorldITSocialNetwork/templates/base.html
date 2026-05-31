@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token }}">
 
+        {% block meta %}{% endblock meta %}
+
         <title>{% block title %}{% endblock title %}</title>
 
         {% include 'particles/styles.html' %}
@@ -26,7 +28,7 @@
                         <a href="{% url 'home_app.index' %}"><img src="{% static 'icon/house.svg' %}" alt="">Головна</a>
                         <a href="{% url 'post_app.index' %}"><img src="{% static 'icon/image.svg' %}" alt="">Мої публікації</a>
                         <a href="{% url 'user_app.friends' %}"><img src="{% static 'icon/friends.svg' %}" alt="">Друзі</a>
-                        <a href="/placeholder"><img src="{% static 'icon/chat.svg' %}" alt="">Чати</a>
+                        <a href="{% url 'chat_app.chat' %}"><img src="{% static 'icon/chat.svg' %}" alt="">Чати</a>
                         <a href="{% url 'profile_app.settings' %}"><img src="{% static 'icon/settings.svg' %}" alt="">Налаштування</a>
                     </nav>
             

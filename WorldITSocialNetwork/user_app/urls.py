@@ -1,10 +1,11 @@
 from django.urls import path
 from .views import (
     AuthView, LogoutView,
-    FriendsView
+    FriendsView, FriendPageView
 )
 from .endpoints import (
     RegisterView, LoginView, ConfirmEmailView,
+    FriendActionView, FriendCardView
 )
 
 
@@ -19,4 +20,8 @@ urlpatterns = [
     
     # friend
     path(route='friends/', view=FriendsView.as_view(), name='user_app.friends'),
+    path(route='<int:user_id>/', view= FriendPageView.as_view(), name="user_app.friend_page"),
+    
+    path(route='friends-actions/', view=FriendActionView.as_view(), name='user_app.friends_actions'),
+    path(route='friends-pagination/<str:mode>/', view=FriendCardView.as_view()),
 ]

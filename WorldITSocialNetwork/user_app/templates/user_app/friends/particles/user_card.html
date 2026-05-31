@@ -1,5 +1,5 @@
 {% for user in users %}
-    <div class="user-card">
+    <div class="user-card" data-user-id="{{ user.id }}">
         <div class="user-card-info">
             <img src="/static/icon/mockup-icon.png" alt="">
 
@@ -13,7 +13,9 @@
             {% if mode == "requests" %}
                 <button class="purple-b" data-action="accept">Підтвердити</button>
             {% elif mode == "recommendations" %}
-                <button class="purple-b" data-action="add">Додати</button>
+                <!-- <a href="{% url 'user_app.friend_page' user_id=user.id %}"> -->
+                    <button class="purple-b" data-action="add">Додати</button>
+                <!-- </a> -->
             {% elif mode == "all_friends" %}
                 <button class="purple-b" data-action="">Повідомлення</button>
             {% endif %}
@@ -21,7 +23,9 @@
             {% if mode == "all_friends" %}
                 <button class="white-b" data-action="delete">Видалити</button>
             {% else %}
-                <button class="white-b" data-action="dismiss">Видалити</button>
+                <!-- <a href="{% url 'user_app.friend_page' user_id=user.id %}"> -->
+                    <button class="white-b" data-action="dismiss">Видалити</button>
+                <!-- </a> -->
             {% endif %}
         </div>
     </div>
