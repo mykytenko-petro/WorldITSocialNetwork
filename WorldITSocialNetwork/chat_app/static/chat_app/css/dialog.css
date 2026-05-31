@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 1.67vh 7.08vh 1.67vh 1.67vh;
-    gap: 36vh;
+    padding: 1.67vh 1.67vh 1.67vh 1.67vh;
+    gap: 30vh;
 }    
 
 .chat-head{

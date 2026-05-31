@@ -2,7 +2,6 @@
     max-height: 90vh;
     box-sizing: border-box;
 
-    scrollbar-width: none;
     width: 34vw;
 
     padding: 2.5vh 4.58vh 4.58vh 4.58vh;
@@ -21,10 +20,6 @@
     border: 0;
     cursor: pointer;
 
-}
-
-.close:focus {
-    outline-color: transparent;
 }
 
 .close > img {
