@@ -35,11 +35,11 @@ class ChatWithView(LoginRequiredMixin, View):
             }
         )
 
-class ChatProvider(LoginRequiredMixin, PaginationProvider):
+class ContactProvider(LoginRequiredMixin, PaginationProvider):
     @property
     def queryset(self) -> Any:
         return get_all_friends(self.request.user)
     
     @property
     def template_name(self) -> str:
-        return super().template_name
+        return "chat_app/particles/contact_card.html"

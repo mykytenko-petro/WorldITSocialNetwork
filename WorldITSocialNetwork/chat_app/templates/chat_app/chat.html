@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block meta %}
+    <meta name="contactProviderUrl" contact="{% url 'chat_app.contact_provider' %}">
+{% endblock %}
+
 {% block links %}
     <link rel="stylesheet" href="{% static 'chat_app/css/firstview.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/leftpanel.css' %}">
@@ -24,5 +28,5 @@
 {% endblock %} 
 
 {% block scripts %}
-    <script type="module" src="chat_app/js/index.js"></script>
+    <script type="module" src="{% static 'chat_app/js/index.js' %}"></script>
 {% endblock %}
