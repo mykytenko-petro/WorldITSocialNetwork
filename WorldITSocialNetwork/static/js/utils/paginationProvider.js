@@ -2,11 +2,13 @@ export class PaginationProvider {
     constructor(
         url, container,
         customThreshold,
+        queryParams,
         rootMargin = "200px",
     ) {
         this.url = url
         this.currentPage = 1
         this.isLoading = false
+        this.queryParams = queryParams
 
         this.scrollThreshold = customThreshold ?? document.createElement("hr")
         this.scrollThreshold.style.opacity = "0"
@@ -22,13 +24,10 @@ export class PaginationProvider {
         if (entries[0].isIntersecting && this.isLoading == false) {
             this.isLoading = true
 
-            const url = this.url + `?page=${this.currentPage}`
+            const url = this.url + `?page=${this.currentPage}` + (this.queryParams ? this.queryParams : '')
 
             await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': CSRFToken,
-                },
+                method: 'GET',
             })
                 .then(async response => {
                     if (response.status === 204) {

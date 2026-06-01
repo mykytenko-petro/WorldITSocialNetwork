@@ -1,9 +1,12 @@
+from typing import Any
+
 from django.views.generic.base import View
 from django.http import HttpRequest, JsonResponse, HttpResponse
-from django.core.paginator import Paginator
+
 from django.template.loader import render_to_string
 from django.shortcuts import get_object_or_404
 
+from WorldITSocialNetwork.utils import PaginationProvider
 from ..utils import (
     get_all_friends, get_friend_recommendations, get_friend_requests,
     add_friend_request, dismiss_recommendation, accept_friend_request, delete_friendship
@@ -11,49 +14,49 @@ from ..utils import (
 from ..models import User
 
 
-class FriendCardView(View):
-    def post(self, request: HttpRequest, mode: str):
-        user_count = int(request.GET.get("page")) # type: ignore
+class FriendCardView(PaginationProvider):
+    modes = [
+        "requests",
+        "recommendations",
+        "all_friends"
+    ]
 
-        result = self.get_user_cards(request.user, mode, user_count) # type: ignore
+    def get(self, request: HttpRequest, mode: str): # type: ignore
+        if not mode in self.modes:
+            return HttpResponse(status=400)
+        
+        self.mode = mode
 
-        if result:
-            return JsonResponse({
-                "html": result
-            })
-        else:
-            return HttpResponse(status=204)
+        return super().get(request)
 
-    @staticmethod
-    def get_user_cards(user: User, mode: str, page_count: int):
-        match mode:
+    @property
+    def queryset(self) -> Any:
+        match self.mode:
             case "requests":
-                queryset = get_friend_requests(user)
+                queryset = get_friend_requests(self.request.user)
 
             case "recommendations":
-                queryset = get_friend_recommendations(user)
+                queryset = get_friend_recommendations(self.request.user)
 
             case "all_friends":
-                queryset = get_all_friends(user)
+                queryset = get_all_friends(self.request.user)
 
-            case _:
-                return
-
-        if mode == "requests":
-            paginator = Paginator(queryset, 3)
+        return queryset # type: ignore
+    
+    @property
+    def template_name(self) -> str:
+        return "user_app/friends/particles/user_card.html"
+    
+    @property
+    def context(self) -> dict[str, Any]:
+        return {"mode": self.mode}
+    
+    @property
+    def per_page(self):
+        if self.mode == "requests":
+            return 3    
         else:
-            paginator = Paginator(queryset, 6)
-
-        users = paginator.get_page(page_count)
-
-        if page_count > paginator.num_pages:
-            return
-
-        return render_to_string(
-            template_name="user_app/friends/particles/user_card.html",
-            context={"users": users, "mode": mode},
-        )
-
+            return 6
 
 class FriendActionView(View):
     def post(self, request: HttpRequest):        

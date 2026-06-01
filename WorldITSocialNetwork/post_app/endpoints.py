@@ -1,10 +1,12 @@
+from typing import Any
+
 from django.views import View
 from django.http import JsonResponse, HttpRequest
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
 from django.template.loader import render_to_string
 from django.core.paginator import Paginator
 
+from WorldITSocialNetwork.utils import PaginationProvider
 from .forms import PostCreationForm
 from .models import Tag, Post
 
@@ -37,31 +39,31 @@ class TagCreationView(LoginRequiredMixin, View):
         
         return JsonResponse({'id': tag.pk,'name': tag.name})
 
-class PostProviderView(LoginRequiredMixin, View):    
-    def post(self, request: HttpRequest):
-        mode = request.POST.get("mode")
+class PostProviderView(LoginRequiredMixin, PaginationProvider):
+    modes = [
+        "own_posts",
+        "recommendations"
+    ]
 
-        print(request.POST)
-        if mode == "own_posts":
-            queryset = Post.objects.filter(author_id=self.request.user)
-        elif mode == "recommendations":
-            queryset = Post.objects.all()
-        else:
+    def get(self, request: HttpRequest):
+        mode = request.GET.get("mode")
+        
+        if mode not in self.modes:
+            print("mode:", mode)
             return JsonResponse({"errors": "wrong mode"}, status=400)
 
-        paginator = Paginator(queryset, 5)
+        self.mode = mode
 
-        page_number = request.POST.get('page')
-        page_obj = paginator.get_page(page_number)
-        
-        if int(page_number) > paginator.num_pages: # type: ignore
-            return JsonResponse({
-                "errors": "congrats you have scrolled to the end!"
-            }, status=204)
-        
-        return JsonResponse({
-            'html': render_to_string(
-                'post_app/components/show_posts.html',
-                {'posts': page_obj.object_list}
-            )
-        })
+        return super().get(request)
+
+    @property
+    def queryset(self) -> Any:
+        match self.mode:
+            case "own_posts":
+                return Post.objects.filter(author_id=self.request.user)
+            case "recommendations":
+                return Post.objects.all()
+
+    @property
+    def template_name(self) -> str:
+        return "post_app/components/show_posts.html"

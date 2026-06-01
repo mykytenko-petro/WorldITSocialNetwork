@@ -7,7 +7,7 @@ def get_friend_requests(user):
     ).order_by("id")
 
 
-def get_all_friends(user: User):
+def get_all_friends(user):
     sent_friend_ids = list(
         user.sent_friendships.filter(status="accepted").values_list("to_user_id", flat=True)  # type: ignore
     )
@@ -19,7 +19,7 @@ def get_all_friends(user: User):
     return User.objects.filter(id__in=friend_ids).order_by("id")
 
 
-def get_friend_recommendations(user: User):
+def get_friend_recommendations(user):
     sent_busy_ids = list(user.sent_friendships.values_list("to_user_id", flat=True))  # type: ignore
     received_busy_ids = list(user.received_friendships.values_list("from_user_id", flat=True))  # type: ignore
     busy_ids = sent_busy_ids + received_busy_ids + [user.id]  # type: ignore
