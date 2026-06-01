@@ -5,7 +5,7 @@ main {
     height: auto;
 
     padding: 0 5.56vw;
-
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: center;

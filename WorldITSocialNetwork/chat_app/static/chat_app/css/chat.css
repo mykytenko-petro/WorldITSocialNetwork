@@ -24,6 +24,4 @@ div.side-panel {
     height: 100%;
 
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 0.83vh;
 }
