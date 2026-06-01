@@ -1,10 +1,14 @@
+from typing import Any
+
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 
-from .models import Chat
+from WorldITSocialNetwork.utils import PaginationProvider
 from user_app.utils import get_all_friends
+from .models import Chat
+
 
 User = get_user_model()
 
@@ -30,4 +34,12 @@ class ChatWithView(LoginRequiredMixin, View):
                 "username": other_user.email
             }
         )
-        
+
+class ChatProvider(LoginRequiredMixin, PaginationProvider):
+    @property
+    def queryset(self) -> Any:
+        return get_all_friends(self.request.user)
+    
+    @property
+    def template_name(self) -> str:
+        return super().template_name

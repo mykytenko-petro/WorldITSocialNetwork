@@ -4,7 +4,7 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'chat_app/css/firstview.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/leftpanel.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/right_panel.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/rightpanel.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/chat.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/dialog.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/new_group_modal-one.css' %}">
@@ -15,16 +15,14 @@
 {% endblock %}
 
 {% block content %}
-    {% comment %} {% include 'chat_app/particles/new_group.html' %} {% endcomment %}
     <div class="messages-content">
-        {% comment %} {% include 'chat_app/particles/firstview.html' %} {% endcomment %}
         {% include 'chat_app/particles/dialog.html' %}
     </div>
     <div class="messages-panel">
         {% include 'chat_app/particles/rightside.html' %}
     </div>
-{% endblock %}
+{% endblock %} 
 
 {% block scripts %}
-    
+    <script type="module" src="chat_app/js/index.js"></script>
 {% endblock %}

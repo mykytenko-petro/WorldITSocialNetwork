@@ -13,10 +13,17 @@
             <input placeholder="Пошук"></input>
     </div>
     <p class="chosen">Вибрано: 3</p>
-    <div clas="contact-list">
+    <div class="contact-list">
         <div class="letter">
             <p>A</p>
             <div class="list">
+                <div class="contact">
+                    <img src="{% static 'chat_app/icon/Avatar.png' %}">
+                    <div>
+                        <p>Aeslie</p>
+                        <input type="checkbox">
+                    </div>
+                </div>
                 <div class="contact">
                     <img src="{% static 'chat_app/icon/Avatar.png' %}">
                     <div>
@@ -54,6 +61,13 @@
                 <div class="contact">
                     <img src="{% static 'chat_app/icon/Avatar.png' %}">
                     <div>
+                        <p>Bonald</p>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="contact">
+                    <img src="{% static 'chat_app/icon/Avatar.png' %}">
+                    <div>
                         <p>Bert</p>
                         <input type="checkbox">
                     </div>
@@ -68,7 +82,8 @@
             </div>
         </div>
     </div>
-
-    <button class="return">Скасувати</button>
-    <button class="next">Далі</button>
+    <div class="buttons">
+        <button class="return">Скасувати</button>
+        <button class="next">Далі</button>
+    </div>
 </dialog>

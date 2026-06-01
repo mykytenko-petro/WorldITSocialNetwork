@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from channels.routing import URLRouter
 from chat_app.routing import websocket_urlpatterns
 
