@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -10,6 +11,7 @@ urlpatterns = [
     path(route='profile/', view=include('profile_app.urls')),
     path(route='post/', view=include('post_app.urls')),
     path(route='user/', view=include('user_app.urls')),
+    path(route='chat/', view=TemplateView.as_view(template_name='chat_app/chats.html'), name='chat'),
 ]
 
 if settings.DEBUG:
