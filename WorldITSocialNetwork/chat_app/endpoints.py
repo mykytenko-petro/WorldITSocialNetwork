@@ -14,30 +14,38 @@ class ChatWithView(LoginRequiredMixin, View):
     login_url = 'auth'
     
     def post(self, request, user_id, *args, **kwargs):
-        other_user = User.objects.get(id= user_id)
+        other_user = User.objects.get(id=user_id)
         friends = get_all_friends(request.user)
-        paginator = Paginator(friends, 10)
-        page = paginator.get_page(request.GET.get("page", 1))
-
-        if not page.object_list:
-            return HttpResponse(status=204)
-        
-        html = render_to_string("chat_app")
 
         if other_user not in friends:
-            return JsonResponse({"success": False}, status= 403)
+            return JsonResponse({"success": False}, status=403)
 
-        user_id_chats = Chat.objects.filter(users= request.user, is_group= False).values_list('id', flat= True)
-        chat = Chat.objects.filter(id__in= user_id_chats, users= other_user, is_group= False).first()
+        user_id_chats = Chat.objects.filter(users=request.user, is_group=False).values_list('id', flat=True)
+        chat = Chat.objects.filter(id__in=user_id_chats, users=other_user, is_group=False).first()
         if chat is None:
-            chat = Chat.objects.create(is_group= False)
+            chat = Chat.objects.create(is_group=False)
             chat.users.add(request.user, other_user)
-        return JsonResponse(
-            {
-                "success": True,
-                "chat_id": chat.id,
-                "username": other_user.email
-            }
-        )
+
+        return JsonResponse({
+            "success": True,
+            "chat_id": chat.id,
+            "username": other_user.email
+        })
     
-    
+class ContactList(LoginRequiredMixin, View):
+    login_url = 'auth'
+
+    def post(self, request, *args, **kwargs):
+            friends = get_all_friends(request.user)
+            paginator = Paginator(friends, 10)
+            
+            try:
+                page = paginator.page(request.GET.get("page", 1))
+            except:
+                return HttpResponse(status=204)
+
+            html = ""
+            for friend in page:
+                html += render_to_string("chat_app/components/contact_card.html", {"friend": friend}, request=request)
+
+            return JsonResponse({"html": html})

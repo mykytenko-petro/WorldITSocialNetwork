@@ -1,3 +1,77 @@
-<div id="dialog">
+{% load static %}
 
+<div class="dialog"id="dialog">
+    <div class="chat-head">
+        <div class="group-head">
+            <img class="imgd" src="{% static 'chat_app/icon/smark.svg'%}">
+            <div class="group">
+                <img src="{% static 'chat_app/icon/Avatar.png'%}">
+                <div class="name-chat">
+                    <p class="big">New Group</p>
+                    <p class="small"> 3 учасники, 1 в мережі</p>
+                </div>
+            </div>
+        </div>
+        <img class="imgd" src="{% static 'chat_app/icon/three-d.svg'%}">
+    </div>
+
+    <div class="chatting">
+        <div class="messanger">
+            <div class="date"><p>25 квітня 2025</p></div>
+            <div class="m">
+                <div class="message my">
+                    <div><p>Привіт!</p></div>
+                    <div class="d">
+                        <p>10:01</p>
+                        <img src="{% static 'chat_app/icon/mark.svg'%}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="f m">
+                <img src="{% static 'chat_app/icon/Avatar.png'%}">
+                <div class="message">
+                    <div class="fr">
+                        <p class="name">Wade Warren</p>
+                        <div><p>Привіт!Як справи?</p></div>
+                    </div>
+                    <div class="d">
+                        <p>10:30</p>
+                        <img src="{% static 'chat_app/icon/mark.svg'%}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="new">
+                <hr>
+                <p>Нові повідомлення</p>
+                <hr>
+            </div>
+
+            <div class="f m">
+                <img src="{% static 'chat_app/icon/Avatar.png'%}">
+                <div class="message">
+                    <div class="fr">
+                        <p class="name">Cameron Williamson</p>
+                        <div><p>Чудово!</p></div>
+                    </div>
+                    <div class="d">
+                        <p>10:30</p>
+                        <img src="{% static 'chat_app/icon/mark.svg'%}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-foot">
+            <input placeholder="Повідомлення"></input>
+            <div class="buttons">
+                <div class="b">
+                    <img src="{% static 'chat_app/icon/pic.svg'%}">
+                </div>
+                <div class="b purple">
+                    <img src="{% static 'chat_app/icon/send.svg'%}">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
