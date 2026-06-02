@@ -1,0 +1,9 @@
+{% load static %}
+
+{% for friend in page_obj %}
+    <div class="contact" data-user-id="{{ friend.id }}">
+        <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
+        <p>{{ friend.profile.pseudonym }}</p>
+    </div>
+{% endfor %}
+

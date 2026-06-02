@@ -8,7 +8,6 @@
 }
 
 .contacts-list{
-    /* width: 100%; */
     flex: 1;
     min-height: 0;
 
@@ -44,6 +43,9 @@
     outline: none;
     font-size: 1.1vw;
     color:#81818D;
+}
+.search img{
+    width: 2vh;
 }
 
 .contact img{

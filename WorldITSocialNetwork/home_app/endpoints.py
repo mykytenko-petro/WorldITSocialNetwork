@@ -10,7 +10,7 @@ class ProfileDetailView(View):
 
         if form.is_valid():
             request.user.username = form.cleaned_data["username"]
-            request.user.profile.author_pseudonym = form.cleaned_data["author_pseudonym"] # type: ignore
+            request.user.profile.pseudonym = form.cleaned_data["pseudonym"] # type: ignore
 
             request.user.save()
             request.user.profile.save() # type: ignore

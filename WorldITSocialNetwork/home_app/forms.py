@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class ProfileDetailForm(forms.Form):
-    author_pseudonym = forms.CharField(
+    pseudonym = forms.CharField(
         label="Псевдонім автора",
         widget=forms.TextInput(attrs={"placeholder": "Введіть Псевдонім автора"})
     )

@@ -1,8 +1,9 @@
 from django.urls import path
 from .views import ChatView
-from .endpoints import ContactList
+from .endpoints import ContactProvider
 
 urlpatterns = [
     path('', ChatView.as_view(), name='chat_app.chat'),
-    path("friends/", ContactList.as_view(), name="friends-list"),
+    
+    path('contact_provider/', ContactProvider.as_view(), name='chat_app.contact_provider')
 ]

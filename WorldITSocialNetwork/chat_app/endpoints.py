@@ -1,3 +1,5 @@
+from typing import Any
+
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
@@ -5,8 +7,10 @@ from django.http import JsonResponse, HttpResponse
 from django.core.paginator import Paginator
 from django.template.loader import render_to_string
 
-from .models import Chat
+from WorldITSocialNetwork.utils import PaginationProvider
 from user_app.utils import get_all_friends
+from .models import Chat
+
 
 User = get_user_model()
 
@@ -25,27 +29,19 @@ class ChatWithView(LoginRequiredMixin, View):
         if chat is None:
             chat = Chat.objects.create(is_group=False)
             chat.users.add(request.user, other_user)
+        return JsonResponse(
+            {
+                "success": True,
+                "chat_id": chat.id, # type: ignore
+                "username": other_user.email
+            }
+        )
 
-        return JsonResponse({
-            "success": True,
-            "chat_id": chat.id,
-            "username": other_user.email
-        })
+class ContactProvider(LoginRequiredMixin, PaginationProvider):
+    @property
+    def queryset(self) -> Any:
+        return get_all_friends(self.request.user)
     
-class ContactList(LoginRequiredMixin, View):
-    login_url = 'auth'
-
-    def post(self, request, *args, **kwargs):
-            friends = get_all_friends(request.user)
-            paginator = Paginator(friends, 10)
-            
-            try:
-                page = paginator.page(request.GET.get("page", 1))
-            except:
-                return HttpResponse(status=204)
-
-            html = ""
-            for friend in page:
-                html += render_to_string("chat_app/components/contact_card.html", {"friend": friend}, request=request)
-
-            return JsonResponse({"html": html})
+    @property
+    def template_name(self) -> str:
+        return "chat_app/particles/contact_card.html"

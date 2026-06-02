@@ -1,9 +1,9 @@
 {% load static %}
 
-{% for post in posts %}
+{% for post in page_obj %}
     <div class="post">
         <div class="post-header">
-            <p>{{ post.author.username }}</p>
+            <p>{{ post.author.profile.pseudonym }}</p>
             <img class="three-dots" src="{% static 'post_app/icon/three-dots.svg' %}" alt="">
         </div>
         <hr>
@@ -40,7 +40,7 @@
                         <img
                             class="{{ image.orientation }}"
                             src="{{ image.compressed_image.url }}"
-                            alt="{{ post.title }}"
+                            alt="{{ image.compressed_image.url }}"
                         >
                     {% endfor %}
                 </div>

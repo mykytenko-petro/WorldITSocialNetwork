@@ -1,34 +1,25 @@
-dialog.create-post-form {
-    align-items: start;
-}
-
-.create-post-form {
+/* .create-new-group {
     max-height: 90vh;
     box-sizing: border-box;
 
-    overflow-y: auto;
-
-    scrollbar-width: none;
     width: 34vw;
 
     padding: 2.5vh 4.58vh 4.58vh 4.58vh;
+    background-color: #FFFFFF;
     gap: 2.5vh;
 }
 
-.colse-b{
-    width:100%;
-
-    display: flex;
+.create-post-form > div {
+    width: 100%;
     flex-direction: row;
-    justify-content: end;
+    display: flex;
+    justify-content: flex-end;
 }
 .close {
     background-color: transparent;
     border: 0;
-}
+    cursor: pointer;
 
-.close:focus {
-    outline-color: transparent;
 }
 
 .close > img {
@@ -49,3 +40,83 @@ dialog.create-post-form {
     flex-direction: column;
     gap: 2.5vh;
 }
+.contact-list {
+    width: 100%;
+    flex-grow: 1; 
+    overflow: auto;
+    padding-right: 0.5vw; 
+    
+    scrollbar-width: thin;
+    scrollbar-color: #543C52 #E9E5EE;
+}
+
+.letter {
+    margin-bottom: 2vh;
+}
+.letter > p {
+    font-size: 1.5vh;
+    color: #070A1C;
+    margin-bottom: 0.5vh;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 1.5vh 0;
+    border-bottom: 1px solid #CDCED2;
+}
+
+.contact:last-child {
+    border-bottom: none;
+}
+
+.contact > img {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+.contact > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.contact > div > p {
+    font-weight: 500;
+    font-size: 2.2vh;
+    margin: 0;
+}
+
+.contact input[type="checkbox"] {
+    width: 2.5vh;
+    height: 2.5vh;
+    accent-color: #543C52; 
+}
+
+.create-new-group > .buttons{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 1.1vw;
+}
+
+.return {
+    background: transparent;
+    border: 1px solid #543C52;
+    border-radius: 2vw;
+    padding: 1.2vh 2.5vw;
+    color: #543C52;
+}
+
+.next {
+    background-color: #543C52; 
+    color: white;
+    border: none;
+    border-radius: 2vw;
+    padding: 1.2vh 2.5vw;
+} */
