@@ -3,12 +3,14 @@ export class PaginationProvider {
         url, container,
         customThreshold,
         queryParams,
-        rootMargin = "200px",
+        invertDirection = false,
+        rootMargin = "200px"
     ) {
         this.url = url
         this.currentPage = 1
         this.isLoading = false
         this.queryParams = queryParams
+        this.invertDirection = invertDirection
 
         this.scrollThreshold = customThreshold ?? document.createElement("hr")
         this.scrollThreshold.style.opacity = "0"
@@ -45,7 +47,11 @@ export class PaginationProvider {
                 .then(data => {
                     if (!data) return
 
-                    this.scrollThreshold.insertAdjacentHTML('beforebegin', data.html)
+                    if (!this.invertDirection) {
+                        this.scrollThreshold.insertAdjacentHTML('beforebegin', data.html)
+                    } else {
+                        this.scrollThreshold.insertAdjacentHTML('afterend', data.html)
+                    }
 
                     this.currentPage++
                     this.isLoading = false

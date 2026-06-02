@@ -38,11 +38,18 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: end;
     align-items: center;
     gap: 0.7vh;
     margin-bottom: 7vh;
-    
+    overflow-y: auto;
+    min-height: 0;
 }
+
+.messanger > * {
+    flex-shrink: 0;
+}
+
 .date{
     display: flex;
     width: fit-content;

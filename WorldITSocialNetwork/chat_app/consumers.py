@@ -21,7 +21,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         await self.channel_layer.group_add(self.room_group_name, self.channel_name)
         await self.accept()
 
-        await self.send(text_data=json.dumps({"username": username}))
+        await self.send(text_data=json.dumps({"id": self.chat_id}))
 
     async def receive(self, text_data):  # type: ignore
         data = json.loads(text_data)

@@ -1,3 +1,6 @@
+import { messageContainer } from "./DOM.js"
+import { loadMessages } from "./messageHandling.js"
+
 let chatSocket
 
 export function connectToChat(chatId) {
@@ -17,4 +20,15 @@ function recieveMessage(event) {
     const data = JSON.parse(event.data)
 
     console.log(data)
+
+    if (data.id) {
+        console.log(data.id)
+        messageContainer.dataset.chatId = data.id
+        loadMessages()
+    }
+
+    switch (data.type) {
+        case "send_message":
+            messageContainer.innerHTML += data.html
+    }
 }

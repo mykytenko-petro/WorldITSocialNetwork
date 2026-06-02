@@ -51,11 +51,15 @@ class ChatWithView(LoginRequiredMixin, View):
         })
 
 class ChatMessagesProvider(LoginRequiredMixin, PaginationProvider):
+    def get(self, request: HttpRequest, chat_id: int) -> HttpResponse: # type: ignore
+        self.chat_id = chat_id
+        return super().get(request)
+
     @property
     def queryset(self) -> Any:
         chat = get_object_or_404(
-            Chat.objects.filter(users=self.request.user),
-            id=self.kwargs["chat_id"]
+            Chat,
+            id=self.chat_id
         )
 
         return (Message.objects
