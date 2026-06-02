@@ -3,8 +3,6 @@ from typing import Any
 from django.views import View
 from django.http import JsonResponse, HttpRequest
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.template.loader import render_to_string
-from django.core.paginator import Paginator
 
 from WorldITSocialNetwork.utils import PaginationProvider
 from .forms import PostCreationForm

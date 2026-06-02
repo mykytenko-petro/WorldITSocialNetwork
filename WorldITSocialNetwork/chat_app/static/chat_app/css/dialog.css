@@ -6,6 +6,11 @@
     overflow: hidden;
 }    
 
+#openedChat {
+    display: none;
+    flex-direction: column;
+}
+
 .chat-head{
     display: flex;
     flex-direction: row;
@@ -62,8 +67,6 @@
     color: #E0E8D2;
 }
 
-
-
 .m{
     display: flex;
     width: 100%;
@@ -113,7 +116,6 @@
     color: #543C52;
 }
 
-
 .chat-foot{
     top: 89vh;
     display: flex;
@@ -124,6 +126,7 @@
     padding: 1vh;
     background-color: #FFFFFF;
 }
+
 input{
     width: 24vw;
     border: none;
@@ -133,6 +136,7 @@ input{
     border-radius: 2vh;
     border: 1px solid #CDCED2;
 }
+
 .buttons{
     width: fit-content;
     display: flex;
@@ -156,7 +160,6 @@ input{
     background-color: #543C52;
 }
 
-
 .group-head{
     display: flex;
     flex-direction: row;
@@ -172,6 +175,7 @@ input{
     flex-direction: row;
     gap:0.7vw;
 }
+
 .group img{
     height: 4.8vh;
 }
@@ -181,10 +185,12 @@ input{
     flex-direction: column;
     gap:0.45vw;
 }
+
 .big{
     font-size: 1.67vw;
     font-weight: 700;
 }
+
 .small{
     font-size: 0.97vw;
     font-weight: 400;

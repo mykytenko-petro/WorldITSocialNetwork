@@ -34,7 +34,7 @@ class Message(models.Model):
     chat = models.ForeignKey(to=Chat, on_delete=models.CASCADE, related_name="messages")
 
     text = models.TextField()
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class MessageImage(models.Model):
