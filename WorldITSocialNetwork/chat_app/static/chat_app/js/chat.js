@@ -29,6 +29,6 @@ function recieveMessage(event) {
 
     switch (data.type) {
         case "send_message":
-            messageContainer.innerHTML += data.html
+            messageContainer.insertAdjacentHTML("afterbegin", data.html)
     }
 }

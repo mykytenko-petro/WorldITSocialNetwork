@@ -30,22 +30,33 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         if text.strip():
             message = await self.save_message(text)
 
-            html = render_to_string(
-                template_name="chat_app/particles/message_card.html",
-                context={"page_obj": [message]}
-            )
-
             await self.channel_layer.group_send(
                 group=self.room_group_name,
                 message={
                     "type": "send_message",
-                    "html": html
+                    "message": message,
                 }
             )
 
     async def send_message(self, data):
-        print(data)
-        await self.send(text_data=json.dumps(data))
+        message = data.get("message")
+
+        html = await self.async_message_render(message)
+
+        await self.send(text_data=json.dumps({
+            "type": "send_message",
+            "html": html
+        }))
+
+    @database_sync_to_async
+    def async_message_render(self, message):
+        return render_to_string(
+            template_name="chat_app/particles/message_card.html",
+            context={
+                "page_obj": [message], 
+                "user": self.scope.get("user")
+            }
+        )
 
     @database_sync_to_async
     def save_message(self, text):

@@ -3,7 +3,7 @@ export const contactConteiner = document.querySelector('.contact-container')
 const greetingScreen = document.querySelector("#greetingScreen")
 const openedChat = document.querySelector("#openedChat")
 
-export const sendMessageButton = document.querySelector("#sendMessage")
+export const sendMessageForm = document.querySelector(".chat-form")
 export const messageContainer = document.querySelector(".chat-container")
 
 // visibility handling

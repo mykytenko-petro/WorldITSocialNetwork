@@ -1,8 +1,9 @@
 import { PaginationProvider } from "/static/js/utils/paginationProvider.js"
 import { sendMessage } from "./chat.js"
-import { messageContainer, sendMessageButton } from "./DOM.js"
+import { messageContainer, sendMessageForm } from "./DOM.js"
 
-sendMessageButton.addEventListener("click", (event) => {
+sendMessageForm.addEventListener("submit", (event) => {
+    event.preventDefault()
     const form = event.currentTarget.closest("form")
     const data = Object.fromEntries(new FormData(form).entries())
 

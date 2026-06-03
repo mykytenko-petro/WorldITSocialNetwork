@@ -43,7 +43,6 @@ class PaginationProvider(View, ABC):
         return False
 
     def get(self, request: HttpRequest) -> HttpResponse:
-        print(request.GET.get("page"))
         try:
             page = int(request.GET.get("page")) # type: ignore
         except (ValueError, TypeError):

@@ -1,3 +1,38 @@
-/* .message {
-    flex-shrink: 0;
-} */
+.message-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.message-container.my {
+    justify-content: end;
+}
+
+.message {
+    display: flex;
+    flex-direction: row;
+    gap: 0.28vw;
+}
+
+.message > img {
+    height: 2.08vh;
+}
+
+.message-content-container {
+    padding: 0.69vw;
+
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 0.69vw;
+
+    border: 1px solid rgba(233, 229, 238, 1);
+    border-radius: 6px;
+}
+
+.message-content-container.my {
+    background-color: rgba(205, 206, 210, 1);
+}
+
