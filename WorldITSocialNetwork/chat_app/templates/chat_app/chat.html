@@ -6,24 +6,23 @@
 {% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'chat_app/css/firstview.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/leftpanel.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/rightpanel.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/chat.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/dialog.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/new_group_modal-one.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/layout/chat.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/layout/chat-container.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/layout/contacts.css' %}">
+
+    <link rel="stylesheet" href="{% static 'chat_app/css/message-card.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
-    {% include 'chat_app/particles/leftside.html' %}
+    {% include 'chat_app/particles/layout/contacts.html' %}
 {% endblock %}
 
 {% block content %}
     <div class="messages-content">
-        {% include 'chat_app/particles/dialog.html' %}
+        {% include 'chat_app/particles/layout/chat_container.html' %}
     </div>
     <div class="messages-panel">
-        {% include 'chat_app/particles/rightside.html' %}
+        {% comment %} {% include 'chat_app/particles/rightside.html' %} {% endcomment %}
     </div>
 {% endblock %} 
 

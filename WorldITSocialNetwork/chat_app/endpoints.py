@@ -64,7 +64,7 @@ class ChatMessagesProvider(LoginRequiredMixin, PaginationProvider):
 
         return (Message.objects
             .filter(chat=chat)
-            .order_by("-created_at", "-id"))
+            .order_by("-id"))
     
     @property
     def template_name(self) -> str:
@@ -73,3 +73,7 @@ class ChatMessagesProvider(LoginRequiredMixin, PaginationProvider):
     @property
     def per_page(self) -> int:
         return 20
+    
+    @property
+    def inverse(self) -> bool:
+        return True

@@ -4,7 +4,7 @@ const greetingScreen = document.querySelector("#greetingScreen")
 const openedChat = document.querySelector("#openedChat")
 
 export const sendMessageButton = document.querySelector("#sendMessage")
-export const messageContainer = document.querySelector(".messanger")
+export const messageContainer = document.querySelector(".chat-container")
 
 // visibility handling
 export function openChat() {

@@ -37,6 +37,10 @@ class PaginationProvider(View, ABC):
         You can override it to include custom item count.
         """
         return 5
+    
+    @property
+    def inverse(self) -> bool:
+        return False
 
     def get(self, request: HttpRequest) -> HttpResponse:
         print(request.GET.get("page"))
@@ -56,6 +60,9 @@ class PaginationProvider(View, ABC):
             page_obj = paginator.page(1)
         except EmptyPage:
             return HttpResponse(status=204)
+
+        if self.inverse:
+            page_obj = page_obj.object_list[::-1]
 
         html = render_to_string(
             self.template_name,

@@ -3,9 +3,9 @@
 {% for message in page_obj %}
     <div class="m">
         <div class="message my">
-            <div><p>{{ message.text }}</p></div>
+            <div><p>{{ message.id }}</p></div>
             <div class="d">
-                <p>{{ message.created_at.isoformat }}</p>
+                <p>{{ message.time }}</p>
                 <img src="{% static 'chat_app/icon/mark.svg'%}">
             </div>
         </div>

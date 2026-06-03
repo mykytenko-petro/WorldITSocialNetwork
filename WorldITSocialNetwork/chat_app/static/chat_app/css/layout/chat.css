@@ -1,0 +1,31 @@
+div.content {
+    height: 86.77vh;
+
+    flex-direction: row;
+    gap: 0.56vw;
+}
+
+div.side-panel {
+    height: 86.77vh;
+}
+
+.messages-content{
+    width: 34.9vw;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: 2vh;
+    border: 1px solid #CDCED2;
+    background-color: white;
+}
+
+.messages-panel{
+    flex: 1;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.83vh;
+}

@@ -36,6 +36,10 @@ class Message(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def time(self):
+        return self.created_at.strftime("%H:%M")
+
 
 class MessageImage(models.Model):
     message = models.ForeignKey(
