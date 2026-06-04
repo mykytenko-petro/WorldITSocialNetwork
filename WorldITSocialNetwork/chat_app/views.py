@@ -18,7 +18,7 @@ class ChatView(
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["friends"] = get_all_friends(self.request.user) # type: ignore
-        context["personal_chats"] = Chat.objects.filter(users= self.request.user, is_group= False).order_by("id")
+        # context["friends"] = get_all_friends(self.request.user) # type: ignore
+        # context["personal_chats"] = Chat.objects.filter(users= self.request.user, is_group= False).order_by("id")
         
         return context

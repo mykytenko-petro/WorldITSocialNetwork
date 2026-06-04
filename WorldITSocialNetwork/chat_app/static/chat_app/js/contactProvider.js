@@ -1,5 +1,5 @@
 import { PaginationProvider } from "/static/js/utils/paginationProvider.js"
-import { contactConteiner, openChat } from "./DOM.js"
+import { contactConteiner } from "./DOM.js"
 import { connectToChat } from "./chat.js"
 
 const contactProviderUrl = document.querySelector("meta[name='contactProviderUrl']").getAttribute("content")
@@ -34,8 +34,7 @@ contactConteiner.addEventListener("click", (event) => {
         .then(response => response.json())
         .then(data => {
             // TODO: add chat name
-            openChat()
-
+            
             connectToChat(data.chat_id)
         })
 })

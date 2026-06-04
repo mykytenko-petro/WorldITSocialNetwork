@@ -1,13 +1,7 @@
 export const contactConteiner = document.querySelector('.contact-container')
 
-const greetingScreen = document.querySelector("#greetingScreen")
-const openedChat = document.querySelector("#openedChat")
+export const greetingScreen = document.querySelector("#greetingScreen")
+export const openedChat = document.querySelector("#openedChat")
 
 export const sendMessageForm = document.querySelector(".chat-form")
 export const messageContainer = document.querySelector(".chat-container")
-
-// visibility handling
-export function openChat() {
-    greetingScreen.style.display = "none"
-    openedChat.style.display = "flex"
-}

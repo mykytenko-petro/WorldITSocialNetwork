@@ -1,5 +1,5 @@
 import { messageContainer } from "./DOM.js"
-import { loadMessages } from "./messageHandling.js"
+import { openChat } from "./messageHandling.js"
 
 let chatSocket
 
@@ -23,8 +23,7 @@ function recieveMessage(event) {
 
     if (data.id) {
         console.log(data.id)
-        messageContainer.dataset.chatId = data.id
-        loadMessages()
+        openChat(data.id)
     }
 
     switch (data.type) {
