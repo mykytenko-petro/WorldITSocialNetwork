@@ -1,5 +1,5 @@
 from django.urls import path
-from chat_app.consumers import ChatConsumer
+from .consumers import ChatConsumer
 
 
 websocket_urlpatterns = [

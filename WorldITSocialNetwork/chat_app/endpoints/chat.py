@@ -9,20 +9,10 @@ from django.http import JsonResponse
 
 from WorldITSocialNetwork.utils import PaginationProvider
 from user_app.utils import get_all_friends
-from .models import Chat, Message
+from ..models import Chat, Message
 
 
 User = get_user_model()
-
-
-class ContactProvider(LoginRequiredMixin, PaginationProvider):
-    @property
-    def queryset(self) -> Any:
-        return get_all_friends(self.request.user)
-
-    @property
-    def template_name(self) -> str:
-        return "chat_app/particles/contact_card.html"
 
 
 class ChatWithView(LoginRequiredMixin, View):

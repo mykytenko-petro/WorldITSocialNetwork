@@ -1,2 +1,2 @@
-import "./contactProvider.js"
-import "./messageHandling.js"
+import "./contacts/index.js"
+import "./chat/index.js"

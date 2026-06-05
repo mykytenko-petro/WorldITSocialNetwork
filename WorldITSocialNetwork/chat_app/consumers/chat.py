@@ -4,7 +4,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 from channels.db import database_sync_to_async
 from django.template.loader import render_to_string
 
-from .models import Chat, Message
+from ..models import Chat, Message
 
 
 class ChatConsumer(AsyncJsonWebsocketConsumer):

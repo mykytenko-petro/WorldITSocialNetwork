@@ -1,0 +1,1 @@
+export const contactProviderUrl = document.querySelector("meta[name='contactProviderUrl']").getAttribute("content")
