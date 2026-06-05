@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block links %}
+    <link rel="stylesheet" href="{% static 'post_app/css/components/post-provider.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/components/show-posts.css' %}">
+{% endblock links %}
+
 {% block meta %}
     <meta name="friendsActionsUrl" content="{% url 'user_app.friends_actions' %}?user_id={{ target_user.id }}">
 {% endblock %}
 
 {% block side_panel %}
-    {% include "home_app/components/profile_container.html" %}
+    {%include "home_app/components/profile_container.html" %}
+{% endblock %}
+
+{% block content %}
+    {% include "post_app/components/post_provider.html"  %}
 {% endblock %}
 
 {% block scripts %}
     <script src="{% static 'user_app/friends/js/usersButtons.js'%}" type="module"></script>
+    <script type="module" src="{% static 'post_app/js/components/postProvider/index.js' %}"></script>
 {% endblock %}
-
