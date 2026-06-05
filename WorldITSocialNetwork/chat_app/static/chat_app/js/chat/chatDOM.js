@@ -14,9 +14,6 @@ document.addEventListener("dom:openChat", (e) => {
     new PaginationProvider(
         `/chat/messages/${chatId}`,
         chatContainer,
-        null,
-        null,
-        true
     )
 })
 
