@@ -84,6 +84,8 @@
 .chat-container {
     flex: 1;
 
+    padding-bottom: 2.5vh;
+
     display: flex;
     flex-direction: column-reverse;
     gap: 1.04vh;

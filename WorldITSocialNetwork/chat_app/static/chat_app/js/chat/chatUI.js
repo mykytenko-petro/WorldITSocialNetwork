@@ -5,8 +5,6 @@ sendMessageForm.addEventListener("submit", (event) => {
     const data = Object.fromEntries(new FormData(sendMessageForm).entries())
 
     sendMessageForm.querySelector("input").value = ""
-    
-    // sendMessage(data)
 
     document.dispatchEvent(new CustomEvent("ws:sendMessage", {
         detail: {

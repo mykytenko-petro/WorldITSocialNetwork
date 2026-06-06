@@ -42,6 +42,9 @@ class Message(models.Model):
         local_datetime = timezone.localtime(self.created_at)
         
         return local_datetime.strftime("%H:%M")
+    
+    def __str__(self) -> str:
+        return self.text if len(self.text) < 20 else self.text[:20] + "..."
 
 
 class MessageImage(models.Model):

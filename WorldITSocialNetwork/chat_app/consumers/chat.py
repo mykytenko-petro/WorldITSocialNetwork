@@ -21,7 +21,13 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         await self.channel_layer.group_add(self.room_group_name, self.channel_name)
         await self.accept()
 
-        await self.send(text_data=json.dumps({"id": self.chat_id}))
+        chat_info = await self.get_chat_info(self.chat_id)
+
+        await self.send(text_data=json.dumps({
+            "type": "handshake",
+            "chat_id": self.chat_id,
+            "chat_name": chat_info["chat_name"]
+        }))
 
     async def receive(self, text_data):  # type: ignore
         data = json.loads(text_data)
@@ -79,3 +85,18 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         if other_user is None:
             return
         return other_user.username
+    
+    @database_sync_to_async
+    def get_chat_info(self, chat_id):
+        chat = Chat.objects.get(id=chat_id)
+
+        if not chat.is_group:
+            user = self.scope.get("user")
+            other_user = chat.users.exclude(id=user.id).first() # type: ignore
+            chat_name = other_user.username # type: ignore
+        else:
+            chat_name = chat.name
+
+        return {
+            "chat_name": str(chat_name)
+        }

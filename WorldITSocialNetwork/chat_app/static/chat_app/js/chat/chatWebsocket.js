@@ -23,20 +23,21 @@ function recieveMessage(event) {
 
     // console.log(data)
 
-    if (data.id) {
-        document.dispatchEvent(new CustomEvent("dom:openChat", {
-            detail: {
-                chatId: data.id
-            }
-        }))
-    }
-
     switch (data.type) {
+        case "handshake":
+            document.dispatchEvent(new CustomEvent("dom:openChat", {
+                detail: {
+                    chatId: data.chat_id,
+                    chatName: data.chat_name
+                }
+            }))
+            break;
         case "send_message":
             document.dispatchEvent(new CustomEvent("dom:insertMessage", {
                 detail: {
                     html: data.html
                 }
             }))
+            break;
     }
 }
