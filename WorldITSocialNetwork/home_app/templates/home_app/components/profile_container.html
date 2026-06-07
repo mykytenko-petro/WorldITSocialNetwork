@@ -26,12 +26,17 @@
         </div>
     </div>
 
-    {% if request.resolver_match.view_name == "user_app.friend_page" %}
-        <div>
-            <button id="acceptUsersButton" data-user-id="{{ userId }}">Підтвердити</button>
-            <button id="dismissUsersButton" data-user-id="{{ userId }}">Видалити</button>
-        </div>
-    {% endif %}
+   {% if request.resolver_match.view_name == "user_app.friend_page" %}
+    <div class="friend-buttons">
+        <button id="acceptUsersButton" data-user-id="{{ userId }}">
+            Підтвердити
+        </button>
+
+        <button id="dismissUsersButton" data-user-id="{{ userId }}">
+            Видалити
+        </button>
+    </div>
+{% endif %}
 </div>
 
 <div class="post">

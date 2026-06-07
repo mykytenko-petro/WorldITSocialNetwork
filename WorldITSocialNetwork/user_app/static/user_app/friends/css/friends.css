@@ -12,6 +12,7 @@
     width: fit-content;
     color: #81818D;
     font-size: 1.67vh;
+
 }
 
 .selected{
@@ -43,3 +44,4 @@
     grid-template-columns: repeat(3, 1fr); 
     gap: 0.9vh;
 }
+

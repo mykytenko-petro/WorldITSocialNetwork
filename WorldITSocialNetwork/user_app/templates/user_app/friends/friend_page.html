@@ -3,7 +3,7 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'post_app/css/components/post-provider.css' %}">
-    <link rel="stylesheet" href="{% static 'post_app/css/components/show-posts.css' %}">
+    <link rel="stylesheet" href="{% static 'home_app/css/components/profile_container.css' %}">
 {% endblock links %}
 
 {% block meta %}
@@ -11,11 +11,11 @@
 {% endblock %}
 
 {% block side_panel %}
-    {%include "home_app/components/profile_container.html" %}
+    {% include "home_app/components/profile_container.html" %}
 {% endblock %}
 
 {% block content %}
-    {% include "post_app/components/post_provider.html"  %}
+    {% include "post_app/components/post_provider.html" %}
 {% endblock %}
 
 {% block scripts %}

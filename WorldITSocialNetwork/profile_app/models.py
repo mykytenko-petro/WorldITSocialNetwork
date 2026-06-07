@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 
-
 class Profile(models.Model):
     # Користувач чий профіль (Зв'язок один до одного)
     user = models.OneToOneField(
