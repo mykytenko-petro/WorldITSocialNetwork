@@ -10,6 +10,7 @@
 
 .contacts-list{
     flex: 1;
+    min-height: 0;
 
     padding: 1.05vw;
 
@@ -53,8 +54,8 @@
 }
 
 .contact-container{
-    width: 100%;
     flex: 1;
+    min-height: 0;
 
     display: flex;
     flex-direction: column;
@@ -63,22 +64,6 @@
     overflow-y: auto;
 }
 
-/* contact card */
-.contact{
-    width: 100%;
-
+.contact-container > * {
     flex-shrink: 0;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.9vw;
-
-    cursor: pointer;
-
-    font-size: 1.67vh;
-}
-
-.contact img{
-    width: 5vh;
 }

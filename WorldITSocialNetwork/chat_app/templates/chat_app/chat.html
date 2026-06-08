@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="{% static 'chat_app/css/layout/chat-container.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/layout/contacts.css' %}">
 
+    <link rel="stylesheet" href="{% static 'chat_app/css/modals/new-group.css' %}">
+
     <link rel="stylesheet" href="{% static 'chat_app/css/message-card.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/contact-card.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
@@ -18,6 +21,10 @@
 {% endblock %}
 
 {% block content %}
+    {% comment %} modals {% endcomment %}
+    {% include "chat_app/particles/modals/new_group.html" %}
+
+    {% comment %} layout {% endcomment %}
     <div class="messages-content">
         {% include 'chat_app/particles/layout/chat_container.html' %}
     </div>

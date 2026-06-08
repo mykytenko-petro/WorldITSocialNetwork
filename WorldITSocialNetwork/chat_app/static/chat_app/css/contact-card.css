@@ -1,0 +1,23 @@
+.contact {
+    width: 100%;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.9vw;
+
+    cursor: pointer;
+
+    font-size: 1.67vh;
+}
+
+.contact img {
+    width: 5vh;
+}
+
+.contact .button {
+    width: 2.08vh;
+    height: 2.08vh;
+}

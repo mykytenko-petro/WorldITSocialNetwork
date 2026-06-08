@@ -1,4 +1,9 @@
-dialog.create-post-form {
+.create-post-form {
+    width: 50.4vw;
+    min-width: 320px;
+    max-width: 560px;
+    box-sizing: border-box;
+    padding: 0 3.3vw 2.8vh;
     align-items: start;
 }
 
@@ -17,40 +22,51 @@ dialog.create-post-form {
 
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .close {
+    padding: 0;
+
     background-color: transparent;
     border: 0;
+    cursor: pointer;
 }
 
 .close:focus {
     outline-color: transparent;
 }
 
-.close > img {
-    height: 20px;
+.close img {
+    width: 1.36vw;
+    max-width: 14px;
+    min-width: 10px;
+    height: 1.95vh;
 }
 
 .title {
-    font-size: 3.54vh;
+    color: #07091D;
+    font-size: 3.34vh;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-.create-post-form > form {
-    width: 47.57vw;
+.create-post-fields {
+    width: 43.8vw;
+    min-width: 252px;
+    max-width: 448px;
 
-    padding: 2.5vh 0;
+    padding: 2.2vh 0 1.95vh;
 
     display: flex;
     flex-direction: column;
-    gap: 1.67vh;
+    gap: 1.65vh;
 }
 
-.create-post-form > form > div {
+.post-field {
     display: flex;
     flex-direction: column;
-    gap: 0.63vh;
+    gap: 0.85vh;
 }
 
 .create-post-form > form > div > input {
@@ -105,8 +121,10 @@ dialog.create-post-form {
     overflow: hidden;
 }
 
-.post-create > textarea {
-    width: 100%;
+.post-create textarea {
+    width: 48vw;
+    min-width: 270px;
+    max-width: 640px;
 
     padding: 1vw 2vh;
 
@@ -115,25 +133,28 @@ dialog.create-post-form {
     resize: none;
 }
 
-.post-create > div {
-    width: 100%;
+.post-create div {
+    width: 48vw;
+    min-width: 270px;
+    max-width: 640px;
 
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .button-edit {
-    padding: 10px;
+    padding: 1.4vh 0.98vw;
 }
 
 #id_tags {
     width: 100%;
 
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
+    gap: 1.1vh;
 }
 
 #id_tags label {
@@ -141,12 +162,13 @@ dialog.create-post-form {
 
     background-color: #E9E5EE;
 
-    border-radius: 10%;
+    border-radius: 0.45vh;
 
     color: #543C52;
     font-size: 1.45vh;
 
     user-select: none;
+    cursor: pointer;
 }
 
 #id_tags label > input {
@@ -158,9 +180,32 @@ dialog.create-post-form {
 
     color: white;
 }
+.add-tag-button {
+    width: 1.76vw;
+    min-width: 18px;
+    max-width: 18px;
+    height: 3.05vh;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #FFFFFF;
+
+    border: 0.14vh solid #CDCED2;
+    border-radius: 0.45vh;
+
+    color: #07091D;
+    font-size: 2.2vh;
+    font-weight: 700;
+    cursor: pointer;
+}
 
 .links {
-    width: 23.82vw;
+    width: 23.45vw;
+    min-width: 210px;
+    max-width: 240px;
 
     display: flex;
     flex-direction: column;

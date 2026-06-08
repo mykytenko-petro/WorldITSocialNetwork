@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'chat_app/css/chats.css' %}?v=3">
+{% endblock links %}
+
+{% block side_panel %}
+    <p class="selected">Чати</p>
+    <p>Нова група</p>
+{% endblock side_panel %}
+
+{% block content %}
+    <dialog class="new-group-dialog" open>
+        <button class="new-group-close" type="button">
+            <img src="{% static 'icon/cross.svg' %}" alt="">
+        </button>
+
+        <form class="new-group-step is-active" data-step="members">
+            <h2>Нова група</h2>
+
+            <label class="new-group-search">
+                <span></span>
+                <input type="search" placeholder="Пошук">
+            </label>
+
+            <p class="new-group-selected">Вибрано: <span>3</span></p>
+
+            <div class="new-group-list">
+                <p class="new-group-letter">А</p>
+                <label class="new-group-user">
+                    <span class="new-group-avatar">NP</span>
+                    <span class="new-group-name">Aeslie Alexander</span>
+                    <input type="checkbox" checked>
+                </label>
+                <label class="new-group-user">
+                    <img src="{% static 'home_app/images/mock_image_1.png' %}" alt="">
+                    <span class="new-group-name">Auy Hawkins</span>
+                    <input type="checkbox">
+                </label>
+                <label class="new-group-user">
+                    <img src="{% static 'home_app/images/mock_image_2.png' %}" alt="">
+                    <span class="new-group-name">Acob Jones</span>
+                    <input type="checkbox">
+                </label>
+
+                <p class="new-group-letter">Б</p>
+                <label class="new-group-user">
+                    <img src="{% static 'home_app/images/mock_image_3.png' %}" alt="">
+                    <span class="new-group-name">Bonald Richards</span>
+                    <input type="checkbox" checked>
+                </label>
+                <label class="new-group-user">
+                    <img src="{% static 'home_app/images/mock_image_4.png' %}" alt="">
+                    <span class="new-group-name">Bert Flores</span>
+                    <input type="checkbox">
+                </label>
+                <label class="new-group-user">
+                    <img src="{% static 'home_app/images/mock_image_5.png' %}" alt="">
+                    <span class="new-group-name">Bheresa Webb</span>
+                    <input type="checkbox" checked>
+                </label>
+            </div>
+
+            <div class="new-group-actions">
+                <button class="new-group-secondary" type="button">Скасувати</button>
+                <button class="button-purple new-group-next" type="button">Далі</button>
+            </div>
+        </form>
+
+        <form class="new-group-step" data-step="details">
+            <h2>Нова група</h2>
+
+            <label class="new-group-field">
+                <span>Назва</span>
+                <input type="text" placeholder="Введіть назву">
+            </label>
+
+            <div class="new-group-photo-preview">NG</div>
+
+            <div class="new-group-photo-actions">
+                <button type="button">+ <span>Додайте фото</span></button>
+                <button type="button"><img src="{% static 'icon/image.svg' %}" alt=""> <span>Оберіть фото</span></button>
+            </div>
+
+            <div class="new-group-participants">
+                <p>Учасники</p>
+
+                <div class="new-group-participant">
+                    <span class="new-group-avatar">NP</span>
+                    <span>Aeslie Alexander</span>
+                    <button type="button">
+                        <img src="{% static 'icon/cross.svg' %}" alt="">
+                    </button>
+                </div>
+                <div class="new-group-participant">
+                    <span class="new-group-avatar">NP</span>
+                    <span>Aeslie Alexander</span>
+                    <button type="button">
+                        <img src="{% static 'icon/cross.svg' %}" alt="">
+                    </button>
+                </div>
+                <div class="new-group-participant">
+                    <span class="new-group-avatar">NP</span>
+                    <span>Aeslie Alexander</span>
+                    <button type="button">
+                        <img src="{% static 'icon/cross.svg' %}" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div class="new-group-actions">
+                <button class="new-group-secondary new-group-back" type="button">Назад</button>
+                <button class="button-purple new-group-create" type="button">Створити групу</button>
+            </div>
+        </form>
+    </dialog>
+{% endblock content %}
+
+{% block scripts %}
+    <script type="module" src="{% static 'chat_app/js/chats.js' %}"></script>
+{% endblock scripts %}

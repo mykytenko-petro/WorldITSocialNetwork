@@ -4,5 +4,13 @@
     <div class="contact" data-user-id="{{ friend.id }}">
         <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
         <p>{{ friend.profile.pseudonym }}</p>
+
+        {% if mode == "select" %}
+            <input type="checkbox" class="button"> 
+        {% elif mode == "delete" %}
+            <button class="button">
+                <img src="{% static 'icon/bin.svg' %}">
+            </button>
+        {% endif %}
     </div>
 {% endfor %}

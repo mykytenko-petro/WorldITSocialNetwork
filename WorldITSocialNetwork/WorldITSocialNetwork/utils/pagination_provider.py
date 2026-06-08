@@ -46,7 +46,7 @@ class PaginationProvider(View, ABC):
 
         return self._get_pagination_response(page)
 
-    def _get_pagination_response(self, page: int) -> HttpResponse | JsonResponse:
+    def _get_pagination_response(self, page: int):
         paginator = Paginator(self.queryset, self.per_page)
 
         try:
@@ -56,6 +56,12 @@ class PaginationProvider(View, ABC):
         except EmptyPage:
             return HttpResponse(status=204)
 
+        return self.render(page_obj)
+    
+    def render(self, page_obj):
+        '''
+        You can override it to return custom response.
+        '''
         html = render_to_string(
             self.template_name,
             {

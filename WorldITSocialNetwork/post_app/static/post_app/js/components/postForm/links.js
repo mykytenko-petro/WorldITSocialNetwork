@@ -9,6 +9,8 @@ const postLink = (isPrimary) => {
     const div = document.createElement("div")
     const input = document.createElement("input")
 
+    div.className = "link-row"
+
     input.type = "url"
     input.name = "links"
 
