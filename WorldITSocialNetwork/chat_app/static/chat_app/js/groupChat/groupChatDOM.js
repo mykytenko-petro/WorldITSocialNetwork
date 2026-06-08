@@ -1,3 +1,5 @@
+import { contactCard, paginationThreshold } from "../contacts/contactsDOM.js"
+
 const newGroupModal = document.querySelector(".new-group-dialog")
 
 const createGroupButton = document.querySelector(".create-group-chat")
@@ -7,10 +9,6 @@ const contactContainer = newGroupModal.querySelector(".new-group-list")
 
 createGroupButton.addEventListener("click", (event) => {
     newGroupModal.showModal()
-
-    if (contactContainer.innerHTML === "") {
-        document.dispatchEvent(new CustomEvent("api:getSortedContacts"))
-    }
 })
 
 createGroupCloseButton.addEventListener("click", (event) => {
@@ -18,19 +16,44 @@ createGroupCloseButton.addEventListener("click", (event) => {
 })
 
 document.addEventListener("dom:pasteFilteredContacts", (e) => {
-    const { html } = e.detail
+    const { data } = e.detail
 
-    contactContainer.innerHTML = html
+    renderContacts(data)
 })
-// const membersStep = document.querySelector('[data-step="members"]')
-// const detailsStep = document.querySelector('[data-step="details"]')
-// const nextButton = document.querySelector(".new-group-next")
-// const backButton = document.querySelector(".new-group-back")
 
-// const showStep = (stepName) => {
-//     membersStep.classList.toggle("is-active", stepName === "members")
-//     detailsStep.classList.toggle("is-active", stepName === "details")
-// }
+export function renderContacts(groupedData) {
+    const oldSections = contactContainer.querySelectorAll(".contact-letter-section")
+    oldSections.forEach(section => section.remove())
 
-// nextButton.addEventListener("click", () => showStep("details"))
-// backButton.addEventListener("click", () => showStep("members"))
+    const fragment = document.createDocumentFragment()
+
+    for (const [letter, contactsArray] of groupedData) {
+        const contactSection = document.createElement("div")
+        contactSection.className = "contact-letter-section"
+
+        const letterHeader = document.createElement("p")
+        letterHeader.className = "new-group-letter"
+        letterHeader.textContent = letter
+        contactSection.appendChild(letterHeader)
+
+        contactsArray.forEach(contact => {
+            const contactWrapper = document.createElement("div")
+            contactWrapper.className = "contact-wrapper"
+            contactWrapper.appendChild(contactCard(contact, "select")) 
+            contactSection.appendChild(contactWrapper)
+        })
+
+        fragment.appendChild(contactSection)
+    }
+
+    const thresholdElement = contactContainer.querySelector('hr')
+
+    contactContainer.insertBefore(fragment, thresholdElement)
+
+    contactContainer.scrollBy({
+        top: -10,
+        behavior: 'smooth'
+    })
+}
+
+contactContainer.appendChild(paginationThreshold())

@@ -1,44 +1,44 @@
 export function filterContacts(contacts) {
-    const ukrainianAlphabet = "АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ"
-    const englishAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const ukrainianAlphabet = "АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ";
+    const englishAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    const filteredContacts = {}
+    const filteredContacts = new Map();
 
     for (const letter of ukrainianAlphabet) {
-        filteredContacts[letter] = []
+        filteredContacts.set(letter, []);
     }
 
     for (const letter of englishAlphabet) {
-        filteredContacts[letter] = []
+        filteredContacts.set(letter, []);
     }
 
-    filteredContacts["#"] = []
+    filteredContacts.set("#", []);
 
-    const ukrainianPattern = /^[А-ЩЬЮЯҐЄІЇа-щьюяґєії]/
-    const englishPattern = /^[A-Za-z]/
+    const ukrainianPattern = /^[А-ЩЬЮЯҐЄІЇа-щьюяґєії]/;
+    const englishPattern = /^[A-Za-z]/;
 
     for (const contact of contacts) {
-        const name = contact.pseudonym
-        if (!name) continue
+        const name = contact.pseudonym;
+        if (!name) continue;
 
-        const firstChar = name[0].toUpperCase()
+        const firstChar = name[0].toUpperCase();
 
         if (ukrainianPattern.test(firstChar)) {
-            filteredContacts[firstChar].push(contact)
+            filteredContacts.get(firstChar).push(contact);
         } else if (englishPattern.test(firstChar)) {
-            filteredContacts[firstChar].push(contact)
+            filteredContacts.get(firstChar).push(contact);
         } else {
-            filteredContacts["#"].push(contact)
+            filteredContacts.get("#").push(contact);
         }
     }
 
-    const cleanedContacts = Object.fromEntries(
-        Object.entries(filteredContacts).filter(([key, value]) => value.length > 0)
-    )
+    const cleanedContacts = new Map(
+        [...filteredContacts.entries()].filter(([key, value]) => value.length > 0)
+    );
 
-    return cleanedContacts
+    return cleanedContacts;
 }
 
 export function filterContactsFlat(contacts) {
-    return Object.values(filterContacts(contacts)).flat()
+    return [...contacts.values()].flat()
 }

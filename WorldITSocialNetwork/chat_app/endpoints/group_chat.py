@@ -1,71 +1,32 @@
-import string
-import re
-
+from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import View
-from django.http import JsonResponse
-from django.template.loader import render_to_string
+from django.http import HttpRequest, JsonResponse
+from django.contrib.auth import get_user_model
 
+from ..models import Chat
 from user_app.utils import get_all_friends
 
 
-class ContactFilterView(LoginRequiredMixin, View):
-    def get(self, _):
-        return JsonResponse({"html": self.render_contacts()})
+User = get_user_model()
 
-    def render_contacts(self):
-        filtered_contacts = self.filter_contacts()
-        raw_contacts = {}
+class CreateGroupChatView(LoginRequiredMixin, TemplateView):
+    def post(self, request: HttpRequest):
+        name = request.POST.get("name", "").strip()
+        list_id_users = request.POST.getlist("users")
 
-        for letter, contacts in filtered_contacts.items():
-            raw_contacts[letter] = render_to_string(
-                "chat_app/particles/contact_card.html", {
-                    "page_obj": contacts,
-                    "mode": "select"
-                }
+        if not name:
+            return JsonResponse(
+                {"success": False, "error": "name required"}, status=400
             )
-
-        rendered_contacts = [
-            {'letter': letter, 'contact': contact} 
-            for letter, contact in raw_contacts.items()
-        ]
-
-        return render_to_string(
-            "chat_app/particles/filtered_contacts.html", {
-            "rendered_contacts": rendered_contacts
-        })
-
-    def filter_contacts(self):
-        contacts = get_all_friends(self.request.user)
-
-        ukrainian_alphabet = "АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ"
-        english_alphabet = string.ascii_uppercase
-
-        filtered_contacts = {}
         
-        for letter in ukrainian_alphabet:
-            filtered_contacts[letter] = []
-            
-        for letter in english_alphabet:
-            filtered_contacts[letter] = []
-            
-        filtered_contacts["#"] = []
+        list_friends_id = (
+            get_all_friends(user=request.user)
+            .filter(id__in=list_id_users)
+            .values_list("id", flat=True)
+        )
 
-        ukrainian_pattern = re.compile(r'^[А-ЩЬЮЯҐЄІЇа-щьюяґєії]')
-        english_pattern = re.compile(r'^[A-Za-z]')
-
-        for contact in contacts:
-            name = contact.username
-
-            first_char = name[0].upper() # type: ignore
-
-            if ukrainian_pattern.match(first_char):
-                filtered_contacts[first_char].append(contact)
-            elif english_pattern.match(first_char):
-                filtered_contacts[first_char].append(contact)
-            else:
-                filtered_contacts["#"].append(contact)
-
-        cleaned_contacts = {k: v for k, v in filtered_contacts.items() if len(v) > 0}
-
-        return cleaned_contacts
+        chat = Chat.objects.create(name=name, is_group=True, admin=request.user)
+        chat.users.add(request.user)
+        chat.users.add(*User.objects.filter(id__in=list_friends_id))
+        
+        return JsonResponse({"success": True, "chat_id": chat.id, "name": chat.name}) # type: ignore

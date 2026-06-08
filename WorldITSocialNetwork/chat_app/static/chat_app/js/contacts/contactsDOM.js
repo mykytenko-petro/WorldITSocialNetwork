@@ -1,5 +1,5 @@
 import { getContactData } from "./contactsAPI.js"
-import { filterContactsFlat } from "./contactsUtils.js"
+import { filterContacts, filterContactsFlat } from "./contactsUtils.js"
 
 export const contactConteiner = document.querySelector('.contact-container')
 
@@ -9,7 +9,7 @@ let isLoading = false
 const cachedContacts = []
 
 const parser = new DOMParser()
-const contactCard = (data, mode) => {
+export const contactCard = (data, mode) => {
     const { user_id: userId, pseudonym } = data
 
     let actionHtml = ''
@@ -47,10 +47,14 @@ export const paginationThreshold = () => {
             if (data) {
                 cachedContacts.push(...data.data)
 
-                pasteContacts(cachedContacts)
-                document.dispatchEvent(new CustomEvent("dom:pasteSortedContacts", {
+                const filteredData = filterContacts(cachedContacts)
+
+                console.log(filteredData)
+
+                pasteContacts(filterContactsFlat(filteredData))
+                document.dispatchEvent(new CustomEvent("dom:pasteFilteredContacts", {
                     detail: {
-                        data: cachedContacts
+                        data: filteredData
                     }
                 }))
             } else {
@@ -72,7 +76,7 @@ export const paginationThreshold = () => {
 }
 
 function pasteContacts(newData) {
-    const sortedData = filterContactsFlat(newData)
+    const sortedData = newData
     const threshold = contactConteiner.querySelector('hr')
 
     const existingCards = contactConteiner.querySelectorAll(`[data-user-id]`)
@@ -91,8 +95,6 @@ function pasteContacts(newData) {
             contactConteiner.insertBefore(newCard, threshold)
         }
     })
-
-
 
     contactConteiner.scrollBy({
         top: -10,

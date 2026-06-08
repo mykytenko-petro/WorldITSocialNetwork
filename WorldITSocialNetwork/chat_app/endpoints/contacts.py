@@ -16,15 +16,15 @@ class ContactProvider(LoginRequiredMixin, PaginationProvider):
     @override
     def queryset(self) -> Any:
         # test
-        real = list(get_all_friends(self.request.user))
+        # real = list(get_all_friends(self.request.user))
 
-        fake = [
-            User(username=secrets.token_hex(10), email=i, id=i)
-            for i in range(100)
-        ]
+        # fake = [
+        #     User(username=secrets.token_hex(10), email=i, id=i)
+        #     for i in range(100)
+        # ]
 
-        return real + fake
-        # return get_all_friends(self.request.user)
+        # return real + fake
+        return get_all_friends(self.request.user)
 
     @property
     @override

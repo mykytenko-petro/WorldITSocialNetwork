@@ -69,3 +69,10 @@ class ChatMessagesProvider(LoginRequiredMixin, PaginationProvider):
         return {
             "user": self.request.user
         }
+
+# class ChatImageView(LoginRequiredMixin, View):
+#     def post(self, request):
+#         image = request.POST.get("image")
+
+#         if image:
+            
