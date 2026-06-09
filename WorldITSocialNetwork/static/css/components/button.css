@@ -1,5 +1,6 @@
 .button-purple {
     border-radius: 50px;
+    border: 0;
 
     color: white;
     background-color: rgba(84, 60, 82, 1);

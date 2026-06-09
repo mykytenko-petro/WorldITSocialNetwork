@@ -1,6 +1,6 @@
 import { contactCard, paginationThreshold } from "../contacts/contactsDOM.js"
 
-const newGroupModal = document.querySelector(".new-group-dialog")
+export const newGroupModal = document.querySelector(".new-group-dialog")
 
 const createGroupButton = document.querySelector(".create-group-chat")
 const createGroupCloseButton = document.querySelector(".new-group-close")
