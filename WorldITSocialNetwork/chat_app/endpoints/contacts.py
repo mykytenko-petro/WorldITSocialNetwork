@@ -1,4 +1,3 @@
-import email
 from typing import Any, override
 import secrets
 

@@ -1,10 +1,27 @@
-document.addEventListener("api:getSortedContacts", (e) => {
-    fetch("/chat/contact_filter/", {method: "GET"})
+document.addEventListener("api:sendCreateGroupChat", (e) => {
+    fetch(
+        "/chat/create_group_chat/",
+        {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": CSRFToken
+            },
+            body: e.detail.formData
+        }
+    )
+        .then(response => {
+            if (!response.ok) {
+                console.error(response.status)
+                return
+            }
+
+            return response
+        })
         .then(response => response.json())
         .then(response => {
-            document.dispatchEvent(new CustomEvent("dom:pasteFilteredContacts", {
+            document.dispatchEvent(new CustomEvent("ui:openGroupChat", {
                 detail: {
-                    html: response.html
+                    chatId: response.chat_id
                 }
             }))
         })

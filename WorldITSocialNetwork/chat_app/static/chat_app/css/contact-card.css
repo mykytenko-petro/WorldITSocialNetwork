@@ -21,3 +21,9 @@
     width: 2.08vh;
     height: 2.08vh;
 }
+
+.contact input{
+    color: #543C52;
+    border-radius: 20px ;
+    border-color: #543C52;
+}

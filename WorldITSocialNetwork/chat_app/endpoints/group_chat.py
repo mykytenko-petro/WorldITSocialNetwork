@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpRequest, JsonResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.contrib.auth import get_user_model
 
 from ..models import Chat
@@ -15,9 +15,7 @@ class CreateGroupChatView(LoginRequiredMixin, TemplateView):
         list_id_users = request.POST.getlist("users")
 
         if not name:
-            return JsonResponse(
-                {"success": False, "error": "name required"}, status=400
-            )
+            return HttpResponse(status=400)
         
         list_friends_id = (
             get_all_friends(user=request.user)
@@ -29,4 +27,4 @@ class CreateGroupChatView(LoginRequiredMixin, TemplateView):
         chat.users.add(request.user)
         chat.users.add(*User.objects.filter(id__in=list_friends_id))
         
-        return JsonResponse({"success": True, "chat_id": chat.id, "name": chat.name}) # type: ignore
+        return JsonResponse({"chat_id": chat.id}) # type: ignore

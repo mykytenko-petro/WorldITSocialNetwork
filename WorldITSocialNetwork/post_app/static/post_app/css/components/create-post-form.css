@@ -1,9 +1,4 @@
-.create-post-form {
-    width: 50.4vw;
-    min-width: 320px;
-    max-width: 560px;
-    box-sizing: border-box;
-    padding: 0 3.3vw 2.8vh;
+dialog.create-post-form {
     align-items: start;
 }
 
@@ -22,51 +17,40 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: end;
 }
 
 .close {
-    padding: 0;
-
     background-color: transparent;
     border: 0;
-    cursor: pointer;
 }
 
 .close:focus {
     outline-color: transparent;
 }
 
-.close img {
-    width: 1.36vw;
-    max-width: 14px;
-    min-width: 10px;
-    height: 1.95vh;
+.close > img {
+    height: 20px;
 }
 
 .title {
-    color: #07091D;
-    font-size: 3.34vh;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 3.54vh;
 }
 
-.create-post-fields {
-    width: 43.8vw;
-    min-width: 252px;
-    max-width: 448px;
+.create-post-form > form {
+    width: 47.57vw;
 
-    padding: 2.2vh 0 1.95vh;
+    padding: 2.5vh 0;
 
     display: flex;
     flex-direction: column;
-    gap: 1.65vh;
+    gap: 1.67vh;
 }
 
-.post-field {
+.create-post-form > form > div {
     display: flex;
     flex-direction: column;
-    gap: 0.85vh;
+    gap: 0.63vh;
 }
 
 .create-post-form > form > div > input {
@@ -121,10 +105,8 @@
     overflow: hidden;
 }
 
-.post-create textarea {
-    width: 48vw;
-    min-width: 270px;
-    max-width: 640px;
+.post-create > textarea {
+    width: 100%;
 
     padding: 1vw 2vh;
 
@@ -133,28 +115,25 @@
     resize: none;
 }
 
-.post-create div {
-    width: 48vw;
-    min-width: 270px;
-    max-width: 640px;
+.post-create > div {
+    width: 100%;
 
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: end;
 }
 
 .button-edit {
-    padding: 1.4vh 0.98vw;
+    padding: 10px;
 }
 
 #id_tags {
     width: 100%;
 
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1.1vh;
+    gap: 10px;
 }
 
 #id_tags label {
@@ -162,13 +141,12 @@
 
     background-color: #E9E5EE;
 
-    border-radius: 0.45vh;
+    border-radius: 10%;
 
     color: #543C52;
     font-size: 1.45vh;
 
     user-select: none;
-    cursor: pointer;
 }
 
 #id_tags label > input {
@@ -180,32 +158,9 @@
 
     color: white;
 }
-.add-tag-button {
-    width: 1.76vw;
-    min-width: 18px;
-    max-width: 18px;
-    height: 3.05vh;
-    padding: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #FFFFFF;
-
-    border: 0.14vh solid #CDCED2;
-    border-radius: 0.45vh;
-
-    color: #07091D;
-    font-size: 2.2vh;
-    font-weight: 700;
-    cursor: pointer;
-}
 
 .links {
-    width: 23.45vw;
-    min-width: 210px;
-    max-width: 240px;
+    width: 23.82vw;
 
     display: flex;
     flex-direction: column;

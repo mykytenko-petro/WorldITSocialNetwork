@@ -184,7 +184,7 @@ function getTagLabel(checkbox) {
     if (!text) {
         return '';
     }
-
+    z
     if (text.startsWith('#')) {
         return text;
     } else {
@@ -203,13 +203,14 @@ function addTagCheckbox(id, name) {
     checkbox.checked = true;
     checkbox.id = `id_tags_new_${id}`;
 
+    const textArea = document.querySelector(".post-create textarea")
     label.htmlFor = checkbox.id;
     label.append(checkbox, ` #${name}`);
     updateTagLabelState(checkbox);
 
     wrapper.append(label);
 
-    if (openTagButton) {
+    if (openTagButton){
         tagsContainer.insertBefore(wrapper, openTagButton);
     } else {
         tagsContainer.append(wrapper);

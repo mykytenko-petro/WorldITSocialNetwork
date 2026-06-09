@@ -1,7 +1,5 @@
 .new-group-dialog {
     width: 25.52vw;
-    min-width: 25.52vw;
-    max-width: 25.52vw;
     min-height: 71.5vh;
     max-height: 92vh;
     padding: 2.2vh 2.29vw;
@@ -28,14 +26,13 @@
 
 .new-group-step {
     width: 100%;
-    display: none;
     flex-direction: column;
     align-items: center;
     gap: 2vh;
 }
 
-.new-group-step.is-active {
-    display: flex;
+.new-group-step[data-step="details"] {
+    display: none;
 }
 
 .new-group-step h2 {

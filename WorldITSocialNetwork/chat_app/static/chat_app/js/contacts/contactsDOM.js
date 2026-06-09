@@ -18,15 +18,16 @@ export const contactCard = (data, mode) => {
     } else if (mode === "delete") {
         actionHtml = `
             <button class="button">
-                <img src="${'/static/icon/bin.svg'}" alt="Delete">
+                <img src="${'/static/icon/bin.svg'}">
             </button>`
     }
 
-    const html = `
+    const html = /* html */ `
         <div class="contact" data-user-id="${userId}">
-            <img src="${'/static/chat_app/icon/Avatar.png'}" alt="Avatar">
+            <img src="${'/static/chat_app/icon/Avatar.png'}">
             <p>${pseudonym}</p>
             ${actionHtml}
+            <input type="hidden" name="users" value="${userId}">
         </div>
     `
 
@@ -48,8 +49,6 @@ export const paginationThreshold = () => {
                 cachedContacts.push(...data.data)
 
                 const filteredData = filterContacts(cachedContacts)
-
-                console.log(filteredData)
 
                 pasteContacts(filterContactsFlat(filteredData))
                 document.dispatchEvent(new CustomEvent("dom:pasteFilteredContacts", {
