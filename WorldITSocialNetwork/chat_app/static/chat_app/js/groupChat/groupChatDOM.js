@@ -42,7 +42,7 @@ backGroup.addEventListener("click", (event) => {
 
 chosenContactsContainer.addEventListener("click", (event) => {
     const element = event.target
-    
+
     console.log(element)
 
     if (!(element.parentElement.matches("button") || element.matches("button"))) {
@@ -114,3 +114,34 @@ function renderChosenContacts() {
 }
 
 contactContainer.appendChild(paginationThreshold())
+
+// temporary solution
+// TODO: make realtime websocket tracking of group chats
+import { PaginationProvider } from "/static/js/utils/paginationProvider.js"
+const groupChatContainer = document.querySelector(".group-chats .chats")
+
+new PaginationProvider(
+    `/chat/group_chat_provider/`,
+    groupChatContainer,
+)
+
+
+let oldId
+
+groupChatContainer.addEventListener("click", (event) => {
+    const element = event.target.closest("div")
+    if (!element.matches("[data-chat-id]")) {
+        return
+    }
+
+    if (oldId === element.dataset.chatId) {
+        return
+    }
+
+    document.dispatchEvent(new CustomEvent("ws:openChat", {
+        detail: {
+            chatId: element.dataset.chatId
+        }
+    }))
+})
+

@@ -1,0 +1,8 @@
+{% load static %}
+
+{% for chat in page_obj %}
+    <div class="contact" data-chat-id="{{ chat.id }}">
+        <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
+        <p>{{ chat.name }}</p>
+    </div>
+{% endfor %}
