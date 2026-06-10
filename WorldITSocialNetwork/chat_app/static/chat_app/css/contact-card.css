@@ -24,6 +24,34 @@
 
 .contact input{
     color: #543C52;
-    border-radius: 20px ;
+    border-radius: 20px;
     border-color: #543C52;
+}
+
+.button {
+    width: 2.08vh;
+    height: 2.08vh;
+
+    display: flex;
+
+    margin-left: auto;
+}
+
+button.button {
+    border: 0;
+
+    background-color: transparent;
+}
+
+.button img {
+    flex: 1;
+}
+
+.contact:has(.button) {
+    cursor: default;
+}
+
+.contact input {
+    border: 3px solid rgba(84, 60, 82, 1);
+    accent-color: rgba(84, 60, 82, 1);
 }

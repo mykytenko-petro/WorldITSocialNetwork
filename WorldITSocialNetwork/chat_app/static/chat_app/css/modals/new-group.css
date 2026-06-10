@@ -1,9 +1,12 @@
 .new-group-dialog {
-    width: 25.52vw;
+    width: 34.03vw;
     min-height: 71.5vh;
     max-height: 92vh;
+    
     padding: 2.2vh 2.29vw;
-    overflow: hidden;
+
+    gap: 2.5vh;
+
     border: 0;
 }
 
@@ -26,9 +29,13 @@
 
 .new-group-step {
     width: 100%;
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2vh;
+    gap: 2.5vh;
 }
 
 .new-group-step[data-step="details"] {
@@ -36,10 +43,7 @@
 }
 
 .new-group-step h2 {
-    color: #070A1C;
-    font-family: 'GT-Walsheim';
-    font-size: 3.54vh;
-    font-weight: 700;
+    font-size: 2.125rem;
 }
 
 .new-group-search,
@@ -93,6 +97,10 @@
     outline: none;
 }
 
+.new-group-letter {
+    margin-bottom: 0.83vh;
+}
+
 .new-group-selected,
 .new-group-letter,
 .new-group-field > span,
@@ -111,7 +119,7 @@
     height: 45vh;
     display: flex;
     flex-direction: column;
-    gap: 0.8vh;
+    gap: 1.67vh;
     overflow-y: auto;
     scrollbar-color: #543C52 #E9E5EE;
 }
@@ -216,23 +224,26 @@
 
 .new-group-participants {
     width: 100%;
+    flex: 1;
+    min-height: 0;
+
     display: flex;
     flex-direction: column;
     gap: 1.25vh;
+
+    overflow-y: auto;
 }
 
-.new-group-participant {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 1vw;
+.new-group-participant > * {
+    flex-shrink: 0;
 }
 
-.new-group-participant button {
-    justify-content: flex-end;
+.contact-wrapper {
+    padding: 0.83vh 1.11vw;
+    
+    border-bottom: 1px solid rgba(226, 224, 232, 1);
 }
 
-.new-group-participant button img {
-    width: 1.1vw;
+.contact-letter-section > div:nth-of-type(1) {
+    border-top: 1px solid rgba(226, 224, 232, 1);
 }
-

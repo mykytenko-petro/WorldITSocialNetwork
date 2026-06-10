@@ -9,7 +9,7 @@ a {
     text-decoration: none
 }
 
-a, p, label, input, button, textarea {
+a, p, label, input, button, textarea, h1, h2, h3 {
     font-family: 'GT-Walsheim';
     font-weight: 500;
 }

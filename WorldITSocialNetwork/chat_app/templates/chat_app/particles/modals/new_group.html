@@ -4,12 +4,12 @@
     <button class="new-group-close" type="button">
         <img src="{% static 'icon/cross.svg' %}" alt="">
     </button>
-     <h2>Нова група</h2>
-    
+
+    <h2>Нова група</h2>
+
     <form class="new-group-step" data-step="members">
         
         <label class="new-group-search">
-            <span></span>
             <input type="search" placeholder="Пошук">
         </label>
 
@@ -24,7 +24,6 @@
     </form>
 
     <form class="new-group-step" data-step="details">
-
         <label class="new-group-field">
             <span>Назва</span>
             <input type="text" placeholder="Введіть назву" name="name" autocomplete="off">
@@ -33,8 +32,8 @@
         <div class="new-group-photo-preview">NG</div>
 
         <div class="new-group-photo-actions">
-            <button type="button">+ <span>Додайте фото</span></button>
-            <button type="button"><img src="{% static 'icon/image.svg' %}" alt=""> <span>Оберіть фото</span></button>
+            <button type="button">+ Додайте фото</button>
+            <button type="button"><img src="{% static 'icon/image.svg' %}" alt=""> Оберіть фото</button>
         </div>
 
         <p>Учасники</p>
