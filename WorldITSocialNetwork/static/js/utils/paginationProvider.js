@@ -45,7 +45,7 @@ export class PaginationProvider {
                 .then(data => {
                     if (!data) return
 
-                    this.scrollThreshold.insertAdjacentHTML('beforebegin', data.html)
+                    this.dataCallback(data)
 
                     this.currentPage++
                     this.isLoading = false
@@ -53,5 +53,9 @@ export class PaginationProvider {
                     this.observer.observe(this.scrollThreshold)
                 })
         }
+    }
+
+    dataCallback(data) {
+        this.scrollThreshold.insertAdjacentHTML('beforebegin', data.html)
     }
 }

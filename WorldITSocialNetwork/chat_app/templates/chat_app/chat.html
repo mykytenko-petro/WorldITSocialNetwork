@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="{% static 'chat_app/css/layout/chat.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/layout/chat-container.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/layout/contacts.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/layout/right-panel.css' %}">
 
     <link rel="stylesheet" href="{% static 'chat_app/css/modals/new-group.css' %}">
 
     <link rel="stylesheet" href="{% static 'chat_app/css/message-card.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/contact-card.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/chat-card.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
@@ -29,7 +31,7 @@
         {% include 'chat_app/particles/layout/chat_container.html' %}
     </div>
     <div class="messages-panel">
-        {% include 'chat_app/particles/layout/group_chat_container.html' %}
+        {% include 'chat_app/particles/layout/right_panel.html' %}
     </div>
 {% endblock %} 
 

@@ -23,8 +23,9 @@ div.side-panel {
 
 .messages-panel{
     flex: 1;
+    height: 100%;
 
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 0.83vh;
 }

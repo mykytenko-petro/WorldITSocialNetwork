@@ -1,7 +1,14 @@
 let chatSocket
+let lastChatId
 
 document.addEventListener("ws:openChat", (e) => {
     const { chatId } = e.detail
+
+    if (lastChatId === chatId) {
+        return
+    }
+
+    lastChatId = chatId
 
     if (chatSocket) {
         chatSocket.close()
@@ -20,8 +27,6 @@ document.addEventListener("ws:sendMessage", (e) => {
 
 function recieveMessage(event) {
     const data = JSON.parse(event.data)
-
-    // console.log(data)
 
     switch (data.type) {
         case "handshake":

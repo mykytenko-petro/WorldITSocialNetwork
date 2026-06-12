@@ -17,12 +17,8 @@ class PaginationProvider(View, ABC):
         pass
 
     @property
-    @abstractmethod
     def template_name(self) -> str:
-        """
-        Must return template name.
-        """
-        pass
+        return ""
 
     @property
     def context(self) -> dict[str, Any]:

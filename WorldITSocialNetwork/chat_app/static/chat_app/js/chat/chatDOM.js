@@ -5,7 +5,6 @@ const openedChat = document.querySelector("#openedChat")
 const chatContainer = document.querySelector(".chat-container")
 const chatNameP = document.querySelector(".name-chat .big")
 
-// TODO: add name of chat
 document.addEventListener("dom:openChat", (e) => {
     const { chatId, chatName } = e.detail
 
