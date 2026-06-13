@@ -4,7 +4,7 @@ import { renderHTML } from "/static/js/utils/renderHTML.js"
 const groupChatContainer = document.querySelector("#groupChats")
 
 // TODO: make image
-const chatCard = (data) => {
+export const chatCard = (data) => {
     const { 
         chat_id: chatId,
         timestamp,

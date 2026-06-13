@@ -70,6 +70,4 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
                     'message_text': ""
                 })
 
-        print(data)
-
         return JsonResponse({'data': data})

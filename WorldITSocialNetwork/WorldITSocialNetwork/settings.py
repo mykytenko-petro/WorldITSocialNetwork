@@ -78,6 +78,15 @@ TEMPLATES = [
     },
 ]
 
+# cache
+# TODO: add later redis
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "127.0.0.1:11211",
+    }
+}
+
 # websockets
 CHANNEL_LAYERS = {
     "default": {
