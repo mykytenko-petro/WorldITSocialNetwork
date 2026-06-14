@@ -2,6 +2,7 @@ import { PaginationProvider } from "/static/js/utils/paginationProvider.js"
 import { renderHTML } from "/static/js/utils/renderHTML.js"
 
 const groupChatContainer = document.querySelector("#groupChats")
+const messagesContainer = document.querySelector("#userChats")
 
 // TODO: make image
 export const chatCard = (data) => {
@@ -32,7 +33,7 @@ export const chatCard = (data) => {
 class ChatCardPaginationProvider extends PaginationProvider {
     dataCallback(data) {
         for (const chatData of data.data) {
-            groupChatContainer.appendChild(chatCard(chatData))
+            this.container.appendChild(chatCard(chatData))
         }
     }
 }
@@ -40,4 +41,9 @@ class ChatCardPaginationProvider extends PaginationProvider {
 new ChatCardPaginationProvider(
     `/chat/group_chat_provider/`,
     groupChatContainer
+)
+
+new ChatCardPaginationProvider(
+    `/chat/message_chat_provider/`,
+    messagesContainer
 )

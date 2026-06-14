@@ -9,10 +9,11 @@ export class PaginationProvider {
         this.currentPage = 1
         this.isLoading = false
         this.queryParams = queryParams
+        this.container = container
 
         this.scrollThreshold = customThreshold ?? document.createElement("hr")
         this.scrollThreshold.style.opacity = "0"
-        container.appendChild(this.scrollThreshold)
+        this.container.appendChild(this.scrollThreshold)
 
         this.observer = new IntersectionObserver(async (entries) => await this.observerCallback(entries), {
             rootMargin: rootMargin

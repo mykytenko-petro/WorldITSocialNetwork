@@ -1,9 +1,10 @@
 from django.urls import path
+
 from .views import ChatView
 from .endpoints import (
     ContactProvider,
     ChatWithView, ChatMessagesProvider,
-    CreateGroupChatView, GroupChatProvider
+    CreateGroupChatView, GroupChatProvider, MessageProvider, CreateMessageChatView
 )
 
 
@@ -17,4 +18,7 @@ urlpatterns = [
     
     path('create_group_chat/', CreateGroupChatView.as_view(), name="chat_app.group_chat"),
     path('group_chat_provider/', GroupChatProvider.as_view(), name="chat_app.group_chat_provider"),
+
+    path("create_message_chat/", CreateMessageChatView.as_view(), name="chat_app.create_message_chat_view"),
+    path('message_chat_provider/', MessageProvider.as_view(), name="chat_app.message_chat_provider"),
 ]
