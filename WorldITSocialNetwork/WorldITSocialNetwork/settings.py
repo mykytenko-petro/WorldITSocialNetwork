@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # project apps
     "chat_app",
     "home_app",
+    "notification_app",
     "post_app",
     "profile_app",
     "user_app",
@@ -170,6 +171,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "chat_app" / "static",
     BASE_DIR / "home_app" / "static",
+    BASE_DIR / "notification_app" / "static",
     BASE_DIR / "post_app" / "static",
     BASE_DIR / "profile_app" / "static",
     BASE_DIR / "user_app" / "static",
