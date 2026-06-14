@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.contrib.auth import get_user_model
 from django.utils.html import escape
+from django.db.models import Max
 
 from WorldITSocialNetwork.utils import PaginationProvider
 
@@ -40,7 +41,12 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
     @property
     @override
     def queryset(self) -> Any:
-        return Chat.objects.filter(users=self.request.user, is_group=True)
+        return Chat.objects.filter(
+            users=self.request.user,
+            is_group=True
+        ).annotate(
+            last_message_at=Max('messages__created_at')
+        ).order_by('-last_message_at')
     
     @property
     @override
@@ -56,7 +62,6 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
             if last_message:
                 data.append({
                     'chat_id': chat.id,
-                    'timestamp': last_message.created_at,
                     'name': escape(chat.name),
                     'time': last_message.time,
                     'message_text': escape(last_message.text[:30])
@@ -64,7 +69,6 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
             else:
                 data.append({
                     'chat_id': chat.id,
-                    'timestamp': "",
                     'name': escape(chat.name),
                     'time': "",
                     'message_text': ""

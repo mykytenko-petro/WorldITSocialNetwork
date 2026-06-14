@@ -2,19 +2,19 @@ import { PaginationProvider } from "/static/js/utils/paginationProvider.js"
 import { renderHTML } from "/static/js/utils/renderHTML.js"
 
 const groupChatContainer = document.querySelector("#groupChats")
+const messagesContainer = document.querySelector("#userChats")
 
 // TODO: make image
 export const chatCard = (data) => {
     const { 
         chat_id: chatId,
-        timestamp,
         name,
         time,
         message_text: messageText
     } = data
 
     return renderHTML(/* html */ `
-        <div class="chat-card" data-chat-id="${chatId}" data-timestamp="${timestamp}">
+        <div class="chat-card" data-chat-id="${chatId}">
             <img src="/static/chat_app/icon/Avatar.png" alt="">
 
             <div class="chat-card-content">
@@ -32,7 +32,7 @@ export const chatCard = (data) => {
 class ChatCardPaginationProvider extends PaginationProvider {
     dataCallback(data) {
         for (const chatData of data.data) {
-            groupChatContainer.appendChild(chatCard(chatData))
+            this.container.appendChild(chatCard(chatData))
         }
     }
 }
@@ -41,3 +41,26 @@ new ChatCardPaginationProvider(
     `/chat/group_chat_provider/`,
     groupChatContainer
 )
+
+new ChatCardPaginationProvider(
+    `/chat/message_chat_provider/`,
+    messagesContainer
+)
+
+document.addEventListener("dom:updateChatCards", (e) => {
+    const data = e.detail
+
+    console.log(data)
+
+    const oldChat = document.querySelector(`.chat-card[data-chat-id="${data.chat_id}"]`)
+
+    if (oldChat) {
+        oldChat.remove()
+    }
+
+    if (data.is_group) {
+        groupChatContainer.insertAdjacentElement("afterbegin", chatCard(data))
+    } else {
+        messagesContainer.insertAdjacentElement("afterbegin", chatCard(data))
+    }
+})
