@@ -63,10 +63,12 @@ const imageInput = (file) => {
 
 const removeImageButton = (parentElement, objectUrl) => {
     const button = document.createElement("button")
+    const img = document.createElement("img")
     button.type = "button"
     button.classList.add("delete-image")
 
-    button.textContent = "✕"
+    button.appendChild(img)
+    img.src = "/static/post_app/icon/trash.png"
 
     button.addEventListener("click", () => {
         parentElement.remove()
