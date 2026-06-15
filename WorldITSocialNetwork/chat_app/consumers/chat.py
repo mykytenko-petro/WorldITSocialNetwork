@@ -29,23 +29,23 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
             "chat_name": chat_info["chat_name"]
         }))
 
-    async def receive(self, text_data):  # type: ignore
-        data = json.loads(text_data)
-        text = data.get("message")
+    # async def receive(self, text_data):  # type: ignore
+    #     data = json.loads(text_data)
+    #     text = data.get("message")
 
-        if text.strip():
-            message = await self.save_message(text)
+    #     if text.strip():
+    #         message = await self.save_message(text)
 
-            await self.channel_layer.group_send(
-                group=self.room_group_name,
-                message={
-                    "type": "send_message",
-                    "message": message,
-                }
-            )
+    #         await self.channel_layer.group_send(
+    #             group=self.room_group_name,
+    #             message={
+    #                 "type": "send_message",
+    #                 "message": message,
+    #             }
+    #         )
 
     async def send_message(self, data):
-        message = data.get("message")
+        message: Message = data.get("message")
 
         html = await self.async_message_render(message)
 
@@ -64,16 +64,16 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
             }
         )
 
-    @database_sync_to_async
-    def save_message(self, text):
-        user = self.scope.get("user")
+    # @database_sync_to_async
+    # def save_message(self, text):
+    #     user = self.scope.get("user")
 
-        new_message = Message.objects.create(
-            chat_id=self.chat_id,
-            sender=user,
-            text=text,
-        )
-        return new_message
+    #     new_message = Message.objects.create(
+    #         chat_id=self.chat_id,
+    #         sender=user,
+    #         text=text,
+    #     )
+    #     return new_message
 
     @database_sync_to_async
     def get_other_username(self):

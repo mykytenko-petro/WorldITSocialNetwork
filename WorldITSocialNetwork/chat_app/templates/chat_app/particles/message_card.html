@@ -19,6 +19,12 @@
                     <img src="{% static 'chat_app/icon/mark.svg'%}">
                 </div>
             </div>
+
+            <div>
+                {% for image in message.images.all %}
+                    <img src="{{ image.image.url }}" alt="{{ image.image.url }}">
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endfor %}

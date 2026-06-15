@@ -1,5 +1,5 @@
 let chatSocket
-let lastChatId
+export let lastChatId
 
 document.addEventListener("ws:openChat", (e) => {
     const { chatId } = e.detail
@@ -16,13 +16,6 @@ document.addEventListener("ws:openChat", (e) => {
 
     chatSocket = new WebSocket(`ws://${window.location.host}/chat/${chatId}/`)
     chatSocket.onmessage = (e) => recieveMessage(e)
-})
-
-// TODO: add images
-document.addEventListener("ws:sendMessage", (e) => {
-    const { data } = e.detail
-
-    chatSocket.send(JSON.stringify(data))
 })
 
 function recieveMessage(event) {

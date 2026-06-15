@@ -1,3 +1,5 @@
+import { lastChatId } from "./chatWebsocket.js"
+
 document.addEventListener("api:getChatId", (e) => {
     const { userId } = e.detail
 
@@ -16,11 +18,41 @@ document.addEventListener("api:getChatId", (e) => {
             return response
         })
         .then(response => response.json())
-        .then(data => {            
+        .then(data => {
             document.dispatchEvent(new CustomEvent("ws:openChat", {
                 detail: {
                     chatId: data.chat_id
                 }
             }))
         })
+})
+
+document.addEventListener("api:sendMessage", (e) => {
+    const { data } = e.detail
+
+    console.log(data)
+
+    fetch(`/chat/save_message/${lastChatId}/`, {
+        method: 'POST',
+        headers: {
+            "X-CSRFToken": CSRFToken
+        },
+        body: data
+    })
+        // .then(response => {
+        //     if (!response.ok) {
+        //         console.error(response.status)
+        //         return
+        //     }
+
+        //     return response
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     document.dispatchEvent(new CustomEvent("ws:openChat", {
+        //         detail: {
+        //             chatId: data.chat_id
+        //         }
+        //     }))
+        // })
 })

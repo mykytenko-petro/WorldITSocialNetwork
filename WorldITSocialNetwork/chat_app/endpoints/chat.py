@@ -8,11 +8,13 @@ from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.utils.html import escape
 from django.db.models import Max
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 
-
+from post_app.utils import compress_image
 from WorldITSocialNetwork.utils import PaginationProvider
 from user_app.utils import get_all_friends
-from ..models import Chat, Message
+from ..models import Chat, Message, MessageImage
 
 
 User = get_user_model()
@@ -72,22 +74,6 @@ class ChatMessagesProvider(LoginRequiredMixin, PaginationProvider):
         return {
             "user": self.request.user
         }
-    
-class CreateMessageChatView(LoginRequiredMixin, TemplateView):
-    def post(self, request: HttpRequest):
-        name = request.POST.get("name", "").strip()
-        # TODO: make friends validation
-
-        if not name:
-            return HttpResponse(status=400)
-
-        # list_friends_id = (
-        #     get_all_friends(user=request.user)
-        #     .filter(id__in=)
-        #     .values_list("id", flat=True)
-        # )
-
-        return JsonResponse({"chat_id": chat.id})  # type: ignore
 
 class MessageProvider(LoginRequiredMixin, PaginationProvider):
     @property
@@ -127,13 +113,33 @@ class MessageProvider(LoginRequiredMixin, PaginationProvider):
 
         return JsonResponse({'data': data})
     
-# class SaveMessageView(LoginRequiredMixin, View):
-#     def post(self, request: HttpRequest, chat_id: int, *args, **kwargs):
-#         chat = get_object_or_404(Chat, id=chat_id, users=request.user)
-#         text = request.POST.get("text", "").strip()
-#         images = request.FILES.getlist("images")
+class SaveMessageView(LoginRequiredMixin, View):
+    def post(self, request: HttpRequest, chat_id: int):
+        chat = get_object_or_404(Chat, id=chat_id)
+        text = request.POST.get("text", "").strip()
+        images = request.FILES.getlist("images")
+        print(request.POST)
         
-#         if not text and not images:
-#             return JsonResponse({
-#                 {"error": "empty"}
-#             })
+        if not text and not images:
+            print(3323)
+            return HttpResponse(status=400)
+        
+        message = Message.objects.create(chat=chat, sender=request.user,text=text)
+        
+        for image in images:
+            MessageImage.objects.create(
+                message=message,
+                image=compress_image(image)
+            )
+        
+        channel_layer = get_channel_layer()
+
+        async_to_sync(channel_layer.group_send)( # type: ignore
+            f"chat_{chat.id}", # type: ignore
+            {
+                "type": "send_message",
+                "message": message
+            }
+        )
+
+        return HttpResponse(status=201)
