@@ -88,7 +88,7 @@ class CreateMessageChatView(LoginRequiredMixin, TemplateView):
         # )
 
         return JsonResponse({"chat_id": chat.id})  # type: ignore
-       
+
 class MessageProvider(LoginRequiredMixin, PaginationProvider):
     @property
     @override
@@ -126,3 +126,14 @@ class MessageProvider(LoginRequiredMixin, PaginationProvider):
                 })
 
         return JsonResponse({'data': data})
+    
+# class SaveMessageView(LoginRequiredMixin, View):
+#     def post(self, request: HttpRequest, chat_id: int, *args, **kwargs):
+#         chat = get_object_or_404(Chat, id=chat_id, users=request.user)
+#         text = request.POST.get("text", "").strip()
+#         images = request.FILES.getlist("images")
+        
+#         if not text and not images:
+#             return JsonResponse({
+#                 {"error": "empty"}
+#             })

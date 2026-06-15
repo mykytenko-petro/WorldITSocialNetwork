@@ -24,13 +24,21 @@
     </div>
 
     <div class="chat-container"></div>
+
     <form class="chat-form">
-        <input placeholder="Повідомлення" name="message" autocomplete="off">
-        <button>
-            <img src="{% static 'chat_app/icon/pic.svg'%}">
-        </button>
-        <button class="purple">
-            <img src="{% static 'chat_app/icon/send.svg'%}">
-        </button>
+        <div class="chat-form-container">
+            <input placeholder="Повідомлення" name="message" autocomplete="off">
+
+            <div class="buttons">
+                <button type="button" id="imageButton">
+                    <img src="{% static 'chat_app/icon/pic.svg'%}">
+                </button>
+                <button class="purple">
+                    <img src="{% static 'chat_app/icon/send.svg'%}">
+                </button>
+            </div>
+        </div>
+
+        <div id="imagePreview"></div>
     </form>
 </div>

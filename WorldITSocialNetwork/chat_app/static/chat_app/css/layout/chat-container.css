@@ -103,22 +103,40 @@
     width: 100%;
 
     display: flex;
+    flex-direction: column;
+    gap: 0.83vh;
+}
+
+.chat-form-container {
+    width: 100%;
+    
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.chat-form input{
-    width: 24vw;
-    border: none;
-    outline: none;
-    font-size: 1.1vw;
+.chat-form-container input{
+    width: 24.72vw;
+
     padding: 1vh 1.2vw;
+
     border-radius: 2vh;
     border: 1px solid #CDCED2;
+    
+    font-size: 1.1vw;
+
+    outline: none;
+}
+
+.chat-form-container .buttons {    
+    display: flex;
+    flex-direction: row;
+    gap: 1.11vw;
 }
 
 .chat-form button {
-    padding: 0.7vw;
+    aspect-ratio: 1 / 1;
+    height: 100%;
 
     border-radius: 13.2vw;
     border: 1px solid #543C52;
@@ -127,4 +145,74 @@
 
 .chat-form button.purple {
     background-color: #543C52;
+}
+
+#images {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.83vw;
+}
+
+#images > div {
+    position: relative;
+
+    width: 15.1vw;
+    aspect-ratio: 3 / 4;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    border-radius: 1.11vw;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#images > div.selected {
+    border: 2px solid #543C52;
+}
+
+#images > div > img {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+#images > div > button {
+    position: absolute;
+
+    margin-top: 1.04vh;
+    margin-right: 0.69vw;
+
+    width: 2.77vw;
+    height: 2.77vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 1px solid #543C52;
+    border-radius: 50%;
+}
+
+#images > div > button:hover {
+    background: #E9E5EE;
+}
+
+#images > div > button > img {
+    width: 2.77vw;
+
+    display: none;
+}
+
+#images > div > button:hover > img {
+    display: block;
 }

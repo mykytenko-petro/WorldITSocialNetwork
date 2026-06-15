@@ -48,11 +48,7 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
             last_message_at=Max('messages__created_at')
         ).order_by('-last_message_at')
     
-    @property
     @override
-    def template_name(self) -> str:
-        return ""
-    
     def render(self, page_obj):
         data = []
 
@@ -75,3 +71,4 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
                 })
 
         return JsonResponse({'data': data})
+    
