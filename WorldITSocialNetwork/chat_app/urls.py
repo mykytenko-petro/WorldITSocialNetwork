@@ -4,7 +4,8 @@ from .views import ChatView
 from .endpoints import (
     ContactProvider,
     ChatWithView, ChatMessagesProvider,
-    CreateGroupChatView, GroupChatProvider, MessageProvider, SaveMessageView
+    CreateGroupChatView, GroupChatProvider, EditGroupChatView,
+    MessageProvider, SaveMessageView
 )
 
 
@@ -17,6 +18,7 @@ urlpatterns = [
     path("messages/<int:chat_id>/", ChatMessagesProvider.as_view(), name="chat_app.messages"),
     
     path('create_group_chat/', CreateGroupChatView.as_view(), name="chat_app.group_chat"),
+    path('edit_group_chat/<int:chat_id>/', CreateGroupChatView.as_view(), name="chat_app.group_chat"),
     path('group_chat_provider/', GroupChatProvider.as_view(), name="chat_app.group_chat_provider"),
 
     path("save_message/<int:chat_id>/", SaveMessageView.as_view(), name="chat_app.save_message"),

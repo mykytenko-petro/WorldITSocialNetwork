@@ -35,3 +35,4 @@ document.addEventListener("ui:openGroupChat", (e) => {
         }
     }))
 })
+

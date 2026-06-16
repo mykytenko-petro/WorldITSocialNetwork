@@ -95,7 +95,6 @@ const openFile = async () => {
                         ".png",
                         ".jpg",
                         ".jpeg",
-                        ".gif",
                         ".webp"
                     ]
                 }
