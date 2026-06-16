@@ -70,3 +70,16 @@
     font-weight: 400;
     font-size: 0.9rem;
 }
+
+.message-text > img{
+    width: 15.1vw;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.42vh;
+
+    border-radius: 1.11vw;
+    overflow: hidden;
+}
+
