@@ -26,7 +26,8 @@ function recieveMessage(event) {
             document.dispatchEvent(new CustomEvent("dom:openChat", {
                 detail: {
                     chatId: data.chat_id,
-                    chatName: data.chat_name
+                    chatName: data.chat_name,
+                    chatAvatarUrl: data.chat_avatar_url
                 }
             }))
             break;

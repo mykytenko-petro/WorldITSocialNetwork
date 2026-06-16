@@ -26,23 +26,8 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         await self.send(text_data=json.dumps({
             "type": "handshake",
             "chat_id": self.chat_id,
-            "chat_name": chat_info["chat_name"]
+            **chat_info
         }))
-
-    # async def receive(self, text_data):  # type: ignore
-    #     data = json.loads(text_data)
-    #     text = data.get("message")
-
-    #     if text.strip():
-    #         message = await self.save_message(text)
-
-    #         await self.channel_layer.group_send(
-    #             group=self.room_group_name,
-    #             message={
-    #                 "type": "send_message",
-    #                 "message": message,
-    #             }
-    #         )
 
     async def send_message(self, data):
         message: Message = data.get("message")
@@ -63,17 +48,6 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
                 "user": self.scope.get("user")
             }
         )
-
-    # @database_sync_to_async
-    # def save_message(self, text):
-    #     user = self.scope.get("user")
-
-    #     new_message = Message.objects.create(
-    #         chat_id=self.chat_id,
-    #         sender=user,
-    #         text=text,
-    #     )
-    #     return new_message
 
     @database_sync_to_async
     def get_other_username(self):
@@ -98,5 +72,6 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
             chat_name = chat.name
 
         return {
-            "chat_name": str(chat_name)
+            "chat_name": str(chat_name),
+            "chat_avatar_url": str(chat.avatar.url if chat.avatar else "")
         }
