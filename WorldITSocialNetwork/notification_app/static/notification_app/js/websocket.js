@@ -12,6 +12,13 @@ notificationWebsocket.onmessage = (e) => {
                     ...data
                 }
             }))
+            
+            Cookies.set(
+                "chatNotificationCount",
+                Number(Cookies.get("chatNotificationCount") || 0) + 1
+            )
+
+            document.dispatchEvent(new CustomEvent("dom:updateChatNotificationCount"))
             break;
     }
 }
