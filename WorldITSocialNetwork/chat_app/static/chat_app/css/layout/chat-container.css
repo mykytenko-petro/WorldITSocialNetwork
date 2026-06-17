@@ -231,3 +231,10 @@
 .delete-image:hover > img {
     display: block;
 }
+
+.chat-avatar {
+    aspect-ratio: 1 / 1;
+    height: 4.79vh;
+
+    border-radius: 2232px;
+}

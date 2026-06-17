@@ -18,7 +18,6 @@ document.addEventListener("dom:openChat", (e) => {
 
     chatContainer.innerHTML = ""
     chatNameP.textContent = chatName
-    console.log(chatAvatarUrl)
     chatAvatar.src = chatAvatarUrl
 
     new PaginationProvider(

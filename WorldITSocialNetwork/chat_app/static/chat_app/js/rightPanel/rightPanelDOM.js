@@ -10,12 +10,13 @@ export const chatCard = (data) => {
         chat_id: chatId,
         name,
         time,
-        message_text: messageText
+        message_text: messageText,
+        chat_avatar_url: chatAvatarUrl
     } = data
 
     return renderHTML(/* html */ `
         <div class="chat-card" data-chat-id="${chatId}">
-            <img src="/static/chat_app/icon/Avatar.png" alt="">
+            <img src="${chatAvatarUrl || "/static/chat_app/icon/Avatar.png"}" class="chat-avatar">
 
             <div class="chat-card-content">
                 <div class="chat-card-info">

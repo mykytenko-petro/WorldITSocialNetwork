@@ -22,6 +22,10 @@ class Chat(models.Model):
         upload_to="chat_app/chat_avatars/", blank=True, null=True
     )
 
+    @property
+    def avatar_url(self):
+        return str(self.avatar.url if self.avatar else "/static/chat_app/icon/new-group.svg")
+
     def __str__(self):
         return self.name or f"Chat: {self.id}"  # type: ignore
 

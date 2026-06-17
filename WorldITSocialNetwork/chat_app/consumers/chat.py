@@ -73,5 +73,5 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
 
         return {
             "chat_name": str(chat_name),
-            "chat_avatar_url": str(chat.avatar.url if chat.avatar else "")
+            "chat_avatar_url": chat.avatar_url
         }

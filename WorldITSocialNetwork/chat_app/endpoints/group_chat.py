@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 
 from WorldITSocialNetwork.utils import PaginationProvider
 
-from ..models import Chat
+from ..models import Chat, Message
 
 User = get_user_model()
 
@@ -78,21 +78,24 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
         data = []
 
         for chat in page_obj:
-            last_message = chat.messages.order_by('-created_at').first()
+            chat: Chat
+            last_message: Message | None = chat.messages.order_by('-created_at').first() # type: ignore
 
             if last_message:
                 data.append({
-                    'chat_id': chat.id,
+                    'chat_id': chat.id, # type: ignore
                     'name': escape(chat.name),
                     'time': last_message.time,
-                    'message_text': escape(last_message.text[:30])
+                    'message_text': escape(last_message.text[:30]),
+                    "chat_avatar_url": chat.avatar_url
                 })
             else:
                 data.append({
-                    'chat_id': chat.id,
+                    'chat_id': chat.id, # type: ignore
                     'name': escape(chat.name),
                     'time': "",
-                    'message_text': ""
+                    'message_text': "",
+                    "chat_avatar_url": chat.avatar_url
                 })
 
         return JsonResponse({'data': data})
