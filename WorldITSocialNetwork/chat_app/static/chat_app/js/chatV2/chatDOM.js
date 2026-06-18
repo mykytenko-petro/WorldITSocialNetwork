@@ -8,10 +8,12 @@ const chatAvatar = document.querySelector(".chat-info-container img")
 
 document.addEventListener("dom:openChat", (e) => {
     const {
-        chatId,
-        chatName,
-        chatAvatarUrl
+        chat_id: chatId,
+        chat_name: chatName,
+        chat_avatar_url: chatAvatarUrl
     } = e.detail
+
+    console.log(chatName)
 
     greetingScreen.style.display = "none"
     openedChat.style.display = "flex"

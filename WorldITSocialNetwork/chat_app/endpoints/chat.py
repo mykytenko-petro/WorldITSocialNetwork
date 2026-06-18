@@ -143,3 +143,20 @@ class SaveMessageView(LoginRequiredMixin, View):
         )
 
         return HttpResponse(status=201)
+
+class GetChatInfoView(LoginRequiredMixin, View):
+    def get(self, request: HttpRequest, chat_id: int):
+        chat = Chat.objects.get(id=chat_id)
+
+        if not chat.is_group:
+            user = request.user
+            other_user = chat.users.exclude(id=user.id).first() # type: ignore
+            chat_name = other_user.username # type: ignore
+        else:
+            chat_name = chat.name
+
+        return JsonResponse({
+            "chat_id": chat.id, # type: ignore
+            "chat_name": str(chat_name),
+            "chat_avatar_url": chat.avatar_url
+        })

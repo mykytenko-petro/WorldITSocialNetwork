@@ -17,6 +17,7 @@ document.addEventListener("ws:openChat", (e) => {
         "joinChat",
         { chatId: chatId },
         () => {
+            console.log(chatId)
             document.dispatchEvent(new CustomEvent("api:openChat", { detail: {
                 chatId: chatId
             }}))
