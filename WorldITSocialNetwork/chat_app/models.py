@@ -48,6 +48,9 @@ class Message(models.Model):
         return local_datetime.strftime("%H:%M")
     
     def __str__(self) -> str:
+        if not self.text:
+            self.text = ""
+
         return self.text if len(self.text) < 20 else self.text[:20] + "..."
 
 

@@ -103,7 +103,7 @@ AUTH_USER_MODEL = "user_app.User"
 ASGI_APPLICATION = "WorldITSocialNetwork.asgi.application"
 
 # Database
-if not os.getenv("REMOTE_DB_NAME"):
+if not os.getenv("REMOTE_DB_ENGINE"):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -127,17 +127,28 @@ else:
     else:
         port = os.getenv("REMOTE_DB_PORT")
 
-    DATABASES = {
-        "default": {
-            'ENGINE': os.getenv("REMOTE_DB_ENGINE"),
-            'NAME': os.getenv("REMOTE_DB_NAME"),
-            'USER': os.getenv("REMOTE_DB_USER"),
-            'PASSWORD': os.getenv("REMOTE_DB_PASSWORD"),
-            'HOST': '127.0.0.1', 
-            'PORT': port,
-            'CONN_MAX_AGE': 600
+    if not os.getenv("DATABASE_URL"):
+        DATABASES = {
+            "default": {
+                'ENGINE': os.getenv("REMOTE_DB_ENGINE"),
+                'NAME': os.getenv("REMOTE_DB_NAME"),
+                'USER': os.getenv("REMOTE_DB_USER"),
+                'PASSWORD': os.getenv("REMOTE_DB_PASSWORD"),
+                'HOST': '127.0.0.1', 
+                'PORT': port,
+                'CONN_MAX_AGE': 600
+            }
         }
-    }
+    else:
+        import dj_database_url
+
+        DATABASES = {
+            'default': dj_database_url.config(
+                default=os.getenv("DATABASE_URL"),
+                conn_max_age=600,
+                ssl_require=True 
+            )
+        }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

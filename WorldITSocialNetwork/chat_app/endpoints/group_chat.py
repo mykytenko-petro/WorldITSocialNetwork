@@ -82,6 +82,8 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
             last_message: Message | None = chat.messages.order_by('-created_at').first() # type: ignore
 
             if last_message:
+                print("2232", last_message)
+
                 data.append({
                     'chat_id': chat.id, # type: ignore
                     'name': escape(chat.name),
