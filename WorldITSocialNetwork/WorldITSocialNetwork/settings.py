@@ -12,6 +12,7 @@ SECRET_KEY = os.getenv(
     "SECRET_KEY",
     "django-insecure-(l^y*xm_umz7lfx5j@k3ttgm*j5(rd94zl&$h+-zkrr9zu_wlo"
 )
+JWT_SECRET = os.getenv("JWT_SECRET", "inse")
 
 DEBUG = False if os.getenv("DEBUG") == "False" else True
 
@@ -103,7 +104,7 @@ AUTH_USER_MODEL = "user_app.User"
 ASGI_APPLICATION = "WorldITSocialNetwork.asgi.application"
 
 # Database
-if not os.getenv("REMOTE_DB_NAME"):
+if not os.getenv("REMOTE_DB_ENGINE"):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -127,16 +128,27 @@ else:
     else:
         port = os.getenv("REMOTE_DB_PORT")
 
+    # DATABASES = {
+    #     "default": {
+    #         'ENGINE': os.getenv("REMOTE_DB_ENGINE"),
+    #         'NAME': os.getenv("REMOTE_DB_NAME"),
+    #         'USER': os.getenv("REMOTE_DB_USER"),
+    #         'PASSWORD': os.getenv("REMOTE_DB_PASSWORD"),
+    #         'HOST': '127.0.0.1', 
+    #         'PORT': port,
+    #         'CONN_MAX_AGE': 600
+    #     }
+    # }
+
+    DATABASE_URL = "postgresql://neondb_owner:npg_s6ZWd9LmDaJb@ep-quiet-pine-asublnt1-pooler.c-4.eu-central-1.aws.neon.tech/neondb?sslmode=require"
+
+    import dj_database_url
     DATABASES = {
-        "default": {
-            'ENGINE': os.getenv("REMOTE_DB_ENGINE"),
-            'NAME': os.getenv("REMOTE_DB_NAME"),
-            'USER': os.getenv("REMOTE_DB_USER"),
-            'PASSWORD': os.getenv("REMOTE_DB_PASSWORD"),
-            'HOST': '127.0.0.1', 
-            'PORT': port,
-            'CONN_MAX_AGE': 600
-        }
+        'default': dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=True 
+        )
     }
 
 # Password validation
