@@ -46,11 +46,13 @@ class ChatWithView(LoginRequiredMixin, View):
         })
 
 class ChatMessagesProvider(LoginRequiredMixin, PaginationProvider):
+    @override
     def get(self, request: HttpRequest, chat_id: int) -> HttpResponse: # type: ignore
         self.chat_id = chat_id
         return super().get(request)
 
     @property
+    @override
     def queryset(self) -> Any:
         chat = get_object_or_404(
             Chat,
@@ -60,20 +62,35 @@ class ChatMessagesProvider(LoginRequiredMixin, PaginationProvider):
         return (Message.objects
             .filter(chat=chat)
             .order_by("-id"))
-    
-    @property
-    def template_name(self) -> str:
-        return "chat_app/particles/message_card.html"
 
     @property
+    @override
     def per_page(self) -> int:
         return 20
     
-    @property
-    def context(self) -> dict[str, Any]:
-        return {
-            "user": self.request.user
-        }
+    @override
+    def render(self, page_obj):
+        data = []
+
+
+        for message in page_obj:
+            message: Message
+
+            data.append({
+                "sender_id": message.sender.id, # type: ignore
+                "text": escape(message.text),
+                "user_app_user": {
+                    "profile_app_profile": {
+                        "avatar": "", # type: ignore
+                        "pseudonym": message.sender.profile.pseudonym # type: ignore
+                    }
+                },
+                "chat_app_messageimage": [
+                    {"image": img.image.url} for img in message.images.all() # type: ignore
+                ]
+            })
+
+        return JsonResponse({'data': data})
 
 class MessageProvider(LoginRequiredMixin, PaginationProvider):
     @property

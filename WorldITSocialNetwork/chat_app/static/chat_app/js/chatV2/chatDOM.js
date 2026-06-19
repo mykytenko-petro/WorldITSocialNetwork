@@ -8,6 +8,14 @@ const chatContainer = document.querySelector(".chat-container")
 const chatNameP = document.querySelector(".name-chat .big")
 const chatAvatar = document.querySelector(".chat-info-container img")
 
+class MessagePaginationProvider extends PaginationProvider {
+    dataCallback(data) {
+        for (const messageData of data.data) {
+            this.container.appendChild(messageCard(messageData))
+        }
+    }
+}
+
 document.addEventListener("dom:openChat", (e) => {
     const {
         chat_id: chatId,
@@ -24,7 +32,7 @@ document.addEventListener("dom:openChat", (e) => {
     chatNameP.textContent = chatName
     chatAvatar.src = chatAvatarUrl
 
-    new PaginationProvider(
+    new MessagePaginationProvider(
         `/chat/messages/${chatId}`,
         chatContainer,
     )

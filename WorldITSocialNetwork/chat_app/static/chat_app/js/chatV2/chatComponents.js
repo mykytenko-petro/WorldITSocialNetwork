@@ -47,7 +47,7 @@ export const removeImageButton = (parentElement, objectUrl) => {
 
 export const messageCard = (data) => {
     const {
-        id,
+        sender_id: senderId,
         text,
         user_app_user,
         chat_app_messageimage: images
@@ -55,8 +55,9 @@ export const messageCard = (data) => {
 
     const userId = document.querySelector('meta[name="userId"]').getAttribute('content')
 
-    const isMine = (userId === id)
-
+    const isMine = (userId == senderId)
+    console.log(isMine)
+    
     return renderHTML(/* html */`
         <div class="message-container ${isMine ? `my` : ''}">
             <div class="message">
@@ -65,7 +66,7 @@ export const messageCard = (data) => {
                     : ''
                 }
 
-                <div class="message-content-container {% if message.sender.id == user.id %}my{% endif %}">
+                <div class="message-content-container ${isMine ? `my` : ''}">
                     <div class="message-text">
                         ${!isMine ? `<p>${user_app_user.profile_app_profile.pseudonym}</p>` : ''}
 
