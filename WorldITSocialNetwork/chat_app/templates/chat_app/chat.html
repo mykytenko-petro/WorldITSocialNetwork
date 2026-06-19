@@ -3,6 +3,7 @@
 
 {% block meta %}
     <meta name="contactProviderUrl" content="{% url 'chat_app.contact_provider' %}">
+    <meta name="pseudonym" content="{{ user.pseudonym }}">
 {% endblock %}
 
 {% block links %}

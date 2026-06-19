@@ -52,8 +52,6 @@ document.addEventListener("api:openChat", (e) => {
 document.addEventListener("api:sendMessage", (e) => {
     const { data } = e.detail
 
-    console.log(data)
-
     fetch(`/chat/save_message/${lastChatId}/`, {
         method: 'POST',
         headers: {
@@ -61,20 +59,4 @@ document.addEventListener("api:sendMessage", (e) => {
         },
         body: data
     })
-        // .then(response => {
-        //     if (!response.ok) {
-        //         console.error(response.status)
-        //         return
-        //     }
-
-        //     return response
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     document.dispatchEvent(new CustomEvent("ws:openChat", {
-        //         detail: {
-        //             chatId: data.chat_id
-        //         }
-        //     }))
-        // })
 })

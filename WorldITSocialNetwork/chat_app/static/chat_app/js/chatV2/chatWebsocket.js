@@ -1,6 +1,7 @@
 import { socket } from "/static/js/features/websocket.js"
 
 export let lastChatId
+const pseudonym = document.querySelector('meta[name="pseudonym"]').getAttribute('content')
 
 document.addEventListener("ws:openChat", (e) => {
     const { chatId } = e.detail
@@ -25,15 +26,21 @@ document.addEventListener("ws:openChat", (e) => {
     )
 })
 
+document.addEventListener("ws:sendMessage", (e) => {
+    const { data } = e.detail
 
-/*
-        const listener = (newMessage: IMessage) => {
-        if (newMessage.chat_id === chatId) {
-            updateCachedData((draft) => {
-                draft.messages.unshift(newMessage);
-            })
+    const objectData = Object.fromEntries(data)
+
+    socket.emit(
+        "sendMessage",
+        {
+            chat_id: lastChatId,
+            pseudonym: pseudonym,
+            avatar: "",
+            ...objectData
+        },
+        () => {
+            console.log(2232)
         }
-    }
-
-    socket.on("newMessage", listener)
-*/
+    )
+})

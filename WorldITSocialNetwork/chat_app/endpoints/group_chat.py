@@ -86,7 +86,7 @@ class GroupChatProvider(LoginRequiredMixin, PaginationProvider):
                     'chat_id': chat.id, # type: ignore
                     'name': escape(chat.name),
                     'time': last_message.time,
-                    'message_text': escape(last_message.text[:30]),
+                    'message_text': escape(str(last_message)),
                     "chat_avatar_url": chat.avatar_url
                 })
             else:
