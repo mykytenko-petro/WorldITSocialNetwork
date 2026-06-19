@@ -1,5 +1,5 @@
 const sendMessageForm = document.querySelector(".chat-form")
-const imageContainer = sendMessageForm.querySelector("#imagePreview")
+const imageContainer = sendMessageForm.querySelector("#imagesPreview")
 
 sendMessageForm.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -7,12 +7,6 @@ sendMessageForm.addEventListener("submit", (event) => {
 
     sendMessageForm.reset()
     imageContainer.innerHTML = ""
-
-    // document.dispatchEvent(new CustomEvent("api:sendMessage", {
-    //     detail: {
-    //         data: data
-    //     }
-    // }))
 
     document.dispatchEvent(new CustomEvent("ws:sendMessage", {
         detail: {

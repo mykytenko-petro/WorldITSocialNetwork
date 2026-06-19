@@ -1,4 +1,5 @@
 import { socket } from "/static/js/features/websocket.js"
+import { convertToBase64 } from "./chatUtils.js"
 
 export let lastChatId
 const pseudonym = document.querySelector('meta[name="pseudonym"]').getAttribute('content')
@@ -12,8 +13,6 @@ document.addEventListener("ws:openChat", (e) => {
 
     lastChatId = chatId
 
-    // console.log(2232)
-
     socket.emit(
         "joinChat",
         { chatId: chatId },
@@ -26,10 +25,31 @@ document.addEventListener("ws:openChat", (e) => {
     )
 })
 
-document.addEventListener("ws:sendMessage", (e) => {
-    const { data } = e.detail
+document.addEventListener("ws:sendMessage", async (e) => {
+    const { data } = e.detail;
+    
+    const objectData = Object.fromEntries(data);
+    
+    console.log(objectData)
 
-    const objectData = Object.fromEntries(data)
+    const allFiles = data.getAll('images');
+
+    let base64ImageArray = [];
+
+    const validFiles = allFiles.filter(file => file.size > 0);
+
+    if (validFiles.length > 0) {
+        try {
+            base64ImageArray = await Promise.all(validFiles.map(file => convertToBase64(file)));
+        } catch (error) {
+            console.error("Failed to encode one or more images:", error);
+            return;
+        }
+    }
+
+    delete objectData['images'];
+
+    console.log(base64ImageArray)
 
     socket.emit(
         "sendMessage",
@@ -37,10 +57,11 @@ document.addEventListener("ws:sendMessage", (e) => {
             chat_id: lastChatId,
             pseudonym: pseudonym,
             avatar: "",
-            ...objectData
+            text: objectData["text"],
+            photos: base64ImageArray
         },
         () => {
-            console.log(2232)
+            console.log("Message with multiple Base64 images sent!");
         }
-    )
-})
+    );
+});
