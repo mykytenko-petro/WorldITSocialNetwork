@@ -17,7 +17,6 @@ document.addEventListener("ws:openChat", (e) => {
         "joinChat",
         { chatId: chatId },
         () => {
-            console.log(chatId)
             document.dispatchEvent(new CustomEvent("api:openChat", { detail: {
                 chatId: chatId
             }}))
@@ -65,3 +64,12 @@ document.addEventListener("ws:sendMessage", async (e) => {
         }
     );
 });
+
+socket.on(
+    "newMessage",
+    (data) => {
+        document.dispatchEvent(new CustomEvent("dom:showMessage", { detail: {
+            data: data
+        }}))
+    }
+)
