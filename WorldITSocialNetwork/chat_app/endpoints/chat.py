@@ -76,7 +76,10 @@ class ChatMessagesProvider(LoginRequiredMixin, PaginationProvider):
         for message in page_obj:
             message: Message
 
+            # print(*[{"image": img.image.url} for img in message.images.all()]) # type: ignore
+
             data.append({
+                "from_django": True,
                 "sender_id": message.sender.id, # type: ignore
                 "text": escape(message.text),
                 "user_app_user": {

@@ -47,6 +47,7 @@ export const removeImageButton = (parentElement, objectUrl) => {
 
 export const messageCard = (data) => {
     const {
+        from_django,
         sender_id: senderId,
         text,
         user_app_user,
@@ -57,12 +58,14 @@ export const messageCard = (data) => {
 
     const isMine = (userId == senderId)
     console.log(isMine)
+
+    const mediaURL = from_django ? "" : MediaURL
     
     return renderHTML(/* html */`
         <div class="message-container ${isMine ? `my` : ''}">
             <div class="message">
                 ${!isMine
-                    ? `<img src="${MediaURL + user_app_user.profile_app_profile.avatar || '/static/chat_app/icon/Avatar.png'}" alt="Avatar">`
+                    ? `<img src="${mediaURL + user_app_user.profile_app_profile.avatar || '/static/chat_app/icon/Avatar.png'}">`
                     : ''
                 }
 
@@ -73,7 +76,7 @@ export const messageCard = (data) => {
                         ${text ? `<p class="message-text-content">${text}</p>` : ''}
                         
                         ${images && images.length ? images.map(img => `
-                            <img src="${MediaURL + img.image}" alt="Message attachment">
+                            <img src="${mediaURL + img.image}">
                         `).join('') : ''}
                     </div>
                     <div class="message-info">

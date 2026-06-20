@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "channels",
     "debug_toolbar",
+    'cloudinary',
+    'cloudinary_storage',
 
     # project apps
     "chat_app",
@@ -128,28 +130,28 @@ else:
     else:
         port = os.getenv("REMOTE_DB_PORT")
 
-    # DATABASES = {
-    #     "default": {
-    #         'ENGINE': os.getenv("REMOTE_DB_ENGINE"),
-    #         'NAME': os.getenv("REMOTE_DB_NAME"),
-    #         'USER': os.getenv("REMOTE_DB_USER"),
-    #         'PASSWORD': os.getenv("REMOTE_DB_PASSWORD"),
-    #         'HOST': '127.0.0.1', 
-    #         'PORT': port,
-    #         'CONN_MAX_AGE': 600
-    #     }
-    # }
+    if not os.getenv("DATABASE_URL"):
+        DATABASES = {
+            "default": {
+                'ENGINE': os.getenv("REMOTE_DB_ENGINE"),
+                'NAME': os.getenv("REMOTE_DB_NAME"),
+                'USER': os.getenv("REMOTE_DB_USER"),
+                'PASSWORD': os.getenv("REMOTE_DB_PASSWORD"),
+                'HOST': '127.0.0.1', 
+                'PORT': port,
+                'CONN_MAX_AGE': 600
+            }
+        }
+    else:
+        import dj_database_url
 
-    DATABASE_URL = "postgresql://neondb_owner:npg_s6ZWd9LmDaJb@ep-quiet-pine-asublnt1-pooler.c-4.eu-central-1.aws.neon.tech/neondb?sslmode=require"
-
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=DATABASE_URL,
-            conn_max_age=600,
-            ssl_require=True 
-        )
-    }
+        DATABASES = {
+            'default': dj_database_url.config(
+                default=os.getenv("DATABASE_URL"),
+                conn_max_age=600,
+                ssl_require=True 
+            )
+        }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -200,3 +202,18 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 # Media
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.getenv('CLOUDINARY_CLOUD_NAME'),
+    "API_KEY": os.getenv('CLOUDINARY_API_KEY'),
+    "API_SECRET": os.getenv('CLOUDINARY_API_SECRET')
+}
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
+    }
+}
