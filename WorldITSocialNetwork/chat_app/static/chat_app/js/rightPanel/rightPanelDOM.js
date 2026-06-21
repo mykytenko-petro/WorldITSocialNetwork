@@ -1,3 +1,4 @@
+import { statusBubble } from "/static/notification_app/js/status/statusComponents.js"
 import { PaginationProvider } from "/static/js/utils/paginationProvider.js"
 import { renderHTML } from "/static/js/utils/renderHTML.js"
 
@@ -11,10 +12,11 @@ export const chatCard = (data) => {
         name,
         time,
         message_text: messageText,
-        chat_avatar_url: chatAvatarUrl
+        chat_avatar_url: chatAvatarUrl,
+        user_id: userId
     } = data
 
-    return renderHTML(/* html */ `
+    const card = renderHTML(/* html */ `
         <div class="chat-card" data-chat-id="${chatId}">
             <img src="${chatAvatarUrl || "/static/chat_app/icon/Avatar.png"}" class="chat-avatar">
 
@@ -28,6 +30,13 @@ export const chatCard = (data) => {
             </div>
         </div>
     `)
+
+    if (userId) {
+        const img = card.querySelector("img")
+        statusBubble(img, userId)
+    }
+
+    return card
 }
 
 class ChatCardPaginationProvider extends PaginationProvider {

@@ -1,2 +1,1 @@
-import "./DOM.js"
-import "./websocket.js"
+import "./status/index.js"

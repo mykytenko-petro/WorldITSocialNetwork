@@ -156,7 +156,7 @@
     gap: 0.83vw;
 }
 
-#imagePreview{
+#imagesPreview{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -177,7 +177,7 @@
     aspect-ratio: 1 / 1;
 }
 
-#imagePreview *{
+#imagesPreview *{
     flex-shrink: 0;
 }
 

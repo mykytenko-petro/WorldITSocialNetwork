@@ -111,24 +111,29 @@ class MessageProvider(LoginRequiredMixin, PaginationProvider):
         data = []
 
         for chat in page_obj:
-            last_message = chat.messages.order_by('-created_at').first()
+            chat: Chat
+            last_message = chat.messages.order_by('-created_at').first() # type: ignore
             
             other_user = chat.users.exclude(id=self.request.user.id).first() # type: ignore
             print(other_user)
 
             if last_message:
                 data.append({
-                    'chat_id': chat.id,
-                    'name': escape(other_user.pseudonym),
+                    'chat_id': chat.id, # type: ignore
+                    'name': escape(other_user.pseudonym), # type: ignore
                     'time': last_message.time,
-                    'message_text': escape(last_message.text[:30])
+                    'message_text': escape(last_message.text[:30]),
+
+                    'user_id': other_user.id # type: ignore
                 })
             else:
                 data.append({
-                    'chat_id': chat.id,
-                    'name': escape(other_user.pseudonym),
+                    'chat_id': chat.id, # type: ignore
+                    'name': escape(other_user.pseudonym), # type: ignore
                     'time': "",
-                    'message_text': ""
+                    'message_text': "",
+
+                    'user_id': other_user.id # type: ignore
                 })
 
         return JsonResponse({'data': data})

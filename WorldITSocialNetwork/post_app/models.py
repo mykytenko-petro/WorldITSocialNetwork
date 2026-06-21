@@ -1,3 +1,5 @@
+from warnings import deprecated
+
 from django.db import models
 from django.conf import settings
 from PIL import Image
@@ -44,9 +46,10 @@ class PostImage(models.Model):
         return self.original_image.name
     
     @property
+    @deprecated("we are moved to remote media")
     def orientation(self):
-        if not self.compressed_image:
-            return "unknown"
+        return "landscape"
+        # if not self.compressed_image:
         
         try:
             with Image.open(self.compressed_image) as img:

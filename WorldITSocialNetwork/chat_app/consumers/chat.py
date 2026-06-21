@@ -39,6 +39,9 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
             "html": html
         }))
 
+    async def disconnect(self, code: int) -> None:
+        return await super().disconnect(code)
+
     @database_sync_to_async
     def async_message_render(self, message):
         return render_to_string(
