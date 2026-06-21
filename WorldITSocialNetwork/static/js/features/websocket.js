@@ -1,5 +1,6 @@
 // const WebsocketBackendURL = "http://localhost:2232"
-const WebsocketBackendURL = "https://yu-unabiding-vampishly.ngrok-free.dev"
+// const WebsocketBackendURL = "https://yu-unabiding-vampishly.ngrok-free.dev"
+const WebsocketBackendURL = "http://192.168.0.115:8000"
 
 async function getToken() {
     const res = await fetch("/socket_token/", {
