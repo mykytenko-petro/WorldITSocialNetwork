@@ -34,8 +34,8 @@ class Tag(models.Model):
         return self.name
 
 class PostImage(models.Model):
-    original_image = models.ImageField(upload_to='post_app/images')
-    compressed_image = models.ImageField(upload_to='post_app/images')
+    original_image = models.ImageField(upload_to='post_app/compressed_images')
+    compressed_image = models.ImageField(upload_to='post_app/original_images')
     post = models.ForeignKey(
         Post, 
         on_delete=models.CASCADE,

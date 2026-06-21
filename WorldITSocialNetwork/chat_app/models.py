@@ -19,7 +19,7 @@ class Chat(models.Model):
     name = models.CharField(max_length=30, blank=True, null=True)
     is_group = models.BooleanField(default=False)
     avatar = models.ImageField(
-        upload_to="chat_app/chat_avatars/", blank=True, null=True
+        upload_to="chat_app/group_avatars/", blank=True, null=True
     )
 
     @property
@@ -58,4 +58,6 @@ class MessageImage(models.Model):
     message = models.ForeignKey(
         to=Message, on_delete=models.CASCADE, related_name="images"
     )
-    image = models.ImageField()
+    image = models.ImageField(
+        upload_to="chat_app/message_images/"
+    )
