@@ -1,43 +1,23 @@
-import { renderHTML } from "/static/js/utils/renderHTML.js"
+import { chatNotificationCount } from "./components.js"
 
-document.addEventListener("dom:updateChatNotificationCount", (e) => {
-    const notifications = document.querySelectorAll(".notification-count")
-
-    notifications.forEach(element => {
-        element.textContent = Cookies.get("chatNotificationCount") || 0
-    })
-})
-
-const notificationCount = (count, element) => {
+export function formatCount(count) {
     if (Number(count) > 9) {
-        count = "9+"
+        return "9+"
     }
 
     if (count == 0) {
-        count = ''
+        return ''
     }
 
-    const wrapper = document.createElement("div")
-    // wrapper.className = "notification-wrapper"
-
-    wrapper.appendChild(renderHTML(/* html */ `
-        <p class="notification-count">${count}</p>
-    `))
-
-    element.replaceWith(wrapper)
-
-    wrapper.appendChild(element)
-}
-
-export const chatNotificationCount = (element) => {
-    notificationCount(
-        Cookies.get("chatNotificationCount") || 2,
-        element
-    )
+    return count
 }
 
 // assign notifications
-const chatNotificationParents = document.querySelectorAll("[data-attach-chat-notification]")
-chatNotificationParents.forEach(element => {
-    chatNotificationCount(element)
-})
+const chatIcon = document.querySelector("#chat-icon")
+chatNotificationCount("total", chatIcon)
+
+const personalChatIcon = document.querySelector("#personal-chat-icon")
+chatNotificationCount("personal", personalChatIcon)
+
+const groupChatIcon = document.querySelector("#group-chat-icon")
+chatNotificationCount("group", groupChatIcon)

@@ -1,24 +1,17 @@
-const notificationWebsocket = new WebSocket(`ws://${window.location.host}/notifications/`)
+import { formatCount } from "./DOM.js"
+import { socket } from "/static/js/features/websocket.js"
 
-notificationWebsocket.onmessage = (e) => {
-    const data = JSON.parse(e.data).data
+socket.on("unreadCountUpdate", (data) => {
+    const { summary, byChat } = data
+    
+    console.log(summary)
 
-    console.log(data)
+    const sumOfNotificationsCount = document.querySelector('.notification-count[data-role="total"]')
+    sumOfNotificationsCount.textContent = formatCount(summary.total)
 
-    switch (data.type) {
-        case "message_send":
-            document.dispatchEvent(new CustomEvent("dom:updateChatCards", {
-                detail: {
-                    ...data
-                }
-            }))
-            
-            Cookies.set(
-                "chatNotificationCount",
-                Number(Cookies.get("chatNotificationCount") || 0) + 1
-            )
+    const personalNotificationsCount = document.querySelector('.notification-count[data-role="personal"]')
+    personalNotificationsCount.textContent = formatCount(summary.personal)
 
-            document.dispatchEvent(new CustomEvent("dom:updateChatNotificationCount"))
-            break;
-    }
-}
+    const groupNotificationsCount = document.querySelector('.notification-count[data-role="group"]')
+    groupNotificationsCount.textContent = formatCount(summary.group)
+})

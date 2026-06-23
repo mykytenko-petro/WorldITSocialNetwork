@@ -1,5 +1,8 @@
-*:has(.notification-count) {
+.chat-notification-wrapper {
     position: relative;
+
+    width: fit-content;
+    height: fit-content;
 }
 
 .notification-count {

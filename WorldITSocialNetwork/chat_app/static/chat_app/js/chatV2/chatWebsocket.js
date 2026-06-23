@@ -11,6 +11,13 @@ document.addEventListener("ws:openChat", (e) => {
         return
     }
 
+    if (lastChatId) {
+        socket.emit(
+            "leaveChat",
+            { chatId: lastChatId },
+        )
+    }
+
     lastChatId = chatId
 
     socket.emit(
@@ -68,6 +75,13 @@ document.addEventListener("ws:sendMessage", async (e) => {
 socket.on(
     "newMessage",
     (data) => {
+        console.log(data)
+
+        if (data.chat_id != lastChatId) {
+            console.log(data.chat_id, lastChatId)
+            return
+        }
+
         document.dispatchEvent(new CustomEvent("dom:showMessage", { detail: {
             data: data
         }}))
