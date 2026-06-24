@@ -1,10 +1,7 @@
-import json
-from typing import Any
-
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
 from channels.db import database_sync_to_async
 
-from ..models import Chat, Message
+from chat_app.models import Chat, Message
 
 
 class NotificationConsumer(AsyncJsonWebsocketConsumer):
@@ -20,10 +17,7 @@ class NotificationConsumer(AsyncJsonWebsocketConsumer):
     async def send_notification(self, event):
         message_payload = event["message"]
 
-        print(message_payload)
-
         await self.send_json({
-            "event_type": "new_message",
             "data": message_payload
         })
 

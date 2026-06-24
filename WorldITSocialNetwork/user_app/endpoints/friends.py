@@ -18,7 +18,8 @@ class FriendCardView(PaginationProvider):
     modes = [
         "requests",
         "recommendations",
-        "all_friends"
+        "all_friends",
+        "home"
     ]
 
     def get(self, request: HttpRequest, mode: str): # type: ignore
@@ -32,7 +33,7 @@ class FriendCardView(PaginationProvider):
     @property
     def queryset(self) -> Any:
         match self.mode:
-            case "requests":
+            case "requests" | "home":
                 queryset = get_friend_requests(self.request.user)
 
             case "recommendations":
@@ -53,7 +54,7 @@ class FriendCardView(PaginationProvider):
     
     @property
     def per_page(self):
-        if self.mode == "requests":
+        if self.mode == "requests" or self.mode == "home":
             return 3    
         else:
             return 6

@@ -1,10 +1,12 @@
 const sendMessageForm = document.querySelector(".chat-form")
+const imageContainer = sendMessageForm.querySelector("#imagesPreview")
 
 sendMessageForm.addEventListener("submit", (event) => {
     event.preventDefault()
-    const data = Object.fromEntries(new FormData(sendMessageForm).entries())
+    const data = new FormData(sendMessageForm)
 
-    sendMessageForm.querySelector("input").value = ""
+    sendMessageForm.reset()
+    imageContainer.innerHTML = ""
 
     document.dispatchEvent(new CustomEvent("ws:sendMessage", {
         detail: {

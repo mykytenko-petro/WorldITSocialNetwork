@@ -15,77 +15,20 @@
     <div class="requests">
         <div class="header">
             <a><img src="{% static 'icon/friends.svg' %}" alt="">Запити</a>
-            <p>Дивитись всі</p>
+            <a href="/user/friends/">Дивитись всі</a>
         </div>
         <div class="container">
-            <div class="info">
-                <a class="request-image"><img src="{% static 'home_app/images/mock_image_1.png' %}" alt=""></a>
-                <div class="follower-info">
-                    <p class="request-text">Yehor Aung</p>
-                    <a class="grey-text">
-                        <p>4.3к підписників</p>
-                    </a>
-                </div>
-            </div>
-            <div class="info">
-                <a class="request-image"><img src="{% static 'home_app/images/mock_image_2.png' %}" alt=""></a>
-                <div class="follower-info">
-                    <p class="request-text">Ann Ann</p>
-                    <a class="grey-text">
-                        <p>1.6к підписників</p>
-                    </a>
-                </div>
-            </div>
-            <div class="info">
-                <a class="request-image"><img src="{% static 'home_app/images/mock_image_3.png' %}" alt=""></a>
-                <div class="follower-info">
-                    <p class="request-text">Yeugen Jenua</p>
-                    <a class="grey-text">
-                        <p>10.3к підписників</p>
-                    </a>
-                </div>
-            </div>
+            
         </div>
     </div>
 
     <div class="messages">
         <div class="header">
             <a><img src="{% static 'icon/chat.svg' %}" alt="">Повідомлення</a>
-            <p>Дивитись всі</p>
+            <a href="/chat">Дивитись всі</a>
         </div>
         
-        <div class="container">
-            <div class="info grey-box">
-                <a class="message-image"><img src="{% static 'home_app/images/mock_image_4.png' %}"></a>
-                <div class="message-info">
-                    <div class="user-time">
-                        <p class="user-text">Mona Lisa</p>
-                        <p class="message-time"> 09:41</p>
-                    </div>
-                    <p>Привіт! Як справи?</p>
-                </div>
-            </div>
-            <div class="info grey-box">
-                <a class="message-image"><img src="{% static 'home_app/images/mock_image_5.png' %}"></a>
-                <div class="message-info">
-                    <div class="user-time">
-                        <p class="user-text">Ann Ti</p>
-                        <p class="message-time">25.04.2025</p>
-                    </div>
-                    <p>Привіт</p>
-                </div>
-            </div>
-            <div class="info">
-                <a class="message-image"><img src="{% static 'home_app/images/mock_image_6.png' %}"></a>
-                <div class="message-info">
-                    <div class="user-time">
-                        <p class="user-text">Ness Ty</p>
-                        <p class="message-time">25.04.2025</p>
-                    </div>
-                    <p>Привіт!</p>
-                </div>
-            </div>
-        </div>
+        <div class="container"></div>
     </div>
 {% endblock %}
 
@@ -100,7 +43,7 @@
 {% endblock content %}
 
 {% block scripts %}
-    <script type="module" src="{% static 'home_app/js/completeProfileModal.js' %}"></script>
+    <script type="module" src="{% static 'home_app/js/index.js' %}"></script>
     <script type="module" src="{% static 'post_app/js/components/postForm/index.js' %}"></script>
     <script type="module" src="{% static 'post_app/js/components/postProvider/index.js' %}"></script>
 {% endblock %}

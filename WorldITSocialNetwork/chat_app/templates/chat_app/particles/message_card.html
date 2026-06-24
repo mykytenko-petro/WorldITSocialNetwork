@@ -12,7 +12,14 @@
                     {% if message.sender.id != user.id %}
                         <p>{{ message.sender.profile.pseudonym }}</p>
                     {% endif %}
-                    <p class="message-text-content">{{ message.text }}</p>
+
+                    {% if message.text %}
+                        <p class="message-text-content">{{ message.text }}</p>
+                    {% endif %}
+                    
+                    {% for image in message.images.all %}
+                        <img src="{{ image.image.url }}" alt="{{ image.image.url }}">
+                    {% endfor %}
                 </div>
                 <div class="message-info">
                     <p>{{ message.time }}</p>

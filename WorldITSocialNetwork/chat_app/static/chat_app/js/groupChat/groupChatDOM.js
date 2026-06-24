@@ -12,7 +12,37 @@ const nextButton = newGroupModal.querySelector("#new-group-next")
 const contactContainer = newGroupModal.querySelector(".new-group-list")
 const chosenContactsContainer = newGroupModal.querySelector(".new-group-participants")
 
+const imageInput = document.querySelector("#imageInput")
+const imagePreview = document.querySelector("#imagePreview")
+const chosePhotoButton = document.querySelector("#chosePhotoButton")
+
 // Modal toggle events
+chosePhotoButton.addEventListener("click", async (event) => {
+    const [ handler ] = await window.showOpenFilePicker({
+        types: [{
+            description: "Images",
+            accept: {
+                "image/*": [
+                    ".png",
+                        ".jpg",
+                        ".jpeg",
+                        ".webp"
+                    ]
+                }
+            }],
+            excludeAcceptAllOption: true,
+        })
+    const image = await handler.getFile()
+    console.log(image)
+        
+    const imageUrl = URL.createObjectURL(image)
+    imagePreview.src = imageUrl
+    
+    const dataTransfer = new DataTransfer()
+    dataTransfer.items.add(image)
+    imageInput.files = dataTransfer.files
+})
+
 createGroupButton.addEventListener("click", (event) => {
     newGroupModal.showModal()
 })

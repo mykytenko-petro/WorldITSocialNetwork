@@ -12,6 +12,7 @@ SECRET_KEY = os.getenv(
     "SECRET_KEY",
     "django-insecure-(l^y*xm_umz7lfx5j@k3ttgm*j5(rd94zl&$h+-zkrr9zu_wlo"
 )
+JWT_SECRET = os.getenv("JWT_SECRET", "inse")
 
 DEBUG = False if os.getenv("DEBUG") == "False" else True
 
@@ -34,10 +35,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "channels",
     "debug_toolbar",
+    'cloudinary',
+    'cloudinary_storage',
 
     # project apps
     "chat_app",
     "home_app",
+    "notification_app",
     "post_app",
     "profile_app",
     "user_app",
@@ -102,7 +106,7 @@ AUTH_USER_MODEL = "user_app.User"
 ASGI_APPLICATION = "WorldITSocialNetwork.asgi.application"
 
 # Database
-if not os.getenv("REMOTE_DB_NAME"):
+if not os.getenv("REMOTE_DB_ENGINE"):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -126,17 +130,28 @@ else:
     else:
         port = os.getenv("REMOTE_DB_PORT")
 
-    DATABASES = {
-        "default": {
-            'ENGINE': os.getenv("REMOTE_DB_ENGINE"),
-            'NAME': os.getenv("REMOTE_DB_NAME"),
-            'USER': os.getenv("REMOTE_DB_USER"),
-            'PASSWORD': os.getenv("REMOTE_DB_PASSWORD"),
-            'HOST': '127.0.0.1', 
-            'PORT': port,
-            'CONN_MAX_AGE': 600
+    if not os.getenv("DATABASE_URL"):
+        DATABASES = {
+            "default": {
+                'ENGINE': os.getenv("REMOTE_DB_ENGINE"),
+                'NAME': os.getenv("REMOTE_DB_NAME"),
+                'USER': os.getenv("REMOTE_DB_USER"),
+                'PASSWORD': os.getenv("REMOTE_DB_PASSWORD"),
+                'HOST': '127.0.0.1', 
+                'PORT': port,
+                'CONN_MAX_AGE': 600
+            }
         }
-    }
+    else:
+        import dj_database_url
+
+        DATABASES = {
+            'default': dj_database_url.config(
+                default=os.getenv("DATABASE_URL"),
+                conn_max_age=600,
+                ssl_require=True 
+            )
+        }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -170,6 +185,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "chat_app" / "static",
     BASE_DIR / "home_app" / "static",
+    BASE_DIR / "notification_app" / "static",
     BASE_DIR / "post_app" / "static",
     BASE_DIR / "profile_app" / "static",
     BASE_DIR / "user_app" / "static",
@@ -186,3 +202,18 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 # Media
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.getenv('CLOUDINARY_CLOUD_NAME'),
+    "API_KEY": os.getenv('CLOUDINARY_API_KEY'),
+    "API_SECRET": os.getenv('CLOUDINARY_API_SECRET')
+}
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
+    }
+}

@@ -56,7 +56,7 @@ class PostProviderView(LoginRequiredMixin, PaginationProvider):
         
     @property
     def queryset(self) -> Any:
-        user_id = self.request.GET.get("user_id", self.request.user.id)
+        user_id = self.request.GET.get("user_id", self.request.user.id) # type: ignore
         match self.mode:
             case "own_posts":
                 return Post.objects.filter(author_id=user_id)

@@ -280,7 +280,7 @@ dialog.create-post-form {
 }
 
 #images > div > img {
-    position: absolute;
+    position: relative;
 
     width: 100%;
     height: 100%;
@@ -289,7 +289,7 @@ dialog.create-post-form {
 }
 
 #images > div > button {
-    position: relative;
+    position: absolute;
 
     margin-top: 1.04vh;
     margin-right: 0.69vw;
