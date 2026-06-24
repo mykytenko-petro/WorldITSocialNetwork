@@ -3,7 +3,7 @@ const friendsActionsUrl = document.querySelector('meta[name="friendsActionsUrl"]
 export async function fetchFriendAction(mode) {
     const url = friendsActionsUrl + `&mode=${mode}`
 
-    await fetch(url, {
+    return await fetch(url, {
         method: 'POST',
         headers: {
             'X-CSRFToken': CSRFToken,

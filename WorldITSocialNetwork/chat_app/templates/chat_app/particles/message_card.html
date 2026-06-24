@@ -1,0 +1,24 @@
+{% load static %}
+
+{% for message in page_obj %}
+    <div class="message-container {% if message.sender.id == user.id %}my{% endif %}">
+        <div class="message">
+            {% if message.sender.id != user.id %}
+                <img src="{% static 'chat_app/icon/Avatar.png'%}">
+            {% endif %}
+
+            <div class="message-content-container {% if message.sender.id == user.id %}my{% endif %}">
+                <div class="message-text">
+                    {% if message.sender.id != user.id %}
+                        <p>{{ message.sender.profile.pseudonym }}</p>
+                    {% endif %}
+                    <p class="message-text-content">{{ message.text }}</p>
+                </div>
+                <div class="message-info">
+                    <p>{{ message.time }}</p>
+                    <img src="{% static 'chat_app/icon/mark.svg'%}">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

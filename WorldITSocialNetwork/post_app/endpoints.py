@@ -3,8 +3,6 @@ from typing import Any
 from django.views import View
 from django.http import JsonResponse, HttpRequest
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.template.loader import render_to_string
-from django.core.paginator import Paginator
 
 from WorldITSocialNetwork.utils import PaginationProvider
 from .forms import PostCreationForm
@@ -55,12 +53,13 @@ class PostProviderView(LoginRequiredMixin, PaginationProvider):
         self.mode = mode
 
         return super().get(request)
-
+        
     @property
     def queryset(self) -> Any:
+        user_id = self.request.GET.get("user_id", self.request.user.id)
         match self.mode:
             case "own_posts":
-                return Post.objects.filter(author_id=self.request.user)
+                return Post.objects.filter(author_id=user_id)
             case "recommendations":
                 return Post.objects.all()
 

@@ -1,0 +1,36 @@
+{% load static %}
+
+<div id="greetingScreen">
+    <p class="first">Почніть нове спілкування</p>
+    <div>
+        <p class="second">Оберіть контакт зі списку ліворуч</p>  
+        <p class="second">або створіть групу, щоб почати спілкування</p>
+    </div>
+</div>
+
+<div id="openedChat">
+    <div class="chat-head">
+        <div class="chat-info">
+            <img src="{% static 'chat_app/icon/smark.svg'%}">
+            <div class="chat-info-container">
+                <img src="{% static 'chat_app/icon/Avatar.png'%}">
+                <div class="name-chat">
+                    <p class="big">New Group</p>
+                    <p class="small"> 3 учасники, 1 в мережі</p>
+                </div>
+            </div>
+        </div>
+        <img src="{% static 'chat_app/icon/three-d.svg'%}" class="three-dot">
+    </div>
+
+    <div class="chat-container"></div>
+    <form class="chat-form">
+        <input placeholder="Повідомлення" name="message" autocomplete="off">
+        <button>
+            <img src="{% static 'chat_app/icon/pic.svg'%}">
+        </button>
+        <button class="purple">
+            <img src="{% static 'chat_app/icon/send.svg'%}">
+        </button>
+    </form>
+</div>

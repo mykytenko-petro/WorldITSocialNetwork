@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="chat-cards">
+    <div class="heading">
+        <img src="{% static 'chat_app/icon/chat.svg'%}">
+        <p class="text">Повідомлення</p>
+    </div>
+
+    <div class="chat-card-container" id="userChats"></div>
+</div>
+
+<div class="chat-cards">
+    <div class="heading">
+        <img src="{% static 'chat_app/icon/chat.svg'%}">
+        <p class="text">Групові чати</p>
+    </div>
+
+    <div class="chat-card-container" id="groupChats"></div>
+</div>

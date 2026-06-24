@@ -1,1 +1,0 @@
-export const contactConteiner = document.querySelector('.contact-container')

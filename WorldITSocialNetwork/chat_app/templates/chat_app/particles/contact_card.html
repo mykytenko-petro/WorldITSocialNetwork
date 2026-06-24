@@ -1,9 +1,0 @@
-{% load static %}
-
-{% for friend in page_obj %}
-    <div class="contact">
-        <img src="{% static 'chat_app/icon/Avatar.png'%}" alt="">
-        <p>{{ friend.profile.pseudonym }}</p>
-    </div>
-{% endfor %}
-

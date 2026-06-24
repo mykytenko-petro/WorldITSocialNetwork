@@ -1,0 +1,16 @@
+{% load static %}
+
+<button class="create-group-chat">Створити груповий чат</button>
+
+<div class="contacts-list">
+    <div class="head-contact">
+        {% comment %} <img src="{% static '../icon/friends.svg'%}" alt=""> {% endcomment %}
+        <p>Контакти</p>
+    </div>
+    <div class="search">
+        <img src="{% static 'chat_app/icon/search.svg' %}" alt="">
+
+        <input placeholder="Пошук"></input>
+    </div>
+    <div class="contact-container"></div>
+</div>

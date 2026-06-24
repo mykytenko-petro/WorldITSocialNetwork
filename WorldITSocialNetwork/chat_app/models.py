@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 User = get_user_model()
 
@@ -34,7 +35,16 @@ class Message(models.Model):
     chat = models.ForeignKey(to=Chat, on_delete=models.CASCADE, related_name="messages")
 
     text = models.TextField()
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def time(self):
+        local_datetime = timezone.localtime(self.created_at)
+        
+        return local_datetime.strftime("%H:%M")
+    
+    def __str__(self) -> str:
+        return self.text if len(self.text) < 20 else self.text[:20] + "..."
 
 
 class MessageImage(models.Model):

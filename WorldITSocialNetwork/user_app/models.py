@@ -10,6 +10,13 @@ class User(AbstractUser):
 
     email = models.EmailField(unique=True)
 
+    @property
+    def pseudonym(self):
+        return self.profile.pseudonym # type: ignore
+    
+    def __str__(self) -> str:
+        return self.email
+
 class Friendship(models.Model):
     status = models.CharField(max_length=50, default="pending")
     from_user = models.ForeignKey(

@@ -9,12 +9,24 @@ const urlParams = new URLSearchParams(queryString);
 const mode = urlParams.get("mode")
 const secondMode = urlParams.get("secondMode").slice(0, -1)
 
-acceptButton.addEventListener("click", (event) => {
-    fetchFriendAction(mode)
-    window.location.href = url
+acceptButton.addEventListener("click", async (event) => {
+    event.preventDefault(); // Prevents form submission reloads if applicable
+    
+    const success = await fetchFriendAction(mode);
+    if (success) {
+        window.location.href = url;
+    } else {
+        alert("Something went wrong with the accept action.");
+    }
 })
 
-dismissButton.addEventListener("click", (event) => {
-    fetchFriendAction(secondMode)
-    window.location.href = url
+dismissButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    
+    const success = await fetchFriendAction(secondMode);
+    if (success) {
+        window.location.href = url;
+    } else {
+        alert("Something went wrong with the dismiss action.");
+    }
 })

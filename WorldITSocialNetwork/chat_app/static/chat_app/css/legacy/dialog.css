@@ -7,15 +7,12 @@
     gap: 1vh;
 }    
 
-.chat-head{
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 0.7vw;
-    width: 100%;
-
-    border-bottom: 1px solid #CDCED2;
-    justify-content: space-between;
+#openedChat {
+    display: none;
+    flex-direction: column;
 }
+
+
 
 .chatting {
     width: 100%;
@@ -28,26 +25,19 @@
 }
 .messanger{
     width: 100%;
+    height: 50vh;
     display: flex;
     flex-direction: column;
+    justify-content: end;
     align-items: center;
     gap: 0.7vh;
-    
-    flex-grow: 1; 
+    margin-bottom: 7vh;
     overflow-y: auto;
-    scrollbar-width: none;
+    min-height: 0;
 }
 
-.chat-foot{
-    /* top: 89vh; */
+.messanger > * {
     flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-    width: 33.6vw;
-    gap: 1.67vw;
-
-    padding: 0 1vh 1vh 1vh;
-    background-color: #FFFFFF;
 }
 
 .date{
@@ -75,10 +65,11 @@
     color: #E0E8D2;
 }
 
-
-
-
-.friend-block{
+.m{
+    display: flex;
+    width: 100%;
+}
+.f{
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -128,6 +119,18 @@
     font-size: 0.7vw;
     color: #543C52;
 }
+
+.chat-foot{
+    top: 89vh;
+    display: flex;
+    flex-direction: row;
+    width: 33.6vw;
+    gap: 1.67vw;
+    position: fixed;
+    padding: 1vh;
+    background-color: #FFFFFF;
+}
+
 input{
     width: 24vw;
     border: none;
@@ -137,6 +140,7 @@ input{
     border-radius: 2vh;
     border: 1px solid #CDCED2;
 }
+
 .buttons{
     width: fit-content;
     display: flex;
@@ -160,13 +164,6 @@ input{
     background-color: #543C52;
 }
 
-
-.group-head{
-    display: flex;
-    flex-direction: row;
-    gap:1.1vw;
-}
-
 .chat-head .imgd{
     width:1.39vw;
 }
@@ -176,6 +173,7 @@ input{
     flex-direction: row;
     gap:0.7vw;
 }
+
 .group img{
     height: 4.8vh;
 }
@@ -185,10 +183,12 @@ input{
     flex-direction: column;
     gap:0.45vw;
 }
+
 .big{
     font-size: 1.67vw;
     font-weight: 700;
 }
+
 .small{
     font-size: 0.97vw;
     font-weight: 400;

@@ -1,28 +1,40 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block meta %}
+    <meta name="contactProviderUrl" content="{% url 'chat_app.contact_provider' %}">
+{% endblock %}
+
 {% block links %}
-    <link rel="stylesheet" href="{% static 'chat_app/css/firstview.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/leftpanel.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/rightpanel.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/chat.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/dialog.css' %}">
-    <link rel="stylesheet" href="{% static 'chat_app/css/new_group_modal-one.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/layout/chat.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/layout/chat-container.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/layout/contacts.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/layout/right-panel.css' %}">
+
+    <link rel="stylesheet" href="{% static 'chat_app/css/modals/new-group.css' %}">
+
+    <link rel="stylesheet" href="{% static 'chat_app/css/message-card.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/contact-card.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/chat-card.css' %}">
 {% endblock links %}
 
 {% block side_panel %}
-    {% include 'chat_app/particles/leftside.html' %}
+    {% include 'chat_app/particles/layout/contacts.html' %}
 {% endblock %}
 
 {% block content %}
+    {% comment %} modals {% endcomment %}
+    {% include "chat_app/particles/modals/new_group.html" %}
+
+    {% comment %} layout {% endcomment %}
     <div class="messages-content">
-        {% include 'chat_app/particles/dialog.html' %}
+        {% include 'chat_app/particles/layout/chat_container.html' %}
     </div>
     <div class="messages-panel">
-        {% include 'chat_app/particles/rightside.html' %}
+        {% include 'chat_app/particles/layout/right_panel.html' %}
     </div>
 {% endblock %} 
 
 {% block scripts %}
-    <script type="module" src="chat_app/js/index.js"></script>
+    <script type="module" src="{% static 'chat_app/js/index.js' %}"></script>
 {% endblock %}
