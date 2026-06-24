@@ -25,7 +25,8 @@ div.side-panel {
     flex: 1;
     height: 100%;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
     gap: 0.83vh;
 }

@@ -15,6 +15,7 @@
 
     border-radius: 2vh;
     border: 1px solid #CDCED2;
+    gap: 1.5vh;
 }
 
 .profile .profile-head {
@@ -43,7 +44,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 1vh;
 }
 .profile .profile-footer div:nth-child(2) {
     border-left: 1px solid gray;
@@ -61,6 +61,18 @@
 
     color: white;
     background-color: rgba(84, 60, 82, 1);
+    
+    font-size: 1.67vh;
+    padding: 0.9vh 1.5vh;
+}
+
+.delete {
+    border-radius: 50px;
+    border: 0;
+
+    color: rgba(84, 60, 82, 1);
+    background-color: white;
+    border: 1px solid rgba(84, 60, 82, 1);
     
     font-size: 1.67vh;
     padding: 0.9vh 1.5vh;
