@@ -1,0 +1,48 @@
+{% load static %}
+
+<dialog class="new-group-dialog">
+    <button class="new-group-close" type="button">
+        <img src="{% static 'icon/cross.svg' %}" alt="">
+    </button>
+
+    <h2>Нова група</h2>
+
+    <form class="new-group-step" data-step="members">
+        
+        <label class="new-group-search">
+            <input type="search" placeholder="Пошук">
+        </label>
+
+        <p class="new-group-selected">Вибрано: <span>3</span></p>
+
+        <div class="new-group-list"></div>
+
+        <div class="new-group-actions">
+            <button class="new-group-secondary" id="cancel" type="button">Скасувати</button>
+            <button class="button-purple new-group-next" id="new-group-next" type="button">Далі</button>
+        </div>
+    </form>
+
+    <form class="new-group-step" data-step="details">
+        <label class="new-group-field">
+            <span>Назва</span>
+            <input type="text" placeholder="Введіть назву" name="name" autocomplete="off">
+        </label>
+
+        <img class="new-group-photo-preview" id="imagePreview">
+        <input type="file" name="avatar" id="imageInput" accept="image/*" hidden>
+
+        <div class="new-group-photo-actions">
+            <button type="button">+ Додайте фото</button>
+            <button type="button" id="chosePhotoButton"><img src="{% static 'icon/image.svg' %}" alt=""> Оберіть фото</button>
+        </div>
+
+        <p>Учасники</p>
+        <div class="new-group-participants"></div>
+
+        <div class="new-group-actions">
+            <button class="new-group-secondary new-group-back" type="button">Назад</button>
+            <button class="button-purple new-group-create" id="new-group-create" type="button">Створити групу</button>
+        </div>
+    </form>
+</dialog>

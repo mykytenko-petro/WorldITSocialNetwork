@@ -1,7 +1,7 @@
 {% load static %}
 
 <dialog class="create-post-form" id="create-post-form">
-    <div>
+    <div class="modal-close-row">
         <button class="close" id="close" type="button">
             <img src="{% static 'icon/cross.svg' %}">
         </button>
@@ -19,15 +19,15 @@
             <label>Тема публикації</label>
             {{ post_creation_form.topic }}
         </div>
-        <div>
+        <div class="post-field post-tags-field">
             {{ post_creation_form.tags }}
         </div>
-        <div>
+        <div class="post-field">
             {{ post_creation_form.content }}
         </div>
         <div class="links">
             <label>Посилання</label>
-            <div></div>
+            <div class="links-list"></div>
         </div>
         <div id="images"></div>
     </form>
@@ -45,7 +45,7 @@
     </button>
     <p class="title">Додати хештег</p>
 
-    <form method="post" action="{% url 'post_app.tag_creation' %}">
+    <form class="create-tag-fields" method="post" action="{% url 'post_app.tag_creation' %}">
         {% csrf_token %}
 
         <label for="tag-name">Назва</label>

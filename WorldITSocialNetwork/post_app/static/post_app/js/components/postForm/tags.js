@@ -26,7 +26,8 @@ const saveTagButton = document.getElementById('save-create-tag');
 let openTagButton = null;
 
 if (tagDialog && tagForm && tagInput && tagsContainer) {
-    console.log("Условие выполнено, кнопка создается!");
+    tagsContainer.classList.add('tags-list');
+
     openTagButton = document.createElement('button');
 
     openTagButton.type = 'button';
@@ -38,6 +39,7 @@ if (tagDialog && tagForm && tagInput && tagsContainer) {
 
     tagsContainer.addEventListener('change', (event) => {
         if (event.target.matches('input[name="tags"]')) {
+            updateTagLabelState(event.target);
             syncTagsSpan();
         }
     });
@@ -78,6 +80,28 @@ if (tagDialog && tagForm && tagInput && tagsContainer) {
             closeTagDialogAndReturn();
         });
     }
+}
+
+function updateTagLabelState(checkbox) {
+    const label = checkbox.closest('label') || tagsContainer.querySelector(`label[for="${checkbox.id}"]`);
+
+    if (!label) {
+        return;
+    }
+
+    if (checkbox.checked) {
+        label.classList.add('tag-selected');
+    } else {
+        label.classList.remove('tag-selected');
+    }
+}
+
+function updateAllTagLabelStates() {
+    const tagInputs = tagsContainer.querySelectorAll('input[name="tags"]');
+
+    tagInputs.forEach((checkbox) => {
+        updateTagLabelState(checkbox);
+    });
 }
 
 function openTagDialog() {
@@ -160,7 +184,7 @@ function getTagLabel(checkbox) {
     if (!text) {
         return '';
     }
-
+    z
     if (text.startsWith('#')) {
         return text;
     } else {
@@ -179,14 +203,20 @@ function addTagCheckbox(id, name) {
     checkbox.checked = true;
     checkbox.id = `id_tags_new_${id}`;
 
+    const textArea = document.querySelector(".post-create textarea")
     label.htmlFor = checkbox.id;
     label.append(checkbox, ` #${name}`);
+    updateTagLabelState(checkbox);
 
     wrapper.append(label);
 
-    if (openTagButton) {
+    if (openTagButton){
         tagsContainer.insertBefore(wrapper, openTagButton);
     } else {
         tagsContainer.append(wrapper);
     }
+}
+
+if (tagsContainer) {
+    updateAllTagLabelStates();
 }

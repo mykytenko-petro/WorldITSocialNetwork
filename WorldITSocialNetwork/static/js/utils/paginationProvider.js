@@ -2,15 +2,18 @@ export class PaginationProvider {
     constructor(
         url, container,
         customThreshold,
-        rootMargin = "200px",
+        queryParams,
+        rootMargin = "200px"
     ) {
         this.url = url
         this.currentPage = 1
         this.isLoading = false
+        this.queryParams = queryParams
+        this.container = container
 
         this.scrollThreshold = customThreshold ?? document.createElement("hr")
         this.scrollThreshold.style.opacity = "0"
-        container.appendChild(this.scrollThreshold)
+        this.container.appendChild(this.scrollThreshold)
 
         this.observer = new IntersectionObserver(async (entries) => await this.observerCallback(entries), {
             rootMargin: rootMargin
@@ -22,13 +25,10 @@ export class PaginationProvider {
         if (entries[0].isIntersecting && this.isLoading == false) {
             this.isLoading = true
 
-            const url = this.url + `?page=${this.currentPage}`
+            const url = this.url + `?page=${this.currentPage}` + (this.queryParams ? this.queryParams : '')
 
             await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': CSRFToken,
-                },
+                method: 'GET',
             })
                 .then(async response => {
                     if (response.status === 204) {
@@ -46,7 +46,7 @@ export class PaginationProvider {
                 .then(data => {
                     if (!data) return
 
-                    this.scrollThreshold.insertAdjacentHTML('beforebegin', data.html)
+                    this.dataCallback(data)
 
                     this.currentPage++
                     this.isLoading = false
@@ -54,5 +54,9 @@ export class PaginationProvider {
                     this.observer.observe(this.scrollThreshold)
                 })
         }
+    }
+
+    dataCallback(data) {
+        this.scrollThreshold.insertAdjacentHTML('beforebegin', data.html)
     }
 }

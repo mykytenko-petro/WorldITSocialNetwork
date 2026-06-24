@@ -1,0 +1,57 @@
+.contact {
+    width: 100%;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.9vw;
+
+    cursor: pointer;
+
+    font-size: 1.67vh;
+}
+
+.contact img {
+    width: 5vh;
+}
+
+.contact .button {
+    width: 2.08vh;
+    height: 2.08vh;
+}
+
+.contact input{
+    color: #543C52;
+    border-radius: 20px;
+    border-color: #543C52;
+}
+
+.button {
+    width: 2.08vh;
+    height: 2.08vh;
+
+    display: flex;
+
+    margin-left: auto;
+}
+
+button.button {
+    border: 0;
+
+    background-color: transparent;
+}
+
+.button img {
+    flex: 1;
+}
+
+.contact:has(.button) {
+    cursor: default;
+}
+
+.contact input {
+    border: 3px solid rgba(84, 60, 82, 1);
+    accent-color: rgba(84, 60, 82, 1);
+}

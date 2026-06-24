@@ -1,32 +1,48 @@
-{% for user in users %}
-    <div class="user-card" data-user-id="{{ user.id }}">
-        <div class="user-card-info">
-            <img src="/static/icon/mockup-icon.png" alt="">
+{% load static %}
 
-            <div class="texts">
-                <p>{{ user.profile.author_pseudonym }}</p>
-                <p>@{{ user.username }}</p>
+{% for user in page_obj %}
+    {% if mode != "home" %}
+        <div class="user-card" data-user-id="{{ user.id }}">
+            <div class="user-card-info">
+                <img src="/static/icon/mockup-icon.png" alt="">
+
+                <div class="texts">
+                    <p>{{ user.profile.author_pseudonym }}</p>
+                    <p>@{{ user.username }}</p>
+                </div>
+            </div>
+
+            <div class="user-card-buttons">
+                {% if mode == "requests" %}
+                    <button class="purple-b" data-action="accept">Підтвердити</button>
+                {% elif mode == "recommendations" %}
+                    <!-- <a href="{% url 'user_app.friend_page' user_id=user.id %}"> -->
+                        <button class="purple-b" data-action="add">Додати</button>
+                    <!-- </a> -->
+                {% elif mode == "all_friends" %}
+                    <button class="purple-b" data-action="">Повідомлення</button>
+                {% endif %}
+
+                {% if mode == "all_friends" %}
+                    <button class="white-b" data-action="delete">Видалити</button>
+                {% else %}
+                    <!-- <a href="{% url 'user_app.friend_page' user_id=user.id %}"> -->
+                        <button class="white-b" data-action="dismiss">Видалити</button>
+                    <!-- </a> -->
+                {% endif %}
             </div>
         </div>
-
-        <div class="user-card-buttons">
-            {% if mode == "requests" %}
-                <button class="purple-b" data-action="accept">Підтвердити</button>
-            {% elif mode == "recommendations" %}
-                <!-- <a href="{% url 'user_app.friend_page' user_id=user.id %}"> -->
-                    <button class="purple-b" data-action="add">Додати</button>
-                <!-- </a> -->
-            {% elif mode == "all_friends" %}
-                <button class="purple-b" data-action="">Повідомлення</button>
-            {% endif %}
-
-            {% if mode == "all_friends" %}
-                <button class="white-b" data-action="delete">Видалити</button>
-            {% else %}
-                <!-- <a href="{% url 'user_app.friend_page' user_id=user.id %}"> -->
-                    <button class="white-b" data-action="dismiss">Видалити</button>
-                <!-- </a> -->
-            {% endif %}
+    {% else %}
+        <div class="info">
+            <a href="user/{{ user.id }}/?mode=add&secondMode=dismiss/">
+                <a class="request-image"><img src="{% static 'home_app/images/mock_image_3.png' %}" alt=""></a>
+                <div class="follower-info">
+                    <p class="request-text">{{ user.pseudonym }}</p>
+                    <a class="grey-text">
+                        <p>0 підписників</p>
+                    </a>
+                </div>
+            </a>
         </div>
-    </div>
+    {% endif %}
 {% endfor %}

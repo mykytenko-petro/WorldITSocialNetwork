@@ -4,10 +4,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from debug_toolbar.toolbar import debug_toolbar_urls
 
+from .jwt_setup import SocketTokenView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+
+    path('socket_token/', SocketTokenView.as_view()),
+
     path(route='', view=include('home_app.urls')),
     path(route='profile/', view=include('profile_app.urls')),
     path(route='post/', view=include('post_app.urls')),

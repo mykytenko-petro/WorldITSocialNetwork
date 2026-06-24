@@ -1,0 +1,103 @@
+.create-tag-form {
+    width: 29.9vw;
+    max-width: 90vw;
+    box-sizing: border-box;
+
+    padding: 2.5vh 3.89vw 5vh;
+
+    align-items: flex-start;
+    gap: 2.92vh;
+
+    border: 0;
+    outline: none;
+    border-radius: 1.39vw;
+}
+
+.create-tag-form .close {
+    width: 1.39vw;
+    height: 1.39vw;
+    padding: 0;
+
+    align-self: flex-end;
+
+    background: transparent;
+    border: 0;
+}
+
+.create-tag-form .close img {
+    width: 1.39vw;
+    height: 1.39vw;
+}
+
+.create-tag-form .title {
+    width: 100%;
+    margin: 0;
+
+    color: #07091f;
+    font-size: 3.54vh;
+    font-weight: 500;
+    text-align: left;
+}
+
+.create-tag-form form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.83vh;
+}
+
+.create-tag-form label {
+    color: #07091f;
+    font-size: 1.88vh;
+}
+
+.create-tag-form input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 1.46vh 1.25vw;
+
+    border: 1px solid #81818d;
+    border-radius: 0.83vw;
+
+    font-size: 1.88vh;
+}
+
+.create-tag-actions {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.83vw;
+}
+
+.create-tag-actions button {
+    padding: 1.46vh 1.67vw;
+
+    border-radius: 85.69vw;
+
+    font-size: 1.67vh;
+    cursor: pointer;
+}
+
+#cancel-create-tag {
+    color: #543c52;
+    background: transparent;
+
+    border: 1px solid #543c52;
+}
+
+#save-create-tag {
+    color: white;
+    background-color: #543c52;
+
+    border: 1px solid #543c52;
+}
+.create-tag-form {
+    font-family: 'GT-Walsheim';
+}
+
+.create-tag-form * {
+    font-family: inherit;
+}
