@@ -20,3 +20,6 @@ migrations/
 
 # development
 media/
+
+# deploy
+staticfiles/

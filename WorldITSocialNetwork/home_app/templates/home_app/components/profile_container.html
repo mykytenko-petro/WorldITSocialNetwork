@@ -28,8 +28,8 @@
 
     {% if request.resolver_match.view_name == "user_app.friend_page" %}
         <div>
-            <button id="acceptUsersButton" data-user-id="{{ userId }}">Підтвердити</button>
-            <button id="dismissUsersButton" data-user-id="{{ userId }}">Видалити</button>
+            <button class="accept" id="acceptUsersButton" data-user-id="{{ userId }}">Підтвердити</button>
+            <button class="delete" id="dismissUsersButton" data-user-id="{{ userId }}">Видалити</button>
         </div>
     {% endif %}
 </div>

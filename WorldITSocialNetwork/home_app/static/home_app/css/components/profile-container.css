@@ -54,3 +54,14 @@
 .profile .profile-footer p:last-child {
     color: #81818D;
 }
+
+.accept {
+    border-radius: 50px;
+    border: 0;
+
+    color: white;
+    background-color: rgba(84, 60, 82, 1);
+    
+    font-size: 1.67vh;
+    padding: 0.9vh 1.5vh;
+}
