@@ -4,24 +4,25 @@
 
 <div class="profile">
     <div class="profile-head">
-        <img src="{% static 'icon/mockup-icon.png' %}" alt="">
+        <img src="{% static 'icon/default-group-avatar.png' %}">
+
         <div class="text-profile">
-            <p>Lina Li</p>
-            <p>@thelili</p>
+            <p>{{ target_user.pseudonym }}</p>
+            <p>@{{ target_user.pseudonym }}</p>
         </div>
     </div>
 
     <div class="profile-footer">
         <div>
-            <p>566</p>
+            <p>{{ target_user.post_count }}</p>
             <p>Дописи</p>
         </div>
         <div>
-            <p>12.1K</p>
+            <p>0</p>
             <p>Читачі</p>
         </div>
         <div>
-            <p>222</p>
+            <p>{{ target_user.friend_count }}</p>
             <p>Друзі</p>
         </div>
     </div>

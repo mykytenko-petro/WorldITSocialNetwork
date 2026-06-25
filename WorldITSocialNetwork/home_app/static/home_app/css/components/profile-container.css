@@ -77,3 +77,8 @@
     font-size: 1.67vh;
     padding: 0.9vh 1.5vh;
 }
+
+.profile-head > img {
+    aspect-ratio: 1 / 1;
+    height: 10vh;
+}

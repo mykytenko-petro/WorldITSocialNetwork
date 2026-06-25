@@ -34,15 +34,15 @@
         </div>
     {% else %}
         <div class="info">
-            <a href="user/{{ user.id }}/?mode=add&secondMode=dismiss/">
-                <a class="request-image"><img src="{% static 'home_app/images/mock_image_3.png' %}" alt=""></a>
-                <div class="follower-info">
-                    <p class="request-text">{{ user.pseudonym }}</p>
-                    <a class="grey-text">
-                        <p>0 підписників</p>
-                    </a>
-                </div>
+            <a class="request-image" href="/user/{{ user.id }}/?mode=add&secondMode=dismiss/">
+                <img src="{% static 'home_app/images/mock_image_3.png' %}" alt="">
             </a>
+            <div class="follower-info">
+                <p class="request-text">{{ user.pseudonym }}</p>
+                <a class="grey-text">
+                    <p>0 підписників</p>
+                </a>
+            </div>
         </div>
     {% endif %}
 {% endfor %}
