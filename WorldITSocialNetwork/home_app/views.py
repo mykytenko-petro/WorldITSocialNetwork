@@ -17,5 +17,6 @@ class HomeView(LoginRequiredMixin, TemplateView):
             context['profile_details_form'] = ProfileDetailForm()
             
         context['post_creation_form'] = PostCreationForm()
+        context["target_user"] = self.request.user
 
         return context
