@@ -17,7 +17,11 @@ const chatIcon = document.querySelector("#chat-icon")
 chatNotificationCount("total", chatIcon)
 
 const personalChatIcon = document.querySelector("#personal-chat-icon")
-chatNotificationCount("personal", personalChatIcon)
+if (personalChatIcon) {
+    chatNotificationCount("personal", personalChatIcon)
+}
 
 const groupChatIcon = document.querySelector("#group-chat-icon")
-chatNotificationCount("group", groupChatIcon)
+if (groupChatIcon) {
+    chatNotificationCount("group", groupChatIcon)
+}
